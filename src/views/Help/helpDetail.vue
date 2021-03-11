@@ -125,7 +125,5 @@
     }
 
 
-    .footer {
-        padding-top: 59px;
-    }
+
 </style>

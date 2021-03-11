@@ -101,7 +101,7 @@ export default {
 <style lang='less' scoped>
     .footer{
         background: #fff;
-
+        padding-top: 59px;
         .wrap{
             width: 1200px;
             margin: 0 auto;
@@ -219,6 +219,8 @@ export default {
         width: 1200px;
         margin: 0 auto;
         text-align: center;
+
     }
+
 </style>
 
