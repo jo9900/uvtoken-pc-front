@@ -1,4 +1,7 @@
-
+/*
+*author:zhoaya
+*day:2020
+*/
 const Timestamp = new Date().getTime();
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const productionGzipExtensions = ['js', 'css'];

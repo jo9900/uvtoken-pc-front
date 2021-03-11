@@ -1,3 +1,7 @@
+/*
+*author:zhoaya
+*day:2020
+*/
 const   languageNav = {
     Chinese:{
         language_text1:"史诗级百万TPS 区块链3.0",

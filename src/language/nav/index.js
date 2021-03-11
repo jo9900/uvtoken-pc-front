@@ -1,3 +1,7 @@
+/*
+*author:zhoaya
+*day:2020
+*/
 const   languageNav = {
     Chinese:{
         language_home:"首页",
