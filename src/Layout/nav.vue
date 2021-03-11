@@ -1,107 +1,30 @@
 <!-- -->
 <template>
     <div class="web_nav">
-        <!--<div class="raplwt" v-if="bosket">-->
-            <!--<router-link :to="{path:'/newsDetail',query:{code:code}}">-->
-                <!--<template v-if="languageName=='Chinese'">-->
-                    <!--<img src="@/assets/img/wott.png"/>-->
-                <!--</template>-->
-                <!--<template v-else>-->
-                    <!--<img src="@/assets/img/aror.png"/>-->
-                <!--</template>-->
-            <!--</router-link>-->
-            <!--&lt;!&ndash;<template v-if="languageName=='Russian'">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img src="@/assets/img/rog_3.png"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;</template>&ndash;&gt;-->
-            <!--&lt;!&ndash;<template v-if="languageName=='Korean'">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img src="@/assets/img/rog_4.png"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;</template>&ndash;&gt;-->
-            <!--&lt;!&ndash;<template v-if="languageName=='Japanese'">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img src="@/assets/img/rog_5.png"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;</template>&ndash;&gt;-->
-            <!--&lt;!&ndash;<template v-if="languageName=='Arabic'">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img src="@/assets/img/rog_6.png"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;</template>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="zllet">&ndash;&gt;-->
-                <!--&lt;!&ndash;<i class="el-icon-close"></i>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</div>-->
         <div class="wrap">
             <div class="nav_logo">
                 <div class="flext">
                     <div class="flext-all1"><img src="@/assets/img/logo_taft@2x.png"/></div>
                 </div>
             </div>
-
-            <div class="nav_options" :style="{'width': languageName=='English'?'704px':''}">
-                <ul>
-                    <li :class="pagePath == '/' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language_home" to="/">
-                            {{languageNav[languageName].language_home}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-                    <li :class="pagePath == '/multiChain' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language1" to="/multiChain">
-                            {{languageNav[languageName].language1}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-                    <!--<li :class="pagePath == '/community' ? 'active' : ''">-->
-                        <!--<template v-if="languageName=='Chinese'">-->
-                            <!--<a target="_blank" :title="languageNav[languageName].language_book"  href="../img/TAFChain白皮书1.0.pdf">{{languageNav[languageName].language_book}}</a>-->
-                        <!--</template>-->
-                        <!--<template v-else>-->
-                            <!--<a target="_blank" :title="languageNav[languageName].language_book" href="../img/TAF Chain White Paper 1.0.0.pdf">{{languageNav[languageName].language_book}}</a>-->
-                        <!--</template>-->
-                    <!--</li>-->
-                    <li :class="pagePath == '/wallet' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language2" to="/wallet">
-                            {{languageNav[languageName].language2}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-                    <li :class="pagePath == '/lc' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language3" to="/lc">
-                            {{languageNav[languageName].language3}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-                    <li :class="pagePath == '/Dapp' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language4" to="/Dapp">
-                            {{languageNav[languageName].language4}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-                    <li :class="pagePath == '/community' ? 'active' : ''">
-                        <template v-if="languageName=='Chinese'">
-                        <a target="_blank" :title="languageNav[languageName].language_book"  href="../img/TAFChain白皮书1.0.pdf">{{languageNav[languageName].language_book}}</a>
-                        </template>
-                        <template v-else>
-                        <a target="_blank" :title="languageNav[languageName].language_book" href="../img/TAF Chain White Paper 1.0.0.pdf">{{languageNav[languageName].language_book}}</a>
-                        </template>
-                    </li>
-                    <!--<li :class="pagePath == '/community' ? 'active' : ''"><router-link to="/community">社区</router-link></li>-->
-                    <li :class="pagePath == '/help' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language_text5" to="/help">
-                            {{languageNav[languageName].language_text5}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-
-                    <li :class="pagePath == '/presell' ? 'active' : ''">
-                        <router-link :title="languageNav[languageName].language_presale" to="/presell">
-                            {{languageNav[languageName].language_presale}}
-                            <i class="underline"></i>
-                        </router-link>
-                    </li>
-                </ul>
+            <div class="nav_options">
+              <ul>
+                <li v-for="link in links" :key="link.path">
+                  <router-link :title="link.text" :to="link.path">
+                   {{ link.text }}
+                    <i class="underline"></i>
+                  </router-link>
+                </li>
+              </ul>
             </div>
             <div class="nav_center">
                 <div class="in" v-if="!isLogin">
-                    <router-link to="/login" style="margin-right: 12px;"><span dir="rtl">{{languageNav[languageName].language_Login}} </span></router-link>
-
-                    <router-link to="/signIn"><span dir="rtl">{{languageNav[languageName].language_register}}</span></router-link>
+                    <router-link to="/signIn" style="margin-right: 12px;">
+                    {{ $t("text8") }}
+                    </router-link>
+                    <router-link to="/login">
+                    {{ $t("text9") }}
+                    </router-link>
                 </div>
                 <div class="userInfo" v-else>
                     <el-dropdown  @command="handleClick">
@@ -110,61 +33,26 @@
                             <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
-                            <!--<el-dropdown-item command="myassets">我的资产</el-dropdown-item>-->
-                            <!--<el-dropdown-item command="purchase">我的申购</el-dropdown-item>-->
-                            <el-dropdown-item command="center">{{languageNav[languageName].language_user}}</el-dropdown-item>
-                            <el-dropdown-item command="logout">{{languageNav[languageName].language_loginOut}}</el-dropdown-item>
+                            <el-dropdown-item command="center">
+                                {{ $t("text38") }}
+                            </el-dropdown-item>
+                            <el-dropdown-item command="logout">
+                                {{ $t("text39") }}
+                            </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
-                <!--<div class="nav_language dowstyle">-->
-                    <!--<el-dropdown  @command="languageChange" placement="top">-->
-
-                        <!--<span class="el-dropdown-link">-->
-                          <!--{{languageNav[languageName].language_text6}}-->
-                        <!--</span>-->
-
-                        <!--<el-dropdown-menu slot="dropdown">-->
-                           <!--<div style="padding: 0 26px 0 7px;;display: flex;justify-content: center">-->
-                               <!--<div style="margin-right: 15px">-->
-                                   <!--<template v-if="NODE_ENV==='test'||NODE_ENV==='development'">-->
-                                       <!--<template v-if="languageName=='Chinese'"><img style="width: 100px;height: 100px" src="@/assets/img/cs_cn.png"/></template>-->
-                                       <!--<template v-else><img style="width: 100px;height: 100px" src="@/assets/img/cs_en.png"/></template>-->
-                                   <!--</template>-->
-                                   <!--<template v-if="NODE_ENV==='production'">-->
-                                       <!--<template v-if="languageName=='Chinese'"><img style="width: 100px;height: 100px" src="@/assets/img/zs_cn.png"/></template>-->
-                                       <!--<template v-else><img style="width: 100px;height: 100px" src="@/assets/img/zs_en.png"/></template>-->
-                                   <!--</template>-->
-                               <!--</div>-->
-                               <!--<div style="padding-top: 11px">-->
-                                    <!--<div style="margin-bottom: 5px">{{languageNav[languageName].language_text7}}</div>-->
-                                   <!--<div style="display: flex;justify-content: center;">-->
-                                        <!--<div style="text-align: center;margin-right: 20px;">-->
-                                            <!--<div style="margin: 5px 0;"><img src="@/assets/img/icon_ios.png"/></div>-->
-                                            <!--<div style="font-size: 12px">iOS</div>-->
-                                        <!--</div>-->
-                                        <!--<div style="text-align: center">-->
-                                            <!--<div style="margin: 5px 0;"><img src="@/assets/img/icon_android.png"/></div>-->
-                                            <!--<div style="font-size: 12px">Android</div>-->
-                                        <!--</div>-->
-                                   <!--</div>-->
-                               <!--</div>-->
-                           <!--</div>-->
-                        <!--</el-dropdown-menu>-->
-                    <!--</el-dropdown>-->
-                <!--</div>-->
 
                 <div class="nav_language">
                     <el-dropdown  @command="languageChange">
-
                         <span class="el-dropdown-link">
-                           {{languageNav[languageName].language_chinese}}
+                           简体中文
                             <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
 
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item command="Chinese">中文</el-dropdown-item>
-                            <!--<el-dropdown-item command="English">English</el-dropdown-item>-->
+                            <el-dropdown-item command="zh">简体中文</el-dropdown-item>
+                            <el-dropdown-item command="en">English</el-dropdown-item>
                             <!--<el-dropdown-item command="Arabic">عربى</el-dropdown-item>-->
                             <!--<el-dropdown-item command="Russian">русский</el-dropdown-item>-->
                             <!--<el-dropdown-item command="Korean">한국어</el-dropdown-item>-->
@@ -178,11 +66,15 @@
 
         <el-dialog  :visible.sync="loginOut" width="400px" :lock-scroll="false" :append-to-body="true" :modal-append-to-body="false" center >
             <div class="contt-text">
-               {{languageNav[languageName].language_loginOut}}
+               退出
             </div>
             <span slot="footer" class="dialog-footer">
-                    <el-button class="rz-botton" type="primary" @click="loginClose">{{languageNav[languageName].language_determine}}</el-button>
-                    <el-button  class="rz-botton" type="primary" @click="loginOut = false">{{languageNav[languageName].language_cancel}}</el-button>
+                    <el-button class="rz-botton" type="primary" @click="loginClose">
+                        确定
+                    </el-button>
+                    <el-button  class="rz-botton" type="primary" @click="loginOut = false">
+                        取消
+                    </el-button>
                 </span>
         </el-dialog>
 
@@ -190,25 +82,59 @@
 </template>
 
 <script>
-    import  languageNav from "@/language/nav"
     import {digest}  from "@/request/news"
-    import Vue from 'vue'
 export default {
     name: '',
     data() {
        return {
+          links: [
+            {
+              text: this.$t("text1"),
+              path: '/'
+            },
+            {
+              text: this.$t("text2"),
+              path: '/multiChain'
+            },
+            {
+              text: this.$t("text3"),
+              path: '/wallet'
+            },
+            {
+              text: this.$t("text4"),
+              path: '/financial'
+            },
+            {
+              text: 'DApp',
+              path: '/DApp'
+            },
+            {
+              text: this.$t("text5"),
+              path: '/whitePaper'
+            },
+            {
+              text: this.$t("text6"),
+              path: '/help'
+            },
+          ],
+            map: {
+                'zh': ['简体中文', 'Chinese'],
+                'en': ['English', 'English'],
+                'ja': ['日本語', 'Japanese'],
+                'ar': ['عربى', 'Arabic'],
+                'ko': ['한국어', 'Korean'],
+                'ru': ['русский', 'Russian'],
+            },
            pagePath:'',
            userCode:'',
            loginOut:false,
            isLogin:false,
            code:"",
-           languageNav:languageNav,
-           languageName:this.$languageName,
            bosket:true,
            NODE_ENV:process.env.NODE_ENV,
            list:[],
            listQuery:{
-               lang_type:this.$languageName,
+               lang_type:this.$langType,
                page_no:1,
                page_size:3
            },
@@ -223,7 +149,7 @@ export default {
     },
     methods:{
         get_list(){
-            digest(this.$qs.stringify(this.listQuery)).then(res=>{
+            digest(this.listQuery).then(res=>{
                 this.list = res.data.news;
                 this.code = this.list[0].code;
             })
@@ -248,7 +174,8 @@ export default {
         },
 
         languageChange(val){
-            localStorage.setItem("languageName",val)
+            localStorage.setItem("lang", val)
+            localStorage.setItem("langType", this.map[val][1])
             if(this.pagePath == "/newsDetail"){
                 this.$router.push("/")
             }
@@ -344,11 +271,13 @@ export default {
                     width: 133px;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+
                     .el-dropdown-link {
-                        cursor: pointer;
-                        font-size: 16px;
-                        color: #fff;
-                        opacity: 0.7;
+                      font-size: 16px;
+                      font-family: PingFangSC-Regular, PingFang SC;
+                      font-weight: 400;
+                      color: #7B839A;
+                      cursor: pointer;
                     }
                 }
             }
@@ -379,7 +308,6 @@ export default {
         width: 130px;
         height: 42px;
         text-align: center;
-        background: linear-gradient(90deg, #EFCF54 0%, #BF8D08 100%);
         border-radius: 6px;
         border: none;
     }

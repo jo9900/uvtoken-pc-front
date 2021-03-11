@@ -78,7 +78,7 @@
         <!--</section>-->
         <!--&lt;!&ndash;<div class="no_data">&ndash;&gt;-->
             <!--&lt;!&ndash;<img class="no_data_img" src="@/assets/img/no_data.png" alt="">&ndash;&gt;-->
-            <!--&lt;!&ndash;<p class="no_data_hint">{{languageNav[languageName].language_text19}}</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;<p class="no_data_hint">{{languageNav[langType].language_text19}}</p>&ndash;&gt;-->
         <!--&lt;!&ndash;</div>&ndash;&gt;-->
         <!--<webFoot/>-->
     <!--</div>-->
@@ -95,7 +95,7 @@
     <!--data() {-->
        <!--return {-->
            <!--languageNav:languageNav,-->
-           <!--languageName:this.$languageName-->
+           <!--langType:this.$langType-->
        <!--}-->
     <!--},-->
     <!--computed:{-->
@@ -201,257 +201,283 @@
 <!-- -->
 
 <template>
-    <div class="page">
-         <div class="page-cont">
-             <div class="bgoet">
-                 <div class="" style="position: absolute;right: 60px;top: 0;"><img src="@/assets/img/pic_xy_sx.png"/></div>
-                 <div class="rosm">{{languageNav[languageName].language_text36}}</div>
-                 <div class="rosmGoert">{{languageNav[languageName].language_text37}}</div>
-             </div>
-         </div>
-        <section class="case case-page sx-jianju text-center">
-        <div class="row">
-             <div class="pswlort">
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-                         <!--<img src="skin/images/1-1P3201024310-L.jpg" alt="滨海幸福里">-->
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text38}}
-                         </div>
-                     </a>
-                 </div>
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text39}}
-                         </div>
-                     </a>
-                 </div>
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text40}}
-                         </div>
-                     </a>
-                 </div>
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text41}}
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text42}}
-                         </div>
-                     </a>
-                 </div>
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text43}}
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text44}}
-                         </div>
-                     </a>
-                 </div>
-                 <div class="wrollet">
-                     <a href="javascript:;">
-                         <div class="fcoal" style="width: 100%;height: 160px;background-color: #dcdfe6;">
-                             <img src="@/assets/img/pic_waiti.png"/>
-                             <div class="glt-text">{{languageNav[languageName].language_text19}}</div>
-                         </div>
-
-                         <div class="rboe">
-                             {{languageNav[languageName].language_text45}}
-                         </div>
-                     </a>
-                 </div>
-             </div>
-
+  <div class="page">
+    <div class="page-cont">
+      <div class="bgoet">
+        <div class="" style="position: absolute; right: 60px; top: 0">
+          <img src="@/assets/img/pic_xy_sx.png" />
         </div>
-        </section>
-        <!--<div class="no_data">-->
-        <!--<img class="no_data_img" src="@/assets/img/no_data.png" alt="">-->
-        <!--<p class="no_data_hint">{{languageNav[languageName].language_text19}}</p>-->
-        <!--</div>-->
-        <webFoot/>
+        <div class="rosm">{{ languageNav[langType].language_text36 }}</div>
+        <div class="rosmGoert">{{ languageNav[langType].language_text37 }}</div>
+      </div>
     </div>
+    <section class="case case-page sx-jianju text-center">
+      <div class="row">
+        <div class="pswlort">
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+              <!--<img src="skin/images/1-1P3201024310-L.jpg" alt="滨海幸福里">-->
+              <div class="rboe">
+                {{ languageNav[langType].language_text38 }}
+              </div>
+            </a>
+          </div>
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+              <div class="rboe">
+                {{ languageNav[langType].language_text39 }}
+              </div>
+            </a>
+          </div>
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+              <div class="rboe">
+                {{ languageNav[langType].language_text40 }}
+              </div>
+            </a>
+          </div>
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+              <div class="rboe">
+                {{ languageNav[langType].language_text41 }}
+              </div>
+            </a>
+          </div>
+
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+              <div class="rboe">
+                {{ languageNav[langType].language_text42 }}
+              </div>
+            </a>
+          </div>
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+
+              <div class="rboe">
+                {{ languageNav[langType].language_text43 }}
+              </div>
+            </a>
+          </div>
+
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+
+              <div class="rboe">
+                {{ languageNav[langType].language_text44 }}
+              </div>
+            </a>
+          </div>
+          <div class="wrollet">
+            <a href="javascript:;">
+              <div
+                class="fcoal"
+                style="width: 100%; height: 160px; background-color: #dcdfe6"
+              >
+                <img src="@/assets/img/pic_waiti.png" />
+                <div class="glt-text">
+                  {{ languageNav[langType].language_text19 }}
+                </div>
+              </div>
+
+              <div class="rboe">
+                {{ languageNav[langType].language_text45 }}
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--<div class="no_data">-->
+    <!--<img class="no_data_img" src="@/assets/img/no_data.png" alt="">-->
+    <!--<p class="no_data_hint">{{languageNav[langType].language_text19}}</p>-->
+    <!--</div>-->
+    <webFoot />
+  </div>
 </template>
 <script>
-
-
-    import webFoot from '@/Layout/footer';
-    import  languageNav from "@/language/index"
-    export default {
-        name: '',
-        components: {webFoot},
-        data() {
-            return {
-                languageNav:languageNav,
-                languageName:this.$languageName
-            }
-        },
-        computed:{
-
-        },
-        watch:{
-
-        },
-        methods:{
-
-        },
-        created(){
-
-        },
-        mounted(){
-
-        }
-    }
+import webFoot from "@/Layout/footer";
+import languageNav from "@/language/index";
+export default {
+  name: "",
+  components: { webFoot },
+  data() {
+    return {
+      languageNav: languageNav,
+      langType: this.$langType,
+    };
+  },
+  computed: {},
+  watch: {},
+  methods: {},
+  created() {},
+  mounted() {},
+};
 </script>
 
 <style lang='less' scoped>
-    .page{
-        height: 100%;
-        background: rgb(242, 242, 242);
-        overflow: hidden;
-    }
+.page {
+  height: 100%;
+  background: rgb(242, 242, 242);
+  overflow: hidden;
+}
 
+.page-cont {
+  width: 1200px;
+  margin: 0 auto;
+}
+.bgoet {
+  margin: 20px 0;
+  position: relative;
+  background: linear-gradient(90deg, #2e529c 0%, #4824a0 100%);
+  height: 200px;
+  padding: 77px 0 0 50px;
+}
+.rosm {
+  color: #ffffff;
+  font-size: 30px;
+  margin-bottom: 7px;
+}
+.rosmGoert {
+  font-size: 20px;
+  color: #fff;
+}
 
-   .page-cont{
-        width: 1200px;
-       margin: 0 auto;
-   }
-   .bgoet{
-       margin: 20px 0;
-       position: relative;
-       background: linear-gradient(90deg, #2E529C 0%, #4824A0 100%);       height: 200px;
-       padding: 77px 0 0 50px;
-   }
-    .rosm{
-        color: #FFFFFF;
-        font-size: 30px;
-        margin-bottom: 7px;
-    }
-    .rosmGoert{
-        font-size: 20px;
-        color: #fff;
-    }
-
-    .wrollet{
-        width: 280px;
-        border: 1px solid #EAEAEA;
-        margin-bottom: 42px;
-        background: #FFFFFF;
-        margin-left: 26px;
-        }
-    .wrollet a{
-        -webkit-transition: all .3s ease 0s;
-        -moz-transition: all .3s ease 0s;
-        -o-transition: all .3s ease 0s;
-        transition: all .3s ease 0s;
-        display: block;
-        }
-    .wrollet a:hover
-    {
-
-        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
-    }
-    .sx-jianju {
-        padding-top: 37px;
-        padding-bottom: 119px;
-        }
-    .row{
-         margin: 0 auto;
-         width: 1200px;
-      }
-    .wrollet img {
-        height:160px;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        }
-    .case figure a figcaption {
-        display: block;
-        background-color: #333;
-        margin: 0 auto;
-        }
-    .h3{
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        font-size: 16px;
-        color: #fff;
-        margin: 0;
-        padding: 20px 30px 18px 30px;
-        text-align: left;
-
-        }
-    .rboe{
-        color: #fff;
-        padding: 15px 10px 15px 10px;;
-        font-size: 15px;
-        color: #242424;
-        }
-    .pswlort{
-        display: flex;
-        margin-left: -25px;
-        flex-flow: row wrap;
-    }
-    .fcoal{
-        position: relative;
-    }
-    .fcoal img{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    .glt-text{
-        font-size: 22px;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        height: 100%;
-    }
+.wrollet {
+  width: 280px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 42px;
+  background: #ffffff;
+  margin-left: 26px;
+}
+.wrollet a {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: block;
+}
+.wrollet a:hover {
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+.sx-jianju {
+  padding-top: 37px;
+  padding-bottom: 119px;
+}
+.row {
+  margin: 0 auto;
+  width: 1200px;
+}
+.wrollet img {
+  height: 160px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.case figure a figcaption {
+  display: block;
+  background-color: #333;
+  margin: 0 auto;
+}
+.h3 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  padding: 20px 30px 18px 30px;
+  text-align: left;
+}
+.rboe {
+  color: #fff;
+  padding: 15px 10px 15px 10px;
+  font-size: 15px;
+  color: #242424;
+}
+.pswlort {
+  display: flex;
+  margin-left: -25px;
+  flex-flow: row wrap;
+}
+.fcoal {
+  position: relative;
+}
+.fcoal img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.glt-text {
+  font-size: 22px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
 </style>

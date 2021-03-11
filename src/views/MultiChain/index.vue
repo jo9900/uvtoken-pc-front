@@ -6,20 +6,20 @@
         <div class="contetnt">
           <div class="contetnt_text wow fadeInRight">
             <div class="bget">
-              <div>海量Dapp</div>
-              <div>畅游链世界</div>
+              <div>Uvswap</div>
             </div>
             <div class="caosjet">
-              <div>
-                潜心挖掘，安全审核，帮你找到最优质的最好玩的Dapp 将上架1000+
-                dapp
-              </div>
+              <div>用户可以直接跨链快速兑换</div>
+              <div>支持包括BTC、TAF、ETH等20多条公链及链上代币快速交易</div>
+            </div>
+            <div :class="['dwkoer cursor-pointer slideUpBtn', $lang]" role="button">
+              <span>即将上线</span>
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
             <img
               class="contetnt_img"
-              src="@/assets/img/pic_dapp@2x.png"
+              src="@/assets/img/pic_lxyj@2x.png"
               alt=""
             />
           </div>
@@ -30,37 +30,60 @@
     <div class="project project-3">
       <div class="wrap">
         <div class="contetnt">
-          <div>
-            <div class="title-1">DApps</div>
-            <div class="fc-img">
-              <img src="../../assets/img/pic_dapp.png" />
+          <div class="scoplert">
+            <div class="title-1">安全高效 可靠透明</div>
+            <div class="title-2">
+              基于ArthurAPI框架的高性能跨链swap协议而构建的面向未来的去中心化交易所
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project project-4">
-      <div class="wrap">
-        <div class="contetnt">
-          <div>
-            <div class="title-1">联系我们</div>
-            <div class="coak">
-              <div class="boet">
-                <div class="wloet">
-                  <img src="../../assets/img/icon_sxdapp@2x.png" />
+            <div>
+              <div class="zarll">
+                <div class="zllp" style="margin-right: 329px">
+                  <div class="zllp-img">
+                    <img src="../../assets/img/pic_jsgx@2x.png" />
+                  </div>
+                  <div>
+                    <div class="title-3">极速高效</div>
+                    <div class="title-4">
+                      基于ArthurAPI框架的高性能跨链swap协议 理论TPS性能高达2万+
+                    </div>
+                  </div>
                 </div>
-                <div class="title-2">上线 DApp</div>
-                <div :class="['dwkoer cursor-pointer slideUpBtn', $lang]">
-                  <span>等待开通申请>></span>
+                <div class="zllp">
+                  <div class="zllp-img">
+                    <img src="../../assets/img/pic_wgas@2x.png" />
+                  </div>
+                  <div>
+                    <div class="title-3">无GAS</div>
+                    <div class="title-4">
+                      流动性提供者和用户无需支付高昂 gas 费用 极大降低使用门槛
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="boet">
-                <div class="wloet">
-                  <img src="../../assets/img/icon_sxdapp@2x.png" />
+
+              <div class="zarll">
+                <div class="zllp" style="margin-right: 308px">
+                  <div class="zllp-img">
+                    <img src="../../assets/img/pic_gxldx@2x.png" />
+                  </div>
+                  <div>
+                    <div class="title-3">共享流动性</div>
+                    <div class="title-4">
+                      用户可以和使用同样 ArthurAPI框架的其他交易所共享流动性
+                    </div>
+                  </div>
                 </div>
-                <div class="title-2">商务合作</div>
-                <div class="title-3">邮箱联系：xxxxx@uvtoken.com</div>
+                <div class="zllp">
+                  <div class="zllp-img">
+                    <img src="../../assets/img/pic_wqls@2x.png" />
+                  </div>
+                  <div>
+                    <div class="title-3">完全链上</div>
+                    <div class="title-4">
+                      一次交易中进行多次交易 完全透明且可验证
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -73,11 +96,8 @@
 </template>
 
 <script>
-import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
-
 import languageNav from "@/language/index";
-
 export default {
   name: "",
   components: { webFoot },
@@ -107,6 +127,11 @@ export default {
       isAlertTrue: false,
       isFhows: false,
 
+      listQuery: {
+        lang_type: this.$langType,
+        page_no: 1,
+        page_size: 3,
+      },
       languageNav: languageNav,
       langType: this.$langType,
     };
@@ -187,17 +212,15 @@ export default {
         }
         .bget {
           font-size: 50px;
-          color: #272727;
-          margin-bottom: 21px;
-          letter-spacing: 4px;
+          color: #272727ff;
+          margin-bottom: 15px;
         }
         .caosjet {
-          width: 488px;
           font-size: 20px;
-          color: #7b839a;
+          color: #7b839aff;
           line-height: 29px;
           margin-bottom: 19px;
-          font-weight: 100;
+          font-weight: 100
         }
       }
     }
@@ -207,75 +230,55 @@ export default {
     background: #f8fbff;
     .wrap {
       .contetnt {
-        padding: 127px 0 153px 0;
         .contetnt_text {
           width: 673px;
           text-align: left;
           padding-left: 57px;
-          margin-right: 44px;
         }
       }
     }
   }
 
   .project-3 {
-    padding-top: 142px;
-    padding-bottom: 78px;
-    .paddgint {
-      margin-bottom: 131px;
-    }
-    .title-1 {
+    padding-top: 133px;
+    padding-bottom: 147px;
+    .scoplert {
       text-align: center;
-      color: #272727;
-      font-size: 34px;
-      margin-bottom: 79px;
+      .title-1 {
+        color: #272727;
+        font-size: 34px;
+        margin-bottom: 9px;
+      }
+      .title-2 {
+        margin: 0 auto;
+        color: #7b839a;
+        font-size: 20px;
+        margin-bottom: 82px;
+      }
     }
-    .fc-img img {
-      width: 955px;
+    .zarll {
+      display: flex;
+      margin-bottom: 74px;
     }
-  }
-
-  .project-4 {
-    padding-top: 80px;
-    padding-bottom: 196px;
-    .paddgint {
-      margin-bottom: 131px;
-    }
-    .title-1 {
+    .zllp {
+      width: 246px;
       text-align: center;
-      color: #272727;
-      font-size: 34px;
-      margin-bottom: 82px;
     }
-    .title-2 {
-      font-size: 30px;
-      margin: 10px 0 18px 0;
+    .zllp-img img {
+      width: 200px;
     }
     .title-3 {
-      font-size: 16px;
-      color: #7b839aff;
+      color: #4C546A;
+      font-size: 20px;
+      margin: 12px 0 10px 0;
     }
-    .coak {
-      display: flex;
-    }
-    .wloet img {
-      width: 60px;
-      height: 60px;
-    }
-    .boet {
-      width: 590px;
-      height: 240px;
-      padding: 36px 0 34px 0;
-      border: 1px solid #bacdff;
-      text-align: center;
-      &:nth-of-type(1) {
-
-      margin-right: 20px;
-      }
+    .title-4 {
+      color: #7b839a;
+      font-size: 14px;
     }
   }
 }
-.slideUpBtn.zh::after  {
-  content: "等待开通申请>>"
+.slideUpBtn.zh::after {
+  content: "即将上线"
 }
 </style>

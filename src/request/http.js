@@ -5,7 +5,7 @@
 import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
-
+import Qs from 'qs'
 axios.defaults.withCredentials = true;
 let that = this;
 let baseUrl = ""
@@ -29,6 +29,7 @@ axios.interceptors.request.use(
     config => {
         const token = store.state.token
         token && (config.headers.token = token)
+        config.data = Qs.stringify(config.data)
         return config;
     },
     error => {

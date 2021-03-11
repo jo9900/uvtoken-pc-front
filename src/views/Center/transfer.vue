@@ -1,390 +1,499 @@
 
 <template>
-    <div class="page">
-        <div class="wrap">
-            <input type="password" style="display: none;" />
-            <div class="page_indicator">
-                <router-link class="gobaket" dir="ltr" to="/center">{{languageNav[languageName].language_text1}}</router-link>
-                > {{languageNav[languageName].language_text60}}</div>
-            <div class="page_content">
-                <div class="ltoet">
-                    <div class="qs_rt">{{languageNav[languageName].language_text61}}</div>
-                    <div class="wolaet">
-                        <el-form class="data_form" label-position="right" :rules="rules" label-width="150px" ref="dataForm"  :model="dataForm">
-                            <el-form-item :label="languageNav[languageName].language_text62">
-                                <el-input type="text" disabled v-model="apply_taft_amount"></el-input>
-                            </el-form-item>
-                            <el-form-item :label="languageNav[languageName].language_text63" prop="to_account">
-                                <el-input  type="text"  :placeholder="languageNav[languageName].language_text65" v-model.trim="dataForm.to_account"></el-input>
-                            </el-form-item>
-                            <el-form-item :label="languageNav[languageName].language_text64" prop="taft_amount">
-                                <el-input type="number"  v-model.trim="dataForm.taft_amount" :placeholder="languageNav[languageName].language_text66"></el-input>
-                            </el-form-item>
-                        </el-form>
-                        <el-button class="submit_btn" @click="subFrom">{{languageNav[languageName].language_text48}}</el-button>
-                    </div>
-                </div>
-
-
-                <div>
-                    <div class="qs_rtet">{{languageNav[languageName].language_text67}}</div>
-                    <el-table :data="tableData" style="width: 100%" stripe>
-                        <el-table-column prop="apply_time" :label="languageNav[languageName].language_text3">
-                            <template slot-scope="scope">
-                                <span>{{scope.row.time|trimet(that)}}</span>
-                            </template>
-                        </el-table-column>
-                        <el-table-column prop="round" :label="languageNav[languageName].language_text68">
-                            <template slot-scope="scope">
-                                <span>{{scope.row.account}}</span>
-                            </template>
-                        </el-table-column>
-                        <el-table-column prop="apply_amount" :label="languageNav[languageName].language_text69+'  (TAFT)'">
-                            <template slot-scope="scope">
-                                <span style="color: red" v-if="scope.row.transfer_type==0">{{scope.row.taft_amount}}</span>
-                                <span style="color: #17d241" v-if="scope.row.transfer_type==1">+{{scope.row.taft_amount}}</span>
-
-                            </template>
-                        </el-table-column>
-                        <template slot="empty">
-                            <div class="noData">{{languageNav[languageName].language_text11}}</div>
-                        </template>
-                    </el-table>
-                    <el-pagination @current-change="handleCurrentChange" :page-size="form.page_size"  layout="prev, pager, next" :total="total" background></el-pagination>
-                </div>
-
-            </div>
+  <div class="page">
+    <div class="wrap">
+      <input type="password" style="display: none" />
+      <div class="page_indicator">
+        <router-link class="gobaket" dir="ltr" to="/center">{{
+          languageNav[langType].language_text1
+        }}</router-link>
+        > {{ languageNav[langType].language_text60 }}
+      </div>
+      <div class="page_content">
+        <div class="ltoet">
+          <div class="qs_rt">{{ languageNav[langType].language_text61 }}</div>
+          <div class="wolaet">
+            <el-form
+              class="data_form"
+              label-position="right"
+              :rules="rules"
+              label-width="150px"
+              ref="dataForm"
+              :model="dataForm"
+            >
+              <el-form-item :label="languageNav[langType].language_text62">
+                <el-input
+                  type="text"
+                  disabled
+                  v-model="apply_taft_amount"
+                ></el-input>
+              </el-form-item>
+              <el-form-item
+                :label="languageNav[langType].language_text63"
+                prop="to_account"
+              >
+                <el-input
+                  type="text"
+                  :placeholder="languageNav[langType].language_text65"
+                  v-model.trim="dataForm.to_account"
+                ></el-input>
+              </el-form-item>
+              <el-form-item
+                :label="languageNav[langType].language_text64"
+                prop="taft_amount"
+              >
+                <el-input
+                  type="number"
+                  v-model.trim="dataForm.taft_amount"
+                  :placeholder="languageNav[langType].language_text66"
+                ></el-input>
+              </el-form-item>
+            </el-form>
+            <el-button class="submit_btn" @click="subFrom">{{
+              languageNav[langType].language_text48
+            }}</el-button>
+          </div>
         </div>
 
-
-        <el-dialog :title="languageNav[languageName].language_text81" :lock-scroll="false" :visible.sync="ruleDialogVisible" width="480px" center :before-close="ruleHandleClose">
-
-            <el-form class="data_form" label-position="right" :rules="rules1"  ref="dataForm1"  :model="dataForm1">
-                <div style="margin-bottom: 20px">
-                    <span style="padding-left: 8px"> {{languageNav[languageName].language_text85}}：<span style="color: #efcf54">{{dataForm.taft_amount}} TAFT</span></span>
-                </div>
-                <el-form-item :label="languageNav[languageName].language_text82" prop="password" style="position: relative">
-                    <div class="" style="height: 80px">
-                        <el-input type="password" name="wsl" v-if="inputViset"    v-model="dataForm1.password"  autocomplete="off"></el-input>
-                        <el-input type="text" name="wslt"  @input="fouseClick" :style="{'opacity':inputViset?'0':'1'}"  autocomplete="off" v-model="dataForm1.password"    style="position: absolute;top: 40px;left: 0;"></el-input>
-                    </div>
-                </el-form-item>
-            </el-form>
-            <span slot="footer" class="dialog-footer">
-                    <el-button  type="primary" class="gz-botton" @click="ruleDialogVisible = false">{{languageNav[languageName].language_text59}}</el-button>
-                    <el-button  :loading="loadingBtn" type="primary" class="rz-botton"  @click="Payment">{{languageNav[languageName].language_text58}}</el-button>
-                </span>
-        </el-dialog>
-        <webFoot/>
+        <div>
+          <div class="qs_rtet">{{ languageNav[langType].language_text67 }}</div>
+          <el-table :data="tableData" style="width: 100%" stripe>
+            <el-table-column
+              prop="apply_time"
+              :label="languageNav[langType].language_text3"
+            >
+              <template slot-scope="scope">
+                <span>{{ scope.row.time | trimet(that) }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="round"
+              :label="languageNav[langType].language_text68"
+            >
+              <template slot-scope="scope">
+                <span>{{ scope.row.account }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="apply_amount"
+              :label="languageNav[langType].language_text69 + '  (TAFT)'"
+            >
+              <template slot-scope="scope">
+                <span style="color: red" v-if="scope.row.transfer_type == 0">{{
+                  scope.row.taft_amount
+                }}</span>
+                <span style="color: #17d241" v-if="scope.row.transfer_type == 1"
+                  >+{{ scope.row.taft_amount }}</span
+                >
+              </template>
+            </el-table-column>
+            <template slot="empty">
+              <div class="noData">
+                {{ languageNav[langType].language_text11 }}
+              </div>
+            </template>
+          </el-table>
+          <el-pagination
+            @current-change="handleCurrentChange"
+            :page-size="form.page_size"
+            layout="prev, pager, next"
+            :total="total"
+            background
+          ></el-pagination>
+        </div>
+      </div>
     </div>
+
+    <el-dialog
+      :title="languageNav[langType].language_text81"
+      :lock-scroll="false"
+      :visible.sync="ruleDialogVisible"
+      width="480px"
+      center
+      :before-close="ruleHandleClose"
+    >
+      <el-form
+        class="data_form"
+        label-position="right"
+        :rules="rules1"
+        ref="dataForm1"
+        :model="dataForm1"
+      >
+        <div style="margin-bottom: 20px">
+          <span style="padding-left: 8px">
+            {{ languageNav[langType].language_text85 }}：<span
+              style="color: #efcf54"
+              >{{ dataForm.taft_amount }} TAFT</span
+            ></span
+          >
+        </div>
+        <el-form-item
+          :label="languageNav[langType].language_text82"
+          prop="password"
+          style="position: relative"
+        >
+          <div class="" style="height: 80px">
+            <el-input
+              type="password"
+              name="wsl"
+              v-if="inputViset"
+              v-model="dataForm1.password"
+              autocomplete="off"
+            ></el-input>
+            <el-input
+              type="text"
+              name="wslt"
+              @input="fouseClick"
+              :style="{ opacity: inputViset ? '0' : '1' }"
+              autocomplete="off"
+              v-model="dataForm1.password"
+              style="position: absolute; top: 40px; left: 0"
+            ></el-input>
+          </div>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button
+          type="primary"
+          class="gz-botton"
+          @click="ruleDialogVisible = false"
+          >{{ languageNav[langType].language_text59 }}</el-button
+        >
+        <el-button
+          :loading="loadingBtn"
+          type="primary"
+          class="rz-botton"
+          @click="Payment"
+          >{{ languageNav[langType].language_text58 }}</el-button
+        >
+      </span>
+    </el-dialog>
+    <webFoot />
+  </div>
 </template>
 
 <script>
-    import webFoot from '@/Layout/footer';
-    import {myPreSale,recordsList,taftBoert,passwordVerify } from '@/request/user.js'
-    import { pubKey } from '@/request/login.js'
-    import  languageNav from "@/language/coander"
-    const sha256 = require("js-sha256").sha256
-    import { JSEncrypt } from 'jsencrypt'
-    export default {
-        name: '',
-        components: {webFoot},
-        data() {
-            var validateSurnmae = (rule, value, callback) => {
-                if(parseInt(value)<1){
-                    callback(new Error(this.languageNav[this.$languageName].language_text75))
-                }else if (!(/(^[1-9]\d*$)/.test(value))) {
-                    callback(new Error(languageNav[this.$languageName].language_text76))
-                    return
-                } else {
-                    callback()
-                }
+import webFoot from "@/Layout/footer";
+import {
+  myPreSale,
+  recordsList,
+  taftBoert,
+  passwordVerify,
+} from "@/request/user.js";
+import { pubKey } from "@/request/login.js";
+import languageNav from "@/language/coander";
+const sha256 = require("js-sha256").sha256;
+import { JSEncrypt } from "jsencrypt";
+export default {
+  name: "",
+  components: { webFoot },
+  data() {
+    var validateSurnmae = (rule, value, callback) => {
+      if (parseInt(value) < 1) {
+        callback(new Error(this.languageNav[this.$langType].language_text75));
+      } else if (!/(^[1-9]\d*$)/.test(value)) {
+        callback(new Error(languageNav[this.$langType].language_text76));
+        return;
+      } else {
+        callback();
+      }
+    };
+    var validatePrice = (rule, value, callback) => {
+      if (parseInt(value) > parseInt(this.apply_taft_amount)) {
+        callback(new Error(this.languageNav[this.$langType].language_text77));
+      } else {
+        callback();
+      }
+    };
 
+    var Elowert = (rule, value, callback) => {
+      let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+      if (!reg.test(value)) {
+        callback(new Error(languageNav[this.$langType].language_text53));
+      } else {
+        callback();
+      }
+    };
 
-            };
-            var validatePrice = (rule, value, callback) => {
-                if(parseInt(value)>parseInt(this.apply_taft_amount)){
-                    callback(new Error(this.languageNav[this.$languageName].language_text77))
-                } else {
-                    callback()
-                }
-            };
+    return {
+      that: this,
+      apply_taft_amount: "0",
+      ruleDialogVisible: false,
+      inputViset: false,
+      loadingBtn: false,
+      dataForm: {
+        user_code: localStorage.getItem("code"),
+        to_account: "",
+        taft_amount: "",
+        auth_code: "",
+      },
+      dataForm1: {
+        user_code: localStorage.getItem("code"),
+        password: "",
+      },
+      form: {
+        user_code: localStorage.getItem("code"),
+        page_no: 1,
+        page_size: 50,
+      },
+      tableData: [],
+      total: 0,
+      languageNav: languageNav,
+      langType: this.$langType,
+      rules: {
+        to_account: [
+          {
+            required: true,
+            message: languageNav[this.$langType].language_text65,
+            trigger: "blur",
+          },
+          { required: true, validator: Elowert, trigger: "blur" },
+        ],
+        taft_amount: [
+          {
+            required: true,
+            message: languageNav[this.$langType].language_text66,
+            trigger: "blur",
+          },
+          { required: true, validator: validateSurnmae, trigger: "blur" },
+          { required: true, validator: validatePrice, trigger: "blur" },
+        ],
+      },
 
-            var Elowert = (rule, value, callback) => {
-                let reg =   /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
-                if(!reg.test(value)){
-                    callback(new Error(languageNav[this.$languageName].language_text53))
-                } else {
-                    callback()
-                }
-            };
+      rules1: {
+        password: [
+          {
+            required: true,
+            message: languageNav[this.$langType].language_text80,
+            trigger: "blur",
+          },
+        ],
+      },
+    };
+  },
+  computed: {},
 
-            return {
-                that:this,
-                apply_taft_amount:"0",
-                ruleDialogVisible:false,
-                inputViset:false,
-                loadingBtn:false,
-                dataForm:{
-                    user_code:localStorage.getItem('code'),
-                    to_account:"",
-                    taft_amount:"",
-                    auth_code:""
-                },
-                dataForm1:{
-                    user_code:localStorage.getItem('code'),
-                    password:""
-                },
-                form: {
-                    user_code:localStorage.getItem('code'),
-                    page_no:1,
-                    page_size:50
-                },
-                tableData: [],
-                total:0,
-                languageNav:languageNav,
-                languageName:this.$languageName,
-                rules: {
-                    to_account: [
-                        { required: true,message:languageNav[this.$languageName].language_text65, trigger: 'blur' },
-                        { required: true, validator: Elowert,trigger: 'blur' },
+  methods: {
+    handleCurrentChange(val) {
+      this.form.page_no = val;
+      this.getList();
+    },
 
-                    ],
-                    taft_amount: [
-                        { required: true,message:languageNav[this.$languageName].language_text66, trigger: 'blur' },
-                        { required: true, validator: validateSurnmae,trigger: 'blur' },
-                        { required: true, validator: validatePrice,trigger: 'blur' },
-                    ],
-                },
-
-                rules1:{
-                    password:[
-                        { required: true,message:languageNav[this.$languageName].language_text80, trigger: 'blur' },
-
-                    ]
-                }
-            }
-        },
-        computed:{
-
-        },
-
-        methods:{
-
-            handleCurrentChange(val) {
-                this.form.page_no = val
-                this.getList()
-            },
-
-            getList(){
-                let params = this.form
-                recordsList(this.$qs.stringify(params)).then(res=>{
-                    if(res.code == 0){
-                        this.tableData = res.data.rows;
-                        this.total = res.data.total
-                    }else{
-                        this.$message.error(res.msg);
-                    }
-                })
-            },
-            Payment(){
-                this.$refs["dataForm1"].validate((valid) => {
-                    if (valid) {
-
-                        this.loadingBtn = true;
-
-                        this.getPubKey();
-                        passwordVerify(this.$qs.stringify(
-                            {
-                                user_code:this.dataForm1.user_code,
-                                password:this.rsaData(sha256(this.dataForm1.password))
-                            }
-                        )).then((res)=>{
-                              if(res.code==0){
-                                  this.ruleDialogVisible= false;
-                                  this.dataForm.auth_code = res.data.auth_code;
-                                  taftBoert(this.$qs.stringify(this.dataForm)).then((res)=>{
-                                      if(res.code==0){
-                                          this.loadingBtn = false;
-                                          this.$message.success(languageNav[this.$languageName].language_text57);
-                                          this.apply_taft_amount = res.data.taft_balance_amount?res.data.taft_balance_amount+" TAFT":"0 TAFT"
-                                          this.dataForm={
-                                              user_code:localStorage.getItem('code'),
-                                              to_account:"",
-                                              taft_amount:""
-                                          }
-                                          this.form.page_no = 1;
-                                          this.getList();
-                                      }else{
-                                          this.loadingBtn = false;
-                                          if(res.code=="102603"){
-                                              this.$message.error(languageNav[this.$languageName].language_text54)
-                                          }
-                                          if(res.code=="102606"){
-                                              this.$message.error(languageNav[this.$languageName].language_text56)
-                                          }
-                                          if(res.code=="102607"){
-                                              this.$message.error(languageNav[this.$languageName].language_text78)
-                                          }
-                                          if(res.code=="103001"){
-                                              this.dataForm1.password = "";
-                                              this.$message.error(languageNav[this.$languageName].language_text84)
-                                          }
-                                      }
-                                  })
-                                  // let englishText = "Do you confirm to the account"+this.dataForm.to_account +"Transfer"+ this.dataForm.taft_amount +" TAFT?";
-                                  // let chineseText = "您确认向账户"+this.dataForm.to_account+"转让 "+this.dataForm.taft_amount+" TAFT吗？";
-                                  // this.$confirm(this.$languageName=='English'?englishText:chineseText, languageNav[this.$languageName].language_text55, {
-                                  //     confirmButtonText:languageNav[this.$languageName].language_text58,
-                                  //     cancelButtonText: languageNav[this.$languageName].language_text59,
-                                  //     type: 'warning'
-                                  // }).then(() => {
-                                  //
-                                  // }).catch(() => {});
-                              }else{
-                               this.$message.error(languageNav[this.$languageName].language_text83)
-                                  this.loadingBtn = false;
-                              }
-                        })
-                    }
-                })
-            },
-            subFrom(){
-                this.$refs["dataForm"].validate((valid) => {
-                    if(valid){
-                        this.dataForm1.password = "";
-                        this.dataForm1.auth_code="";
-                        this.ruleDialogVisible = true;
-                        this.$nextTick(()=>{this.$refs.dataForm1.clearValidate();})
-
-
-                    }
-
-                })
-            },
-            getMyPreSale(){
-                let params = {
-                    code : localStorage.getItem('code')
-                }
-                myPreSale(this.$qs.stringify(params)).then(res=>{
-                    console.log(res)
-                    if(res.code == 0){
-                        this.apply_taft_amount = res.data.apply_taft_amount?res.data.apply_taft_amount+" TAFT":"0 TAFT"
-
-                    }else{
-                        this.$message.error(res.msg);
-                    }
-                })
-            },
-
-            getPubKey(){
-                pubKey().then(res=>{
-                    if(res.code == 0){
-                        localStorage.setItem('pk',res.data.pub_key)
-                    }
-                })
-            },
-            rsaData (data) {
-                const PUBLIC_KEY = localStorage.getItem('pk')
-                let jsencrypt = new JSEncrypt()
-                jsencrypt.setPublicKey(PUBLIC_KEY)
-                let result = jsencrypt.encrypt(data)
-                return result
-            },
-            fouseClick(){
-
-                this.inputViset = true;
-            }
-        },
-        created(){
-            this.form.user_code = localStorage.getItem('code');
-            this.getMyPreSale();
-        },
-        mounted(){
-            this.getList()
-        },
-        filters:{
-            trimet(trime,that) {
-                let parsTrme = that.$moment(Math.floor(trime*1000)).format('YYYY-MM-DD HH:mm')
-                return  parsTrme
-            }
+    getList() {
+      let params = this.form;
+      recordsList(params).then((res) => {
+        if (res.code == 0) {
+          this.tableData = res.data.rows;
+          this.total = res.data.total;
+        } else {
+          this.$message.error(res.msg);
         }
-    }
+      });
+    },
+    Payment() {
+      this.$refs["dataForm1"].validate((valid) => {
+        if (valid) {
+          this.loadingBtn = true;
+
+          this.getPubKey();
+          passwordVerify({
+              user_code: this.dataForm1.user_code,
+              password: this.rsaData(sha256(this.dataForm1.password)),
+            }
+          ).then((res) => {
+            if (res.code == 0) {
+              this.ruleDialogVisible = false;
+              this.dataForm.auth_code = res.data.auth_code;
+              taftBoert(this.dataForm).then((res) => {
+                if (res.code == 0) {
+                  this.loadingBtn = false;
+                  this.$message.success(
+                    languageNav[this.$langType].language_text57
+                  );
+                  this.apply_taft_amount = res.data.taft_balance_amount
+                    ? res.data.taft_balance_amount + " TAFT"
+                    : "0 TAFT";
+                  this.dataForm = {
+                    user_code: localStorage.getItem("code"),
+                    to_account: "",
+                    taft_amount: "",
+                  };
+                  this.form.page_no = 1;
+                  this.getList();
+                } else {
+                  this.loadingBtn = false;
+                  if (res.code == "102603") {
+                    this.$message.error(
+                      languageNav[this.$langType].language_text54
+                    );
+                  }
+                  if (res.code == "102606") {
+                    this.$message.error(
+                      languageNav[this.$langType].language_text56
+                    );
+                  }
+                  if (res.code == "102607") {
+                    this.$message.error(
+                      languageNav[this.$langType].language_text78
+                    );
+                  }
+                  if (res.code == "103001") {
+                    this.dataForm1.password = "";
+                    this.$message.error(
+                      languageNav[this.$langType].language_text84
+                    );
+                  }
+                }
+              });
+              // let englishText = "Do you confirm to the account"+this.dataForm.to_account +"Transfer"+ this.dataForm.taft_amount +" TAFT?";
+              // let chineseText = "您确认向账户"+this.dataForm.to_account+"转让 "+this.dataForm.taft_amount+" TAFT吗？";
+              // this.$confirm(this.$langType=='English'?englishText:chineseText, languageNav[this.$langType].language_text55, {
+              //     confirmButtonText:languageNav[this.$langType].language_text58,
+              //     cancelButtonText: languageNav[this.$langType].language_text59,
+              //     type: 'warning'
+              // }).then(() => {
+              //
+              // }).catch(() => {});
+            } else {
+              this.$message.error(languageNav[this.$langType].language_text83);
+              this.loadingBtn = false;
+            }
+          });
+        }
+      });
+    },
+    subFrom() {
+      this.$refs["dataForm"].validate((valid) => {
+        if (valid) {
+          this.dataForm1.password = "";
+          this.dataForm1.auth_code = "";
+          this.ruleDialogVisible = true;
+          this.$nextTick(() => {
+            this.$refs.dataForm1.clearValidate();
+          });
+        }
+      });
+    },
+    getMyPreSale() {
+      let params = {
+        code: localStorage.getItem("code"),
+      };
+      myPreSale(params).then((res) => {
+        console.log(res);
+        if (res.code == 0) {
+          this.apply_taft_amount = res.data.apply_taft_amount
+            ? res.data.apply_taft_amount + " TAFT"
+            : "0 TAFT";
+        } else {
+          this.$message.error(res.msg);
+        }
+      });
+    },
+
+    getPubKey() {
+      pubKey().then((res) => {
+        if (res.code == 0) {
+          localStorage.setItem("pk", res.data.pub_key);
+        }
+      });
+    },
+    rsaData(data) {
+      const PUBLIC_KEY = localStorage.getItem("pk");
+      let jsencrypt = new JSEncrypt();
+      jsencrypt.setPublicKey(PUBLIC_KEY);
+      let result = jsencrypt.encrypt(data);
+      return result;
+    },
+    fouseClick() {
+      this.inputViset = true;
+    },
+  },
+  created() {
+    this.form.user_code = localStorage.getItem("code");
+    this.getMyPreSale();
+  },
+  mounted() {
+    this.getList();
+  },
+  filters: {
+    trimet(trime, that) {
+      let parsTrme = that
+        .$moment(Math.floor(trime * 1000))
+        .format("YYYY-MM-DD HH:mm");
+      return parsTrme;
+    },
+  },
+};
 </script>
 
 
 <style lang='less' scoped>
-    .page{
-        background: #f0f2f5;
-        overflow: hidden;
-        // height: 100%;
-        box-sizing: border-box;
-        .wrap{
-            // height: 100%;
-            .page_indicator{
-                margin-top: 20px;
-                height: 60px;
-                line-height: 60px;
-                color: #333333;
-                font-size: 16px;
-                padding: 0 30px;
-                background: #FFFFFF;
-            }
-            .page_content{
-                margin: 20px 0 100px;
-                padding: 38px;
-                min-height: 800px;
-                background: #FFFFFF;
-                text-align: center;
+.page {
+  background: #f0f2f5;
+  overflow: hidden;
+  // height: 100%;
+  box-sizing: border-box;
+  .wrap {
+    // height: 100%;
+    .page_indicator {
+      margin-top: 20px;
+      height: 60px;
+      line-height: 60px;
+      color: #333333;
+      font-size: 16px;
+      padding: 0 30px;
+      background: #ffffff;
+    }
+    .page_content {
+      margin: 20px 0 100px;
+      padding: 38px;
+      min-height: 800px;
+      background: #ffffff;
+      text-align: center;
+    }
+  }
+}
 
-            }
-        }
-
-    }
-
-
-
-    .submit_btn{
-        width: 329px;
-        height: 48px;
-        margin-left: 62px;
-        line-height: 24px;
-        border-radius: 8px;
-        margin-top: 30px;
-        font-size: 16px;
-        color: #FFFFFE;
-        background: linear-gradient(to right, #efcf54, #bf8d08);
-        text-align: center;
-        cursor: pointer;
-    }
-    .ltoet{
-
-        margin-bottom: 63px;
-    }
-    .qs_rt{
-        text-align: left;
-        border-left: 5px solid #efcf54;
-        padding-left: 9px;
-        margin-bottom: 25px;
-    }
-    .qs_rtet{
-        text-align: left;
-        border-left: 5px solid #efcf54;
-        padding-left: 9px;
-        margin-bottom: 25px;
-    }
-    .wolaet{
-        margin: 0 auto;
-        width: 493px;
-    }
-    .gz-botton{
-        width: 80px;
-        height: 42px;
-        background: #1D2C46;
-        color: #fff;
-        border-radius: 6px;
-        border: none;
-    }
+.submit_btn {
+  width: 329px;
+  height: 48px;
+  margin-left: 62px;
+  line-height: 24px;
+  border-radius: 8px;
+  margin-top: 30px;
+  font-size: 16px;
+  color: #fffffe;
+  background: linear-gradient(to right, #efcf54, #bf8d08);
+  text-align: center;
+  cursor: pointer;
+}
+.ltoet {
+  margin-bottom: 63px;
+}
+.qs_rt {
+  text-align: left;
+  border-left: 5px solid #efcf54;
+  padding-left: 9px;
+  margin-bottom: 25px;
+}
+.qs_rtet {
+  text-align: left;
+  border-left: 5px solid #efcf54;
+  padding-left: 9px;
+  margin-bottom: 25px;
+}
+.wolaet {
+  margin: 0 auto;
+  width: 493px;
+}
+.gz-botton {
+  width: 80px;
+  height: 42px;
+  background: #1d2c46;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+}
 </style>
 
 

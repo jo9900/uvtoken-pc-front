@@ -179,3 +179,11 @@
     display: inline-block;
     padding: 0 31px;
 }
+.cursor-pointer {
+    cursor: pointer;
+    user-select: none;
+}
+::selection {
+    background-color: #19d6e8;
+    color: #fff;
+}

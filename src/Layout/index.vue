@@ -2,11 +2,11 @@
     <div>
         <div class="navhearder" ref="ele"><Nav/></div>
         <div :style="{'height':height+'px'}"></div>
-        <divv class="layout_box">
+        <div class="layout_box">
 
             <div ><router-view></router-view></div>
             <!-- <el-footer><Footer/></el-footer> -->
-        </divv>
+        </div>
     </div>
 
 

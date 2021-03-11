@@ -36,11 +36,12 @@
                        <div style="width: 300px;">
                            <el-form class="case_form" :model="email" :rules="rules" ref="resetForm">
                                <el-form-item class="form_row" prop="email">
-                                   <el-input class="row_input" type="text" :placeholder="languageNav[languageName].language_text2" v-model.trim="email"/>
+                                   <el-input class="row_input" type="text" 
+                                   placeholder="请输入邮箱地址" v-model.trim="email"/>
                                </el-form-item>
                            </el-form>
                        </div>
-                       <div><div class="btn form_btn"  @click="resetDataCode">订阅</div></div>
+                       <div><div class="btn form_btn" role="button"  @click="resetDataCode">订阅</div></div>
 
                    </div>
                </div>
@@ -63,17 +64,14 @@
 </template>
 
 <script>
-    import  languageNav from "@/language/login"
 export default {
     name: '',
     data() {
        return {
-           languageNav:languageNav,
-           languageName:this.$languageName,
            email:"",
            rules: {
                email: [
-                   { required: true, message:languageNav[this.$languageName].language_text2, trigger: 'blur' },
+                   { required: true, message: '请输入邮箱地址', trigger: 'blur' },
 
                ],
 
@@ -128,16 +126,16 @@ export default {
             }
 
             .spower {
-               margin-right: 88px;
+               margin-right: 70px;
             }
             .spower a{
-                color: #7B839AFF;
+                color: #7B839A;
                 font-size: 14px;
-               display: block;
+                display: block;
             }
 
             .maert{
-                margin: 9px 0;
+                margin: 16px 0;
             }
             .spower a:hover{
                 color: #5885FDFF;
@@ -149,7 +147,7 @@ export default {
             }
             .wll-rt{
                 display: flex;
-                margin-bottom: 35px;
+                margin-bottom: 30px;
             }
             .wll-rt .lro{
                 margin-right: 22px;
@@ -197,12 +195,13 @@ export default {
     }
    .form_btn{
        width: 100px;
-       margin-top: 2px;
+       margin-top: 1px;
        text-align: center;
        line-height: 40px;
        color: #fff;
        font-size: 12px;
        background-color: #5885FDFF;
+       user-select: none;
    }
     .form_btn:hover{
         cursor: pointer;

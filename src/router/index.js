@@ -33,7 +33,7 @@ if (window.localStorage.getItem('token') && window.localStorage.getItem('code'))
 router.beforeEach((to, from, next) => {
 
     if (to.meta.title) {
-        document.title = "TAFChain "
+        document.title = "UvToken "
             // +to.meta.title
     }
 
