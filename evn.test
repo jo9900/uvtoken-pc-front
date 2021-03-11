@@ -1,0 +1,9 @@
+# just a flag
+ENV = 'test'
+
+# base api
+VUE_APP_BASE_API = 'http://192.168.0.60:9000/'
+VUE_APP_BASE_APILink = 'http://192.168.0.60:9009/'
+VUE_APP_Version = "1"
+
+
