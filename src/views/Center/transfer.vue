@@ -122,7 +122,7 @@
         <div style="margin-bottom: 20px">
           <span style="padding-left: 8px">
             {{ languageNav[langType].language_text85 }}：<span
-              style="color: #efcf54"
+              style="color: #5885FD"
               >{{ dataForm.taft_amount }} TAFT</span
             ></span
           >
@@ -463,7 +463,7 @@ export default {
   margin-top: 30px;
   font-size: 16px;
   color: #fffffe;
-  background: linear-gradient(to right, #efcf54, #bf8d08);
+  background: linear-gradient(to right, #5885FD, #2db9f6);
   text-align: center;
   cursor: pointer;
 }
@@ -472,13 +472,13 @@ export default {
 }
 .qs_rt {
   text-align: left;
-  border-left: 5px solid #efcf54;
+  border-left: 5px solid #5885FD;
   padding-left: 9px;
   margin-bottom: 25px;
 }
 .qs_rtet {
   text-align: left;
-  border-left: 5px solid #efcf54;
+  border-left: 5px solid #5885FD;
   padding-left: 9px;
   margin-bottom: 25px;
 }

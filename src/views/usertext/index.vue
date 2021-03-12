@@ -235,7 +235,7 @@ export default {
       min-height: 800px;
       background: #ffffff;
       .name {
-        color: #d2a629;
+        color: #5885FD;
         font-size: 36px;
         text-align: center;
         margin-bottom: 38px;
@@ -265,7 +265,7 @@ export default {
         font-size: 16px;
         line-height: 48px;
         border-radius: 6px;
-        background: linear-gradient(to right, #efcf54, #bf8d08);
+        background: linear-gradient(to right, #5885FD, #2db9f6);
       }
     }
   }

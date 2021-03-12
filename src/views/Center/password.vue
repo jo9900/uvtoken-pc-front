@@ -290,7 +290,7 @@ export default {
         border-radius: 8px;
         font-size: 16px;
         color: #fffffe;
-        background: linear-gradient(to right, #efcf54, #bf8d08);
+        background: linear-gradient(to right, #5885FD, #2db9f6);
         text-align: center;
         cursor: pointer;
       }
@@ -322,7 +322,7 @@ export default {
 }
 .text-code:hover {
   cursor: pointer;
-  color: #efcf54;
+  color: #5885FD;
   text-decoration: underline;
 }
 </style>

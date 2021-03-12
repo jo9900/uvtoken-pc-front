@@ -3,8 +3,8 @@
 <template>
   <div class="page">
     <div class="card">
-      <div class="page_hint colorD2A629">
-        <img src="@/assets/img/center_hint.png" alt="" />
+      <div class="page_hint color5885FD">
+       <i class="el-icon-warning"></i>
         {{ languageNav[langType].language_text0 }}
       </div>
       <div class="user_info_box">
@@ -16,7 +16,7 @@
             <div class="about_row">
               <p class="title">{{ languageNav[langType].language_text1 }}</p>
               <p
-                class="colorD2A629"
+                class="color5885FD"
                 :class="{ taost: userInfo.kyc_status == 1 }"
               >
                 <template v-if="langType == 'English'">
@@ -40,7 +40,7 @@
               <p class="title">{{ languageNav[langType].language_text2 }}</p>
 
               <p
-                class="colorD2A629"
+                class="color5885FD"
                 :class="{ taost: userInfo.kyc_status == 1 }"
               >
                 <template v-if="userInfo.kyc_status == 1">
@@ -60,7 +60,7 @@
 
         <div class="attest">
           <template v-if="userInfo.kyc_status == 0">
-            <div class="title colorD2A629">
+            <div class="title color5885FD">
               {{ languageNav[langType].language_text3 }}
               <div class="center_targe status0">
                 {{ languageNav[langType].language_text4 }}
@@ -69,13 +69,13 @@
             <div class="info">{{ languageNav[langType].language_text24 }}</div>
             <div class="info">
               {{ languageNav[langType].language_text25 }}
-              <span class="colorD2A629" @click="toApply"
+              <span class="color5885FD" @click="toApply"
                 >{{ languageNav[langType].language_text5 }} >
               </span>
             </div>
           </template>
           <template v-if="userInfo.kyc_status == 1">
-            <div class="title colorD2A629">
+            <div class="title color5885FD">
               {{ languageNav[langType].language_text3 }}
               <div class="center_targe status1">
                 {{ languageNav[langType].language_text6 }}
@@ -84,7 +84,7 @@
             <div class="info">{{ languageNav[langType].language_text26 }}</div>
           </template>
           <template v-if="userInfo.kyc_status == 2">
-            <div class="title colorD2A629">
+            <div class="title color5885FD">
               {{ languageNav[langType].language_text3 }}
               <div class="center_targe status2">
                 {{ languageNav[langType].language_text7 }}
@@ -93,7 +93,7 @@
             <div class="info">{{ languageNav[langType].language_text27 }}</div>
           </template>
           <template v-if="userInfo.kyc_status == 3">
-            <div class="title colorD2A629">
+            <div class="title color5885FD">
               {{ languageNav[langType].language_text3 }}
               <div class="center_targe status3">
                 {{ languageNav[langType].language_text8 }}
@@ -102,7 +102,7 @@
             <div class="info">{{ languageNav[langType].language_text28 }}</div>
             <div class="info">
               <span
-                class="colorD2A629 rkot"
+                class="color5885FD rkot"
                 @click="lookUp"
                 style="margin: 0"
                 >{{ languageNav[langType].language_text9 }}</span
@@ -119,13 +119,13 @@
           <div class="item_title">
             <span>{{ languageNav[langType].language_text14 }}</span>
             <span
-              class="colorD2A629"
+              class="color5885FD"
               @click="toApplyBuylog"
               style="cursor: pointer"
               >{{ languageNav[langType].language_text11 }}</span
             >
           </div>
-          <div class="margintop40 colorD2A629">
+          <div class="margintop40 color5885FD">
             {{ myPreSale.apply_usdt_amount ? myPreSale.apply_usdt_amount : 0 }}
             USDT
           </div>
@@ -133,11 +133,11 @@
         <div class="cart_box_item">
           <div class="item_title">
             <span>{{ languageNav[langType].language_text15 }}</span>
-            <span class="colorD2A629" style="cursor: pointer" @click="sofert">{{
+            <span class="color5885FD" style="cursor: pointer" @click="sofert">{{
               languageNav[langType].language_text133
             }}</span>
           </div>
-          <div class="margintop40 colorD2A629">
+          <div class="margintop40 color5885FD">
             {{ myPreSale.apply_taft_amount ? myPreSale.apply_taft_amount : 0 }}
             TAFT
           </div>
@@ -151,13 +151,13 @@
           <div class="item_title">
             <span>{{ languageNav[langType].language_text16 }}</span>
             <span
-              class="colorD2A629"
+              class="color5885FD"
               @click="toRebatelog"
               style="cursor: pointer"
               >{{ languageNav[langType].language_text11 }}</span
             >
           </div>
-          <div class="margintop60 colorD2A629">
+          <div class="margintop60 color5885FD">
             {{ marketing.rebate_amount ? marketing.rebate_amount : 0 }} USDT
           </div>
         </div>
@@ -165,13 +165,13 @@
           <div class="item_title">
             <span>{{ languageNav[langType].language_text17 }}</span>
             <span
-              class="colorD2A629"
+              class="color5885FD"
               @click="toExtendLog"
               style="cursor: pointer"
               >{{ languageNav[langType].language_text11 }}</span
             >
           </div>
-          <div class="margintop60 colorD2A629">
+          <div class="margintop60 color5885FD">
             {{ marketing.invite_count }}
             {{ languageNav[langType].language_text12 }}
           </div>
@@ -225,7 +225,7 @@
         <span class="row_name">{{
           languageNav[langType].language_text21
         }}</span>
-        <span class="colorD2A629" style="cursor: pointer" @click="toEditPas">{{
+        <span class="color5885FD" style="cursor: pointer" @click="toEditPas">{{
           languageNav[langType].language_text22
         }}</span>
       </div>
@@ -371,7 +371,7 @@ export default {
     .page_hint {
       /*display: flex;*/
       /*align-items: center;*/
-      background: #fff8e4;
+      background: lighten(#5885FD, 30%);
       line-height: 30px;
       padding: 4px 10px;
       img {
@@ -412,7 +412,7 @@ export default {
     }
 
     .attest {
-      background: #fff8e4;
+      background: lighten(#5885FD, 32%);
       padding: 25px;
       width: 500px;
       .title {
@@ -432,7 +432,7 @@ export default {
           font-size: 14px;
           text-align: center;
           &.status0 {
-            background-color: #d2a629;
+            background-color: #5885FD;
             background-size: cover;
           }
           &.status1 {
@@ -496,7 +496,7 @@ export default {
           .tag {
             width: 32px;
             height: 30px;
-            background: #d2a629;
+            background: #5885FD;
             text-align: center;
             cursor: pointer;
             img {

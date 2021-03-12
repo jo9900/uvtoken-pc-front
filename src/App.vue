@@ -23,6 +23,6 @@
 </script>
 <style>
   .gobaket:hover{
-    color: #D2A629;
+    color: #5885FD;
   }
 </style>

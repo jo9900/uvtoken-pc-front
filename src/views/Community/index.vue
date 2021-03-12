@@ -158,7 +158,7 @@ export default {
    .nodeet{
        font-size: 36px;
        font-family: Alibaba;
-       color: #D2A629;
+       color: #5885FD;
        line-height: 24px;
        position: relative;
        width: 167px;
@@ -173,7 +173,7 @@ export default {
         top: -15px;
         width: 13px;
         right: 13px;
-        border-left: 2px solid #D2A629;
+        border-left: 2px solid #5885FD;
         background-color: #fff;
         position: absolute;
         height: 60px;
@@ -209,7 +209,7 @@ export default {
         background-color: #fff;
         padding: 0 18px;
         font-size: 30px;
-        color: #D2A629;
+        color: #5885FD;
     }
     .acoert{
         z-index: 22;
@@ -217,7 +217,7 @@ export default {
         height: 7px;
         background-color: #ffffff;
         border-radius: 9999px;
-        border: 2px solid #D2A629;
+        border: 2px solid #5885FD;
     }
     .coanet-lkt{
         padding: 31px 20px 20px 15px;

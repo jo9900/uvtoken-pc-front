@@ -438,7 +438,7 @@ export default {
       margin: 20px auto 100px;
       .name {
         text-align: center;
-        color: #d2a629;
+        color: #5885FD;
         font-size: 36px;
       }
       .IDcard_box {
@@ -448,7 +448,7 @@ export default {
           height: 150px;
           line-height: 145px;
           text-align: center;
-          background: #fff6de;
+          background: #d8f7fa1f;
           border: 1px solid #d8d8d8;
           border-radius: 6px;
           margin-right: 20px;
@@ -468,13 +468,13 @@ export default {
   line-height: 28px;
   font-size: 16px;
   color: white;
-  background: url("../../assets/img/button_01.png") no-repeat 100% center;
+  background: linear-gradient(to right, #5885FD, #2db9f6);
 }
 .bBottn span:hover {
   text-decoration: underline;
 }
 .gobaket:hover {
-  color: #d2a629;
+  color: #5885FD;
 }
 .card {
   max-width: 132px;

@@ -512,7 +512,7 @@ export default {
   left: 54px;
 }
 /deep/ .simple-verify .verify-bar {
-  background-color: #bf8d08;
+  background-color: #2db9f6;
   top: 0px;
 }
 /deep/ .simple-verify .verify-bar .icon {
@@ -522,12 +522,12 @@ export default {
   border-radius: 0;
 }
 /deep/ .simple-verify .verify-tips {
-  color: #d2a629;
+  color: #5885FD;
 }
 .tstPoset {
   text-align: center;
   font-size: 18px;
-  color: #d2a629;
+  color: #5885FD;
   margin-bottom: 9px;
 }
 .tacoker {
