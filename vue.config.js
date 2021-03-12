@@ -34,13 +34,10 @@ module.exports = {
         hotOnly: true,
         proxy: {
             '/webmanage':{
-
                 target:'http://192.168.0.81:50523/',
                 changeOrigin:true,
                 ws:true,
-                pathRewrite:{
-                    '^/webmanage':'/webmanage'
-                }
+                pathRewrite:{"^/webmanage":""}
             }
         },
         before: app => { }

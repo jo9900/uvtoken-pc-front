@@ -260,7 +260,13 @@ const routes = [
             }
         ]
     },
-    { path: '/404', name: '404', label: '404', component: () => import('@/views/NotFound') },
+    {
+        path: '/404',
+        name: '404',
+        label: '404',
+        component: resolve => require( [ '@/views/Notfound/index.vue' ], resolve )
+
+    },
     { path: '*', redirect: '/404' }
 ]
 
