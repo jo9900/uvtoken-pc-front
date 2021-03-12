@@ -9,12 +9,14 @@
     "test": "vue-cli-service build --mode test"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "image-conversion": "^2.1.1",
     "js-sha256": "^0.9.0",
     "jsencrypt": "^3.0.0-rc.1",
+    "lodash": "^4.17.21",
     "moment": "^2.29.0",
     "qrcodejs2": "0.0.2",
     "qs": "^6.9.4",

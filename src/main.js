@@ -12,12 +12,14 @@ import store from './store'
 import VueSimpleVerify from 'vue-simple-verify'
 import '../node_modules/vue-simple-verify/dist/vue-simple-verify.css'
 // import ElementUI from 'element-ui';
-// import 'animate.css'
+import 'animate.css'
 import '@/theme/index.css'
 import '@/assets/css/default.css'
 import '@/assets/css/global.css'
 import '@/assets/css/hover.css'
 import i18n from './locale/locale'
+import _ from "lodash";
+
 import moment from "moment";
 import { Vue } from 'vue-property-decorator';
 Vue.prototype.$moment = moment;

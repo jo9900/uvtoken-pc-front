@@ -7,7 +7,7 @@
                     <div class="flext-all1"><img src="@/assets/img/logo_taft@2x.png"/></div>
                 </div>
             </div>
-            <div class="nav_options">
+            <div class="nav_options m-hide">
               <ul>
                 <li v-for="link in links" :key="link.path">
                   <router-link :title="link.text" :to="link.path">
@@ -61,6 +61,19 @@
                     </el-dropdown>
                 </div>
             </div>
+
+          <div class="m-show">
+            <el-dropdown>
+              <i class="el-icon-s-fold hamburg"></i>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item v-for="link in links" :key="link.path">
+                  <router-link :title="link.text" :to="link.path">
+                    {{ link.text }}
+                  </router-link>
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
         </div>
 
 
@@ -115,6 +128,10 @@ export default {
             {
               text: this.$t("text6"),
               path: '/help'
+            },
+            {
+              text: this.$t("text7"),
+              path: '/presale'
             },
           ],
             map: {
@@ -261,6 +278,7 @@ export default {
                 justify-content: space-between;
                 align-items: center;
                 font-size: 16px;
+                margin-left: auto;
                 .in{
                     color: #7B839AFF;
                     opacity: 0.7;

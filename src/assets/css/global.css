@@ -28,7 +28,7 @@
 .gradientLtoR{
     background:linear-gradient(to right,#efcf54, #bf8d08);
 }
-.el-dropdown-menu__item:focus, 
+.el-dropdown-menu__item:focus,
 .el-dropdown-menu__item:not(.is-disabled):hover {
     background-color:#fff;
     color: #5885FD;
@@ -200,4 +200,29 @@
 ::selection {
     background-color: #19d6e8;
     color: #fff;
+}
+.m-hide {
+    display: block;
+}
+.m-show {
+    display: none;
+}
+@media screen and (max-width:768px) {
+    .m-hide {
+        display: none;
+    }
+    .m-show {
+        display: block;
+    }
+    .wrap {
+        width: 100%;
+    }
+    .web_nav .wrap {
+        justify-content: flex-start !important;
+    }
+    .hamburg {
+        font-size: 24px;
+        color: #7B839A;
+        padding: 0 10px;
+    }
 }
