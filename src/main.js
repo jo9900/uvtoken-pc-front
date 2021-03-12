@@ -25,17 +25,11 @@ Vue.prototype.$moment = moment;
 Vue.prototype.$axios = axios;
 Vue.prototype.$langType = localStorage.getItem('langType')
 Vue.prototype.$lang = localStorage.getItem('lang')
-
-
+Vue.prototype.$BaseUrl = process.env.VUE_APP_BASE_API
 
 Vue.config.productionTip = false
 Vue.component('vue-simple-verify', VueSimpleVerify)
 
-if(process.env.NODE_ENV === 'development'){
-    Vue.prototype.$BaseUrl = "http://192.168.0.60:9000/"
-}else{
-    Vue.prototype.$BaseUrl = process.env.VUE_APP_BASE_API
-}
 // process.env.VUE_APP_BASE_API
 new Vue({
   router,

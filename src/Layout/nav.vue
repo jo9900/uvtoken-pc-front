@@ -30,7 +30,6 @@
                     <el-dropdown  @command="handleClick">
                         <span class="el-dropdown-link">
                             {{userCode}}
-                            <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="center">
@@ -41,10 +40,11 @@
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
+                    <i class="el-icon-arrow-down el-icon--right menu-arrow"></i>
                 </div>
-
+                <div class="divider"></div>
                 <div class="nav_language">
-                    <el-dropdown  @command="languageChange">
+                    <el-dropdown  @command="languageChange" placement="bottom">
                         <span class="el-dropdown-link">
                            简体中文
                             <i class="el-icon-arrow-down el-icon--right"></i>
@@ -220,8 +220,6 @@ export default {
                 font-size: 24px;
             }
             .nav_options{
-                /*width: 542px;*/
-                /*width: 612px;*/
                 flex: 1;
                 ul{
                     /*display: flex;*/
@@ -235,7 +233,7 @@ export default {
                         float: left;
                         position: relative;
                         max-width: 94px;
-                        margin-right: 41px;
+                        margin-right: 31px;
                         transition: all 0.5s;
                         height: 36px;
                         line-height: 36px;
@@ -261,14 +259,14 @@ export default {
             .nav_center{
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 font-size: 16px;
                 .in{
                     color: #7B839AFF;
                     opacity: 0.7;
                 }
                 .userInfo{
-                    overflow: hidden;
-                    width: 133px;
+                    min-width: 133px;
                     white-space: nowrap;
                     text-overflow: ellipsis;
 
@@ -281,8 +279,13 @@ export default {
                     }
                 }
             }
+            .divider {
+                width: 1px;
+                height: 36px;
+                background: #F7F7F7;
+                margin: 0 20px;
+            }
             /deep/   .nav_language{
-                margin-left: 40px;
 
 
               /deep/ .el-dropdown{

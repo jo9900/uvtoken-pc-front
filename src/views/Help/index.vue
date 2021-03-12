@@ -27,12 +27,15 @@
             <div class="title-1">常见问题</div>
             <div class="coak">
               <div class="bmllort">
-                <div class="boet" v-for="item in listData" :key="item.id">
+<!--                <div class="boet" v-for="item in listData" :key="item.id">
                   <router-link
                     :to="{ path: '/helpDetail', query: { id: item.id } }"
                   >
                     <div class="title-2">{{ item.issueName }}</div>
                   </router-link>
+                </div>-->
+                <div class="boet" v-for="(item, index) in listTitle">
+                  <div class="title-2" @click="changeRoute(index)">{{ item }}</div>
                 </div>
               </div>
             </div>
@@ -55,6 +58,20 @@ export default {
   data() {
     return {
       listData: [],
+      listTitle: [
+          '什么是去中心化钱包？',
+          '什么是HD钱包、托管钱包、多链钱包？',
+          '什么是助记词？',
+          '为什么一定要备份助记词！',
+          '如何备份助记词？',
+          '什么是私钥？',
+          '钱包密码忘了怎么办？',
+          '为什么搜索不到某个代币?',
+          '转账不成功怎么办?',
+          '钱包被盗怎么办?',
+          '转错地址怎么办？',
+          '如何申请海外 Apple ID？?',
+      ],
       languageNav: languageNav,
       langType: this.$langType,
     };
@@ -64,10 +81,18 @@ export default {
   methods: {
     getlist() {
       helpList().then((res) => {
-        if (res.code === 0) 
+        if (res.code === 0)
           this.listData = res.data;
       });
     },
+    changeRoute(index) {
+      this.$router.push({
+        path: '/helpDetail',
+        query: {
+          id: index + 1
+        }
+      })
+    }
   },
   created() {
     this.getlist();
@@ -128,7 +153,7 @@ export default {
     background: #f8fbff;
     .wrap {
       .contetnt {
-        
+
         height: 500px;
         .contetnt_text {
           width: 597px;

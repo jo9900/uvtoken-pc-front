@@ -28,6 +28,20 @@
 .gradientLtoR{
     background:linear-gradient(to right,#efcf54, #bf8d08);
 }
+.el-dropdown-menu__item:focus, 
+.el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color:#fff;
+    color: #5885FD;
+}
+.el-dropdown-menu {
+    text-align: center;
+    width: 140px;
+}
+
+ .el-dropdown-menu  .el-dropdown-menu__item {
+    font-size: 14px;
+    color: #7B839A;
+}
 @-webkit-keyframes fadeInLeft {
     from {
         opacity: 0;
