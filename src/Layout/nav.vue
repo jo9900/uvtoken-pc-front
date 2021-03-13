@@ -232,7 +232,6 @@ export default {
             align-items: center;
             justify-content: space-between;
             color: #272727;
-            transform: translateZ(0);
             .nav_logo{
                 font-size: 24px;
             }

@@ -42,7 +42,7 @@ const routes = [
             },
             {
                 path: '/newsDetail',
-                name: 'news',
+                name: 'newsDetail',
                 label: '新闻详情',
                 meta: { requiresAuth: false, title: "新闻" },
                 component: resolve => require( [ '@/views/News/newsDetail.vue' ], resolve )
