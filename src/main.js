@@ -22,6 +22,9 @@ import _ from "lodash";
 
 import moment from "moment";
 import { Vue } from 'vue-property-decorator';
+import SlideVerify from 'vue-monoplasty-slide-verify';
+
+Vue.use(SlideVerify);
 Vue.prototype.$moment = moment;
 // Vue.prototype.$qs = qs;
 Vue.prototype.$axios = axios;

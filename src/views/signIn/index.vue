@@ -181,13 +181,10 @@ import {
   login,
   signIn,
   mailVcode,
-  findPassword,
-  resetPassword,
 } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 import languageNav from "@/language/login";
-import Vue from "vue";
 let that;
 export default {
   name: "",

@@ -73,8 +73,8 @@
         position: relative;
         background-color: #e8e8e8;
         width: 100%;
-        height: 34px;
-        line-height: 34px;
+        height: 40px;
+        line-height: 40px;
         text-align: center;
     }
     .handler{
