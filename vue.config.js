@@ -37,7 +37,6 @@ module.exports = {
                 target:'http://192.168.0.81:50523/',
                 changeOrigin:true,
                 ws:true,
-                pathRewrite:{"^/webmanage":""}
             }
         },
         before: app => { }
