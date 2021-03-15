@@ -109,16 +109,16 @@
             >
           </template>
         </div>
+        
       </div>
     </div>
-    <el-dialog
+    <!-- <el-dialog
       :visible.sync="verify"
       title="验证"
       center
       :close-on-click-modal="false"
       :show-close="false"
       width="400px"
-      center
     >
       <vue-simple-verify
         movedColor="#5885FDFF"
@@ -127,9 +127,28 @@
         ref="verify"
         @success="success"
       />
-    </el-dialog>
+    </el-dialog> -->
 
-    <!--<webFoot></webFoot>-->
+    <el-dialog
+          :visible.sync="dialogVisible"
+          @close="closeVerifyDialog"
+          :show-close="false"
+          top="30vh"
+          width="368px">
+        <div class="verify-dialog-content">
+          <div class="verify-title">请完成安全验证</div>
+          <slide-verify :l="42"
+                        :r="10"
+                        :w="310"
+                        :h="155"
+                        slider-text="向右滑动"
+                        @success="onSuccess"
+                        @fail="onFail"
+                        @refresh="onRefresh"
+                        ref="slideblock"
+          ></slide-verify>
+        </div>
+      </el-dialog>
   </div>
 </template>
 
@@ -149,11 +168,12 @@ import {
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 import languageNav from "@/language/login";
-import Vue from "vue";
+import MixinSlideVerify from "@/mixin/slideVerify.js"
 let that;
 export default {
   name: "",
   components: { webNav, webFoot },
+  mixins: [MixinSlideVerify],
   data() {
     var Elowert = (rule, value, callback) => {
       // let reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
@@ -181,6 +201,7 @@ export default {
       }
     };
     return {
+      dialogVisible: false,
       languageNav: languageNav,
       langType: this.$langType,
       fromPath: "",
@@ -247,6 +268,10 @@ export default {
   computed: {},
 
   methods: {
+    closeVerifyDialog() {
+      this.loading = false
+      this.handleClick()
+    },
     toReset() {
       this.$router.push("forget");
     },
@@ -315,11 +340,17 @@ export default {
     userText() {
       this.$router.push({ path: "/userText" });
     },
-
+    onSuccess() {
+       setTimeout(() => {
+        this.sendcode();
+        this.resetCode = true;
+        this.dialogVisible = false;
+      }, 500);
+    },
     resetDataCode() {
       this.$refs["resetForm"].validate((valid) => {
         if (valid) {
-          this.verify = true;
+          this.dialogVisible = true;
         }
       });
     },

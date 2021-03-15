@@ -18,7 +18,7 @@ module.exports = {
     },
     productionSourceMap: false,
 
-    outputDir: 'dist-web',
+    outputDir: 'dist-web-pc',
     assetsDir: 'assets',
 
     lintOnSave: true,

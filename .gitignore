@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
-/dist
-
-
+/dist-web-pc
+jsconfig.json
+.history
 # local env files
 .env.local
 .env.*.local
