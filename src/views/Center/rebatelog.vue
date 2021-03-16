@@ -5,15 +5,15 @@
     <div class="wrap">
       <div class="page_indicator">
         <router-link class="gobaket" dir="ltr" to="/center">{{
-          languageNav[langType].language_text1
+          $t( 'text114' )
         }}</router-link>
-        > {{ languageNav[langType].language_text8 }}
+        > {{ $t( 'text159' ) }}
       </div>
       <div class="page_content">
         <el-table :data="tableData" style="width: 100%" stripe>
           <el-table-column
             prop="rebate_time"
-            :label="languageNav[langType].language_text3"
+            :label="$t( 'text146' )"
           >
             <template slot-scope="scope">
               <span v-if="scope.row.rebate_time">{{
@@ -24,50 +24,50 @@
           </el-table-column>
           <el-table-column
             prop="username"
-            :label="languageNav[langType].language_text9"
+            :label="$t( 'text156' )"
           ></el-table-column>
 
           <el-table-column
             prop="round "
-            :label="languageNav[langType].language_text70"
+            :label="$t( 'text160' )"
           >
             <template slot-scope="scope">
               <span>{{
                 scope.row.rebate_level == 1
-                  ? languageNav[langType].language_text71
-                  : languageNav[langType].language_text72
+                  ? $t( 'text161' )
+                  : $t( 'text162' )
               }}</span>
             </template>
           </el-table-column>
 
           <el-table-column
             prop="round "
-            :label="languageNav[langType].language_text4"
+            :label="$t( 'text147' )"
           >
             <template slot-scope="scope">
               <span>
                 {{
                   scope.row.round == 1
-                    ? languageNav[langType].language_text73
+                    ? $t( 'text150' )
                     : scope.row.round == 2
-                    ? languageNav[langType].language_text74
-                    : languageNav[langType].language_text89
+                    ? $t( 'text151' )
+                    : $t( 'text152' )
                 }}
               </span>
             </template>
           </el-table-column>
           <el-table-column
             prop="apply_amount"
-            :label="languageNav[langType].language_text7 + '    (USDT)'"
+            :label="$t( 'text153' ) + '    (USDT)'"
           ></el-table-column>
           <el-table-column
             prop="rebate_amount"
-            :label="languageNav[langType].language_text10 + '    (USDT)'"
+            :label="$t( 'text163' ) + '    (USDT)'"
           ></el-table-column>
 
           <template slot="empty">
             <div class="noData">
-              {{ languageNav[langType].language_text11 }}
+              {{ $t( 'text154' ) }}
             </div>
           </template>
         </el-table>
@@ -87,7 +87,6 @@
 <script>
 import webFoot from "@/Layout/footer";
 import { rebateLog } from "@/request/user.js";
-import languageNav from "@/language/coander";
 export default {
   name: "",
   components: { webFoot },
@@ -101,7 +100,6 @@ export default {
       },
       tableData: [],
       total: 0,
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },
@@ -117,8 +115,8 @@ export default {
       let params = this.form;
       rebateLog(params).then((res) => {
         if (res.code == 0) {
-          this.tableData = res.data.records;
-          this.total = res.data.total;
+          this.tableData = res.data;
+          this.total = res.data.count;
         } else {
           this.$message.error(res.msg);
         }

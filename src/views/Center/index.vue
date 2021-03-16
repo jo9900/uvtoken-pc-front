@@ -5,7 +5,7 @@
     <div class="card">
       <div class="page_hint color5885FD">
        <i class="el-icon-warning"></i>
-        {{ languageNav[langType].language_text0 }}
+        {{ $t('usercenter.text0') }}
       </div>
       <div class="user_info_box">
         <div class="user_info">
@@ -14,7 +14,7 @@
           </div>
           <div class="user_about">
             <div class="about_row">
-              <p class="title">{{ languageNav[langType].language_text1 }}</p>
+              <p class="title">{{ $t('usercenter.text1') }}</p>
               <p
                 class="color5885FD"
                 :class="{ taost: userInfo.kyc_status == 1 }"
@@ -23,21 +23,21 @@
                   {{
                     userInfo.kyc_status == 1
                       ? userInfo.last_name + " · " + userInfo.first_name
-                      : languageNav[langType].language_text4
+                      : $t( 'usercenter.text4' )
                   }}
                 </template>
                 <template v-else>
                   {{
                     userInfo.kyc_status == 1
                       ? userInfo.first_name + userInfo.last_name
-                      : languageNav[langType].language_text4
+                      : $t( 'usercenter.text4' )
                   }}
                 </template>
               </p>
             </div>
 
             <div class="about_row">
-              <p class="title">{{ languageNav[langType].language_text2 }}</p>
+              <p class="title">{{ $t( 'usercenter.text2' ) }}</p>
 
               <p
                 class="color5885FD"
@@ -45,13 +45,13 @@
               >
                 <template v-if="userInfo.kyc_status == 1">
                   {{
-                    langType == "Chinese"
+                    langType == "zh"
                       ? userInfo.country_name
                       : userInfo.country_name_en
                   }}
                 </template>
                 <template v-else>{{
-                  languageNav[langType].language_text4
+                  $t( 'usercenter.text4' )
                 }}</template>
               </p>
             </div>
@@ -61,51 +61,51 @@
         <div class="attest">
           <template v-if="userInfo.kyc_status == 0">
             <div class="title color5885FD">
-              {{ languageNav[langType].language_text3 }}
+              {{ $t( 'usercenter.text3' ) }}
               <div class="center_targe status0">
-                {{ languageNav[langType].language_text4 }}
+                {{ $t( 'usercenter.text4' ) }}
               </div>
             </div>
-            <div class="info">{{ languageNav[langType].language_text24 }}</div>
+            <div class="info">{{ $t( 'usercenter.text24' ) }}</div>
             <div class="info">
-              {{ languageNav[langType].language_text25 }}
+              {{ $t( 'usercenter.text25' ) }}
               <span class="color5885FD" @click="toApply"
-                >{{ languageNav[langType].language_text5 }} >
+                >{{ $t( 'usercenter.text4' ) }} >
               </span>
             </div>
           </template>
           <template v-if="userInfo.kyc_status == 1">
             <div class="title color5885FD">
-              {{ languageNav[langType].language_text3 }}
+              {{ $t( 'usercenter.text3' ) }}
               <div class="center_targe status1">
-                {{ languageNav[langType].language_text6 }}
+                {{ $t( 'usercenter.text6' )}}
               </div>
             </div>
-            <div class="info">{{ languageNav[langType].language_text26 }}</div>
+            <div class="info">{{ $t( 'usercenter.text26' ) }}</div>
           </template>
           <template v-if="userInfo.kyc_status == 2">
             <div class="title color5885FD">
-              {{ languageNav[langType].language_text3 }}
+              {{ $t( 'usercenter.text3' ) }}
               <div class="center_targe status2">
-                {{ languageNav[langType].language_text7 }}
+                {{ $t( 'usercenter.text7' ) }}
               </div>
             </div>
-            <div class="info">{{ languageNav[langType].language_text27 }}</div>
+            <div class="info">{{ $t( 'usercenter.text27' ) }}</div>
           </template>
           <template v-if="userInfo.kyc_status == 3">
             <div class="title color5885FD">
-              {{ languageNav[langType].language_text3 }}
+              {{ $t( 'usercenter.text3' ) }}
               <div class="center_targe status3">
-                {{ languageNav[langType].language_text8 }}
+                {{ $t( 'usercenter.text8' ) }}
               </div>
             </div>
-            <div class="info">{{ languageNav[langType].language_text28 }}</div>
+            <div class="info">{{ $t( 'usercenter.text28' ) }}</div>
             <div class="info">
               <span
                 class="color5885FD rkot"
                 @click="lookUp"
                 style="margin: 0"
-                >{{ languageNav[langType].language_text9 }}</span
+                >{{ $t( 'usercenter.text9' ) }}</span
               >
             </div>
           </template>
@@ -113,16 +113,16 @@
       </div>
     </div>
     <div class="card">
-      <div class="card_title">{{ languageNav[langType].language_text10 }}</div>
+      <div class="card_title">{{ $t( 'usercenter.text10' ) }}</div>
       <div class="cart_box">
         <div class="cart_box_item">
           <div class="item_title">
-            <span>{{ languageNav[langType].language_text14 }}</span>
+            <span>{{ $t( 'usercenter.text14' ) }}</span>
             <span
               class="color5885FD"
               @click="toApplyBuylog"
               style="cursor: pointer"
-              >{{ languageNav[langType].language_text11 }}</span
+              >{{ $t( 'usercenter.text11' ) }}</span
             >
           </div>
           <div class="margintop40 color5885FD">
@@ -132,9 +132,9 @@
         </div>
         <div class="cart_box_item">
           <div class="item_title">
-            <span>{{ languageNav[langType].language_text15 }}</span>
+            <span>{{ $t( 'usercenter.text15' ) }}</span>
             <span class="color5885FD" style="cursor: pointer" @click="sofert">{{
-              languageNav[langType].language_text133
+              $t( 'usercenter.text133' )
             }}</span>
           </div>
           <div class="margintop40 color5885FD">
@@ -145,16 +145,16 @@
       </div>
     </div>
     <div class="card">
-      <div class="card_title">{{ languageNav[langType].language_text13 }}</div>
+      <div class="card_title">{{ $t( 'usercenter.text13' ) }}</div>
       <div class="cart_box">
         <div class="cart_box_item">
           <div class="item_title">
-            <span>{{ languageNav[langType].language_text16 }}</span>
+            <span>{{ $t( 'usercenter.text16' ) }}</span>
             <span
               class="color5885FD"
               @click="toRebatelog"
               style="cursor: pointer"
-              >{{ languageNav[langType].language_text11 }}</span
+              >{{ $t( 'usercenter.text11' ) }}</span
             >
           </div>
           <div class="margintop60 color5885FD">
@@ -163,22 +163,22 @@
         </div>
         <div class="cart_box_item">
           <div class="item_title">
-            <span>{{ languageNav[langType].language_text17 }}</span>
+            <span>{{ $t( 'usercenter.text17' ) }}</span>
             <span
               class="color5885FD"
               @click="toExtendLog"
               style="cursor: pointer"
-              >{{ languageNav[langType].language_text11 }}</span
+              >{{ $t( 'usercenter.text11' ) }}</span
             >
           </div>
           <div class="margintop60 color5885FD">
             {{ marketing.invite_count }}
-            {{ languageNav[langType].language_text12 }}
+            {{ $t( 'usercenter.text12' ) }}
           </div>
         </div>
         <div class="cart_box_item">
           <div class="item_title">
-            <span>{{ languageNav[langType].language_text18 }}</span>
+            <span>{{ $t( 'usercenter.text18' ) }}</span>
           </div>
           <div class="">
             <template v-if="myPreSale.apply_usdt_amount > 0">
@@ -206,7 +206,7 @@
               <div
                 style="margin-top: 27px; font-size: 14px; color: rgb(255, 7, 7)"
               >
-                {{ languageNav[langType].language_text146 }} !
+                {{ $t( 'usercenter.text146' ) }} !
               </div>
             </template>
           </div>
@@ -214,19 +214,19 @@
       </div>
     </div>
     <div class="card">
-      <div class="card_title">{{ languageNav[langType].language_text19 }}</div>
+      <div class="card_title">{{ $t( 'usercenter.text19' ) }}</div>
       <div class="card_row">
         <span class="row_name">{{
-          languageNav[langType].language_text20
+          $t( 'usercenter.text20' )
         }}</span>
         <span>{{ userInfo.email }}</span>
       </div>
       <div class="card_row">
         <span class="row_name">{{
-          languageNav[langType].language_text21
+          $t( 'usercenter.text21' )
         }}</span>
         <span class="color5885FD" style="cursor: pointer" @click="toEditPas">{{
-          languageNav[langType].language_text22
+          $t( 'usercenter.text22' )
         }}</span>
       </div>
     </div>
@@ -237,7 +237,6 @@
 <script>
 import { userInfo, myPreSale, myMarketing } from "@/request/user.js";
 import webFoot from "@/components/footer";
-import languageNav from "@/language/user";
 export default {
   name: "",
   components: { webFoot },
@@ -263,7 +262,6 @@ export default {
         invite_code: "",
         invite_url: "",
       },
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },
@@ -278,7 +276,7 @@ export default {
       document.execCommand("Copy");
       createInput.className = "createInput";
       createInput.style.display = "none";
-      this.$message(this.languageNav[this.$langType].language_text23);
+      this.$message(this.$t( 'usercenter.text23' ));
     },
 
     getUserInfo() {

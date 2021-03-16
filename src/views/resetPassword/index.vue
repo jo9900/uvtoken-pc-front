@@ -7,9 +7,8 @@
       <div class="wrap">
         <div class="case forget_case">
           <div class="case_title">
-            {{ languageNav[langType].language_text10 }}
+            {{ $t( 'login.text10' ) }}
           </div>
-
           <template v-if="!resetCode">
             <el-form
               style="margin: 17px 0px 47px"
@@ -179,7 +178,7 @@ export default {
       // let reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
       let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
       if (!reg.test(value)) {
-        callback(new Error(languageNav[this.$langType].language_text13));
+        callback(new Error(this.$t( 'login.text13' )));
       } else {
         callback();
       }
@@ -187,7 +186,7 @@ export default {
     const validatePassword = (rule, value, callback) => {
       let codeReg = /(?!^(\d+|[a-zA-Z]+|[~!@#$%^&*?]+)$)^[\w~!@#$%^&*?]{8,30}$/;
       if (!codeReg.test(value)) {
-        callback(new Error(languageNav[this.$langType].language_text12));
+        callback(new Error(this.$t( 'login.text12' )));
       } else {
         callback();
       }
@@ -195,7 +194,7 @@ export default {
 
     const validatePasswordAagin = (rule, value, callback) => {
       if (value != this.resetData.pwd) {
-        callback(new Error(languageNav[this.$langType].language_text26));
+        callback(new Error(this.$t( 'login.text26' )));
       } else {
         callback();
       }
@@ -213,7 +212,7 @@ export default {
       signInCode: false,
       resetCode: false,
       time: 60,
-      btntxt: languageNav[this.$langType].language_text14,
+      btntxt: this.$t( 'login.text14' ),
       loginForm: {
         email: "",
         password: "",
@@ -238,7 +237,7 @@ export default {
         mail: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text2,
+            message: this.$t( 'login.text2' ),
             trigger: "blur",
           },
           { validator: Elowert, required: true, trigger: "blur" },
@@ -246,7 +245,7 @@ export default {
         pwd: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text3,
+            message: this.$t( 'login.text3' ),
             trigger: "blur",
           },
           { validator: validatePassword, required: true, trigger: "blur" },
@@ -258,7 +257,7 @@ export default {
         verifyCode: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text5,
+            message: this.$t( 'login.text5' ),
             trigger: "blur",
           },
         ],
@@ -302,21 +301,21 @@ export default {
       mailVcode(data).then((res) => {
         if (res.code == 0) {
           this.$message({
-            message: languageNav[this.$langType].language_text17,
+            message: this.$t( 'login.text17' ),
             type: "success",
           });
         } else {
           if (res.code == "101702") {
             return this.$message.error(
-              languageNav[this.$langType].language_text18
+              this.$t( 'login.text18' )
             );
           } else if (res.code == "101703") {
             return this.$message.error(
-              languageNav[this.$langType].language_text19
+              this.$t( 'login.text19' )
             );
           } else if (res.code == "101704") {
             return this.$message.error(
-              languageNav[this.$langType].language_text23
+              this.$t( 'login.text23' )
             );
           } else {
             this.$message.error(res.msg);
@@ -333,7 +332,7 @@ export default {
         setTimeout(this.timer, 1000);
       } else {
         this.time = 60;
-        this.btntxt = languageNav[this.$langType].language_text14;
+        this.btntxt = this.$t( 'login.text14' );
         this.disabled = false;
       }
     },
@@ -371,7 +370,7 @@ export default {
               this.loading = false;
               if (res.code == 0) {
                 this.$message({
-                  message: languageNav[this.$langType].language_text27,
+                  message: this.$t( 'login.text27' ),
                   type: "success",
                 });
                 this.$router.push("login");

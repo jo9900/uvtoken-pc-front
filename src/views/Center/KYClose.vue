@@ -5,17 +5,17 @@
     <div class="wrap">
       <div class="page_indicator">
         <router-link class="gobaket" dir="ltr" to="/center">{{
-          languageNav[langType].language_text1
+          $t( 'text114' )
         }}</router-link>
-        > {{ languageNav[langType].language_text26 }}
+        > {{ $t( 'text115' ) }}
       </div>
       <div class="page_content">
         <div class="name">KYC</div>
         <img class="KYC_logo" src="@/assets/img/KYC_logo.png" alt="" />
-        <div class="status">{{ languageNav[langType].language_text27 }}</div>
+        <div class="status">{{ $t( 'text157' ) }}</div>
         <div class="describe">{{ userInfo.kyc_remark }}</div>
         <div class="again_btn" @click="againApply">
-          {{ languageNav[langType].language_text28 }}
+          {{ $t( 'text158' ) }}
         </div>
       </div>
     </div>
@@ -26,14 +26,12 @@
 <script>
 import webFoot from "@/Layout/footer";
 import { userInfo } from "@/request/user.js";
-import languageNav from "@/language/coander";
 export default {
   name: "",
   components: { webFoot },
   data() {
     return {
       userInfo: {},
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },

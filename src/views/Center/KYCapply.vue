@@ -5,9 +5,9 @@
     <div class="wrap">
       <div class="page_indicator">
         <router-link class="gobaket" dir="ltr" to="/center">{{
-          languageNav[langType].language_text1
+          $t( 'text114' )
         }}</router-link>
-        > {{ languageNav[langType].language_text26 }}
+        > {{ $t( 'text115' ) }}
       </div>
       <div class="page_content">
         <div class="name">KYC</div>
@@ -22,18 +22,19 @@
             <el-col :span="24">
               <!--label="Country / Region"-->
               <el-form-item
-                :label="languageNav[langType].language_text29"
+                :label="$t( 'text116' )"
                 prop="country_code"
               >
                 <el-select
                   v-model="formLabelAlign.country_code"
-                  :placeholder="languageNav[langType].language_text30"
+                  :placeholder="$t( 'text117' )"
                   style="width: 100%"
                 >
                   <el-option
-                    :label="langType == 'Chinese' ? item.name_cn : item.name_en"
+                    :label="$lang == 'zh' ? item.name_cn : item.name_en"
                     :value="item.code"
                     v-for="item in areaList"
+                    :key="item.code"
                   ></el-option>
                 </el-select>
               </el-form-item>
@@ -42,7 +43,7 @@
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item
-                :label="languageNav[langType].language_text31"
+                :label="$t( 'text118' )"
                 prop="first_name"
               >
                 <el-input v-model.trim="formLabelAlign.first_name"></el-input>
@@ -51,7 +52,7 @@
             <el-col :span="12">
               <!--label="First  Name"-->
               <el-form-item
-                :label="languageNav[langType].language_text32"
+                :label="$t( 'text119' )"
                 prop="last_name"
               >
                 <el-input v-model.trim="formLabelAlign.last_name"></el-input>
@@ -63,24 +64,24 @@
             <el-col>
               <!--label="ID Type"-->
               <el-form-item
-                :label="languageNav[langType].language_text33"
+                :label="$t( 'text120' )"
                 prop="id_type"
               >
                 <el-select
                   v-model="formLabelAlign.id_type"
-                  :placeholder="languageNav[langType].language_text34"
+                  :placeholder="$t( 'text121' )"
                   style="width: 100%"
                 >
                   <el-option
-                    :label="languageNav[langType].language_text35"
+                    :label="$t( 'text122' )"
                     value="1"
                   ></el-option>
                   <el-option
-                    :label="languageNav[langType].language_text36"
+                    :label="$t( 'text123' )"
                     value="2"
                   ></el-option>
                   <el-option
-                    :label="languageNav[langType].language_text37"
+                    :label="$t( 'text124' )"
                     value="3"
                   ></el-option>
                 </el-select>
@@ -92,12 +93,12 @@
               <el-form-item
                 :label="
                   formLabelAlign.id_type == ''
-                    ? languageNav[langType].language_text38
+                    ? $t( 'text125' )
                     : formLabelAlign.id_type == 1
-                    ? languageNav[langType].language_text39
+                    ? $t( 'text126' )
                     : formLabelAlign.id_type == 2
-                    ? languageNav[langType].language_text40
-                    : languageNav[langType].language_text41
+                    ? $t( 'text127' )
+                    : $t( 'text128' )
                 "
                 prop="id_number"
               >
@@ -108,7 +109,7 @@
           <el-row>
             <el-col :span="24">
               <el-form-item
-                :label="languageNav[langType].language_text42"
+                :label="$t( 'text129' )"
                 prop="isImg"
               >
                 <div class="IDcard_box">
@@ -121,7 +122,7 @@
                   >
                     <img v-if="id_front" :src="id_front" class="card" />
                     <i v-else class="el-icon-plus card-uploader-icon"
-                      >{{ languageNav[langType].language_text43 }}
+                      >{{ $t( 'text130' ) }}
                     </i>
                   </el-upload>
 
@@ -134,26 +135,26 @@
                   >
                     <img v-if="id_back" :src="id_back" class="card" />
                     <i v-else class="el-icon-plus card-uploader-icon"
-                      >{{ languageNav[langType].language_text44 }}
+                      >{{ $t( 'text131' ) }}
                     </i>
                   </el-upload>
                 </div>
               </el-form-item>
               <div style="font-size: 14px; color: #b1acac; margin-bottom: 20px">
-                {{ languageNav[langType].language_text87 }}
+                {{ $t( 'text142' ) }}
               </div>
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="24">
               <el-form-item
-                :label="languageNav[langType].language_text45"
+                :label="$t( 'text132' )"
                 prop="birth_date"
               >
                 <el-date-picker
                   type="date"
                   value-format="yyyy-MM-dd"
-                  :placeholder="languageNav[langType].language_text46"
+                  :placeholder="$t( 'text133' )"
                   v-model="formLabelAlign.birth_date"
                   style="width: 100%"
                 ></el-date-picker>
@@ -163,7 +164,7 @@
           <el-row>
             <el-col :span="24">
               <el-form-item
-                :label="languageNav[langType].language_text47"
+                :label="$t( 'text134' )"
                 prop="mobile_no"
               >
                 <el-input v-model.trim="formLabelAlign.mobile_no"></el-input>
@@ -171,7 +172,7 @@
             </el-col>
           </el-row>
           <el-button class="bBottn" :loading="loading" @click="subFromData">
-            <span>{{ languageNav[langType].language_text48 }}</span>
+            <span>{{ $t( 'text135' ) }}</span>
           </el-button>
         </el-form>
       </div>
@@ -183,7 +184,6 @@
 <script>
 import webFoot from "@/Layout/footer";
 import { areaList, addkyc, kycInfo } from "@/request/user";
-import languageNav from "@/language/coander";
 import * as imageConversion from "image-conversion";
 export default {
   name: "",
@@ -195,7 +195,6 @@ export default {
       id_front: "",
       id_back: "",
       loading: false,
-      languageNav: languageNav,
       langType: this.$langType,
       formLabelAlign: {
         user_code: localStorage.getItem("code"),
@@ -215,56 +214,56 @@ export default {
         country_code: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text49,
+            message: this.$t( 'text136' ).language_text49,
             trigger: "change",
           },
         ],
         first_name: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ),
             trigger: "blur",
           },
         ],
         last_name: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ).language_text50,
             trigger: "blur",
           },
         ],
         id_type: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ).language_text50,
             trigger: "change",
           },
         ],
         id_number: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ).language_text50,
             trigger: "blur",
           },
         ],
         isImg: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ),
             trigger: "change",
           },
         ],
         birth_date: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ),
             trigger: "change",
           },
         ],
         mobile_no: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text50,
+            message: this.$t( 'text137' ),
             trigger: "blur",
           },
         ],
@@ -310,21 +309,21 @@ export default {
                     isImg: "",
                   }),
                   this.$message.success({
-                    message: this.languageNav[this.$langType].language_text51,
+                    message: this.$t( 'text138' ),
                     type: "success",
                     duration: 4000,
                   });
                 this.$router.push({ path: "/center" });
               } else {
                 this.$message.error(
-                  this.languageNav[this.$langType].language_text52
+                  this.$t( 'text139' )
                 );
               }
             },
             () => {
               this.loading = false;
               this.$message.error(
-                this.languageNav[this.$langType].language_text88
+                this.$t( 'text139' )
               );
             }
           );
@@ -349,7 +348,7 @@ export default {
     get_areaList() {
       areaList().then((res) => {
         if (res.code == 0) {
-          this.areaList = res.data.list;
+          this.areaList = res.data;
         }
       });
     },
@@ -358,11 +357,11 @@ export default {
       console.log(file);
       var testmsg = /^image\/(jpeg|png|jpg)$/.test(file.type);
       if (!testmsg) {
-        this.$message.error(this.languageNav[this.$langType].language_text79);
+        this.$message.error(this.$t( 'text143' ));
         return false;
       }
       if (file.size / 1024 / 1024 > 4) {
-        this.$message.error(this.languageNav[this.$langType].language_text86);
+        this.$message.error(this.$t( 'text144' ));
         return;
       }
       imageConversion.compress(file, 0.7).then(
@@ -375,7 +374,7 @@ export default {
           }
         },
         () => {
-          this.$message.error(this.languageNav[this.$langType].language_text79);
+          this.$message.error(this.$t( 'text143' ));
           return;
         }
       );
@@ -383,11 +382,11 @@ export default {
     fileChange1(file) {
       var testmsg = /^image\/(jpeg|png|jpg)$/.test(file.type);
       if (!testmsg) {
-        this.$message.error(this.languageNav[this.$langType].language_text79);
+        this.$message.error(this.$t( 'text143' ));
         return false;
       }
       if (file.size / 1024 / 1024 > 4) {
-        this.$message.error(this.languageNav[this.$langType].language_text86);
+        this.$message.error(this.$t( 'text144' ));
         return;
       }
       imageConversion.compress(file, 0.7).then(
@@ -400,7 +399,7 @@ export default {
           }
         },
         () => {
-          this.$message.error(this.languageNav[this.$langType].language_text79);
+          this.$message.error(this.$t( 'text143' ));
           return;
         }
       );

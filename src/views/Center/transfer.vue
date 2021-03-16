@@ -5,13 +5,13 @@
       <input type="password" style="display: none" />
       <div class="page_indicator">
         <router-link class="gobaket" dir="ltr" to="/center">{{
-          languageNav[langType].language_text1
+          $t( 'text114' )
         }}</router-link>
-        > {{ languageNav[langType].language_text60 }}
+        > {{ $t( 'text164' ) }}
       </div>
       <div class="page_content">
         <div class="ltoet">
-          <div class="qs_rt">{{ languageNav[langType].language_text61 }}</div>
+          <div class="qs_rt">{{ $t( 'text165' ) }}</div>
           <div class="wolaet">
             <el-form
               class="data_form"
@@ -21,7 +21,7 @@
               ref="dataForm"
               :model="dataForm"
             >
-              <el-form-item :label="languageNav[langType].language_text62">
+              <el-form-item :label="$t( 'text166' )">
                 <el-input
                   type="text"
                   disabled
@@ -29,38 +29,38 @@
                 ></el-input>
               </el-form-item>
               <el-form-item
-                :label="languageNav[langType].language_text63"
+                :label="$t( 'text167' )"
                 prop="to_account"
               >
                 <el-input
                   type="text"
-                  :placeholder="languageNav[langType].language_text65"
+                  :placeholder="$t( 'text169' )"
                   v-model.trim="dataForm.to_account"
                 ></el-input>
               </el-form-item>
               <el-form-item
-                :label="languageNav[langType].language_text64"
+                :label="$t( 'text168' )"
                 prop="taft_amount"
               >
                 <el-input
                   type="number"
                   v-model.trim="dataForm.taft_amount"
-                  :placeholder="languageNav[langType].language_text66"
+                  :placeholder="$t( 'text170' )"
                 ></el-input>
               </el-form-item>
             </el-form>
             <el-button class="submit_btn" @click="subFrom">{{
-              languageNav[langType].language_text48
+              $t( 'text41' )
             }}</el-button>
           </div>
         </div>
 
         <div>
-          <div class="qs_rtet">{{ languageNav[langType].language_text67 }}</div>
+          <div class="qs_rtet">{{ this.$t( 'text186' ) }}</div>
           <el-table :data="tableData" style="width: 100%" stripe>
             <el-table-column
               prop="apply_time"
-              :label="languageNav[langType].language_text3"
+              :label="$t( 'text146' )"
             >
               <template slot-scope="scope">
                 <span>{{ scope.row.time | trimet(that) }}</span>
@@ -68,7 +68,7 @@
             </el-table-column>
             <el-table-column
               prop="round"
-              :label="languageNav[langType].language_text68"
+              :label="$t( 'text171' )"
             >
               <template slot-scope="scope">
                 <span>{{ scope.row.account }}</span>
@@ -76,7 +76,7 @@
             </el-table-column>
             <el-table-column
               prop="apply_amount"
-              :label="languageNav[langType].language_text69 + '  (TAFT)'"
+              :label="$t( 'text172' ) + '  (UVT)'"
             >
               <template slot-scope="scope">
                 <span style="color: red" v-if="scope.row.transfer_type == 0">{{
@@ -89,7 +89,7 @@
             </el-table-column>
             <template slot="empty">
               <div class="noData">
-                {{ languageNav[langType].language_text11 }}
+                {{ $t( 'text154' ) }}
               </div>
             </template>
           </el-table>
@@ -105,7 +105,7 @@
     </div>
 
     <el-dialog
-      :title="languageNav[langType].language_text81"
+      :title="$t( 'text173' )"
       :lock-scroll="false"
       :visible.sync="ruleDialogVisible"
       width="480px"
@@ -121,14 +121,14 @@
       >
         <div style="margin-bottom: 20px">
           <span style="padding-left: 8px">
-            {{ languageNav[langType].language_text85 }}：<span
+            {{ $t( 'text174' ) }}：<span
               style="color: #5885FD"
-              >{{ dataForm.taft_amount }} TAFT</span
+              >{{ dataForm.taft_amount }} UVT</span
             ></span
           >
         </div>
         <el-form-item
-          :label="languageNav[langType].language_text82"
+          :label="$t( 'text175' )"
           prop="password"
           style="position: relative"
         >
@@ -157,14 +157,14 @@
           type="primary"
           class="gz-botton"
           @click="ruleDialogVisible = false"
-          >{{ languageNav[langType].language_text59 }}</el-button
+          >{{ $t( 'text42' ) }}</el-button
         >
         <el-button
           :loading="loadingBtn"
           type="primary"
           class="rz-botton"
           @click="Payment"
-          >{{ languageNav[langType].language_text58 }}</el-button
+          >{{ $t( 'text41' )}}</el-button
         >
       </span>
     </el-dialog>
@@ -181,7 +181,6 @@ import {
   passwordVerify,
 } from "@/request/user.js";
 import { pubKey } from "@/request/login.js";
-import languageNav from "@/language/coander";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 export default {
@@ -190,9 +189,9 @@ export default {
   data() {
     var validateSurnmae = (rule, value, callback) => {
       if (parseInt(value) < 1) {
-        callback(new Error(this.languageNav[this.$langType].language_text75));
+        callback(new Error(this.$t( 'text176' )));
       } else if (!/(^[1-9]\d*$)/.test(value)) {
-        callback(new Error(languageNav[this.$langType].language_text76));
+        callback(new Error(this.$t( 'text177' )));
         return;
       } else {
         callback();
@@ -200,7 +199,7 @@ export default {
     };
     var validatePrice = (rule, value, callback) => {
       if (parseInt(value) > parseInt(this.apply_taft_amount)) {
-        callback(new Error(this.languageNav[this.$langType].language_text77));
+        callback(new Error(this.$t( 'text178' )));
       } else {
         callback();
       }
@@ -209,7 +208,7 @@ export default {
     var Elowert = (rule, value, callback) => {
       let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
       if (!reg.test(value)) {
-        callback(new Error(languageNav[this.$langType].language_text53));
+        callback(new Error(this.$t( 'text13' )));
       } else {
         callback();
       }
@@ -238,13 +237,12 @@ export default {
       },
       tableData: [],
       total: 0,
-      languageNav: languageNav,
       langType: this.$langType,
       rules: {
         to_account: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text65,
+            message: this.$t( 'text169' ),
             trigger: "blur",
           },
           { required: true, validator: Elowert, trigger: "blur" },
@@ -252,7 +250,7 @@ export default {
         taft_amount: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text66,
+            message: this.$t( 'text170' ),
             trigger: "blur",
           },
           { required: true, validator: validateSurnmae, trigger: "blur" },
@@ -264,7 +262,7 @@ export default {
         password: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text80,
+            message: this.$t( 'text179' ),
             trigger: "blur",
           },
         ],
@@ -283,8 +281,8 @@ export default {
       let params = this.form;
       recordsList(params).then((res) => {
         if (res.code == 0) {
-          this.tableData = res.data.rows;
-          this.total = res.data.total;
+          this.tableData = res.data;
+          this.total = res.data.count;
         } else {
           this.$message.error(res.msg);
         }
@@ -308,11 +306,11 @@ export default {
                 if (res.code == 0) {
                   this.loadingBtn = false;
                   this.$message.success(
-                    languageNav[this.$langType].language_text57
+                    this.$t( 'text180' )
                   );
                   this.apply_taft_amount = res.data.taft_balance_amount
-                    ? res.data.taft_balance_amount + " TAFT"
-                    : "0 TAFT";
+                    ? res.data.taft_balance_amount + " UVT"
+                    : "0 UVT";
                   this.dataForm = {
                     user_code: localStorage.getItem("code"),
                     to_account: "",
@@ -324,23 +322,23 @@ export default {
                   this.loadingBtn = false;
                   if (res.code == "102603") {
                     this.$message.error(
-                      languageNav[this.$langType].language_text54
+                      this.$t( 'text181' )
                     );
                   }
                   if (res.code == "102606") {
                     this.$message.error(
-                      languageNav[this.$langType].language_text56
+                      this.$t( 'text182' )
                     );
                   }
                   if (res.code == "102607") {
                     this.$message.error(
-                      languageNav[this.$langType].language_text78
+                     this.$t( 'text183' )
                     );
                   }
                   if (res.code == "103001") {
                     this.dataForm1.password = "";
                     this.$message.error(
-                      languageNav[this.$langType].language_text84
+                      this.$t( 'text184' )
                     );
                   }
                 }
@@ -355,7 +353,7 @@ export default {
               //
               // }).catch(() => {});
             } else {
-              this.$message.error(languageNav[this.$langType].language_text83);
+              this.$message.error(this.$t( 'text185' ));
               this.loadingBtn = false;
             }
           });
