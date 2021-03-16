@@ -109,12 +109,12 @@
             </el-button>
           </template>
           <template v-if="signInCode">
-            <div class="case_title" style="margin-bottom: 34px">邮箱验证</div>
+            <div class="case_title" style="margin-bottom: 34px">{{ $t( 'login.text37' ) }}</div>
             <div class="tstPoset">
-              已发送验证码至您的注册邮箱 {{ signInForm.email }}
+              {{ $t( 'login.text38' ) }} {{ signInForm.email }}
             </div>
             <div class="tacoker">
-              (邮箱验证码可能被判定为垃圾邮件，请注意查收)
+              {{ $t( 'login.text39' ) }}
             </div>
             <el-form
               style="margin: 25px 0"
@@ -146,12 +146,32 @@
               class="btn form_btn singBon"
               :loading="loading"
               @click="submitFormSign('signInForm')"
-              >确认</el-button
+              >{{ $t( 'login.text36' ) }}</el-button
             >
           </template>
         </div>
       </div>
     </div>
+    <el-dialog
+        :visible.sync="dialogVisible"
+        @close="closeVerifyDialog"
+        :show-close="false"
+        top="30vh"
+        width="368px">
+      <div class="verify-dialog-content">
+        <div class="verify-title">{{ $t( 'login.text34' ) }}</div>
+        <slide-verify :l="42"
+                      :r="10"
+                      :w="310"
+                      :h="155"
+                      :slider-text="$t( 'login.text35')"
+                      @success="onSuccess"
+                      @fail="onFail"
+                      @refresh="onRefresh"
+                      ref="slideblock"
+        ></slide-verify>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -167,11 +187,13 @@ import {
 } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
-import languageNav from "@/language/login";
+import MixinSlideVerify from "@/mixin/slideVerify"
+
 let that;
 export default {
   name: "",
   components: { webNav, webFoot },
+  mixins: [MixinSlideVerify],
   data() {
     var Elowert = (rule, value, callback) => {
       // let reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
@@ -199,8 +221,7 @@ export default {
     };
 
     return {
-      languageNav: languageNav,
-      langType: this.$langType,
+      dialogVisible: false,
       fromPath: "",
       loading: false,
       pagePath: "login",
@@ -295,6 +316,7 @@ export default {
     },
 
     sendcode(e) {
+      this.signInCode = true;
       let data = {
         lang_type: this.$langType,
         mail: this.signInForm.mail,
@@ -306,7 +328,6 @@ export default {
             message: this.$t( 'login.text17' ),
             type: "success",
           });
-          this.signInCode = true;
           this.timer();
         } else {
           if (res.code == "101702") {
@@ -343,22 +364,19 @@ export default {
     userText() {
       this.$router.push({ path: "/userText" });
     },
-
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
-        if (valid) {
-          if (!this.checked) {
-            document.getElementsByClassName(
-              "el-checkbox__inner"
-            )[0].style.border = "1px solid red";
-            document.getElementsByClassName(
-              "el-checkbox__inner"
-            )[0].style.lineHeight = "0";
-            return;
-          }
-        } else {
-          return false;
+        if (!valid) return
+        if (!this.checked) {
+          document.getElementsByClassName(
+            "el-checkbox__inner"
+          )[0].style.border = "1px solid red";
+          document.getElementsByClassName(
+            "el-checkbox__inner"
+          )[0].style.lineHeight = "0";
         }
+        this.dialogVisible = true
+        this.loading = true;
       });
     },
 
@@ -413,7 +431,14 @@ export default {
         ) || null
       );
     },
-    success(val) {
+    closeVerifyDialog() {
+      this.loading = false
+      this.dialogVisible = false
+      this.handleClick()
+    },
+    onSuccess(val) {
+
+      this.closeVerifyDialog()
       setTimeout(() => {
         this.sendcode("signIn");
       }, 500);
