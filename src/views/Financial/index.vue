@@ -11,7 +11,7 @@
             </div>
             <div class="caosjet">
               <div>
-                借贷生息、活期理财、定期理财、staking质押奖励等丰富理财玩法
+                借贷生息、活期理财、定期理财、staking质押奖励等丰富理财玩法</div><div>
                 中心化+去中心化理财，安全放心、随存随取、利息实时到账、高额回报
               </div>
             </div>
@@ -45,7 +45,7 @@
                   <div><img src="../../assets/img/icon_hqlc.png" /></div>
                   <div class="title-1">活期理财</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">随村随取，闲置资产利用</div>
+                    <div class="title-2 title-pi">随存随取，闲置资产利用</div>
                   </div>
 
                   <div class="rmot-button">等待上线</div>
@@ -68,7 +68,7 @@
               <div class="billet">
                 <div class="fitop">
                   <div><img src="../../assets/img/icon_ywk.png" /></div>
-                  <div class="title-1">云挖坑</div>
+                  <div class="title-1">云挖矿</div>
                   <div class="wiiot">
                     <div class="title-2 title-pi">算力挖矿、机枪矿池</div>
                     <div class="title-2">周期短、收益高</div>
@@ -276,7 +276,6 @@ export default {
         .contetnt_text {
           width: 673px;
           text-align: left;
-          padding-left: 57px;
           margin-right: 44px;
         }
       }

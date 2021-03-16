@@ -316,7 +316,6 @@ export default {
     },
 
     sendcode(e) {
-      this.signInCode = true;
       let data = {
         lang_type: this.$langType,
         mail: this.signInForm.mail,
@@ -328,6 +327,7 @@ export default {
             message: this.$t( 'login.text17' ),
             type: "success",
           });
+          this.signInCode = true;
           this.timer();
         } else {
           if (res.code == "101702") {

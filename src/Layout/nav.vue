@@ -9,7 +9,11 @@
             </div>
             <div class="nav_options m-hide">
               <ul>
-                <li v-for="link in links" :key="link.path">
+                <li v-for="(link, index) in links"
+                    :key="link.path"
+                    @click="currentIndex = index"
+                    :class="{'activeTab': currentIndex == index}"
+                >
                   <router-link :title="link.text" :to="link.path">
                    {{ link.text }}
                     <i class="underline"></i>
@@ -100,6 +104,7 @@ export default {
     name: '',
     data() {
        return {
+         currentIndex: -1,
           links: [
             {
               text: this.$t("text1"),
@@ -238,8 +243,7 @@ export default {
             .nav_options{
                 flex: 1;
                 ul{
-                    /*display: flex;*/
-                    /*justify-content: space-between;*/
+
                     li{
                         color: #7B839AFF;
                         opacity: 0.7;
@@ -258,17 +262,13 @@ export default {
                         white-space: nowrap;
                         text-overflow: ellipsis;
                         margin-left: 19px;
-
-                        a{
-
+                        &:hover{
+                          color: #5885FDFF;
                         }
-                        &.active{
+                        &.activeTab{
 
                             color: #5885FDFF;
                         }
-                    }
-                    li:hover{
-                        color: #5885FDFF;
                     }
                 }
             }
@@ -379,13 +379,13 @@ export default {
         bottom: -5px;
         width: 0;
         height: 7px;
-        background-color: #5885FDFF;
+        background-color: #5885FD;
         opacity: 1;
         -webkit-transition: all 0.6s cubic-bezier(0.215,0.61,0.355,1) 0s;
         transition: all 0.6s cubic-bezier(0.215,0.61,0.355,1) 0s;
     }
 
-    .nav_options li.active>a i.underline, .nav_options li:hover>a i.underline {
+    .nav_options li.activeTab>a i.underline, .nav_options li:hover>a i.underline {
         width: 100%;
         opacity: 1;
         left: 0;
