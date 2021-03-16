@@ -8,7 +8,7 @@
         <!-- 登录 -->
         <div class="case login_case">
           <div class="case_title">
-            {{ languageNav[ langType ].language_text1 }}
+            {{ $t('login.text1') }}
           </div>
           <el-form
               class="case_form"
@@ -25,7 +25,7 @@
               <el-input
                   class="row_input"
                   type="text"
-                  :placeholder="languageNav[langType].language_text2"
+                  :placeholder="$t('login.text2')"
                   v-model.trim="loginForm.mail"
                   auto-complete="new-password"
                   autocomplete="off"
@@ -40,7 +40,7 @@
               <el-input
                   class="row_input"
                   type="password"
-                  :placeholder="languageNav[langType].language_text3"
+                  :placeholder="$t('login.text3')"
                   v-model.trim="loginForm.pwd"
                   auto-complete="new-password"
                   @keypress.enter="submitForm('loginForm')"
@@ -49,7 +49,7 @@
             </el-form-item>
             <div class="forget_link">
               <span @click="toReset" style="cursor: pointer">{{
-                  languageNav[ langType ].language_text4
+                  $t('login.text4')
                 }}</span>
             </div>
           </el-form>
@@ -57,7 +57,7 @@
               class="btn form_btn"
               :loading="loading"
               @click="submitForm('loginForm')"
-          >{{ languageNav[ langType ].language_text1 }}
+          >{{ $t('login.text1') }}
           </el-button>
         </div>
         <!-- 登录 end -->
@@ -69,12 +69,12 @@
           top="30vh"
           width="368px">
         <div class="verify-dialog-content">
-          <div class="verify-title">请完成安全验证</div>
+          <div class="verify-title">{{ $t( 'login.text34' ) }}</div>
           <slide-verify :l="42"
                         :r="10"
                         :w="310"
                         :h="155"
-                        slider-text="向右滑动"
+                        :slider-text="$t( 'login.text35')"
                         @success="onSuccess"
                         @fail="onFail"
                         @refresh="onRefresh"
@@ -101,7 +101,6 @@ import {
 
 const sha256 = require( "js-sha256" ).sha256;
 import { JSEncrypt } from "jsencrypt";
-import languageNav from "@/language/login";
 import MixinSlideVerify from "@/mixin/slideVerify"
 let that;
 export default {
@@ -113,7 +112,7 @@ export default {
       // let reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
       let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
       if ( !reg.test( value ) ) {
-        callback( new Error( languageNav[ this.$langType ].language_text13 ) );
+        callback( new Error( this.$t( 'login.text13' ) ) );
       }
       else {
         callback();
@@ -122,7 +121,7 @@ export default {
     const validatePassword = ( rule, value, callback ) => {
       let codeReg = /(?!^(\d+|[a-zA-Z]+|[~!@#$%^&*?]+)$)^[\w~!@#$%^&*?]{8,30}$/;
       if ( !codeReg.test( value ) ) {
-        callback( new Error( languageNav[ this.$langType ].language_text12 ) );
+        callback( new Error( this.$t( 'login.text12' ) ) );
       }
       else {
         callback();
@@ -131,8 +130,6 @@ export default {
 
     return {
       dialogVisible: false,
-      languageNav: languageNav,
-      langType: this.$langType,
       fromPath: "",
       loading: false,
       pagePath: "login",
@@ -140,10 +137,10 @@ export default {
       disabled: false,
       time: 60,
       inviteCode: false,
-      btntxt: languageNav[ this.$langType ].language_text14,
+      btntxt: this.$t( 'login.text14' ),
       loginForm: {
-        mail: "caron_sk@163.com",
-        pwd: "111111qq"
+        mail: "",
+        pwd: ""
       },
       signInForm: {
         email: "",
@@ -163,7 +160,7 @@ export default {
         mail: [
           {
             required: true,
-            message: languageNav[ this.$langType ].language_text2,
+            message: this.$t( 'login.text2' ),
             trigger: "blur"
           },
           { validator: Elowert, required: true, trigger: "blur" }
@@ -171,7 +168,7 @@ export default {
         pwd: [
           {
             required: true,
-            message: languageNav[ this.$langType ].language_text3,
+            message: this.$t( 'login.text3' ),
             trigger: "blur"
           },
           { validator: validatePassword, required: true, trigger: "blur" }
@@ -182,7 +179,7 @@ export default {
         verify_code: [
           {
             required: true,
-            message: languageNav[ this.$langType ].language_text5,
+            message: this.$t( 'login.text5' ),
             trigger: "blur"
           }
         ]
@@ -221,7 +218,7 @@ export default {
       }
       else {
         this.time = 60;
-        this.btntxt = languageNav[ this.$langType ].language_text14;
+        this.btntxt = this.$t( 'login.text14' );
         this.disabled = false;
       }
     },
@@ -243,11 +240,11 @@ export default {
       login( params ).then( ( res ) => {
         this.loading = false;
         if (res.code != 0) {
-          this.$message.error(languageNav[ this.$langType ].language_text25 );
+          this.$message.error(this.$t( 'login.text25' ) );
           return
         }
         this.$message( {
-          message: languageNav[ this.$langType ].language_text24,
+          message: this.$t( 'login.text24' ),
           type: "success",
           duration: 1000
         } );
@@ -278,7 +275,7 @@ export default {
         if ( valid ) {
           if ( this.resetData.password != this.resetData.againPassword ) {
             return this.$message.error(
-                languageNav[ this.$langType ].language_text26
+                this.$t( 'login.text26' )
             );
           }
           let params = {
@@ -293,7 +290,7 @@ export default {
             this.loading = false;
             if ( res.code == 0 ) {
               this.$message( {
-                message: languageNav[ this.$langType ].language_text27,
+                message: this.$t( 'login.text27' ),
                 type: "success"
               } );
               this.$router.push( "login" );
@@ -301,12 +298,12 @@ export default {
             else {
               if ( res.code == "101504" ) {
                 return this.$message.error(
-                    languageNav[ this.$langType ].language_text31
+                    this.$t( 'login.text31' )
                 );
               }
               if ( res.code == "101503" ) {
                 return this.$message.error(
-                    languageNav[ this.langType ].language_text33
+                    this.$t( 'login.text33' )
                 );
               }
               else {
@@ -332,7 +329,6 @@ export default {
     }
   },
   created() {
-    console.log( this.$langType );
     this.getPubKey();
   },
 

@@ -17,7 +17,7 @@ import '@/theme/index.css'
 import '@/assets/css/default.css'
 import '@/assets/css/global.css'
 import '@/assets/css/hover.css'
-import i18n from './locale/locale'
+import i18n from './locales/locale'
 import _ from "lodash";
 
 import moment from "moment";

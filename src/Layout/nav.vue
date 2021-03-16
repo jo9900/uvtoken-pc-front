@@ -79,14 +79,14 @@
 
         <el-dialog  :visible.sync="loginOut" width="400px" :lock-scroll="false" :append-to-body="true" :modal-append-to-body="false" center >
             <div class="contt-text">
-               退出
+               {{ $t('text40') }}
             </div>
             <span slot="footer" class="dialog-footer">
                     <el-button class="rz-botton" type="primary" @click="loginClose">
-                        确定
+                        {{ $t('text41') }}
                     </el-button>
                     <el-button  class="rz-botton" type="primary" @click="loginOut = false">
-                        取消
+                        {{ $t('text42') }}
                     </el-button>
                 </span>
         </el-dialog>

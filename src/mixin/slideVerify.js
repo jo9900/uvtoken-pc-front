@@ -1,7 +1,10 @@
+
+import i18n from "@/locales/locale"
+
 const MixinSlideVerify = {
     data: ()=> ({
         msg: '',
-        text: '向右滑动获取邮箱验证码',
+        text: i18n.t( 'text45' ),
         // 精确度小，可允许的误差范围小；为1时，则表示滑块要与凹槽完全重叠，才能验证成功。默认值为5
         accuracy: 8
     }),

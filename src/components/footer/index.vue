@@ -7,19 +7,19 @@
            <div class="zaltet">
                <div class="wrap-flr">
                     <div class="spower">
-                        <a href="">申购协议</a>
-                        <a class="maert" href="">白皮书</a>
-                        <a href="">商务合作</a>
+                        <a href="">{{ $t( 'text30' ) }}</a>
+                        <a class="maert" href="">{{ $t( 'text31' ) }}</a>
+                        <a href="">{{ $t( 'text32' ) }}</a>
                     </div>
                    <div class="spower">
-                       <a href="">申购帮助</a>
-                       <a class="maert" href="">硬件钱包</a>
-                       <a href="">媒体采访</a>
+                       <a href="">{{ $t( 'text33' ) }}</a>
+                       <a class="maert" href="">{{ $t( 'text3' ) }}</a>
+                       <a href="">{{ $t( 'text34' ) }}</a>
                    </div>
                    <div class="spower">
                        <a style="height: 20px;"> &emsp;&emsp;</a>
                        <a href="" class="maert">Dapp</a>
-                       <a href="">隐私保护</a>
+                       <a href="">{{ $t( 'text35' ) }}</a>
                    </div>
                </div>
                <div>
@@ -36,12 +36,12 @@
                        <div style="width: 300px;">
                            <el-form class="case_form" :model="email" :rules="rules" ref="resetForm">
                                <el-form-item class="form_row" prop="email">
-                                   <el-input class="row_input" type="text" 
-                                   placeholder="请输入邮箱地址" v-model.trim="email"/>
+                                   <el-input class="row_input" type="text"
+                                   :placeholder="$t('text36')" v-model.trim="email"/>
                                </el-form-item>
                            </el-form>
                        </div>
-                       <div><div class="btn form_btn" role="button"  @click="resetDataCode">订阅</div></div>
+                       <div><div class="btn form_btn" role="button">{{ $t( 'text37' ) }}</div></div>
 
                    </div>
                </div>

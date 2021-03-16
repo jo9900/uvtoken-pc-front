@@ -10,18 +10,17 @@
         <div class="flex1">
           <div>
             <div class="tile-bket">
-              <p>打造数字资产管理</p>
-              <p>新生态</p>
+              <p>{{ $t('text10') }}</p>
             </div>
           </div>
-          <div class="qosker">安全、便捷、高效的去中心化数字资产管理平台</div>
+          <div class="qosker">{{ $t( 'text11' ) }}</div>
           <div>
             <div class="rat_t">
               <a
                 class="coet"
                 target="_blank"
                 :href="
-                  NODE_ENV === 'test'
+                  NODE_ENV !== 'production'
                     ? 'http://apps.apple.com/us/app/UvToken/id1552556395'
                     : 'https://apps.apple.com/us/app/UvToken/id1552556395'
                 "
@@ -37,7 +36,7 @@
               <a
                 class="coet"
                 :href="
-                  NODE_ENV === 'test'
+                  NODE_ENV !== 'production'
                     ? 'http://wallet.uvtoken.com/static/download/android/uvtoken.apk'
                     : 'https://wallet.uvtoken.com/static/download/android/uvtoken.apk'
                 "
@@ -83,12 +82,11 @@
 
           <div class="contetnt_text wow fadeInRight">
             <div class="bget">
-              <div>最全主链支持</div>
-              <div>轻松管理多链资产</div>
+              <div>{{ $t( 'text12' ) }}</div>
+              <div>{{ $t( 'text13' ) }}</div>
             </div>
             <div class="caosjet">
-              将支持TAF、BTC、ETH、EOS、DOT、BCH、TRX、BSC
-              FIL、IOST、ATOM等20多个主链上千代币
+              {{ $t( 'text14' ) }}
             </div>
           </div>
         </div>
@@ -100,12 +98,12 @@
         <div class="contetnt">
           <div class="contetnt_text wow fadeInRight">
             <div class="bget">
-              <div>领先业界</div>
-              <div>真正跨多链闪兑</div>
+              <div>{{ $t( 'text15' ) }}</div>
+              <div>{{ $t( 'text16' ) }}</div>
             </div>
             <div class="caosjet">
-              自主创新研发的高性能跨链交易协议，由智能合约实施的跨链直接交易
-              理论上支持任意数字货币之间进行交易，相对于市面单链Dex完成质的飞跃
+              <div>{{ $t( 'text17' ) }}</div>
+              <div>{{ $t( 'text18' ) }}</div>
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
@@ -132,12 +130,12 @@
 
           <div class="contetnt_text wow fadeInRight">
             <div class="bget">
-              <div>一键买入</div>
-              <div>坐享高额回报</div>
+              <div>{{ $t( 'text19' ) }}</div>
+              <div>{{ $t( 'text20' ) }}</div>
             </div>
             <div class="caosjet">
-              借贷生息、活期理财、定期理财、staking质押奖励等丰富理财玩法
-              安全放心、随存随取、利息实时到账、高额回报
+              <div>{{ $t( 'text43' ) }}</div>
+              <div>{{ $t( 'text44' ) }}</div>
             </div>
           </div>
         </div>
@@ -149,12 +147,12 @@
         <div class="contetnt">
           <div class="contetnt_text wow fadeInRight">
             <div class="bget">
-              <div>安全保障</div>
-              <div>极致守护值得信赖</div>
+              <div>{{ $t( 'text21' ) }}</div>
+              <div>{{ $t( 'text22' ) }}</div>
             </div>
             <div class="caosjet">
-              私钥完全自持，资产一手掌握，一套助记词管理所有数字货币
-              多重加密算法，验证保障您的数字资产安全
+              <div>{{ $t( 'text23' ) }}</div>
+              <div>{{ $t( 'text24' ) }}</div>
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
@@ -172,9 +170,10 @@
       <div class="wrap">
         <div class="scoplert">
           <div>
-            <div class="title-1">海量Dapp 畅游链世界</div>
+            <div class="title-1">{{ $t( 'text25' ) }}</div>
             <div class="title-2">
-              潜心挖掘，安全审核，帮你找到最优质的最好玩的Dapp 将上架1000+ Dapp
+              {{ $t( 'text26' ) }}
+              {{ $t( 'text27' ) }}
             </div>
             <div><img src="../../assets/img/pic_dapp.png" /></div>
           </div>
@@ -186,9 +185,9 @@
       <div class="wrap">
         <div class="scoplert">
           <div>
-            <div class="title-1">硬件钱包</div>
+            <div class="title-1">{{ $t( 'text28' ) }}</div>
             <div class="title-3">
-              由密码学专家、硬件工程师等主要成员为用户定制较于市面更加强化版本
+              {{ $t( 'text29' ) }}
             </div>
             <div><img src="../../assets/img/pic_yjqb.png" /></div>
           </div>
@@ -563,6 +562,7 @@ export default {
   color: #fff;
   line-height: 61px;
   margin-bottom: 38px;
+  width: 400px;
 }
 .qosker {
   font-size: 20px;

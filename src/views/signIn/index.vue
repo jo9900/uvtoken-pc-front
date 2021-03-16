@@ -6,7 +6,7 @@
         <div class="case signIn_case">
           <template v-if="!signInCode">
             <div class="case_title">
-              {{ languageNav[langType].language_text8 }}
+              {{ $t( 'login.text8' ) }}
             </div>
             <el-form
               class="case_form"
@@ -23,7 +23,7 @@
                 <el-input
                   class="row_input"
                   type="text"
-                  :placeholder="languageNav[langType].language_text2"
+                  :placeholder="$t( 'login.text2' )"
                   v-model.trim="signInForm.mail"
                 />
               </el-form-item>
@@ -37,7 +37,7 @@
                   class="row_input"
                   type="password"
                   autocomplete="off"
-                  :placeholder="languageNav[langType].language_text3"
+                  :placeholder="$t( 'login.text3' )"
                   v-model.trim="signInForm.pwd"
                 />
               </el-form-item>
@@ -51,7 +51,7 @@
                   class="row_input"
                   type="password"
                   autocomplete="off"
-                  :placeholder="languageNav[langType].language_text6"
+                  :placeholder="$t( 'login.text6' )"
                   v-model.trim="signInForm.againPassword"
                 />
               </el-form-item>
@@ -73,9 +73,9 @@
                   <el-input
                     class="row_input"
                     :placeholder="
-                      languageNav[langType].language_text28 +
+                      $t( 'login.text28' ) +
                       '（' +
-                      languageNav[langType].language_text29 +
+                      $t( 'login.text29' ) +
                       '）'
                     "
                     v-model="signInForm.invite_code"
@@ -91,12 +91,12 @@
               >
                 <el-checkbox v-model="checked" @change="handleCheckAllChange">
                   <span style="color: #000000d9">{{
-                    languageNav[langType].language_text15
+                      $t( 'login.text15' )
                   }}</span>
                 </el-checkbox>
                 <span
                   >《<span class="usertext" @click="userText">{{
-                    languageNav[langType].language_text16
+                    $t( 'login.text16' )
                   }}</span
                   >》</span
                 >
@@ -105,8 +105,8 @@
             <el-button
               class="btn form_btn singBon"
               @click="submitForm('signInForm')"
-              >{{ languageNav[langType].language_text8 }}</el-button
-            >
+              >{{ $t( 'login.text8' ) }}
+            </el-button>
           </template>
           <template v-if="signInCode">
             <div class="case_title" style="margin-bottom: 34px">邮箱验证</div>
@@ -133,7 +133,7 @@
                   class="row_input"
                   type="text"
                   maxlength="8"
-                  :placeholder="languageNav[langType].language_text5"
+                  :placeholder="$t( 'login.text5' )"
                   v-model.trim="signInForm.verifyCode"
                 />
                 <div v-if="disabled" class="get_code">{{ btntxt }}</div>
@@ -152,23 +152,6 @@
         </div>
       </div>
     </div>
-    <el-dialog
-      :visible.sync="verify"
-      title="验证"
-      center
-      :close-on-click-modal="false"
-      :show-close="false"
-      width="400px"
-      center
-    >
-      <vue-simple-verify
-        movedColor="linear-gradient(313deg, #5885fd 0%, #5885fd 100%)"
-        bgColor="#fff"
-        borderColor="#5885FDFF"
-        ref="verify"
-        @success="success"
-      />
-    </el-dialog>
   </div>
 </template>
 
@@ -194,7 +177,7 @@ export default {
       // let reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
       let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
       if (!reg.test(value)) {
-        callback(new Error(languageNav[this.$langType].language_text13));
+        callback(new Error(this.$t( 'login.text13' )));
       } else {
         callback();
       }
@@ -202,14 +185,14 @@ export default {
     const validatePassword = (rule, value, callback) => {
       let codeReg = /(?!^(\d+|[a-zA-Z]+|[~!@#$%^&*?]+)$)^[\w~!@#$%^&*?]{8,30}$/;
       if (!codeReg.test(value)) {
-        callback(new Error(languageNav[this.$langType].language_text12));
+        callback(new Error(this.$t( 'login.text12' )));
       } else {
         callback();
       }
     };
     const validatePasswordAagin = (rule, value, callback) => {
       if (value != this.signInForm.pwd) {
-        callback(new Error(languageNav[this.$langType].language_text26));
+        callback(new Error(this.$t( 'login.text16' )));
       } else {
         callback();
       }
@@ -219,7 +202,6 @@ export default {
       languageNav: languageNav,
       langType: this.$langType,
       fromPath: "",
-      verify: false,
       loading: false,
       pagePath: "login",
       checked: false,
@@ -228,7 +210,7 @@ export default {
       resetCode: false,
       inviteCode: false,
       time: 60,
-      btntxt: languageNav[this.$langType].language_text14,
+      btntxt: this.$t( 'login.text14' ),
       loginForm: {
         email: "",
         password: "",
@@ -253,7 +235,7 @@ export default {
         mail: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text2,
+            message: this.$t( 'login.text2' ),
             trigger: "blur",
           },
           { validator: Elowert, required: true, trigger: "blur" },
@@ -261,7 +243,7 @@ export default {
         pwd: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text3,
+            message: this.$t( 'login.text3' ),
             trigger: "blur",
           },
           { validator: validatePassword, required: true, trigger: "blur" },
@@ -273,7 +255,7 @@ export default {
         verifyCode: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text5,
+            message: this.$t( 'login.text5' ),
             trigger: "blur",
           },
         ],
@@ -321,25 +303,23 @@ export default {
       mailVcode(data).then((res) => {
         if (res.code == 0) {
           this.$message({
-            message: languageNav[this.$langType].language_text17,
+            message: this.$t( 'login.text17' ),
             type: "success",
           });
           this.signInCode = true;
-          this.verify = false;
           this.timer();
         } else {
-          this.verify = false;
           if (res.code == "101702") {
             return this.$message.error(
-              languageNav[this.$langType].language_text18
+                this.$t( 'login.text18' )
             );
           } else if (res.code == "101703") {
             return this.$message.error(
-              languageNav[this.$langType].language_text19
+                this.$t( 'login.text19' )
             );
           } else if (res.code == "101704") {
             return this.$message.error(
-              languageNav[this.$langType].language_text23
+                this.$t( 'login.text23' )
             );
           } else {
             this.$message.error(res.msg);
@@ -356,7 +336,7 @@ export default {
         setTimeout(this.timer, 1000);
       } else {
         this.time = 60;
-        this.btntxt = languageNav[this.$langType].language_text14;
+        this.btntxt = this.$t( 'login.text14' );
         this.disabled = false;
       }
     },
@@ -376,10 +356,6 @@ export default {
             )[0].style.lineHeight = "0";
             return;
           }
-          this.verify = true;
-          setTimeout(() => {
-            this.$refs.verify.reset();
-          }, 100);
         } else {
           return false;
         }
@@ -398,26 +374,26 @@ export default {
             this.loading = false;
             if (res.code == 0) {
               this.$message({
-                message: languageNav[this.$langType].language_text20,
+                message: this.$t( 'login.text20' ),
                 type: "success",
               });
               this.$router.push("login");
             } else {
               if (res.code == "100111") {
                 this.$message.error(
-                  languageNav[this.$langType].language_text21
+                    this.$t( 'login.text21' )
                 );
               } else if (res.code == "100113") {
                 this.$message.error(
-                  languageNav[this.$langType].language_text22
+                    this.$t( 'login.text22' )
                 );
               } else if (res.code == "100116") {
                 this.$message.error(
-                  languageNav[this.$langType].language_text23
+                    this.$t( 'login.text23' )
                 );
               } else if (res.code == "100115") {
                 this.$message.error(
-                  languageNav[this.$langType].language_text30
+                    this.$t( 'login.text30' )
                 );
               } else {
                 this.$message.error(res.msg);
