@@ -3,15 +3,15 @@
   <div class="page">
     <div class="project project-2">
       <div class="wrap">
-        <div class="contetnt">
-          <div class="contetnt_text wow fadeInRight">
+        <div class="content">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
-              <div>帮助中心</div>
+              <div>{{ $t( 'text112' ) }}</div>
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_help@2x.png"
               alt=""
             />
@@ -22,7 +22,7 @@
 
     <div class="project project-4">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div>
             <div class="title-1">常见问题</div>
             <div class="coak">
@@ -118,16 +118,16 @@ export default {
         text-align: center;
         margin-bottom: 39px;
       }
-      .contetnt {
+      .content {
         display: flex;
         justify-content: center;
         align-items: center;
-        .contetnt_img {
+        .content_img {
           width: 341px;
           height: 296px;
         }
 
-        .contetnt_text {
+        .content_text {
           color: #7b7b7b;
           font-size: 16px;
           width: 498px;
@@ -152,10 +152,10 @@ export default {
   .project-2 {
     background: #f8fbff;
     .wrap {
-      .contetnt {
+      .content {
 
         height: 500px;
-        .contetnt_text {
+        .content_text {
           width: 597px;
           text-align: left;
           margin-right: 44px;

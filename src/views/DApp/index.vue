@@ -3,24 +3,22 @@
   <div class="page">
     <div class="project project-2">
       <div class="wrap">
-        <div class="contetnt">
-          <div class="contetnt_text wow fadeInRight">
+        <div class="content">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
-              <div>海量Dapp</div>
-              <div>畅游链世界</div>
+              <div>{{ $t( 'text103' ) }}</div>
+              <div>{{ $t( 'text104' ) }}</div>
             </div>
             <div class="caosjet">
-              <div>
-                潜心挖掘，安全审核，帮你找到最优质的最好玩的Dapp 将上架1000+
-                dapp
-              </div>
+              <div>{{ $t( 'text105' ) }}</div>
+              <div>{{ $t( 'text106' ) }}</div>
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_dapp@2x.png"
-              alt=""
+              alt="bg-img"
             />
           </div>
         </div>
@@ -29,7 +27,7 @@
 
     <div class="project project-3">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div>
             <div class="title-1">DApps</div>
             <div class="fc-img">
@@ -42,25 +40,25 @@
 
     <div class="project project-4">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div>
-            <div class="title-1">联系我们</div>
+            <div class="title-1">{{ $t( 'text107' ) }}</div>
             <div class="coak">
               <div class="boet">
                 <div class="wloet">
                   <img src="../../assets/img/icon_sxdapp@2x.png" />
                 </div>
-                <div class="title-2">上线 DApp</div>
+                <div class="title-2">{{ $t( 'text108' ) }}</div>
                 <div :class="['dwkoer cursor-pointer slideUpBtn', $lang]">
-                  <span>等待开通申请>></span>
+                  <span>{{ $t( 'text109' ) }}</span>
                 </div>
               </div>
               <div class="boet">
                 <div class="wloet">
                   <img src="../../assets/img/icon_sxdapp@2x.png" />
                 </div>
-                <div class="title-2">商务合作</div>
-                <div class="title-3">邮箱联系：xxxxx@uvtoken.com</div>
+                <div class="title-2">{{ $t( 'text110' ) }}</div>
+                <div class="title-3">{{ $t( 'text111' ) }}</div>
               </div>
             </div>
           </div>
@@ -76,14 +74,11 @@
 import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
 
-import languageNav from "@/language/index";
-
 export default {
   name: "",
   components: { webFoot },
   data() {
     return {
-      NODE_ENV: process.env.NODE_ENV,
       closeTrime: 14,
       timerNull: null,
       WindowHeight: 0,
@@ -106,8 +101,6 @@ export default {
       jgShow3: false,
       isAlertTrue: false,
       isFhows: false,
-
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },
@@ -171,15 +164,15 @@ export default {
         text-align: center;
         margin-bottom: 39px;
       }
-      .contetnt {
+      .content {
         display: flex;
         justify-content: center;
         align-items: center;
-        .contetnt_img {
+        .content_img {
           width: 480px;
         }
 
-        .contetnt_text {
+        .content_text {
           color: #7b7b7b;
           font-size: 16px;
           width: 498px;
@@ -206,9 +199,9 @@ export default {
   .project-2 {
     background: #f8fbff;
     .wrap {
-      .contetnt {
+      .content {
         padding: 127px 0 153px 0;
-        .contetnt_text {
+        .content_text {
           width: 673px;
           text-align: left;
           padding-left: 57px;
@@ -275,6 +268,7 @@ export default {
     }
   }
 }
+/* TODO 其他语言 */
 .slideUpBtn.zh::after  {
   content: "等待开通申请>>"
 }

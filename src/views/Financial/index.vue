@@ -3,8 +3,8 @@
   <div class="page">
     <div class="project project-2">
       <div class="wrap">
-        <div class="contetnt">
-          <div class="contetnt_text wow fadeInRight">
+        <div class="content">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text19' ) }}</div>
               <div>{{ $t( 'text20' ) }}</div>
@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
-            <img class="contetnt_img" src="@/assets/img/pic_lc@2x.png" alt="" />
+            <img class="content_img" src="@/assets/img/pic_lc@2x.png" alt="" />
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
 
     <div class="project project-3">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div>
             <div class="qkeoert paddgint">
               <div class="billet">
@@ -207,15 +207,15 @@ export default {
         text-align: center;
         margin-bottom: 39px;
       }
-      .contetnt {
+      .content {
         display: flex;
         justify-content: center;
         align-items: center;
-        .contetnt_img {
+        .content_img {
           width: 480px;
         }
 
-        .contetnt_text {
+        .content_text {
           color: #7b7b7b;
           font-size: 16px;
           width: 498px;
@@ -242,9 +242,9 @@ export default {
   .project-2 {
     background: #f8fbff;
     .wrap {
-      .contetnt {
+      .content {
         padding: 127px 0 157px 0;
-        .contetnt_text {
+        .content_text {
           width: 673px;
           text-align: left;
           margin-right: 44px;

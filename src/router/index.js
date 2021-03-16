@@ -29,6 +29,37 @@ if (window.localStorage.getItem('token') && window.localStorage.getItem('code'))
   store.commit('SETTOKEN', window.localStorage.getItem('token'))
   store.commit('SETCODE', window.localStorage.getItem('code'))
 }
+let getQueryVariable = (name, url) => {
+    return (
+        decodeURIComponent(
+            (new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(url) || [,
+                "",
+            ])[1].replace(/\+/g, "%20")
+        ) || null
+    );
+};
+router.beforeEach((to, from, next) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    window.pageYOffset = 0;
+    let ua = navigator.userAgent
+    if (
+        ua.match(/(iPhone|Android.*Mobile)/) ||
+        ua.match(/MSIE [6,7,8,9]/) ||
+        ua.toLowerCase().match(/MicroMessenger/i ) == 'micromessenger' // wx
+    ) {
+        if (getQueryVariable("ref", window.location.href)) {
+            window.location.href =
+                process.env.VUE_APP_BASE_API_MOBILE +
+                "signIn?ref=" +
+                getQueryVariable("ref", window.location.href);
+        }
+        else
+            window.location.href = process.env.VUE_APP_BASE_API_MOBILE;
+    }
+    else
+        next()
+});
 
 router.beforeEach((to, from, next) => {
 

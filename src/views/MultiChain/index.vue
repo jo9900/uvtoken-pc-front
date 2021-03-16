@@ -3,8 +3,8 @@
   <div class="page">
     <div class="project project-2">
       <div class="wrap">
-        <div class="contetnt">
-          <div class="contetnt_text wow fadeInRight">
+        <div class="content">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
               <div>Uvswap</div>
             </div>
@@ -18,7 +18,7 @@
           </div>
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_lxyj@2x.png"
               alt="img"
             />
@@ -29,7 +29,7 @@
 
     <div class="project project-3">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div class="scoplert">
             <div class="title-1">{{ $t( 'text66' ) }}</div>
             <div class="title-2">
@@ -195,15 +195,15 @@ export default {
         text-align: center;
         margin-bottom: 39px;
       }
-      .contetnt {
+      .content {
         display: flex;
         justify-content: center;
         align-items: center;
-        .contetnt_img {
+        .content_img {
           width: 480px;
         }
 
-        .contetnt_text {
+        .content_text {
           color: #7b7b7b;
           font-size: 16px;
           width: 498px;
@@ -228,8 +228,8 @@ export default {
   .project-2 {
     background: #f8fbff;
     .wrap {
-      .contetnt {
-        .contetnt_text {
+      .content {
+        .content_text {
           width: 673px;
           text-align: left;
           padding-left: 57px;

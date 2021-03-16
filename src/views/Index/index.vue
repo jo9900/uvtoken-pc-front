@@ -71,16 +71,16 @@
 
     <div class="project">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_zlzc@2x.png"
               alt=""
             />
           </div>
 
-          <div class="contetnt_text wow fadeInRight">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text12' ) }}</div>
               <div>{{ $t( 'text13' ) }}</div>
@@ -95,8 +95,8 @@
 
     <div class="project project-2">
       <div class="wrap">
-        <div class="contetnt">
-          <div class="contetnt_text wow fadeInRight">
+        <div class="content">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text15' ) }}</div>
               <div>{{ $t( 'text16' ) }}</div>
@@ -108,7 +108,7 @@
           </div>
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_lxyj@2x.png"
               alt=""
             />
@@ -119,16 +119,16 @@
 
     <div class="project">
       <div class="wrap">
-        <div class="contetnt">
+        <div class="content">
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_lxyjg@2x.png"
               alt=""
             />
           </div>
 
-          <div class="contetnt_text wow fadeInRight">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text19' ) }}</div>
               <div>{{ $t( 'text20' ) }}</div>
@@ -144,8 +144,8 @@
 
     <div class="project project-2">
       <div class="wrap">
-        <div class="contetnt">
-          <div class="contetnt_text wow fadeInRight">
+        <div class="content">
+          <div class="content_text wow fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text21' ) }}</div>
               <div>{{ $t( 'text22' ) }}</div>
@@ -157,7 +157,7 @@
           </div>
           <div class="bloart wow fadeInLeft">
             <img
-              class="contetnt_img"
+              class="content_img"
               src="@/assets/img/pic_aqbz@2x.png"
               alt=""
             />
@@ -399,15 +399,15 @@ export default {
         text-align: center;
         margin-bottom: 39px;
       }
-      .contetnt {
+      .content {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .contetnt_img {
+        .content_img {
           width: 480px;
         }
 
-        .contetnt_text {
+        .content_text {
           color: #7b7b7b;
           font-size: 16px;
           width: 498px;
@@ -429,8 +429,8 @@ export default {
 
   .project-2 {
     .wrap {
-      .contetnt {
-        .contetnt_text {
+      .content {
+        .content_text {
           width: 617px;
           text-align: left;
           padding-left: 36px;
