@@ -6,13 +6,13 @@
         <div class="contetnt">
           <div class="contetnt_text wow fadeInRight">
             <div class="bget">
-              <div>一键买入</div>
-              <div>坐享高额回报</div>
+              <div>{{ $t( 'text19' ) }}</div>
+              <div>{{ $t( 'text20' ) }}</div>
             </div>
             <div class="caosjet">
+              <div>{{ $t( 'text43' ) }}</div>
               <div>
-                借贷生息、活期理财、定期理财、staking质押奖励等丰富理财玩法</div><div>
-                中心化+去中心化理财，安全放心、随存随取、利息实时到账、高额回报
+                {{ $t( 'text46' ) }}
               </div>
             </div>
           </div>
@@ -31,24 +31,24 @@
               <div class="billet">
                 <div class="fitop">
                   <div><img src="../../assets/img/icon_dqlc.png" /></div>
-                  <div class="title-1">定期理财</div>
+                  <div class="title-1">{{ $t( 'text47' ) }}</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">存币生息，高收益</div>
-                    <div class="title-2">7天、14天、30天、180天</div>
+                    <div class="title-2 title-pi">{{ $t( 'text48' ) }}</div>
+                    <div class="title-2">{{ $t( 'text49' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">等待上线</div>
+                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
                 </div>
               </div>
               <div class="billet" style="margin: 0 28px">
                 <div class="fitop">
                   <div><img src="../../assets/img/icon_hqlc.png" /></div>
-                  <div class="title-1">活期理财</div>
+                  <div class="title-1">{{ $t( 'text51' ) }}</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">随存随取，闲置资产利用</div>
+                    <div class="title-2 title-pi">{{ $t( 'text52' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">等待上线</div>
+                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
                 </div>
               </div>
               <div class="billet">
@@ -56,10 +56,10 @@
                   <div><img src="../../assets/img/icon_staking.png" /></div>
                   <div class="title-1">Staking</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">POS类质押挖矿奖励</div>
-                    <div class="title-2">参与公链治理并坐享收益</div>
+                    <div class="title-2 title-pi">{{ $t( 'text53' ) }}</div>
+                    <div class="title-2">{{ $t( 'text54' ) }}</div>
                   </div>
-                  <div class="rmot-button">等待上线</div>
+                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
                 </div>
               </div>
             </div>
@@ -68,25 +68,25 @@
               <div class="billet">
                 <div class="fitop">
                   <div><img src="../../assets/img/icon_ywk.png" /></div>
-                  <div class="title-1">云挖矿</div>
+                  <div class="title-1">{{ $t( 'text55' ) }}</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">算力挖矿、机枪矿池</div>
-                    <div class="title-2">周期短、收益高</div>
+                    <div class="title-2 title-pi">{{ $t( 'text56' ) }}</div>
+                    <div class="title-2">{{ $t( 'text57' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">等待上线</div>
+                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
                 </div>
               </div>
               <div class="billet" style="margin: 0 28px">
                 <div class="fitop">
                   <div><img src="../../assets/img/icon_ytz.png" /></div>
-                  <div class="title-1">云投资</div>
+                  <div class="title-1">{{ $t( 'text58' ) }}</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">专业团队主动出击</div>
-                    <div class="title-2">寻找优质项目，提前布局</div>
+                    <div class="title-2 title-pi">{{ $t( 'text59' ) }}</div>
+                    <div class="title-2">{{ $t( 'text60' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">等待上线</div>
+                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
                 </div>
               </div>
               <div class="billet">
@@ -94,10 +94,10 @@
                   <div><img src="../../assets/img/icon_ztg.png" /></div>
                   <div class="title-1">Staking</div>
                   <div class="wiiot">
-                    <div class="title-2 title-pi">新项目空投奖励</div>
-                    <div class="title-2">带领大家一起薅羊毛</div>
+                    <div class="title-2 title-pi">{{ $t( 'text61' ) }}</div>
+                    <div class="title-2">{{ $t( 'text62' ) }}</div>
                   </div>
-                  <div class="rmot-button" role="button">等待上线</div>
+                  <div class="rmot-button" role="button">{{ $t( 'text50' ) }}</div>
                 </div>
               </div>
             </div>
@@ -111,17 +111,12 @@
 </template>
 
 <script>
-import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
-
-import languageNav from "@/language/index";
-
 export default {
   name: "",
   components: { webFoot },
   data() {
     return {
-      NODE_ENV: process.env.NODE_ENV,
       closeTrime: 14,
       timerNull: null,
       WindowHeight: 0,
@@ -144,35 +139,11 @@ export default {
       jgShow3: false,
       isAlertTrue: false,
       isFhows: false,
-      list: [
-        {
-          code: "",
-          title: "TAF Chain和以太坊2.0谁将开启新一轮牛市",
-          publish_date: "2020-11-12",
-          digest:
-            "截至11月11日，已有超5万枚ETH打入以太坊2.0存款合约地址，以太坊2.0进入创世启动阶段，启动进度完成10%。同时区块链3.0的代表TAFT完成了第一阶段的私募发售。仅用时26天第一阶段预售就已售罄。由此可见投资者对区块链3.0的期待和认可。2021年TAF Chain公链和以太坊2.0公链都将问世，届时将会是顶尖区块链技术的对垒，也是一场科技的盛宴。",
-        },
-        {
-          code: "",
-          title: "区块链技术如何变革供应链金融",
-          publish_date: "2020-10-02",
-          digest:
-            "尽管长期以来区块链的应用重点一直被放在支付和证券领域，但一个重要，且仍被低估的用例是供应链金融。目前，情况已在发生改变。现有供应链财务解决方案的复杂性和规模，在确保充足的资金和高效的运营方面提出了重大挑战。区块链技术有可能改变供应链金融的游戏规则。",
-        },
-        {
-          code: "",
-          title: "企业链改三原则：简化，连接，交易",
-          publish_date: "2020-10-02",
-          digest:
-            "按照大多数技术的标准，区块链仍应处于起步阶段。例如，现代计算机已经存在了80多年，云计算尽管自1996年以来就已存在，但它在许多行业领域仍属于努力获得市场份额阶段。",
-        },
-      ],
       listQuery: {
         lang_type: this.$langType,
         page_no: 1,
         page_size: 3,
       },
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },

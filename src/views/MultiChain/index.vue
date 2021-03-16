@@ -9,18 +9,18 @@
               <div>Uvswap</div>
             </div>
             <div class="caosjet">
-              <div>用户可以直接跨链快速兑换</div>
-              <div>支持包括BTC、TAF、ETH等20多条公链及链上代币快速交易</div>
+              <div>{{ $t( 'text63' ) }}</div>
+              <div>{{ $t( 'text64' ) }}</div>
             </div>
             <div :class="['dwkoer cursor-pointer slideUpBtn', $lang]" role="button">
-              <span>即将上线</span>
+              <span>{{ $t( 'text65' ) }}</span>
             </div>
           </div>
           <div class="bloart wow fadeInLeft">
             <img
               class="contetnt_img"
               src="@/assets/img/pic_lxyj@2x.png"
-              alt=""
+              alt="img"
             />
           </div>
         </div>
@@ -31,9 +31,9 @@
       <div class="wrap">
         <div class="contetnt">
           <div class="scoplert">
-            <div class="title-1">安全高效 可靠透明</div>
+            <div class="title-1">{{ $t( 'text66' ) }}</div>
             <div class="title-2">
-              基于ArthurAPI框架的高性能跨链swap协议而构建的面向未来的去中心化交易所
+              {{ $t( 'text67' ) }}
             </div>
             <div>
               <div class="zarll">
@@ -42,9 +42,9 @@
                     <img src="../../assets/img/pic_jsgx@2x.png" />
                   </div>
                   <div>
-                    <div class="title-3">极速高效</div>
+                    <div class="title-3">{{ $t( 'text68' ) }}</div>
                     <div class="title-4">
-                      基于ArthurAPI框架的高性能跨链swap协议 理论TPS性能高达2万+
+                      {{ $t( 'text69' ) }}
                     </div>
                   </div>
                 </div>
@@ -53,9 +53,9 @@
                     <img src="../../assets/img/pic_wgas@2x.png" />
                   </div>
                   <div>
-                    <div class="title-3">无GAS</div>
+                    <div class="title-3">{{ $t( 'text70' ) }}</div>
                     <div class="title-4">
-                      流动性提供者和用户无需支付高昂 gas 费用 极大降低使用门槛
+                      {{ $t( 'text71' ) }}
                     </div>
                   </div>
                 </div>
@@ -67,9 +67,9 @@
                     <img src="../../assets/img/pic_gxldx@2x.png" />
                   </div>
                   <div>
-                    <div class="title-3">共享流动性</div>
+                    <div class="title-3">{{ $t( 'text72' ) }}</div>
                     <div class="title-4">
-                      用户可以和使用同样 ArthurAPI框架的其他交易所共享流动性
+                      {{ $t( 'text73' ) }}
                     </div>
                   </div>
                 </div>
@@ -78,9 +78,9 @@
                     <img src="../../assets/img/pic_wqls@2x.png" />
                   </div>
                   <div>
-                    <div class="title-3">完全链上</div>
+                    <div class="title-3">{{ $t( 'text74' ) }}</div>
                     <div class="title-4">
-                      一次交易中进行多次交易 完全透明且可验证
+                      {{ $t( 'text75' ) }}
                     </div>
                   </div>
                 </div>
@@ -103,7 +103,6 @@ export default {
   components: { webFoot },
   data() {
     return {
-      NODE_ENV: process.env.NODE_ENV,
       closeTrime: 14,
       timerNull: null,
       WindowHeight: 0,
