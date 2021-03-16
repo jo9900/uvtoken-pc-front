@@ -88,7 +88,6 @@
                       <div> {{ $t( 'presale.text3' ) }}</div>
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
-                    </div>
                     <div class="rulert-right">
                       <div>2021-7-19 - 2021-8-19</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
@@ -103,13 +102,13 @@
                role="button"
                @click="clickBefore"
           >
-            <span v-if="!isAccess(2)">敬请期待</span>
-            <span v-else>去抢购</span>
+            <span v-if="!isAccess(2)">{{ $t( 'presale.text69' ) }}</span>
+            <span v-else>{{ $t( 'presale.text61' ) }}</span>
           </div>
         </div>
 
         <!-- 首轮抢购 弹窗-->
-        <el-dialog title="首轮预售"
+        <el-dialog :title="$t('pesale.text15')"
                    :visible.sync="firstDialogVisible"
                    custom-class="firstDialogVisible"
                    width="580px"
@@ -127,26 +126,28 @@
             >
               <el-row>
                 <el-col :span="24">
-                  <el-progress class="progress" :text-inside="true" :stroke-width="18" :percentage="round==2
-                                ?parseInt(preInfo.progress):preInfo.progress==0
-                                ?0:parseInt(preInfo.progress)>=parseInt(preInfo.total)?100:(parseFloat( preInfo.progress/preInfo.total*100).toFixed(3)).substring(0,parseFloat( preInfo.progress/preInfo.total*100).toFixed(3).lastIndexOf('.')+3)"
+                  <el-progress
+                      class="progress"
+                      :text-inside="true"
+                      :stroke-width="18"
+                      :percentage="percentage"
                   ></el-progress>
                   <div class="progress_info">
                     <div dir="auto">
                       <template v-if="round==1">
-                        <template v-if="languageName=='English'">{{ preInfo.progress }}
-                          {{ languageNav[ languageName ].language_text30 }}
+                        <template v-if="$lang=='en'">{{ preInfo.progress }}
+                          {{ $t( 'presale.text30' ) }}
                         </template>
-                        <template v-else>{{ languageNav[ languageName ].language_text30 }} {{ preInfo.progress }}
-                          {{ languageNav[ languageName ].language_text26 }}
+                        <template v-else>{{ $t( 'presale.text30' ) }} {{ preInfo.progress }}
+                          {{ $t( 'presale.text26' ) }}
                         </template>
                       </template>
-                      <template v-else>{{ languageNav[ languageName ].language_text27 }} {{ preInfo.progress }}%
+                      <template v-else>{{ $t( 'presale.text27' ) }} {{ preInfo.progress }}%
                       </template>
                     </div>
                     <div dir="auto">
-                      {{ languageNav[ languageName ].language_text28 }}
-                      <template v-if="round == 1"> {{ preInfo.total }} {{ languageNav[ languageName ].language_text26 }}
+                      {{ $t( 'presale.text28' ) }}
+                      <template v-if="round == 1"> {{ preInfo.total }} {{ $t( 'presale.text26' ) }}
                       </template>
                       <template v-else>{{ preInfo.total ? preInfo.total.replace( /\B(?=(?:\d{3})+\b)/g, ',' ) : "0" }}
                         USDT
@@ -156,25 +157,25 @@
                   </div>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item :label="languageNav[languageName].language_text29">
+                  <el-form-item :label="$t( 'presale.text29' )">
                     <el-input :placeholder="preInfo.price+ ' USDT'" disabled size="medium"></el-input>
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
                   <el-form-item
-                      :label="round==1?languageNav[languageName].language_text31+'（1'+languageNav[languageName].language_text26 +'='+ preInfo.pre_amount+' UVT）':languageNav[languageName].language_text32"
+                      :label="round==1?$t( 'presale.text31' )+'（1'+$t( 'presale.text26' ) +'='+ preInfo.pre_amount+' UVT）':$t( 'presale.text32' )"
                       prop="book_amount" style="position: relative">
                     <el-input type="number" v-model.trim="presellForm.book_amount"
-                              :placeholder="round==1?languageNav[languageName].language_text33:languageNav[languageName].language_text34"
+                              :placeholder="round==1?$t( 'presale.text33' ):$t( 'presale.text34' )"
                               size="medium">
 
                     </el-input>
-                    <div class="skert" v-if="round==1">{{ languageNav[ languageName ].language_text26 }}</div>
+                    <div class="skert" v-if="round==1">{{ $t( 'presale.text26' ) }}</div>
                     <div class="skert" style="width: 42px;" v-if="round==2">UVT</div>
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item :label="languageNav[languageName].language_text35">
+                  <el-form-item :label="$t( 'presale.text35' )">
                     <div class="priceValue">
                       {{ totalPrice }}
                     </div>
@@ -183,8 +184,7 @@
                 <el-col :span="24">
                   <el-form-item id="elcheckbox">
                     <el-checkbox v-model.trim="presellChecked"></el-checkbox>
-                    <span>  {{ languageNav[ languageName ].language_text36 }} <span class="sgStyle"
-                                                                                    @click="koserxy">【{{ languageNav[ languageName ].language_text37 }}】</span></span>
+                    <span>  {{ $t( 'presale.text36' ) }} <span class="sgStyle" @click="koserxy">【{{ $t( 'presale.text37' ) }}】</span></span>
                   </el-form-item>
                 </el-col>
 
@@ -193,15 +193,15 @@
           </div>
           <span slot="footer" class="dialog-footer">
                     <el-button type="primary" :loading="loading" class="restBottn"
-                               @click="nextPay">{{ languageNav[ languageName ].language_text41 }}</el-button>
+                               @click="nextPay">{{ $t( 'presale.text41' ) }}</el-button>
                 </span>
         </el-dialog>
         <!-- 首轮抢购 弹窗 end-->
 
         <!--&lt;!&ndash; 首轮付款 弹窗 &ndash;&gt;firstPayDialogVisible=-->
         <el-dialog :title="
-            round==1? languageNav[languageName].language_text59
-            :languageNav[languageName].language_text40"
+            round==1? $t( 'presale.text59' )
+            :$t( 'presale.text40' )"
                    :visible.sync="firstPayDialogVisible"
                    custom-class="firstPayDialogVisible"
                    width="580px"
@@ -215,25 +215,25 @@
     padding: 10px 14px;
     font-size: 12px;
     color: red;
-    line-height: 14px;">{{ languageNav[ languageName ].language_text58 }}
+    line-height: 14px;">{{ $t( 'presale.text58' ) }}
             </div>
-            <div class="pay_name">{{ languageNav[ languageName ].language_text42 }}</div>
+            <div class="pay_name">{{ $t( 'presale.text42' ) }}</div>
             <div class="pay_num">{{ totalPrice }} USDT</div>
-            <div class="pay_omni_name">{{ languageNav[ languageName ].language_text43 }}</div>
+            <div class="pay_omni_name">{{ $t( 'presale.text43' ) }}</div>
             <div class="pay_omni_row">
               <div class="omni" id="omni">{{ charge_address }}</div>
-              <div class="copy" @click="copyArticle">{{ languageNav[ languageName ].language_text45 }}</div>
+              <div class="copy" @click="copyArticle">{{ $t( 'presale.text45' ) }}</div>
             </div>
             <div style="text-align: center" v-if="charge_address">
               <div id="qrcode">
                 <!--                <img src="@/assets/logo.png"/>-->
               </div>
-              <div class="">{{ languageNav[ languageName ].language_text64 }}</div>
+              <div class="">{{ $t( 'presale.text64' ) }}</div>
             </div>
           </div>
           <span slot="footer" class="dialog-footer">
               <el-button type="primary" class="restBottn"
-                         @click="firstPayDialogVisible = false"> {{ languageNav[ languageName ].language_text46 }} </el-button>
+                         @click="firstPayDialogVisible = false"> {{ $t( 'presale.text46' )}} </el-button>
                 </span>
         </el-dialog>
         <!-- 首轮付款 弹窗 end-->
@@ -251,16 +251,16 @@
         <!-- 申购规则 弹窗 end-->
 
         <!-- 登录提示窗 弹窗 -->
-        <el-dialog :title="languageNav[languageName].language_text18" :visible.sync="loginDialogVisible" width="400px"
+        <el-dialog :title="$t( 'presale.text18' )" :visible.sync="loginDialogVisible" width="400px"
                    center :lock-scroll="false" :before-close="loginHandleClose">
           <div class="contt-text">
-            {{ languageNav[ languageName ].language_text19 }}
+            {{ $t( 'presale.text19' ) }}
           </div>
           <span slot="footer" class="dialog-footer">
                      <el-button class="rz-botton" type="primary"
-                                @click="toLogin">{{ languageNav[ languageName ].language_text20 }}</el-button>
+                                @click="toLogin">{{ $t( 'presale.text20' )}}</el-button>
                       <el-button class="gz-botton"
-                                 @click="loginDialogVisible = false">{{ languageNav[ languageName ].language_text21 }}</el-button>
+                                 @click="loginDialogVisible = false">{{ $t( 'presale.text21' ) }}</el-button>
                 </span>
         </el-dialog>
         <!-- 登录提示窗 弹窗 end-->
@@ -269,13 +269,13 @@
         <el-dialog :visible.sync="KYC_DialogVisible" :lock-scroll="false" width="400px" center
                    :before-close="KYCHandleClose">
           <div class="contt-text">
-            {{ languageNav[ languageName ].language_text12 }}
+            {{ $t( 'presale.text12' ) }}
           </div>
           <span slot="footer" class="dialog-footer">
                     <el-button class="rz-botton" type="primary"
-                               @click="toKYC">{{ languageNav[ languageName ].language_text22 }}</el-button>
+                               @click="toKYC">{{ $t( 'presale.text22' ) }}</el-button>
                     <el-button class="gz-botton"
-                               @click="KYC_DialogVisible = false">{{ languageNav[ languageName ].language_text21 }}</el-button>
+                               @click="KYC_DialogVisible = false">{{ $t( 'presale.text21' ) }}</el-button>
                 </span>
         </el-dialog>
         <!-- KYC提示窗 弹窗 end-->
@@ -283,11 +283,11 @@
         <!-- KYC审核中 弹窗 -->
         <el-dialog :visible.sync="KYC_loading_DialogVisible" :lock-scroll="false" width="400px">
           <div class="contt-text">
-            {{ languageNav[ languageName ].language_text12 }}
+            {{ $t( 'presale.text12' ) }}
           </div>
           <div slot="footer" class="dialog-footer" style="text-align: center;">
             <el-button class="rz-botton" type="primary" @click="KYC_loading_DialogVisible = false">
-              {{ languageNav[ languageName ].language_text47 }}
+              {{ $t( 'presale.text47' ) }}
             </el-button>
           </div>
         </el-dialog>
@@ -295,7 +295,7 @@
         <!-- KYC审核中 弹窗 -->
         <el-dialog :visible.sync="KYC_error_DialogVisible" :lock-scroll="false" width="400px">
           <div class="contt-text">
-            <div>{{ languageNav[ languageName ].language_text12 }}</div>
+            <div>{{ $t( 'presale.text12' ) }}</div>
           </div>
         </el-dialog>
         <!-- KYC审核中 弹窗 end-->
@@ -320,18 +320,18 @@ export default {
       if ( value != '' )
         return callback()
       if ( this.round == 1 )
-        callback( new Error( this.languageNav[ this.$langType ].language_text38 ) )
+        callback( new Error( this.$t( 'presale.text38' ) ) )
       else
-        callback( new Error( this.languageNav[ this.$langType ].language_text38 ) )
+        callback( new Error( this.$t( 'presale.text48' ) ) )
     }
 
     var validateSurnmae = ( rule, value, callback ) => {
       if ( this.round == 1 ) {
         if ( value < 1 ) {
-          callback( new Error( this.languageNav[ this.$langType ].language_text54 ) )
+          callback( new Error( this.$t( 'presale.text54' ) ) )
         }
         else if ( !( /(^[1-9]\d*$)/.test( value ) ) ) {
-          callback( new Error( this.languageNav[ this.$langType ].language_text49 ) )
+          callback( new Error( this.$t( 'presale.text48' ) ) )
         }
         else {
           this.totalPrice = parseInt( value * this.preInfo.pre_amount * this.preInfo.price )
@@ -341,7 +341,7 @@ export default {
       else {
         let reg = /^[1-9][0-9]*0{2}$/
         if ( !( reg.test( value ) ) ) {
-          callback( new Error( this.languageNav[ this.$langType ].language_text50 ) )
+          callback( new Error( this.$t( 'presale.text50' ) ) )
 
         }
         else {
@@ -352,6 +352,7 @@ export default {
 
     };
     return {
+      percentage: '',
       userInfo: {},
       roundtext: "",
       isLogin: false,
@@ -389,6 +390,17 @@ export default {
   },
   watch: {},
   methods: {
+    calc_precentage() {
+      let pre = 0
+      if (this.round == 3) {
+        pre = parseInt(this.preInfo.progress)
+      }else if (this.preInfo.progress == 0) {
+        pre = 0
+      } else {
+        pre = parseInt(this.preInfo.progress)>=parseInt(this.preInfo.total)?100:parseFloat((this.preInfo.progress/this.preInfo.total)*100).toFixed(2)
+      }
+      this.precentage = pre
+    },
     isAccess(round) { // 抢购按钮可点
       if (round == 1)
         return this.roundstatus == 1
@@ -420,7 +432,7 @@ export default {
             this.preInfo = JSON.parse( JSON.stringify( this.preInfo1 ) )
           else
             this.preInfo = JSON.parse( JSON.stringify( this.preInfo2 ) )
-
+          this.calc_precentage()
           this.firstDialogVisible = true;
         }
         this.KYC_loading_DialogVisible = this.userInfo.kyc_status == 2;
@@ -463,7 +475,7 @@ export default {
       if ( selection.rangeCount > 0 ) selection.removeAllRanges();
       selection.addRange( range );
       document.execCommand( 'copy' );
-      this.$message( this.languageNav[ this.$langType ].language_text51 );
+      this.$message( this.$t( 'presale.text51' ) );
     },
 
     toLogin() {

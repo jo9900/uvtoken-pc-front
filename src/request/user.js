@@ -4,7 +4,7 @@
 */
 import { get, post } from './http'
 
-const baseUrl = 'api/v1/'
+const baseUrl = 'webmanage/'
 
 export const userInfo = params =>{
     return post( baseUrl + 'user/info' , params )
