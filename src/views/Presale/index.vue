@@ -9,10 +9,10 @@
         <div class="wllboter foskower">
           <div class="mosrt_plelr">
             <div class="pe-llert"><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
-            <div class="boakder">{{ languageNav[ languageName ].language_text15 }}</div>
+            <div class="boakder">{{ $t( 'presale.text15' ) }}</div>
           </div>
           <div class="sllr-ller">
-            首轮募集资金将用于现有团队及多个项目的维护，主要为日常开支、工资及研发费用
+            {{ $t( 'presale.text1' ) }}
           </div>
           <div class="gopker">
             <div class="gopker_blert"></div>
@@ -24,14 +24,14 @@
                 <div class="middle-wrap">
                   <div class="bmsoert">
                     <div class="zlser">
-                      {{ languageNav[ languageName ].language_text66 }}
+                      {{ $t( 'presale.text66' ) }}
                     </div>
                   </div>
                   <div class="rulert">
                     <div class="rulert-left">
-                      <div>开启时间：</div>
-                      <div>单价：</div>
-                      <div>目标金额：</div>
+                      <div> {{ $t( 'presale.text2' ) }}</div>
+                      <div> {{ $t( 'presale.text3' ) }}</div>
+                      <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="rulert-right">
                       <div>2020-10-01 - 2020-11-01</div>
@@ -49,7 +49,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="progress-text">{{ languageNav[ languageName ].language_text27 }}</div>
+                  <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                 </div>
               </div>
             </div>
@@ -58,18 +58,18 @@
                role="button"
                @click="clickBefore"
           >
-            <span v-if="!isAccess(1)">敬请期待</span>
-            <span v-else>去抢购</span>
+            <span v-if="!isAccess(1)"> {{ $t( 'presale.text69' ) }}</span>
+            <span v-else>{{ $t( 'presale.text61' ) }}</span>
           </div>
         </div>
 
         <div class="wllboter foskower" style="margin-bottom: auto">
           <div class="mosrt_plelr">
             <div class="pe-llert"><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
-            <div class="boakder">{{ languageNav[ languageName ].language_text7 }}</div>
+            <div class="boakder"> {{ $t( 'presale.text5' ) }}</div>
           </div>
           <div class="sllr-ller">
-            全球轮预售预计2021-7-19开始，预售资金用于硬件钱包产品线扩张，各类顶尖工程师的招募等
+            {{ $t( 'presale.text6' ) }}
           </div>
           <div class="gopker">
             <div class="gopker_blert"></div>
@@ -80,18 +80,19 @@
                 </div>
                 <div class="skome">
                   <div class="bmsoert">
-                    <div class="zlser">{{ languageNav[ languageName ].language_text7 }}</div>
+                    <div class="zlser"> {{ $t( 'presale.text5' ) }}</div>
                   </div>
                   <div class="rulert">
                     <div class="rulert-left">
-                      <div>开启时间：</div>
-                      <div>单价：</div>
-                      <div>目标金额：</div>
+                      <div> {{ $t( 'presale.text2' ) }}</div>
+                      <div> {{ $t( 'presale.text3' ) }}</div>
+                      <div> {{ $t( 'presale.text4' ) }}</div>
+                    </div>
                     </div>
                     <div class="rulert-right">
                       <div>2021-7-19 - 2021-8-19</div>
-                      <div>待发行前确定</div>
-                      <div>待发行前确定</div>
+                      <div>{{ $t( 'presale.text7' ) }}</div>
+                      <div>{{ $t( 'presale.text7' ) }}</div>
                     </div>
                   </div>
                 </div>

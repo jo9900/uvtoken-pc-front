@@ -13,7 +13,7 @@
             <img
               class="content_img"
               src="@/assets/img/pic_help@2x.png"
-              alt=""
+              alt="bg-img"
             />
           </div>
         </div>
@@ -24,16 +24,10 @@
       <div class="wrap">
         <div class="content">
           <div>
-            <div class="title-1">常见问题</div>
+            <div class="title-1">
+              {{ $t( 'text113' ) }}</div>
             <div class="coak">
               <div class="bmllort">
-<!--                <div class="boet" v-for="item in listData" :key="item.id">
-                  <router-link
-                    :to="{ path: '/helpDetail', query: { id: item.id } }"
-                  >
-                    <div class="title-2">{{ item.issueName }}</div>
-                  </router-link>
-                </div>-->
                 <div class="boet" v-for="(item, index) in listTitle">
                   <div class="title-2" @click="changeRoute(index)">{{ item }}</div>
                 </div>
@@ -58,6 +52,7 @@ export default {
   data() {
     return {
       listData: [],
+      // TODO 这里后续跟进 再决定是写死还是获取返回
       listTitle: [
           '什么是去中心化钱包？',
           '什么是HD钱包、托管钱包、多链钱包？',
