@@ -390,4 +390,8 @@ export default {
         opacity: 1;
         left: 0;
     }
+    .el-dropdown-menu {
+      text-align: center;
+      width: 140px;
+    }
 </style>

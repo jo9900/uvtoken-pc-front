@@ -850,6 +850,6 @@ export default {
   margin: 0 10px;
 }
 .pad20 {
-  padding-top: 30 px;
+  padding-top: 30px;
 }
 </style>

@@ -33,10 +33,6 @@
     background-color:#fff;
     color: #5885FD;
 }
-.el-dropdown-menu {
-    text-align: center;
-    width: 140px;
-}
 
  .el-dropdown-menu  .el-dropdown-menu__item {
     font-size: 14px;
