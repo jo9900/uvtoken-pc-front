@@ -147,7 +147,7 @@ export default {
         verify_code: [
           {
             required: true,
-            message: this.$t( 'login.text198' ),
+            message: this.$t( 'text198' ),
             trigger: "blur",
           },
         ],
@@ -274,6 +274,9 @@ export default {
       padding: 38px;
       height: 800px;
       background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .data_form {
         width: 600px;
       }

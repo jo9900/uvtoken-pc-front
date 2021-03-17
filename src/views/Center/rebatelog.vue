@@ -115,7 +115,7 @@ export default {
       let params = this.form;
       rebateLog(params).then((res) => {
         if (res.code == 0) {
-          this.tableData = res.data;
+          this.tableData = res.data.records;
           this.total = res.data.count;
         } else {
           this.$message.error(res.msg);
