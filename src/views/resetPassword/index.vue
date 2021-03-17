@@ -158,7 +158,7 @@ import webFoot from "@/Layout/footer";
 import {
   pubKey,
   login,
-  signIn,
+  signUp,
   mailVcode,
   passwordVcode,
   findPassword,
@@ -208,7 +208,7 @@ export default {
       pagePath: "login",
       checked: false,
       disabled: false,
-      signInCode: false,
+      signUpCode: false,
       resetCode: false,
       time: 60,
       btntxt: this.$t( 'login.text14' ),
@@ -216,7 +216,7 @@ export default {
         email: "",
         password: "",
       },
-      signInForm: {
+      signUpForm: {
         email: "",
         password: "",
         againPassword: "",
@@ -483,7 +483,7 @@ export default {
             cursor: pointer;
           }
         }
-        &.signIn_case {
+        &.signUp_case {
           margin: 30px 0;
           /*height: 690px;*/
           .form_row {

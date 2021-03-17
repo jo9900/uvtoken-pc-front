@@ -8,11 +8,11 @@ const routes = [
     { path: '/login', name: 'login', label: '登录', meta: { requiresAuth: false, title: "登录" }, component: Login },
 
     {
-        path: '/signIn',
-        name: 'signIn',
+        path: '/signUp',
+        name: 'signUp',
         label: '注册',
         meta: { requiresAuth: false, title: "注册" },
-        component: resolve => require( [ '@/views/signIn/index.vue' ], resolve )
+        component: resolve => require( [ '@/views/SignUp/index.vue' ], resolve )
     },
     {
         path: '/forget',

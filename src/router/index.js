@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
         if (getQueryVariable("ref", window.location.href)) {
             window.location.href =
                 process.env.VUE_APP_BASE_API_MOBILE +
-                "signIn?ref=" +
+                "SignUp?ref=" +
                 getQueryVariable("ref", window.location.href);
         }
         else

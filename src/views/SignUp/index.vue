@@ -3,16 +3,16 @@
     <div class="page_content">
       <div class="login_bg"></div>
       <div class="wrap">
-        <div class="case signIn_case">
-          <template v-if="!signInCode">
+        <div class="case signUp_case">
+          <template v-if="!signUpCode">
             <div class="case_title">
               {{ $t( 'login.text8' ) }}
             </div>
             <el-form
               class="case_form"
-              :model="signInForm"
+              :model="signUpForm"
               :rules="rules"
-              ref="signInForm"
+              ref="signUpForm"
             >
               <el-form-item class="form_row" prop="mail">
                 <img
@@ -24,7 +24,7 @@
                   class="row_input"
                   type="text"
                   :placeholder="$t( 'login.text2' )"
-                  v-model.trim="signInForm.mail"
+                  v-model.trim="signUpForm.mail"
                 />
               </el-form-item>
               <el-form-item class="form_row" prop="pwd">
@@ -38,7 +38,7 @@
                   type="password"
                   autocomplete="off"
                   :placeholder="$t( 'login.text3' )"
-                  v-model.trim="signInForm.pwd"
+                  v-model.trim="signUpForm.pwd"
                 />
               </el-form-item>
               <el-form-item class="form_row" prop="againPassword">
@@ -52,7 +52,7 @@
                   type="password"
                   autocomplete="off"
                   :placeholder="$t( 'login.text6' )"
-                  v-model.trim="signInForm.againPassword"
+                  v-model.trim="signUpForm.againPassword"
                 />
               </el-form-item>
               <div class="form_row codeText" style="margin-bottom: 15px">
@@ -66,7 +66,7 @@
                   <el-input
                     class="row_input"
                     disabled
-                    v-model="signInForm.inviteCode"
+                    v-model="signUpForm.inviteCode"
                   />
                 </template>
                 <template v-else>
@@ -78,7 +78,7 @@
                       $t( 'login.text29' ) +
                       '）'
                     "
-                    v-model="signInForm.invite_code"
+                    v-model="signUpForm.invite_code"
                 /></template>
               </div>
               <div
@@ -104,14 +104,14 @@
             </el-form>
             <el-button
               class="btn form_btn singBon"
-              @click="submitForm('signInForm')"
+              @click="submitForm('signUpForm')"
               >{{ $t( 'login.text8' ) }}
             </el-button>
           </template>
-          <template v-if="signInCode">
+          <template v-if="signUpCode">
             <div class="case_title" style="margin-bottom: 34px">{{ $t( 'login.text37' ) }}</div>
             <div class="tstPoset">
-              {{ $t( 'login.text38' ) }} {{ signInForm.email }}
+              {{ $t( 'login.text38' ) }} {{ signUpForm.email }}
             </div>
             <div class="tacoker">
               {{ $t( 'login.text39' ) }}
@@ -119,9 +119,9 @@
             <el-form
               style="margin: 25px 0"
               class="case_form"
-              :model="signInForm"
+              :model="signUpForm"
               :rules="rules"
-              ref="signInForm"
+              ref="signUpForm"
             >
               <el-form-item class="form_row" prop="verifyCode">
                 <img
@@ -134,10 +134,10 @@
                   type="text"
                   maxlength="8"
                   :placeholder="$t( 'login.text5' )"
-                  v-model.trim="signInForm.verifyCode"
+                  v-model.trim="signUpForm.verifyCode"
                 />
                 <div v-if="disabled" class="get_code">{{ btntxt }}</div>
-                <div v-else class="get_code" @click="sendcode('signIn')">
+                <div v-else class="get_code" @click="sendcode('signUp')">
                   {{ btntxt }}
                 </div>
               </el-form-item>
@@ -145,7 +145,7 @@
             <el-button
               class="btn form_btn singBon"
               :loading="loading"
-              @click="submitFormSign('signInForm')"
+              @click="submitFormSign('signUpForm')"
               >{{ $t( 'login.text36' ) }}</el-button
             >
           </template>
@@ -182,7 +182,7 @@ import webFoot from "@/Layout/footer";
 import {
   pubKey,
   login,
-  signIn,
+  signUp,
   mailVcode,
 } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
@@ -213,7 +213,7 @@ export default {
       }
     };
     const validatePasswordAagin = (rule, value, callback) => {
-      if (value != this.signInForm.pwd) {
+      if (value != this.signUpForm.pwd) {
         callback(new Error(this.$t( 'login.text12' )));
       } else {
         callback();
@@ -228,7 +228,7 @@ export default {
       pagePath: "login",
       checked: false,
       disabled: false,
-      signInCode: false,
+      signUpCode: false,
       resetCode: false,
       inviteCode: false,
       time: 60,
@@ -237,7 +237,7 @@ export default {
         email: "",
         password: "",
       },
-      signInForm: {
+      signUpForm: {
         mail: "",
         pwd: "",
         againPassword: "",
@@ -310,7 +310,7 @@ export default {
     sendcode(e) {
       let data = {
         lang_type: this.$langType,
-        mail: this.signInForm.mail,
+        mail: this.signUpForm.mail,
         flag: "1",
       };
       mailVcode(data).then((res) => {
@@ -319,7 +319,7 @@ export default {
             message: this.$t( 'login.text17' ),
             type: "success",
           });
-          this.signInCode = true;
+          this.signUpCode = true;
           this.timer();
         } else {
           if (res.code == "101702") {
@@ -376,14 +376,14 @@ export default {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           this.loading = true;
-          let params = JSON.parse(JSON.stringify(this.signInForm));
+          let params = JSON.parse(JSON.stringify(this.signUpForm));
           delete params.againPassword;
           let resData = await pubKey();
           if (resData.code == 0) {
               this.pk = resData.data.PubKey;
           }
           params.pwd = this.rsaData(sha256(params.pwd));
-          signIn(params).then((res) => {
+          signUp(params).then((res) => {
             this.loading = false;
             if (res.code == 0) {
               this.$message({
@@ -435,7 +435,7 @@ export default {
 
       this.closeVerifyDialog()
       setTimeout(() => {
-        this.sendcode("signIn");
+        this.sendcode("signUp");
       }, 500);
     },
   },
@@ -445,7 +445,7 @@ export default {
   mounted() {
     if (this.getQueryVariable("ref", window.location.href)) {
       this.inviteCode = true;
-      this.signInForm.inviteCode = this.getQueryVariable(
+      this.signUpForm.inviteCode = this.getQueryVariable(
         "ref",
         window.location.href
       );
@@ -543,7 +543,7 @@ export default {
             }
           }
         }
-        &.signIn_case {
+        &.signUp_case {
           margin: 30px 0;
           /*height: 690px;*/
           .form_row {

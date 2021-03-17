@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    signInForm:"",
+    signUpForm:"",
     PresellForm:"",
     timerCoander:false,
     token: localStorage.getItem('token') ? localStorage.getItem('token') : '',

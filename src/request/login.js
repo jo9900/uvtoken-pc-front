@@ -13,7 +13,7 @@ export const pubKey = params =>{
     return post( baseUrl + 'getpublickey' , params )
 }
 
-export const signIn = data =>{
+export const signUp = data =>{
     return post( baseUrl + 'userregister' , data )
 }
 

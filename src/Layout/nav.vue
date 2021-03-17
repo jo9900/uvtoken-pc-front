@@ -23,7 +23,7 @@
             </div>
             <div class="nav_center">
                 <div class="in" v-if="!isLogin">
-                    <router-link to="/signIn" style="margin-right: 12px;">
+                    <router-link to="/signUp" style="margin-right: 12px;">
                     {{ $t("text8") }}
                     </router-link>
                     <router-link to="/login">
@@ -170,7 +170,7 @@ export default {
                 this.links.find((link, index)=> {
                     if (link.path == cur.path) {
                         this.currentIndex = index
-                        return 
+                        return
                     }
                 })
             },

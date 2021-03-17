@@ -93,7 +93,7 @@ import webFoot from "@/Layout/footer";
 import {
   pubKey,
   login,
-  signIn,
+  signUp,
   mailVcode,
   passwordVcode,
   resetPassword
@@ -143,7 +143,7 @@ export default {
         mail: "",
         pwd: ""
       },
-      signInForm: {
+      signUpForm: {
         email: "",
         password: "",
         againPassword: "",
@@ -218,7 +218,7 @@ export default {
     userText() {
       this.$router.push( { path: "/userText" } );
 
-      this.$store.state.signInForm = this.signInForm;
+      this.$store.state.signUpForm = this.signUpForm;
     },
     closeVerifyDialog() {
       this.loading = false
@@ -333,7 +333,7 @@ export default {
   mounted() {
     if ( this.getQueryVariable( "ref", window.location.href ) ) {
       this.inviteCode = true;
-      this.signInForm.invite_code = this.getQueryVariable(
+      this.signUpForm.invite_code = this.getQueryVariable(
           "ref",
           window.location.href
       );
@@ -445,7 +445,7 @@ export default {
           }
         }
 
-        &.signIn_case {
+        &.signUp_case {
           margin: 30px 0;
           /*height: 690px;*/
 
