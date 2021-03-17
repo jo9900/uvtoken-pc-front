@@ -347,9 +347,9 @@ export default {
       var that = this;
       var fr = new FileReader();
       let Orientation;
-      let flile = e.target.files[0];
-      let size = flile.size;
-      let size1 = (size / 1024) * 1024;
+      let file = e.target.files[0];
+      let size = file.size;
+      let size1 = size / (1024 * 1024);
       if (size == 0) {
         this.$message.error(this.$t("text142"));
       }
@@ -373,12 +373,12 @@ export default {
         img.src = result;
         if (this.result.length <= 500 * 1024) {
           that.id_front = this.result;
-          that.formLabelAlign.id_front = flile;
+          that.formLabelAlign.id_front = file;
         } else {
           img.onload = function () {
             let data = compress(img, Orientation);
             that.id_front = data;
-            that.formLabelAlign.id_front = dataURLtoFile(that.id_front, flile);
+            that.formLabelAlign.id_front = dataURLtoFile(that.id_front, file);
           };
         }
       };
@@ -391,8 +391,8 @@ export default {
       var that = this;
       var fr = new FileReader();
       let Orientation;
-      let flile = e.target.files[0];
-      let size = flile.size;
+      let file = e.target.files[0];
+      let size = file.size;
       let size1 = size / (1024 * 1024);
       if (size == 0) {
         this.$message.error(this.$t("text142"));
@@ -416,12 +416,12 @@ export default {
         img.src = result;
         if (this.result.length <= 500 * 1024) {
           that.id_back = this.result;
-          that.formLabelAlign.id_back = flile;
+          that.formLabelAlign.id_back = file;
         } else {
           img.onload = function () {
             let data = compress(img, Orientation);
             that.id_back = data;
-            that.formLabelAlign.id_back = dataURLtoFile(that.id_back, flile);
+            that.formLabelAlign.id_back = dataURLtoFile(that.id_back, file);
           };
         }
       };
