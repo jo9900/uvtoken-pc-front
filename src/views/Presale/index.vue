@@ -44,7 +44,7 @@
                   <div class="fodert-boer">
                     <div class="rbllt">
                       <img src="@/assets/img/pic_yq@2x.png" />
-                      <div class="wblodert"><span>12</span>
+                      <div class="wblodert"><span>{{ precentage }}</span>
                         <span style="font-size: 13px">%</span>
                       </div>
                     </div>
@@ -369,7 +369,7 @@ export default {
       },
       presellChecked: false,
       totalPrice: 0,
-      round: 1,
+      round: -1,
       loading: false,
       preInfo: {},
       preInfo1: {},
@@ -380,8 +380,7 @@ export default {
           { required: true, validator: roundtext, trigger: 'blur' },
           { required: true, validator: validateSurnmae, trigger: 'blur' }
         ]
-      },
-      languageName: this.$langType
+      }
     }
   },
   computed: {
@@ -483,16 +482,16 @@ export default {
       this.$router.push( { name: "KYCapply", query: { type: 0 } } )
     },
 
-    getPreSale() {
-      preSale( { round: 1, amount_type: 1 } ).then( res => {
+    async getPreSale() {
+      await preSale( { round: 1, amount_type: 1 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo1 = res.data
         }
       } )
     },
 
-    getPreSale2() {
-      preSale( { round: 2, amount_type: 0 } ).then( res => {
+    async getPreSale2() {
+      await preSale( { round: 2, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo2 = res.data
         }
@@ -563,7 +562,7 @@ export default {
             }
             if ( res.code == "102003" ) {
               this.$message.error( this.$t( 'presale.text56' ) );
-              return
+
             }
             else {
               this.$message.error( this.$t( 'presale.text57' ) );
@@ -579,9 +578,14 @@ export default {
     this.presellCoander();
 
   },
-  mounted() {
-    this.getPreSale()
-    this.getPreSale2();
+  async mounted() {
+    await this.getPreSale()
+    await this.getPreSale2();
+    if ( this.round == 1 )
+      this.preInfo = JSON.parse( JSON.stringify( this.preInfo1 ) )
+    else
+      this.preInfo = JSON.parse( JSON.stringify( this.preInfo2 ) )
+    this.calc_precentage()
   },
 
   filters: {
@@ -884,20 +888,6 @@ export default {
 
     .ssloet {
       color: #fff;
-    }
-
-    .baloert {
-      min-width: 189px;
-      height: 50px;
-      line-height: 50px;
-      background: linear-gradient(180deg, #C65999 0%, #CF8CF0 100%);
-      border-radius: 34px;
-      color: rgba(15, 8, 40, 1);
-      font-size: 20px;
-      font-weight: 600;
-      transition: all 0.5s;
-      letter-spacing: 1px;
-      padding: 0 31px;
     }
 
     .flow {
