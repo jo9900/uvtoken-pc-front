@@ -4,7 +4,7 @@
     <div class="project project-2">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text103' ) }}</div>
               <div>{{ $t( 'text104' ) }}</div>
@@ -14,7 +14,7 @@
               <div>{{ $t( 'text106' ) }}</div>
             </div>
           </div>
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart fadeInLeft">
             <img
               class="content_img"
               src="@/assets/img/pic_dapp@2x.png"
@@ -71,7 +71,6 @@
 </template>
 
 <script>
-import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
 
 export default {
@@ -197,7 +196,7 @@ export default {
   }
 
   .project-2 {
-    
+
 background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     .wrap {
       .content {

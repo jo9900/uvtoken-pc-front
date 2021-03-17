@@ -4,12 +4,12 @@
     <div class="project project-2">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text fadeInRight">
             <div class="bget">
               <div>{{ $t( 'text112' ) }}</div>
             </div>
           </div>
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart fadeInLeft">
             <img
               class="content_img"
               src="@/assets/img/pic_help@2x.png"
@@ -142,7 +142,7 @@ export default {
   }
 
   .project-2 {
-    
+
   background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     .wrap {
       .content {

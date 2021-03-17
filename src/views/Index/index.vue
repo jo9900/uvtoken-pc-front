@@ -72,7 +72,7 @@
     <div class="project">
       <div class="wrap">
         <div class="content">
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img"
               src="@/assets/img/pic_zlzc@2x.png"
@@ -80,7 +80,7 @@
             />
           </div>
 
-          <div class="content_text wow fadeInRight">
+          <div class="content_text ">
             <div class="bget">
               <div>{{ $t( 'text12' ) }}</div>
               <div>{{ $t( 'text13' ) }}</div>
@@ -96,7 +96,7 @@
     <div class="project project-2">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text ">
             <div class="bget">
               <div>{{ $t( 'text15' ) }}</div>
               <div>{{ $t( 'text16' ) }}</div>
@@ -106,7 +106,7 @@
               <div>{{ $t( 'text18' ) }}</div>
             </div>
           </div>
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart   ">
             <img
               class="content_img"
               src="@/assets/img/pic_lxyj@2x.png"
@@ -120,7 +120,7 @@
     <div class="project">
       <div class="wrap">
         <div class="content">
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart   ">
             <img
               class="content_img"
               src="@/assets/img/pic_lxyjg@2x.png"
@@ -128,7 +128,7 @@
             />
           </div>
 
-          <div class="content_text wow fadeInRight">
+          <div class="content_text ">
             <div class="bget">
               <div>{{ $t( 'text19' ) }}</div>
               <div>{{ $t( 'text20' ) }}</div>
@@ -145,7 +145,7 @@
     <div class="project project-2">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text ">
             <div class="bget">
               <div>{{ $t( 'text21' ) }}</div>
               <div>{{ $t( 'text22' ) }}</div>
@@ -155,7 +155,7 @@
               <div>{{ $t( 'text24' ) }}</div>
             </div>
           </div>
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart   ">
             <img
               class="content_img"
               src="@/assets/img/pic_aqbz@2x.png"
@@ -225,7 +225,6 @@
 </template>
 
 <script>
-import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
 import countTo from "vue-count-to";
 
@@ -438,7 +437,7 @@ export default {
   }
 
   .project-3 {
-    
+
   background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
 
     padding-top: 133px;
