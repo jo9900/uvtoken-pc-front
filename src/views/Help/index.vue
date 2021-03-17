@@ -28,7 +28,7 @@
               {{ $t( 'text113' ) }}</div>
             <div class="coak">
               <div class="bmllort">
-                <div class="boet" v-for="(item, index) in listTitle">
+                <div class="boet" v-for="(item, index) in listTitle" :key="index">
                   <div class="title-2" @click="changeRoute(index)">{{ item }}</div>
                 </div>
               </div>

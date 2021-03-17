@@ -53,11 +53,11 @@ const routes = [
         path: '/', component: Layout, label: '用户协议', meta: { title: "用户协议" },
         children: [
             {
-                path: '/usertext',
-                name: 'usertext',
+                path: '/userAgreement',
+                name: 'userAgreement',
                 label: '用户协议',
                 meta: { requiresAuth: false, title: "用户协议" },
-                component: resolve => require( [ '@/views/usertext/index.vue' ], resolve )
+                component: resolve => require( [ '@/views/UserAgreement/index.vue' ], resolve )
             }
         ]
     },
@@ -114,11 +114,11 @@ const routes = [
         path: '/', component: Layout, label: '申购协议',
         children: [
             {
-                path: '/purchase',
-                name: 'purchase',
+                path: '/purchaseAgreement',
+                name: 'purchaseAgreement',
                 label: '申购协议',
                 meta: { requiresAuth: false, title: "申购协议" },
-                component: resolve => require( [ '@/views/purchase/index.vue' ], resolve )
+                component: resolve => require( [ '@/views/PurchaseAgreement/index.vue' ], resolve )
             }
         ]
     },

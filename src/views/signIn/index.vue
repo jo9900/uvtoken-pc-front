@@ -221,6 +221,7 @@ export default {
     };
 
     return {
+      pk: '',
       dialogVisible: false,
       fromPath: "",
       loading: false,
@@ -289,17 +290,8 @@ export default {
     toReset() {
       this.$router.push("forget");
     },
-
-    getPubKey() {
-      pubKey().then((res) => {
-        if (res.code == 0) {
-          localStorage.setItem("Uvpk", res.data.PubKey);
-        }
-      });
-    },
-
     rsaData(data) {
-      const PUBLIC_KEY = localStorage.getItem("Uvpk");
+      const PUBLIC_KEY = this.pk;
       let jsencrypt = new JSEncrypt();
       jsencrypt.setPublicKey(PUBLIC_KEY);
       let result = jsencrypt.encrypt(data);
@@ -381,12 +373,15 @@ export default {
     },
 
     submitFormSign(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
           this.loading = true;
           let params = JSON.parse(JSON.stringify(this.signInForm));
           delete params.againPassword;
-          this.getPubKey();
+          let resData = await pubKey();
+          if (resData.code == 0) {
+              this.pk = resData.data.PubKey;
+          }
           params.pwd = this.rsaData(sha256(params.pwd));
           signIn(params).then((res) => {
             this.loading = false;
@@ -445,7 +440,6 @@ export default {
     },
   },
   created() {
-    this.getPubKey();
   },
 
   mounted() {

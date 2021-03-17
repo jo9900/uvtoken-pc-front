@@ -129,6 +129,7 @@ export default {
     };
 
     return {
+      pk: '',
       dialogVisible: false,
       fromPath: "",
       loading: false,
@@ -193,16 +194,8 @@ export default {
       this.$router.push( { path: "/forget" } );
     },
 
-    getPubKey() {
-      pubKey().then( ( res ) => {
-        if ( res.code == 0 ) {
-          localStorage.setItem( "Uvpk", res.data.PubKey );
-        }
-      } );
-    },
-
     rsaData( data ) {
-      const PUBLIC_KEY = localStorage.getItem( "Uvpk" );
+      const PUBLIC_KEY = this.pk;
       let jsencrypt = new JSEncrypt();
       jsencrypt.setPublicKey( PUBLIC_KEY );
       let result = jsencrypt.encrypt( data );
@@ -231,11 +224,14 @@ export default {
       this.loading = false
       this.handleClick()
     },
-    onSuccess(times) {
+    async onSuccess(times) {
       this.dialogVisible = false
       let params = {};
       Object.assign( params, this.loginForm );
-      this.getPubKey();
+      let resData = await pubKey();
+      if (resData.code == 0) {
+          this.pk = resData.data.PubKey;
+      }
       params.pwd = this.rsaData( sha256( this.loginForm.pwd ) );
       login( params ).then( ( res ) => {
         this.loading = false;
@@ -271,7 +267,7 @@ export default {
       } )
     },
     resetDataForm() {
-      this.$refs[ "resetForm" ].validate( ( valid ) => {
+      this.$refs[ "resetForm" ].validate( async ( valid ) => {
         if ( valid ) {
           if ( this.resetData.password != this.resetData.againPassword ) {
             return this.$message.error(
@@ -284,7 +280,10 @@ export default {
             new_password: this.resetData.againPassword
           };
           this.loading = true;
-          this.getPubKey();
+          let resData = await pubKey();
+          if (resData.code == 0) {
+              this.pk = resData.data.PubKey;
+          }
           params.new_password = this.rsaData( sha256( this.resetData.password ) );
           resetPassword( params ).then( ( res ) => {
             this.loading = false;
@@ -329,7 +328,6 @@ export default {
     }
   },
   created() {
-    // this.getPubKey();
   },
 
   mounted() {
