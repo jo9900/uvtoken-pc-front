@@ -439,7 +439,7 @@ export default {
             background-size: cover;
           }
           &.status2 {
-            background-color: rgb(228, 151, 9);
+            background-color: #00e2e0;
             background-size: cover;
           }
           &.status3 {
