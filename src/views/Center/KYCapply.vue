@@ -267,7 +267,6 @@ export default {
   watch: {},
   methods: {
     subFromData() {
-      console.log( this.formLabelAlign )
       this.$refs["formLabelAlign"].validate((valid) => {
         if (valid) {
           this.loading = true;

@@ -29,6 +29,7 @@ axios.interceptors.request.use(
     config => {
         const token = store.state.token
         token && (config.headers.token = token)
+        if (! config.data instanceof  FormData)
         config.data = Qs.stringify(config.data)
         return config;
     },
