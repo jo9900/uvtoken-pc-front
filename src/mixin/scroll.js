@@ -4,17 +4,17 @@ const MixinScrollAnimate = {
         scrollAnimateEL: {}
     }),
     mounted() {
-        this.listenHandlerScroll = _.throttle(this.scroll, 300)
+        this.listenHandlerScroll = _.throttle(this.scroll, 100)
         window.addEventListener('scroll', this.listenHandlerScroll)
     },
     methods: {
         scroll() {
             this.$nextTick(()=> {
-                let height = document.documentElement.offsetHeight || document.body.offsetHeight;
+                let height = document.documentElement.clientHeight || document.body.clientHeight;
                 for (let key in this.scrollAnimateEL) {
                     if (this.scrollAnimateEL[key]) continue
-                    let containerHeight =  this.$refs[`${key}`].getBoundingClientRect().top
-                    if (containerHeight && containerHeight  <  height - 230) {
+                    let imgHeight =  this.$refs[`${key}`].getBoundingClientRect().top
+                    if (imgHeight && imgHeight  <  height - 210) {
                         this.scrollAnimateEL[key] = true
                     }
                 }

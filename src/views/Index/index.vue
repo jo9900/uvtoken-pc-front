@@ -70,15 +70,21 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project" ref="wrap1">
       <div class="wrap">
         <div class="content">
           <div class="bloart">
-            <img
-              class="content_img"
-              src="@/assets/img/pic_zlzc@2x.png"
-              alt=""
-            />
+            <transition
+                mode="out-in"
+                enter-active-class="animate__animated animate__slideInLeft"
+            >
+                <img
+                    v-show="scrollAnimateEL.wrap1"
+                    class="content_img"
+                    src="@/assets/img/pic_zlzc@2x.png"
+                    alt=""
+                />
+            </transition>
           </div>
 
           <div class="content_text ">
@@ -94,7 +100,7 @@
       </div>
     </div>
 
-    <div class="project project-2">
+    <div class="project project-2" ref="wrap2">
       <div class="wrap">
         <div class="content">
           <div class="content_text ">
@@ -107,26 +113,38 @@
               <div>{{ $t( 'text18' ) }}</div>
             </div>
           </div>
-          <div class="bloart   ">
-            <img
-              class="content_img"
-              src="@/assets/img/pic_lxyj@2x.png"
-              alt=""
-            />
+          <div class="bloart">
+            <transition
+                mode="out-in"
+                enter-active-class="animate__animated animate__slideInRight"
+            >
+              <img
+                  v-show="scrollAnimateEL.wrap2"
+                  class="content_img"
+                  src="@/assets/img/pic_lxyj@2x.png"
+                  alt=""
+              />
+            </transition>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="project">
+    <div class="project" ref="wrap3">
       <div class="wrap">
         <div class="content">
-          <div class="bloart   ">
-            <img
-              class="content_img"
-              src="@/assets/img/pic_lxyjg@2x.png"
-              alt=""
-            />
+          <div class="bloart">
+            <transition
+                mode="out-in"
+                enter-active-class="animate__animated animate__slideInLeft"
+            >
+              <img
+                  v-show="scrollAnimateEL.wrap3"
+                  class="content_img"
+                  src="@/assets/img/pic_lxyjg@2x.png"
+                  alt=""
+              />
+            </transition>
           </div>
 
           <div class="content_text ">
@@ -143,7 +161,7 @@
       </div>
     </div>
 
-    <div class="project project-2">
+    <div class="project project-2" ref="wrap4">
       <div class="wrap">
         <div class="content">
           <div class="content_text ">
@@ -156,18 +174,23 @@
               <div>{{ $t( 'text24' ) }}</div>
             </div>
           </div>
-          <div class="bloart   ">
-            <img
-              class="content_img"
-              src="@/assets/img/pic_aqbz@2x.png"
-              alt=""
-            />
+          <div class="bloart">
+            <transition
+                mode="out-in"
+                enter-active-class="animate__animated animate__slideInRight"
+            >
+              <img
+                  v-show="scrollAnimateEL.wrap4"
+                  class="content_img"
+                  src="@/assets/img/pic_aqbz@2x.png"
+                  alt=""
+              />
+            </transition>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="project project-3">
+    <div class="project project-3" ref="wrap5">
       <div class="wrap">
         <div class="scoplert">
           <div>
@@ -176,13 +199,25 @@
               <div>{{ $t( 'text26' ) }}</div>
               <div>{{ $t( 'text27' ) }}</div>
             </div>
-            <div><img src="../../assets/img/pic_dapp.png" /></div>
+            <div>
+              <transition
+                  mode="out-in"
+                  enter-active-class="animate__animated animate__slideInUp"
+              >
+                <img
+                    v-show="scrollAnimateEL.wrap5"
+                    class="content_img"
+                    src="@/assets/img/pic_dapp.png"
+                    alt=""
+                />
+              </transition>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="project project-3 project-4">
+    <div class="project project-3 project-4" ref="wrap6">
       <div class="wrap">
         <div class="scoplert">
           <div>
@@ -190,7 +225,19 @@
             <div class="title-3">
               {{ $t( 'text29' ) }}
             </div>
-            <div><img src="../../assets/img/pic_yjqb.png" /></div>
+            <div>
+              <transition
+                  mode="out-in"
+                  enter-active-class="animate__animated animate__slideInUp"
+              >
+                <img
+                    v-show="scrollAnimateEL.wrap6"
+                    class="content_img"
+                    src="@/assets/img/pic_yjqb.png"
+                    alt=""
+                />
+              </transition>
+            </div>
           </div>
         </div>
       </div>
@@ -228,12 +275,22 @@
 <script>
 import webFoot from "@/components/footer";
 import countTo from "vue-count-to";
-
+import MixinScrollAnimate from "@/mixin/scroll.js"
 export default {
   name: "",
   components: { webFoot, countTo },
+  mixins: [MixinScrollAnimate],
   data() {
     return {
+      scrollAnimateEL: {
+        wrap1: false,
+        wrap2: false,
+        wrap3: false,
+        wrap4: false,
+        wrap5: false,
+        wrap6: false
+      },
+      listenHandlerScroll: undefined,
       NODE_ENV: process.env.NODE_ENV,
       closeTrime: 14,
       timerNull: null,
@@ -241,20 +298,6 @@ export default {
       countToMrue: false,
       countToMrue1: false,
       BaseUrl: this.$BaseUrl,
-      option1: false,
-      option2: false,
-      option3: false,
-      option4: false,
-      option5: false,
-      option6: false,
-      option7: false,
-      option8: false,
-      class0: false,
-      class1: false,
-      class2: false,
-      jgShow1: false,
-      jgShow2: false,
-      jgShow3: false,
       isAlertTrue: false,
       isFhows: false,
       listQuery: {
@@ -304,46 +347,13 @@ export default {
         container.innerHTML = style
         $stars.appendChild(container.firstElementChild)
       }
-    }
+    },
+
   },
   created() {},
   mounted() {
     this.initBanner()
-    // let that = this;
-    // this.WindowHeight = (window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)-77;
-    // window.addEventListener("scroll", function(event) {
-    //
-    //     var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-    //     console.log(scrollTop)
-    //     if(scrollTop>=2000){
-    //
-    //        that.countToMrue = true;
-    //     }
-    //     if(scrollTop>=2600){
-    //         that.countToMrue1 = true;
-    //     }
-    //     if(scrollTop>=1400){
-    //         setTimeout(()=>{that.option1 = true;},0)
-    //         setTimeout(()=>{that.option2 = true;},1000);
-    //         setTimeout(()=>{that.option3 = true;},2000);
-    //         setTimeout(()=>{that.option4 = true;},3000)
-    //         setTimeout(()=>{that.option5 = true;},4000)
-    //         setTimeout(()=>{that.option6 = true;},5000);
-    //         setTimeout(()=>{that.option7 = true;},6000);
-    //         setTimeout(()=>{that.option8 = true;},7000)
-    //     }
-    //   if(scrollTop>=4000){
-    //       setTimeout(()=>{that.class0 = true;},0)
-    //       setTimeout(()=>{that.class1 = true;},500);
-    //       setTimeout(()=>{that.class2 = true;},1000);
-    //   }
-    //     if(scrollTop>=4470){
-    //         setTimeout(()=>{that.jgShow1 = true;},0)
-    //         setTimeout(()=>{that.jgShow2 = true;},500);
-    //         setTimeout(()=>{that.jgShow3 = true;},1000);
-    //     }
-    // },true);
-  },
+  }
 };
 </script>
 
@@ -372,6 +382,10 @@ export default {
   }
   .project {
     background: #ffffff;
+    min-height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .wrap {
       .title {
         color: #282828;
