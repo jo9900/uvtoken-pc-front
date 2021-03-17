@@ -12,7 +12,7 @@ import store from './store'
 import VueSimpleVerify from 'vue-simple-verify'
 import '../node_modules/vue-simple-verify/dist/vue-simple-verify.css'
 // import ElementUI from 'element-ui';
-import 'animate.css'
+import animated from 'animate.css'
 import '@/theme/index.css'
 import '@/assets/css/default.css'
 import '@/assets/css/global.css'
@@ -24,6 +24,7 @@ import moment from "moment";
 import { Vue } from 'vue-property-decorator';
 import SlideVerify from 'vue-monoplasty-slide-verify';
 
+Vue.use(animated)
 Vue.use(SlideVerify);
 Vue.prototype.$moment = moment;
 // Vue.prototype.$qs = qs;

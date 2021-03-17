@@ -4,7 +4,7 @@
     <div class="project project-2">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text">
             <div class="bget">
               <div>{{ $t( 'text76' ) }}</div>
             </div>
@@ -25,7 +25,7 @@
               </div>
             </div>
           </div>
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img content_img_top"
               src="@/assets/img/pic_yjqb@2x.png"
@@ -39,7 +39,7 @@
     <div class="project project-3">
       <div class="wrap">
         <div class="content">
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img"
               src="@/assets/img/pic_zlzc@2x (1).png"
@@ -47,7 +47,7 @@
             />
           </div>
 
-          <div class="content_text wow fadeInRight">
+          <div class="content_text">
             <div class="bget">
               <div>{{ $t( 'text84' ) }}</div>
             </div>
@@ -66,7 +66,7 @@
     <div class="project project-4">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text">
             <div class="bget">
               <div>{{ $t( 'text90' ) }}</div>
             </div>
@@ -79,7 +79,7 @@
             <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
 
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img"
               src="@/assets/img/pic_lxyjjt@2x.png"
@@ -93,7 +93,7 @@
     <div class="project project-3">
       <div class="wrap">
         <div class="content">
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img"
               src="@/assets/img/pic_lxyjxad@2x.png"
@@ -101,7 +101,7 @@
             />
           </div>
 
-          <div class="content_text wow fadeInRight">
+          <div class="content_text">
             <div class="bget">
               <div>U-Watch</div>
             </div>
@@ -120,7 +120,7 @@
     <div class="project project-4" style="margin-bottom: 114px">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text">
             <div class="bget">
               <div>U-Touch</div>
             </div>
@@ -133,7 +133,7 @@
             <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
 
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img"
               src="@/assets/img/pic_aqbzxz@2x.png"
@@ -149,7 +149,6 @@
 </template>
 
 <script>
-import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
 import countTo from "vue-count-to";
 

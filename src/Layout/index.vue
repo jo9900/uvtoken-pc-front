@@ -3,12 +3,16 @@
         <div class="navhearder" ref="ele"><Nav/></div>
         <div :style="{'height':height+'px'}"></div>
         <div class="layout_box">
-
-            <div ><router-view></router-view></div>
+            <transition
+                mode="out-in"
+                enter-active-class="animate__animated animate__fadeIn"
+            >
+                <router-view />
+            </transition>
+           
             <!-- <el-footer><Footer/></el-footer> -->
         </div>
     </div>
-
 
 </template>
 

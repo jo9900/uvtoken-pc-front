@@ -4,7 +4,7 @@
     <div class="project project-2">
       <div class="wrap">
         <div class="content">
-          <div class="content_text wow fadeInRight">
+          <div class="content_text">
             <div class="bget">
               <div>Uvswap</div>
             </div>
@@ -16,7 +16,7 @@
               <span>{{ $t( 'text65' ) }}</span>
             </div>
           </div>
-          <div class="bloart wow fadeInLeft">
+          <div class="bloart">
             <img
               class="content_img"
               src="@/assets/img/pic_lxyj@2x.png"
