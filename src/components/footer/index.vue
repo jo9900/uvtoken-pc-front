@@ -7,19 +7,19 @@
            <div class="zaltet">
                <div class="wrap-flr">
                     <div class="spower">
-                        <a href="">{{ $t( 'text30' ) }}</a>
-                        <a class="maert" href="">{{ $t( 'text31' ) }}</a>
-                        <a href="">{{ $t( 'text32' ) }}</a>
+                      <router-link to="/purchaseAgreement">{{ $t( 'text30' ) }}</router-link>
+                      <router-link to="/" class="maert">{{ $t( 'text31' ) }}</router-link>
+                      <router-link to="/">{{ $t( 'text32' ) }}</router-link>
                     </div>
                    <div class="spower">
-                       <a href="">{{ $t( 'text33' ) }}</a>
-                       <a class="maert" href="">{{ $t( 'text3' ) }}</a>
-                       <a href="">{{ $t( 'text34' ) }}</a>
+                     <router-link to="/help">{{ $t( 'text33' ) }}</router-link>
+                     <router-link to="/wallet" class="maert">{{ $t( 'text3' ) }}</router-link>
+                     <router-link to="/">{{ $t( 'text34' ) }}</router-link>
                    </div>
                    <div class="spower">
-                       <a style="height: 20px;"> &emsp;&emsp;</a>
-                       <a href="" class="maert">Dapp</a>
-                       <a href="">{{ $t( 'text35' ) }}</a>
+                     <a style="height: 20px;"> &emsp;&emsp;</a>
+                     <router-link to="/Dapp" class="maert">Dapp</router-link>
+                     <router-link to="/">{{ $t( 'text35' ) }}</router-link>
                    </div>
                </div>
                <div>
