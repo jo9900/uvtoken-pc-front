@@ -19,7 +19,7 @@
                 class="color5885FD"
                 :class="{ taost: userInfo.kyc_status == 1 }"
               >
-                <template v-if="langType == 'English'">
+                <template v-if="$lang == 'en'">
                   {{
                     userInfo.kyc_status == 1
                       ? userInfo.last_name + " · " + userInfo.first_name
@@ -134,7 +134,7 @@
           <div class="item_title">
             <span>{{ $t( 'usercenter.text15' ) }}</span>
             <span class="color5885FD" style="cursor: pointer" @click="sofert">{{
-              $t( 'usercenter.text133' )
+              $t( 'usercenter.text11' )
             }}</span>
           </div>
           <div class="margintop40 color5885FD">

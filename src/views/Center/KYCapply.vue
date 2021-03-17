@@ -91,15 +91,7 @@
           <el-row>
             <el-col :span="24">
               <el-form-item
-                :label="
-                  formLabelAlign.id_type == ''
-                    ? $t( 'text125' )
-                    : formLabelAlign.id_type == 1
-                    ? $t( 'text126' )
-                    : formLabelAlign.id_type == 2
-                    ? $t( 'text127' )
-                    : $t( 'text128' )
-                "
+                :label="$t( 'text125' )"
                 prop="id_number"
               >
                 <el-input v-model.trim="formLabelAlign.id_number"></el-input>
@@ -112,32 +104,24 @@
                 :label="$t( 'text129' )"
                 prop="isImg"
               >
-                <div class="IDcard_box">
-                  <el-upload
-                    class="card-uploader"
-                    action="#"
-                    :show-file-list="false"
-                    :before-upload="fileChange"
-                    accept=".JPG, .PNG, .JPEG,.jpg, .png, .jpeg"
-                  >
-                    <img v-if="id_front" :src="id_front" class="card" />
-                    <i v-else class="el-icon-plus card-uploader-icon"
-                      >{{ $t( 'text130' ) }}
-                    </i>
-                  </el-upload>
-
-                  <el-upload
-                    class="card-uploader"
-                    action="#"
-                    :show-file-list="false"
-                    :before-upload="fileChange1"
-                    accept=".JPG, .PNG, .JPEG,.jpg, .png, .jpeg"
-                  >
-                    <img v-if="id_back" :src="id_back" class="card" />
-                    <i v-else class="el-icon-plus card-uploader-icon"
-                      >{{ $t( 'text131' ) }}
-                    </i>
-                  </el-upload>
+                <div class="IDcard_box_div">
+                  <div class="IDcard_box">
+                    <div class="card-uploader" >
+                      <img v-if="id_front" :src="id_front" class="card" />
+                      <i v-else class="el-icon-circle-plus-outline
+ card-uploader-icon"
+                      > &nbsp; {{$t('text130')}}</i>
+                      <input type="file" class="uplodinput" @change="fileChange" />
+                    </div>
+                  </div>
+                  <div class="IDcard_box">
+                    <div  class="card-uploader card-uploader-back">
+                      <img v-if="id_back" :src="id_back" class="card" />
+                      <i v-else class="el-icon-circle-plus-outline card-uploader-icon"
+                      > &nbsp;{{ $t('text131')}}</i>
+                      <input type="file" class="uplodinput" @change="fileChange1" />
+                    </div>
+                  </div>
                 </div>
               </el-form-item>
               <div style="font-size: 14px; color: #b1acac; margin-bottom: 20px">
@@ -184,11 +168,19 @@
 <script>
 import webFoot from "@/Layout/footer";
 import { areaList, addkyc, kycInfo } from "@/request/user";
-import * as imageConversion from "image-conversion";
+import { compress, dataURLtoFile } from "@/utils/uploadImage";
+import { EXIF } from "@/utils/exif";
 export default {
   name: "",
   components: { webFoot },
   data() {
+    var imgValidator = (rule, value, callback) => {
+      if (this.id_front == "" || this.id_back == "") {
+        callback(new Error(this.$t("text137")));
+      } else {
+        callback();
+      }
+    };
     return {
       BaseUrl: this.$BaseUrl,
       areaList: [],
@@ -214,7 +206,7 @@ export default {
         country_code: [
           {
             required: true,
-            message: this.$t( 'text136' ).language_text49,
+            message: this.$t( 'text136' ),
             trigger: "change",
           },
         ],
@@ -228,21 +220,21 @@ export default {
         last_name: [
           {
             required: true,
-            message: this.$t( 'text137' ).language_text50,
+            message: this.$t( 'text137' ),
             trigger: "blur",
           },
         ],
         id_type: [
           {
             required: true,
-            message: this.$t( 'text137' ).language_text50,
+            message: this.$t( 'text137' ),
             trigger: "change",
           },
         ],
         id_number: [
           {
             required: true,
-            message: this.$t( 'text137' ).language_text50,
+            message: this.$t( 'text137' ),
             trigger: "blur",
           },
         ],
@@ -250,7 +242,8 @@ export default {
           {
             required: true,
             message: this.$t( 'text137' ),
-            trigger: "change",
+            trigger: "blur",
+            validator: imgValidator,
           },
         ],
         birth_date: [
@@ -274,6 +267,7 @@ export default {
   watch: {},
   methods: {
     subFromData() {
+      console.log( this.formLabelAlign )
       this.$refs["formLabelAlign"].validate((valid) => {
         if (valid) {
           this.loading = true;
@@ -344,7 +338,97 @@ export default {
         }
       });
     },
+    isImg(str) {
+      return str.search( "(jpg|jpeg|swf|gif|png|JPG|JPEG|SWF|GIF|PNG)$" ) != -1;
 
+    },
+    fileChange(e) {
+      console.log(this.isImg(e.target.files[0].type));
+      var that = this;
+      var fr = new FileReader();
+      let Orientation;
+      let flile = e.target.files[0];
+      let size = flile.size;
+      let size1 = (size / 1024) * 1024;
+      if (size == 0) {
+        this.$message.error(this.$t("text142"));
+      }
+      if (size1 > 4) {
+        this.$message.error(this.$t( 'text144' ));
+        return;
+      }
+      let imgType = e.target.files[0].type;
+      if (!this.isImg(imgType)) {
+        this.$message.error(this.$t("text143"));
+        return;
+      }
+
+      EXIF.getData(e.target.files[0], function () {
+        Orientation = EXIF.getTag(this, "Orientation");
+      });
+      fr.readAsDataURL(e.target.files[0]);
+      fr.onloadend = function (e) {
+        let result = this.result;
+        let img = new Image();
+        img.src = result;
+        if (this.result.length <= 500 * 1024) {
+          that.id_front = this.result;
+          that.formLabelAlign.id_front = flile;
+        } else {
+          img.onload = function () {
+            let data = compress(img, Orientation);
+            that.id_front = data;
+            that.formLabelAlign.id_front = dataURLtoFile(that.id_front, flile);
+          };
+        }
+      };
+
+      if (this.id_front != "" && this.id_back != "") {
+        this.formLabelAlign.isImg = "#";
+      }
+    },
+    fileChange1(e) {
+      var that = this;
+      var fr = new FileReader();
+      let Orientation;
+      let flile = e.target.files[0];
+      let size = flile.size;
+      let size1 = size / (1024 * 1024);
+      if (size == 0) {
+        this.$message.error(this.$t("text142"));
+      }
+      if (size1 > 4) {
+        this.$message.error(this.$t( 'text144' ));
+        return;
+      }
+      let imgType = e.target.files[0].type;
+      if (!this.isImg(imgType)) {
+        this.$message.error(this.$t("text143"));
+        return;
+      }
+      EXIF.getData(e.target.files[0], function () {
+        Orientation = EXIF.getTag(this, "Orientation");
+      });
+      fr.readAsDataURL(e.target.files[0]);
+      fr.onloadend = function (e) {
+        let result = this.result;
+        let img = new Image();
+        img.src = result;
+        if (this.result.length <= 500 * 1024) {
+          that.id_back = this.result;
+          that.formLabelAlign.id_back = flile;
+        } else {
+          img.onload = function () {
+            let data = compress(img, Orientation);
+            that.id_back = data;
+            that.formLabelAlign.id_back = dataURLtoFile(that.id_back, flile);
+          };
+        }
+      };
+      if (this.id_front != "" && this.id_back != "") {
+        this.formLabelAlign.isImg = "#";
+      }
+    },
     get_areaList() {
       areaList().then((res) => {
         if (res.code == 0) {
@@ -353,57 +437,6 @@ export default {
       });
     },
 
-    fileChange(file) {
-      console.log(file);
-      var testmsg = /^image\/(jpeg|png|jpg)$/.test(file.type);
-      if (!testmsg) {
-        this.$message.error(this.$t( 'text143' ));
-        return false;
-      }
-      if (file.size / 1024 / 1024 > 4) {
-        this.$message.error(this.$t( 'text144' ));
-        return;
-      }
-      imageConversion.compress(file, 0.7).then(
-        (res) => {
-          this.formLabelAlign.id_front = res;
-          this.id_front = URL.createObjectURL(file);
-          // this.formLabelAlign.id_front = file.raw;
-          if (this.id_front != "" && this.id_back != "") {
-            this.formLabelAlign.isImg = "#";
-          }
-        },
-        () => {
-          this.$message.error(this.$t( 'text143' ));
-          return;
-        }
-      );
-    },
-    fileChange1(file) {
-      var testmsg = /^image\/(jpeg|png|jpg)$/.test(file.type);
-      if (!testmsg) {
-        this.$message.error(this.$t( 'text143' ));
-        return false;
-      }
-      if (file.size / 1024 / 1024 > 4) {
-        this.$message.error(this.$t( 'text144' ));
-        return;
-      }
-      imageConversion.compress(file, 0.7).then(
-        (res) => {
-          this.formLabelAlign.id_back = res;
-          this.id_back = URL.createObjectURL(file);
-          // this.formLabelAlign.id_back = file.raw;
-          if (this.id_front != "" && this.id_back != "") {
-            this.formLabelAlign.isImg = "#";
-          }
-        },
-        () => {
-          this.$message.error(this.$t( 'text143' ));
-          return;
-        }
-      );
-    },
     handleAvatarSuccess1(res, file) {},
   },
   created() {
@@ -478,6 +511,37 @@ export default {
 .card {
   max-width: 132px;
   max-height: 150px;
+}
+.IDcard_box_div {
+  display: flex;
+  padding-left: 40px;
+  margin-bottom: 30px;
+  .IDcard_box {
+    margin-right: 46px;
+    .uplodinput {
+      width: 100%;
+      height: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+    .card-uploader {
+      text-align: center;
+      line-height: 120px;
+      height: 120px;
+      width: 192px;
+      font-size: 21px;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+  }
 }
 </style>
 
