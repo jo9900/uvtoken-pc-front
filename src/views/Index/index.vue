@@ -437,7 +437,8 @@ export default {
   }
 
   .project-3 {
-    background: #f8fbff;
+    
+  background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
 
     padding-top: 133px;
     padding-bottom: 147px;

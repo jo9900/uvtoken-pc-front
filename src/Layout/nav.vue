@@ -107,7 +107,7 @@ export default {
          currentIndex: -1,
           links: [
             {
-              text: this.$t("text1") + '测试',
+              text: this.$t("text1"),
               path: '/'
             },
             {
