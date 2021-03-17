@@ -4,115 +4,115 @@
   <div class="page">
     <div class="wrap">
       <div class="page_content">
-        <div class="name">{{ languageNav[langType].language_text30 }}</div>
+        <div class="name">{{ $t( 'usercenter.text30' ) }}</div>
         <div class="text-coaneret">
           <p style="text-indent: 15px; margin-bottom: 13px">
-            {{ languageNav[langType].language_text31 }}
+            {{ $t( 'usercenter.text31' ) }}
           </p>
           <div style="color: #000">
-            {{ languageNav[langType].language_text32 }}
+            {{ $t( 'usercenter.text32' ) }}
           </div>
           <div style="color: red; margin-bottom: 17px">
-            {{ languageNav[langType].language_text33 }}
+            {{ $t( 'usercenter.text33' ) }}
           </div>
-          <p>1.{{ languageNav[langType].language_text34 }}</p>
-          <p>2.{{ languageNav[langType].language_text35 }}</p>
-          <p>3.{{ languageNav[langType].language_text36 }}</p>
-          <p>4.{{ languageNav[langType].language_text37 }}</p>
+          <p>1.{{ $t( 'usercenter.text34' ) }}</p>
+          <p>2.{{ $t( 'usercenter.text35' ) }}</p>
+          <p>3.{{ $t( 'usercenter.text36' ) }}</p>
+          <p>4.{{ $t( 'usercenter.text37' ) }}</p>
 
           <div style="margin-bottom: 20px"></div>
           <div style="color: red; margin-bottom: 17px">
-            {{ languageNav[langType].language_text38 }}
+            {{ $t( 'usercenter.text38' ) }}
           </div>
-          <p>1. {{ languageNav[langType].language_text39 }}</p>
-          <p>2. {{ languageNav[langType].language_text40 }}</p>
-          <p>3. {{ languageNav[langType].language_text41 }}</p>
-          <p>4. {{ languageNav[langType].language_text42 }}</p>
-          <p>5. {{ languageNav[langType].language_text43 }}</p>
-          <p>6. {{ languageNav[langType].language_text44 }}</p>
+          <p>1. {{ $t( 'usercenter.text39' ) }}</p>
+          <p>2. {{ $t( 'usercenter.text40' ) }}</p>
+          <p>3. {{ $t( 'usercenter.text41' ) }}</p>
+          <p>4. {{ $t( 'usercenter.text42' ) }}</p>
+          <p>5. {{ $t( 'usercenter.text43' ) }}</p>
+          <p>6. {{ $t( 'usercenter.text44' ) }}</p>
           <div style="margin-bottom: 50px"></div>
           <div style="font-size: 18px; color: #000">
-            一、{{ languageNav[langType].language_text45 }}
+            一、{{ $t( 'usercenter.text45' ) }}
           </div>
-          <p>1.1 {{ languageNav[langType].language_text46 }}</p>
-          <p>1.2 {{ languageNav[langType].language_text47 }}</p>
-          <p>1.3 {{ languageNav[langType].language_text48 }}</p>
-          <p>1.4 {{ languageNav[langType].language_text49 }}</p>
-          <p>1.5 {{ languageNav[langType].language_text50 }}</p>
-          <p>1.6 {{ languageNav[langType].language_text51 }}</p>
-          <p>1.6.1 {{ languageNav[langType].language_text52 }}</p>
-          <p>1.6.2 {{ languageNav[langType].language_text53 }}</p>
-          <p>1.6.3 {{ languageNav[langType].language_text54 }}</p>
-          <p>1.6.4 {{ languageNav[langType].language_text55 }}</p>
-          <p>1.6.5 {{ languageNav[langType].language_text56 }}</p>
-          <p>1.6.6 {{ languageNav[langType].language_text57 }}</p>
-          <p>1.6.7 {{ languageNav[langType].language_text58 }}</p>
-          <p>1.6.8 {{ languageNav[langType].language_text59 }}</p>
+          <p>1.1 {{ $t( 'usercenter.text46' ) }}</p>
+          <p>1.2 {{ $t( 'usercenter.text47' ) }}</p>
+          <p>1.3 {{ $t( 'usercenter.text48' ) }}</p>
+          <p>1.4 {{ $t( 'usercenter.text49' ) }}</p>
+          <p>1.5 {{ $t( 'usercenter.text50' ) }}</p>
+          <p>1.6 {{ $t( 'usercenter.text51' ) }}</p>
+          <p>1.6.1 {{ $t( 'usercenter.text52' ) }}</p>
+          <p>1.6.2 {{ $t( 'usercenter.text53' ) }}</p>
+          <p>1.6.3 {{ $t( 'usercenter.text54' ) }}</p>
+          <p>1.6.4 {{ $t( 'usercenter.text55' ) }}</p>
+          <p>1.6.5 {{ $t( 'usercenter.text56' ) }}</p>
+          <p>1.6.6 {{ $t( 'usercenter.text57' ) }}</p>
+          <p>1.6.7 {{ $t( 'usercenter.text58' ) }}</p>
+          <p>1.6.8 {{ $t( 'usercenter.text59' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
-            二、{{ languageNav[langType].language_text60 }}
+            二、{{ $t( 'usercenter.text60' ) }}
           </div>
-          <p>{{ languageNav[langType].language_text61 }}</p>
+          <p>{{ $t( 'usercenter.text61' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
-            三、{{ languageNav[langType].language_text62 }}
+            三、{{ $t( 'usercenter.text62' ) }}
           </div>
-          <div>3.1 {{ languageNav[langType].language_text63 }}</div>
-          <p>{{ languageNav[langType].language_text64 }}</p>
+          <div>3.1 {{ $t( 'usercenter.text63' ) }}</div>
+          <p>{{ $t( 'usercenter.text64' ) }}</p>
 
-          <div>3.2 {{ languageNav[langType].language_text65 }}</div>
-          <p>{{ languageNav[langType].language_text66 }}</p>
+          <div>3.2 {{ $t( 'usercenter.text65' ) }}</div>
+          <p>{{ $t( 'usercenter.text66' ) }}</p>
 
-          <div>3.3 {{ languageNav[langType].language_text67 }}</div>
-          <p>3.3.1 {{ languageNav[langType].language_text68 }}</p>
-          <p>3.3.2 {{ languageNav[langType].language_text69 }}</p>
-          <p>3.3.3 {{ languageNav[langType].language_text70 }}</p>
-          <p>3.3.4 {{ languageNav[langType].language_text71 }}</p>
+          <div>3.3 {{ $t( 'usercenter.text67' ) }}</div>
+          <p>3.3.1 {{ $t( 'usercenter.text68' ) }}</p>
+          <p>3.3.2 {{ $t( 'usercenter.text69' ) }}</p>
+          <p>3.3.3 {{ $t( 'usercenter.text70' ) }}</p>
+          <p>3.3.4 {{ $t( 'usercenter.text71' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
-            四、{{ languageNav[langType].language_text72 }}
+            四、{{ $t( 'usercenter.text72' ) }}
           </div>
-          <p>{{ languageNav[langType].language_text73 }}</p>
-          <div>4.1 {{ languageNav[langType].language_text74 }}</div>
-          <p>4.1.1 {{ languageNav[langType].language_text75 }}</p>
-          <p>4.1.2 {{ languageNav[langType].language_text76 }}</p>
-          <p>4.1.3 {{ languageNav[langType].language_text77 }}</p>
-          <p>4.1.4 {{ languageNav[langType].language_text78 }}</p>
-          <p>4.2.{{ languageNav[langType].language_text79 }}</p>
+          <p>{{ $t( 'usercenter.text73' ) }}</p>
+          <div>4.1 {{ $t( 'usercenter.text74' ) }}</div>
+          <p>4.1.1 {{ $t( 'usercenter.text75' ) }}</p>
+          <p>4.1.2 {{ $t( 'usercenter.text76' ) }}</p>
+          <p>4.1.3 {{ $t( 'usercenter.text77' ) }}</p>
+          <p>4.1.4 {{ $t( 'usercenter.text78' ) }}</p>
+          <p>4.2.{{ $t( 'usercenter.text79' ) }}</p>
           <div style="margin-bottom: 20px"></div>
-          <p>4.2.1 {{ languageNav[langType].language_text80 }}</p>
-          <p>4.2.2 {{ languageNav[langType].language_text81 }}</p>
-          <p>4.2.3 {{ languageNav[langType].language_text82 }}</p>
-          <p>4.2.4 {{ languageNav[langType].language_text83 }}</p>
-          <p>4.2.5 {{ languageNav[langType].language_text84 }}</p>
-          <p>4.2.6 {{ languageNav[langType].language_text85 }}</p>
-          <p>4.2.7 {{ languageNav[langType].language_text86 }}</p>
+          <p>4.2.1 {{ $t( 'usercenter.text80' ) }}</p>
+          <p>4.2.2 {{ $t( 'usercenter.text81' ) }}</p>
+          <p>4.2.3 {{ $t( 'usercenter.text82' ) }}</p>
+          <p>4.2.4 {{ $t( 'usercenter.text83' ) }}</p>
+          <p>4.2.5 {{ $t( 'usercenter.text84' ) }}</p>
+          <p>4.2.6 {{ $t( 'usercenter.text85' ) }}</p>
+          <p>4.2.7 {{ $t( 'usercenter.text86' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
-            五、{{ languageNav[langType].language_text87 }}
+            五、{{ $t( 'usercenter.text87' ) }}
           </div>
-          <p>5.1 {{ languageNav[langType].language_text88 }}</p>
-          <p>5.2 {{ languageNav[langType].language_text89 }}</p>
-          <p>5.3 {{ languageNav[langType].language_text90 }}</p>
+          <p>5.1 {{ $t( 'usercenter.text88' ) }}</p>
+          <p>5.2 {{ $t( 'usercenter.text89' ) }}</p>
+          <p>5.3 {{ $t( 'usercenter.text90' ) }}</p>
 
-          <p>5.4 {{ languageNav[langType].language_text91 }}</p>
-          <p>5.5 {{ languageNav[langType].language_text92 }}</p>
-          <p>5.6 {{ languageNav[langType].language_text93 }}</p>
-          <p>5.7 {{ languageNav[langType].language_text94 }}</p>
-          <p>5.8 {{ languageNav[langType].language_text95 }}</p>
-          <p>5.9 {{ languageNav[langType].language_text96 }}</p>
-          <p>5.10 {{ languageNav[langType].language_text97 }}</p>
-          <p>5.11 {{ languageNav[langType].language_text98 }}</p>
+          <p>5.4 {{ $t( 'usercenter.text91' ) }}</p>
+          <p>5.5 {{ $t( 'usercenter.text92' ) }}</p>
+          <p>5.6 {{ $t( 'usercenter.text93' ) }}</p>
+          <p>5.7 {{ $t( 'usercenter.text94' ) }}</p>
+          <p>5.8 {{ $t( 'usercenter.text95' ) }}</p>
+          <p>5.9 {{ $t( 'usercenter.text96' ) }}</p>
+          <p>5.10 {{ $t( 'usercenter.text97' ) }}</p>
+          <p>5.11 {{ $t( 'usercenter.text98' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
-            六、{{ languageNav[langType].language_text99 }}
+            六、{{ $t( 'usercenter.text99' ) }}
           </div>
-          <p>6.1 {{ languageNav[langType].language_text100 }}</p>
+          <p>6.1 {{ $t( 'usercenter.text100' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
-            七、{{ languageNav[langType].language_text101 }}
+            七、{{ $t( 'usercenter.text101' ) }}
           </div>
-          <p>{{ languageNav[langType].language_text102 }}</p>
+          <p>{{ $t( 'usercenter.text102' ) }}</p>
           <div style="margin-bottom: 20px"></div>
           <div style="font-size: 18px; color: #000">
             八、{{ languageNav[langType].language_text103 }}
