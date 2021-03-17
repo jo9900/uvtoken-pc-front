@@ -287,6 +287,7 @@ export default {
       .wiiot {
         min-height: 75px;
         margin-bottom: 10px;
+        font-weight: 100;
       }
       .fitop {
         margin-top: -50px;

@@ -251,6 +251,7 @@ export default {
         color: #7b839a;
         font-size: 20px;
         margin-bottom: 82px;
+        font-weight: 100;
       }
     }
     .zarll {
@@ -272,6 +273,7 @@ export default {
     .title-4 {
       color: #7b839a;
       font-size: 14px;
+      font-weight: 100;
     }
   }
 }

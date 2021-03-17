@@ -85,7 +85,7 @@
               <div>{{ $t( 'text12' ) }}</div>
               <div>{{ $t( 'text13' ) }}</div>
             </div>
-            <div class="caosjet">
+            <div class="caosjet" style="width:600px">
               {{ $t( 'text14' ) }}
             </div>
           </div>
@@ -407,7 +407,7 @@ export default {
         .content_text {
           color: #7b7b7b;
           font-size: 16px;
-          width: 498px;
+          // width: 498px;
           text-align: right;
         }
         .bget {
@@ -419,6 +419,7 @@ export default {
           font-size: 18px;
           color: #7b839aff;
           line-height: 29px;
+          font-weight: 100;
         }
       }
     }
@@ -428,7 +429,7 @@ export default {
     .wrap {
       .content {
         .content_text {
-          width: 617px;
+          // width: 617px;
           text-align: left;
           padding-left: 36px;
         }
@@ -458,6 +459,7 @@ export default {
         color: #7b839a;
         font-size: 18px;
         margin-bottom: 54px;
+        font-weight: 100;
       }
     }
   }
@@ -470,6 +472,7 @@ export default {
       color: #7b839a;
       font-size: 18px;
       margin-bottom: 87px;
+      font-weight: 100;
     }
   }
 }
@@ -560,7 +563,6 @@ export default {
   color: #fff;
   line-height: 61px;
   margin-bottom: 38px;
-  width: 400px;
 }
 .qosker {
   font-size: 20px;
