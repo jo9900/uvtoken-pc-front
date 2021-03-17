@@ -172,8 +172,8 @@
           <div>
             <div class="title-1">{{ $t( 'text25' ) }}</div>
             <div class="title-2">
-              {{ $t( 'text26' ) }}
-              {{ $t( 'text27' ) }}
+              <div>{{ $t( 'text26' ) }}</div>
+              <div>{{ $t( 'text27' ) }}</div>
             </div>
             <div><img src="../../assets/img/pic_dapp.png" /></div>
           </div>

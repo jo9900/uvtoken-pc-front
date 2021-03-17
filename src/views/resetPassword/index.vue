@@ -515,7 +515,7 @@ export default {
           width: 303px;
           background: #5885fd;
           border-radius: 3px;
-          color: #ffffff;
+          color: #887878;
           font-size: 20px;
           display: block;
           margin-left: 60px;
@@ -523,9 +523,6 @@ export default {
       }
     }
   }
-}
-.page .page_content .wrap .case .btn {
-  line-height: 30px;
 }
 .page .page_content .wrap .case .singBon {
   line-height: 63px;

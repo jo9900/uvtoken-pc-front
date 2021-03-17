@@ -37,7 +37,7 @@
             </div>
             <div>
               <div class="zarll">
-                <div class="zllp" style="margin-right: 329px">
+                <div class="zllp">
                   <div class="zllp-img">
                     <img src="../../assets/img/pic_jsgx@2x.png" />
                   </div>
@@ -45,6 +45,9 @@
                     <div class="title-3">{{ $t( 'text68' ) }}</div>
                     <div class="title-4">
                       {{ $t( 'text69' ) }}
+                    </div>
+                    <div class="title-4">
+                      {{ $t( 'text199' ) }}
                     </div>
                   </div>
                 </div>
@@ -57,12 +60,15 @@
                     <div class="title-4">
                       {{ $t( 'text71' ) }}
                     </div>
+                    <div class="title-4">
+                      {{ $t( 'text200' ) }}
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="zarll">
-                <div class="zllp" style="margin-right: 308px">
+                <div class="zllp">
                   <div class="zllp-img">
                     <img src="../../assets/img/pic_gxldx@2x.png" />
                   </div>
@@ -81,6 +87,9 @@
                     <div class="title-3">{{ $t( 'text74' ) }}</div>
                     <div class="title-4">
                       {{ $t( 'text75' ) }}
+                    </div>
+                    <div class="title-4">
+                      {{ $t( 'text202' ) }}
                     </div>
                   </div>
                 </div>
@@ -240,6 +249,7 @@ export default {
     padding-top: 133px;
     padding-bottom: 147px;
     .scoplert {
+      width: 90%;
       text-align: center;
       .title-1 {
         color: #272727;
@@ -259,7 +269,7 @@ export default {
       margin-bottom: 74px;
     }
     .zllp {
-      width: 246px;
+      width: 50%;
       text-align: center;
     }
     .zllp-img img {

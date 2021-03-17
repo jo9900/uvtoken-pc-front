@@ -584,12 +584,6 @@ export default {
     }
   }
 }
-.page .page_content .wrap .case .btn {
-  line-height: 29px;
-}
-.page .page_content .wrap .case .singBon {
-  line-height: 28px;
-}
 .usertext:hover {
   cursor: pointer;
   text-decoration: underline;

@@ -225,3 +225,6 @@
 .fontWeight100 {
     font-weight: 100;
 }
+.el-button {
+    padding: 0 !important;
+}

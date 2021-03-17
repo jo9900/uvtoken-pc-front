@@ -308,6 +308,7 @@ export default {
           line-height: 29px;
           margin-bottom: 20px;
           font-weight: 100;
+          width: 430px;
         }
       }
     }
