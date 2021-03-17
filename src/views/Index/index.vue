@@ -6,6 +6,7 @@
       style="position: relative"
       :style="{ 'min-height': '900px' }"
     >
+      <div class="stars"></div>
       <div class="bsolert">
         <div class="flex1">
           <div>
@@ -288,10 +289,26 @@ export default {
     mouseleaveFun() {
       this.isFhows = false;
     },
+    initBanner() {
+      let stars=800;  /*星星的密集程度，数字越大越多*/
+      let $stars= document.querySelector('.stars');
+      let r=600;   /*星星的看起来的距离,值越大越远*/
+      for ( let i = 0 ; i < stars; i++) {
+        let s = 0.2 + ( Math.random()*0.8 );
+        let curR = r + ( Math.random()*300 );
+        let style1 =`transform-origin:0 0 ${curR}px;`
+        let style2 =`transform: translate3d(0,0,-${curR}px) rotateY(${Math.random()*360}deg) rotateX(${Math.random()*-50}deg) scale(${s},${s})`
+
+        let style = `<div class="star" style="${style1}${style2}"></div>`
+        let container =  document.createElement("div");
+        container.innerHTML = style
+        $stars.appendChild(container.firstElementChild)
+      }
+    }
   },
   created() {},
-
   mounted() {
+    this.initBanner()
     // let that = this;
     // this.WindowHeight = (window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)-77;
     // window.addEventListener("scroll", function(event) {
@@ -517,6 +534,7 @@ export default {
 }
 .content-muner {
   background: url("../../assets/img/baground-mob.png") center center no-repeat;
+  overflow: hidden;
 }
 .bsolert {
   width: 1200px;
