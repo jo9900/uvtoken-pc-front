@@ -139,7 +139,7 @@
           </div>
           <div class="margintop40 color5885FD">
             {{ myPreSale.apply_taft_amount ? myPreSale.apply_taft_amount : 0 }}
-            TAFT
+            UVT
           </div>
         </div>
       </div>

@@ -256,29 +256,6 @@ export default {
       jgShow3: false,
       isAlertTrue: false,
       isFhows: false,
-      list: [
-        {
-          code: "",
-          title: "TAF Chain和以太坊2.0谁将开启新一轮牛市",
-          publish_date: "2020-11-12",
-          digest:
-            "截至11月11日，已有超5万枚ETH打入以太坊2.0存款合约地址，以太坊2.0进入创世启动阶段，启动进度完成10%。同时区块链3.0的代表TAFT完成了第一阶段的私募发售。仅用时26天第一阶段预售就已售罄。由此可见投资者对区块链3.0的期待和认可。2021年TAF Chain公链和以太坊2.0公链都将问世，届时将会是顶尖区块链技术的对垒，也是一场科技的盛宴。",
-        },
-        {
-          code: "",
-          title: "区块链技术如何变革供应链金融",
-          publish_date: "2020-10-02",
-          digest:
-            "尽管长期以来区块链的应用重点一直被放在支付和证券领域，但一个重要，且仍被低估的用例是供应链金融。目前，情况已在发生改变。现有供应链财务解决方案的复杂性和规模，在确保充足的资金和高效的运营方面提出了重大挑战。区块链技术有可能改变供应链金融的游戏规则。",
-        },
-        {
-          code: "",
-          title: "企业链改三原则：简化，连接，交易",
-          publish_date: "2020-10-02",
-          digest:
-            "按照大多数技术的标准，区块链仍应处于起步阶段。例如，现代计算机已经存在了80多年，云计算尽管自1996年以来就已存在，但它在许多行业领域仍属于努力获得市场份额阶段。",
-        },
-      ],
       listQuery: {
         lang_type: this.$langType,
         page_no: 1,
@@ -290,15 +267,6 @@ export default {
   computed: {},
   watch: {},
   methods: {
-    slkowet() {
-      this.$router.push({
-        path: "/newsDetail",
-        query: { code: this.list[0].code },
-      });
-    },
-    getsolltop() {
-      console.log(document.body.scrollTop);
-    },
     colsepl() {
       this.isAlertTrue = false;
       this.$store.commit("TRIM", true);
