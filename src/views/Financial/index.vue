@@ -37,7 +37,9 @@
                     <div class="title-2">{{ $t( 'text49' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
+                  <div :class="['rmot-button slideUpBtn', $lang]">
+                    <span>{{ $t( 'text50' ) }}</span>
+                  </div>
                 </div>
               </div>
               <div class="billet" style="margin: 0 28px">
@@ -48,7 +50,7 @@
                     <div class="title-2 title-pi">{{ $t( 'text52' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
+                  <div :class="['rmot-button slideUpBtn', $lang]"><span>{{ $t( 'text50' ) }}</span></div>
                 </div>
               </div>
               <div class="billet">
@@ -59,7 +61,7 @@
                     <div class="title-2 title-pi">{{ $t( 'text53' ) }}</div>
                     <div class="title-2">{{ $t( 'text54' ) }}</div>
                   </div>
-                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
+                  <div :class="['rmot-button slideUpBtn', $lang]"><span>{{ $t( 'text50' ) }}</span></div>
                 </div>
               </div>
             </div>
@@ -74,7 +76,7 @@
                     <div class="title-2">{{ $t( 'text57' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
+                  <div :class="['rmot-button slideUpBtn', $lang]"><span>{{ $t( 'text50' ) }}</span></div>
                 </div>
               </div>
               <div class="billet" style="margin: 0 28px">
@@ -86,7 +88,7 @@
                     <div class="title-2">{{ $t( 'text60' ) }}</div>
                   </div>
 
-                  <div class="rmot-button">{{ $t( 'text50' ) }}</div>
+                  <div :class="['rmot-button slideUpBtn', $lang]"><span>{{ $t( 'text50' ) }}</span></div>
                 </div>
               </div>
               <div class="billet">
@@ -97,7 +99,7 @@
                     <div class="title-2 title-pi">{{ $t( 'text61' ) }}</div>
                     <div class="title-2">{{ $t( 'text62' ) }}</div>
                   </div>
-                  <div class="rmot-button" role="button">{{ $t( 'text50' ) }}</div>
+                  <div :class="['rmot-button slideUpBtn', $lang]" role="button"><span>{{ $t( 'text50' ) }}</span></div>
                 </div>
               </div>
             </div>
@@ -275,12 +277,11 @@ export default {
         font-size: 14px;
         font-weight: 300;
         height: 40px;
-        color: #fff;
+        color: #5885FD;
         text-align: center;
-        background-color: #5885fd;
+        // background-color: #5885fd;
         display: inline-block;
         padding: 0 61px;
-        box-shadow: 0px 7px 15px -5px #5885fd;
         user-select: none;
         cursor: pointer;
       }
@@ -305,6 +306,12 @@ export default {
         font-size: 14px;
       }
     }
+  }
+}
+/* TODO 多语言*/
+.slideUpBtn {
+  &.zh::after {
+    content: "等待上线"
   }
 }
 </style>

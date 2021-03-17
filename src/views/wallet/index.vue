@@ -57,7 +57,7 @@
               <div>{{ $t( 'text87' ) }}</div>
               <div>{{ $t( 'text88' ) }}</div>
             </div>
-            <div class="dwkoer-but cursor-pointer" role="button">{{ $t( 'text89' ) }}</div>
+            <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
               <div>{{ $t( 'text93' ) }}</div>
               <div>{{ $t( 'text94' ) }}</div>
             </div>
-            <div class="dwkoer-but cursor-pointer" role="button">{{ $t( 'text89' ) }}</div>
+            <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
 
           <div class="bloart wow fadeInLeft">
@@ -111,7 +111,7 @@
               <div>{{ $t( 'text97' ) }}</div>
               <div>{{ $t( 'text98' ) }}</div>
             </div>
-            <div class="dwkoer-but cursor-pointer" role="button">{{ $t( 'text89' ) }}</div>
+           <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@
              <div>{{ $t( 'text101' ) }}</div>
              <div>{{ $t( 'text102' ) }}</div>
             </div>
-            <div class="dwkoer-but cursor-pointer" role="button" >{{ $t( 'text89' ) }}</div>
+            <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
 
           <div class="bloart wow fadeInLeft">
@@ -295,7 +295,6 @@ export default {
         .content_text {
           color: #7b7b7b;
           font-size: 16px;
-
           text-align: right;
         }
         .bget {
@@ -382,8 +381,10 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     }
   }
 }
-.dwkoer-but:hover {
-  transition: all ease .3s;
-  box-shadow: 0px 7px 15px -5px #5885fd;
+/* TODO 多语言*/
+.slideUpBtn {
+  &.zh::after {
+    content: "即将发售"
+  }
 }
 </style>
