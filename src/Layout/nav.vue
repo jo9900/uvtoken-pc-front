@@ -99,7 +99,7 @@
 </template>
 
 <script>
-    import {digest}  from "@/request/news"
+import {digest}  from "@/request/news"
 export default {
     name: '',
     data() {
@@ -164,9 +164,18 @@ export default {
     },
     computed:{},
     watch: {　　
-　　    '$route': function (to, from) {
-    　　　　this.pagePath = this.$route.path
-
+        '$route': {
+            handler(cur) {
+                this.pagePath = cur.path
+                this.links.find((link, index)=> {
+                    if (link.path == cur.path) {
+                        this.currentIndex = index
+                        return 
+                    }
+                })
+            },
+            deep: true,
+            immediate: true
         }
     },
     methods:{
