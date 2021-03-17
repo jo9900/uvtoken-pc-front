@@ -115,6 +115,7 @@ export default {
       }
     };
     return {
+      pk: '',
       disabled: false,
       time: 60,
       timerNull: null,
@@ -157,7 +158,7 @@ export default {
   watch: {},
   methods: {
     passwordUpdata() {
-      this.$refs["dataForm"].validate((valid) => {
+      this.$refs["dataForm"].validate(async (valid) => {
         if (valid) {
           let params = {
             email: localStorage.getItem("code"),
@@ -165,7 +166,10 @@ export default {
             new_password: this.dataForm.againPassword,
           };
           this.loading = true;
-          this.getPubKey();
+          let resData = await pubKey();
+          if (resData.code == 0) {
+            this.pk = resData.data.PubKey;
+          }
           // 密码加密 sha256 => rsaData
           params.new_password = this.rsaData(sha256(this.dataForm.password));
           resetPassword(params).then((res) => {
@@ -234,15 +238,8 @@ export default {
         this.disabled = false;
       }
     },
-    getPubKey() {
-      pubKey().then((res) => {
-        if (res.code == 0) {
-          localStorage.setItem("pk", res.data.pub_key);
-        }
-      });
-    },
     rsaData(data) {
-      const PUBLIC_KEY = localStorage.getItem("pk");
+      const PUBLIC_KEY = this.pk;
       let jsencrypt = new JSEncrypt();
       jsencrypt.setPublicKey(PUBLIC_KEY);
       let result = jsencrypt.encrypt(data);

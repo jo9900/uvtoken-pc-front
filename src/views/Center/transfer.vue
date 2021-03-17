@@ -215,6 +215,7 @@ export default {
     };
 
     return {
+      pk: '',
       that: this,
       apply_taft_amount: "0",
       ruleDialogVisible: false,
@@ -289,11 +290,14 @@ export default {
       });
     },
     Payment() {
-      this.$refs["dataForm1"].validate((valid) => {
+      this.$refs["dataForm1"].validate(async (valid) => {
         if (valid) {
           this.loadingBtn = true;
 
-          this.getPubKey();
+          let resData = await pubKey();
+          if (resData.code == 0) {
+            this.pk = resData.data.PubKey;
+          }
           passwordVerify({
               user_code: this.dataForm1.user_code,
               password: this.rsaData(sha256(this.dataForm1.password)),
@@ -387,16 +391,8 @@ export default {
         }
       });
     },
-
-    getPubKey() {
-      pubKey().then((res) => {
-        if (res.code == 0) {
-          localStorage.setItem("pk", res.data.pub_key);
-        }
-      });
-    },
     rsaData(data) {
-      const PUBLIC_KEY = localStorage.getItem("pk");
+      const PUBLIC_KEY = this.pk;
       let jsencrypt = new JSEncrypt();
       jsencrypt.setPublicKey(PUBLIC_KEY);
       let result = jsencrypt.encrypt(data);

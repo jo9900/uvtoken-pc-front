@@ -108,7 +108,7 @@
             >
           </template>
         </div>
-        
+
       </div>
     </div>
     <!-- <el-dialog
@@ -199,6 +199,7 @@ export default {
       }
     };
     return {
+      pk: '',
       dialogVisible: false,
       langType: this.$langType,
       fromPath: "",
@@ -273,16 +274,8 @@ export default {
       this.$router.push("forget");
     },
 
-    getPubKey() {
-      pubKey().then((res) => {
-        if (res.code == 0) {
-          localStorage.setItem("Uvpk", res.data.PubKey);
-        }
-      });
-    },
-
     rsaData(data) {
-      const PUBLIC_KEY = localStorage.getItem("Uvpk");
+      const PUBLIC_KEY = this.pk;
       let jsencrypt = new JSEncrypt();
       jsencrypt.setPublicKey(PUBLIC_KEY);
       let result = jsencrypt.encrypt(data);
@@ -352,7 +345,7 @@ export default {
       });
     },
     resetDataForm() {
-      this.$refs["resetForm"].validate((valid) => {
+      this.$refs["resetForm"].validate(async(valid) => {
         if (valid) {
           let params = {
             mail: this.resetData.mail,
@@ -360,7 +353,10 @@ export default {
             pwd: this.resetData.againPassword,
           };
           this.loading = true;
-          this.getPubKey();
+          let resData = await pubKey();
+          if (resData.code == 0) {
+            this.pk = resData.data.PubKey;
+          }
 
           params.pwd = this.rsaData(sha256(this.resetData.pwd));
           resetPassword(params)
@@ -391,7 +387,6 @@ export default {
     },
   },
   created() {
-    this.getPubKey();
   },
 
   mounted() {},
