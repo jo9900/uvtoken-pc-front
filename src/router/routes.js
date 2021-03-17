@@ -2,7 +2,6 @@ import Vue from "vue"
 import Login from '@/views/Login'
 import Layout from '@/Layout'
 import Home from '@/views/Index'
-import languageNav from "@/language/nav"
 
 const langType = localStorage.getItem( "langType" )
 const routes = [

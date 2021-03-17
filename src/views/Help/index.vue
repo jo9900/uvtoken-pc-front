@@ -44,7 +44,6 @@
 
 <script>
 import webFoot from "@/components/footer";
-import languageNav from "@/language/index";
 import { helpList } from "@/request/news";
 export default {
   name: "",
@@ -66,9 +65,7 @@ export default {
           '钱包被盗怎么办?',
           '转错地址怎么办？',
           '如何申请海外 Apple ID？?',
-      ],
-      languageNav: languageNav,
-      langType: this.$langType,
+      ]
     };
   },
   computed: {},

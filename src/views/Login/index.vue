@@ -196,7 +196,7 @@ export default {
     getPubKey() {
       pubKey().then( ( res ) => {
         if ( res.code == 0 ) {
-          localStorage.setItem( "Uvpk", res.data.pubKey );
+          localStorage.setItem( "Uvpk", res.data.PubKey );
         }
       } );
     },
@@ -329,7 +329,7 @@ export default {
     }
   },
   created() {
-    this.getPubKey();
+    // this.getPubKey();
   },
 
   mounted() {

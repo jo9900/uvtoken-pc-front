@@ -26,7 +26,7 @@
                 <el-input
                   class="row_input"
                   type="text"
-                  :placeholder="languageNav[langType].language_text2"
+                  :placeholder="$t( 'login.text2' )"
                   v-model.trim="resetData.mail"
                 />
               </el-form-item>
@@ -35,7 +35,7 @@
               class="btn form_btn"
               :loading="loading"
               @click="resetDataCode"
-              >{{ languageNav[langType].language_text11 }}</el-button
+              >{{ $t( 'login.text11' ) }}</el-button
             >
           </template>
           <template v-if="resetCode">
@@ -62,7 +62,7 @@
                 <el-input
                   class="row_input"
                   type="text"
-                  :placeholder="languageNav[langType].language_text5"
+                  :placeholder="$t( 'login.text5' )"
                   v-model.trim="resetData.verifyCode"
                 />
                 <div v-if="disabled" class="get_code">{{ btntxt }}</div>
@@ -80,7 +80,7 @@
                   class="row_input"
                   autocomplete="off"
                   type="password"
-                  :placeholder="languageNav[langType].language_text9"
+                  :placeholder="$t( 'login.text9' )"
                   v-model.trim="resetData.pwd"
                 />
               </el-form-item>
@@ -94,7 +94,7 @@
                   class="row_input"
                   autocomplete="off"
                   type="password"
-                  :placeholder="languageNav[langType].language_text7"
+                  :placeholder="$t( 'login.text7' )"
                   v-model.trim="resetData.againPassword"
                 />
               </el-form-item>
@@ -104,7 +104,7 @@
               style="margin-top: 20px"
               :loading="loading"
               @click="resetDataForm"
-              >{{ languageNav[langType].language_text11 }}</el-button
+              >{{ $t( 'login.text11' ) }}</el-button
             >
           </template>
         </div>
@@ -166,7 +166,6 @@ import {
 } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
-import languageNav from "@/language/login";
 import MixinSlideVerify from "@/mixin/slideVerify.js"
 let that;
 export default {
@@ -201,7 +200,6 @@ export default {
     };
     return {
       dialogVisible: false,
-      languageNav: languageNav,
       langType: this.$langType,
       fromPath: "",
       verify: false,
@@ -278,7 +276,7 @@ export default {
     getPubKey() {
       pubKey().then((res) => {
         if (res.code == 0) {
-          localStorage.setItem("Uvpk", res.data.pubKey);
+          localStorage.setItem("Uvpk", res.data.PubKey);
         }
       });
     },

@@ -293,7 +293,7 @@ export default {
     getPubKey() {
       pubKey().then((res) => {
         if (res.code == 0) {
-          localStorage.setItem("Uvpk", res.data.pubKey);
+          localStorage.setItem("Uvpk", res.data.PubKey);
         }
       });
     },

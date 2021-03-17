@@ -4,18 +4,18 @@
   <div class="page">
     <div class="wrap">
       <div class="page_content">
-        <div class="name">{{ languageNav[langType].language_text1 }}</div>
+        <div class="name">{{ $t( 'purchase.text1' ) }}</div>
         <div class="text-coaneret">
           <div style="margin-bottom: 17px">
-            {{ languageNav[langType].language_text2 }}
+            {{ $t( 'purchase.text2' ) }}
           </div>
           <div style="margin-bottom: 17px">
-            {{ languageNav[langType].language_text3 }}
+            {{ $t( 'purchase.text3' ) }}
           </div>
           <div style="margin-bottom: 17px">
-            {{ languageNav[langType].language_text4 }}
+            {{ $t( 'purchase.text4' ) }}
           </div>
-          <div>{{ languageNav[langType].language_text5 }}</div>
+          <div>{{ $t( 'purchase.text5' ) }}</div>
           <div style="margin-bottom: 20px"></div>
           <div
             style="
@@ -25,32 +25,33 @@
               margin-bottom: 20px;
             "
           >
-            {{ languageNav[langType].language_text6 }}
+            {{ $t( 'purchase.text6' ) }}
           </div>
           <p style="margin-bottom: 40px">
-            1.{{ languageNav[langType].language_text7
-            }}<span style="color: #426cff">https://www.tafchain.com</span>
+            1.{{ $t( 'purchase.text7' )
+            }}<span style="color: #426cff">https://www.uvtoken.com</span>
+            <!-- TODO 正式官网地址 -->
           </p>
           <p style="margin-bottom: 40px">
-            2.{{ languageNav[langType].language_text8 }}
+            2.{{ $t( 'purchase.text8' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            3.{{ languageNav[langType].language_text9 }}
+            3.{{ $t( 'purchase.text9' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            4.{{ languageNav[langType].language_text10 }}
+            4.{{ $t( 'purchase.text10' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            5.{{ languageNav[langType].language_text11 }}
+            5.{{ $t( 'purchase.text11' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            6.{{ languageNav[langType].language_text12 }}
+            6.{{ $t( 'purchase.text12' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            7.{{ languageNav[langType].language_text13 }}
+            7.{{ $t( 'purchase.text13' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            8.{{ languageNav[langType].language_text14 }}
+            8.{{ $t( 'purchase.text14' ) }}
           </p>
 
           <div
@@ -61,87 +62,87 @@
               margin-bottom: 20px;
             "
           >
-            {{ languageNav[langType].language_text15 }}
+            {{ $t( 'purchase.text15' ) }}
           </div>
           <div>
             1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text16
+              $t( 'purchase.text16' )
             }}
           </div>
           <p style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text17 }}
+            {{ $t( 'purchase.text17' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text18 }}
+            {{ $t( 'purchase.text18' ) }}
           </p>
           <div>
             2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text19
+              $t( 'purchase.text19' )
             }}
           </div>
 
           <p style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text20 }}
+            {{ $t( 'purchase.text20' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text21 }}
+            {{ $t( 'purchase.text21' ) }}
           </p>
 
           <div>
             3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text22
+              $t( 'purchase.text22' )
             }}
           </div>
           <p style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text23 }}
+            {{ $t( 'purchase.text23' ) }}
           </p>
           <div>
             4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text24
+              $t( 'purchase.text24' )
             }}
           </div>
           <p style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text25 }}
+            {{ $t( 'purchase.text25' ) }}
           </p>
 
           <p style="padding-left: 40px">
-            • {{ languageNav[langType].language_text26 }}
+            • {{ $t( 'purchase.text26' ) }}
           </p>
           <p style="padding-left: 40px; margin-bottom: 40px">
-            • {{ languageNav[langType].language_text27 }}
-            {{ languageNav[langType].language_text28 }}
+            • {{ $t( 'purchase.text27' ) }}
+            {{ $t( 'purchase.text28' ) }}
           </p>
           <div>
             5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text29
+              $t( 'purchase.text29' )
             }}
           </div>
           <div style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text30 }}
+            {{ $t( 'purchase.text30' ) }}
           </div>
           <div>
             6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text31
+              $t( 'purchase.text31' )
             }}
           </div>
           <div style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text32 }}
+            {{ $t( 'purchase.text32' ) }}
           </div>
           <div>
             7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text33
+              $t( 'purchase.text33' )
             }}
           </div>
           <div style="margin-bottom: 40px">
-            {{ languageNav[langType].language_text34 }}
+            {{ $t( 'purchase.text34' ) }}
           </div>
           <div>
             8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              languageNav[langType].language_text35
+              $t( 'purchase.text35' )
             }}
           </div>
           <div style="margin-bottom: 150px">
-            {{ languageNav[langType].language_text36 }}
+            {{ $t( 'purchase.text36' ) }}
           </div>
         </div>
       </div>
@@ -153,13 +154,11 @@
 
 <script>
 import webFoot from "@/Layout/footer";
-import languageNav from "@/language/purchase";
 export default {
   name: "",
   components: { webFoot },
   data() {
     return {
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },

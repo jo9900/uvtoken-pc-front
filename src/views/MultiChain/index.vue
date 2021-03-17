@@ -97,7 +97,6 @@
 
 <script>
 import webFoot from "@/components/footer";
-import languageNav from "@/language/index";
 export default {
   name: "",
   components: { webFoot },
@@ -130,9 +129,7 @@ export default {
         lang_type: this.$langType,
         page_no: 1,
         page_size: 3,
-      },
-      languageNav: languageNav,
-      langType: this.$langType,
+      }
     };
   },
   computed: {},

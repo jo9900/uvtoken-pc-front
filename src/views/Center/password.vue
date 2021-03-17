@@ -5,9 +5,9 @@
     <div class="wrap">
       <div class="page_indicator">
         <router-link class="gobaket" dir="ltr" to="/center">{{
-          languageNav[langType].language_text1
+          $t( 'text114' )
         }}</router-link>
-        > {{ languageNav[langType].language_text13 }}
+        > {{ $t( 'text192' ) }}
       </div>
       <div class="page_content">
         <el-form
@@ -19,7 +19,7 @@
           :model="dataForm"
         >
           <el-form-item
-            :label="languageNav[langType].language_text14"
+            :label="$t( 'text193' )"
             class="zcoder"
             prop="verify_code"
           >
@@ -35,7 +35,7 @@
             </div>
           </el-form-item>
           <el-form-item
-            :label="languageNav[langType].language_text16"
+            :label="$t( 'text194' )"
             prop="password"
             style="position: relative"
           >
@@ -57,7 +57,7 @@
             </div>
           </el-form-item>
           <el-form-item
-            :label="languageNav[langType].language_text17"
+            :label="$t( 'text195' )"
             prop="againPassword"
             style="position: relative"
           >
@@ -82,8 +82,8 @@
           class="submit_btn"
           :loading="loading"
           @click="passwordUpdata"
-          >{{ languageNav[langType].language_text18 }}</el-button
-        >
+          >{{ $t( 'text196' ) }}
+          </el-button>
       </div>
     </div>
     <webFoot />
@@ -94,15 +94,14 @@ import webFoot from "@/Layout/footer";
 import { passwordVcode, resetPassword, pubKey } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
-import languageNav from "@/language/coander";
-import languageNav2 from "@/language/login";
+
 export default {
   name: "",
   components: { webFoot },
   data() {
     var passwordValidator = (rule, value, callback) => {
       if (this.dataForm.password != this.dataForm.againPassword) {
-        callback(new Error(this.languageNav[this.$langType].language_text19));
+        callback(new Error(this.$t( 'text197' )));
       } else {
         callback();
       }
@@ -110,7 +109,7 @@ export default {
     const validatePassword = (rule, value, callback) => {
       let codeReg = /(?!^(\d+|[a-zA-Z]+|[~!@#$%^&*?]+)$)^[\w~!@#$%^&*?]{8,30}$/;
       if (!codeReg.test(value)) {
-        callback(new Error(this.languageNav[this.$langType].language_text20));
+        callback(new Error(this.$t( 'login.text12' )));
       } else {
         callback();
       }
@@ -119,7 +118,7 @@ export default {
       disabled: false,
       time: 60,
       timerNull: null,
-      btntxt: languageNav[this.$langType].language_text15,
+      btntxt: this.$t( 'login.text14' ),
       loading: false,
       inputViset: false,
       dataForm: {
@@ -127,13 +126,11 @@ export default {
         againPassword: "", // 确认密码
         verify_code: "", // 验证码
       },
-      languageNav: languageNav,
-      langType: this.$langType,
       rules: {
         password: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text21,
+            message: this.$t( 'login.text3' ),
             trigger: "blur",
           },
           { required: true, trigger: "blur", validator: validatePassword },
@@ -141,7 +138,7 @@ export default {
         againPassword: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text22,
+            message: this.$t( 'login.text6' ),
             trigger: "blur",
           },
           { required: true, trigger: "blur", validator: passwordValidator },
@@ -149,7 +146,7 @@ export default {
         verify_code: [
           {
             required: true,
-            message: languageNav[this.$langType].language_text23,
+            message: this.$t( 'login.text198' ),
             trigger: "blur",
           },
         ],
@@ -175,19 +172,19 @@ export default {
             this.loading = false;
             if (res.code == 0) {
               this.$message({
-                message: this.languageNav[this.langType].language_text24,
+                message: this.$t( 'login.text27' ),
                 type: "success",
               });
               this.$router.push("center");
             } else {
               if (res.code == "101504") {
                 this.$message.error(
-                  languageNav2[this.langType].language_text31
+                  this.$t( 'text188' )
                 );
               }
               if (res.code == "101503") {
                 this.$message.error(
-                  languageNav2[this.langType].language_text32
+                  this.$t( 'text189' )
                 );
               } else {
                 this.$message.error(res.msg);
@@ -207,18 +204,18 @@ export default {
         console.log(res);
         if (res.code == 0) {
           this.$message({
-            message: this.languageNav[this.langType].language_text25,
+            message: this.$t( 'login.text17' ),
             type: "success",
           });
         } else {
           if (res.code == "101702") {
             return this.$message.error(
-              languageNav2[this.$langType].language_text18
+              this.$t( 'text190' )
             );
           }
           if (res.code == "101703") {
             return this.$message.error(
-              languageNav2[this.$langType].language_text19
+              this.$t( 'text191' )
             );
           }
         }
@@ -233,7 +230,7 @@ export default {
       } else {
         clearTimeout(this.timerNull);
         this.time = 60;
-        this.btntxt = this.languageNav[this.langType].language_text15;
+        this.btntxt = this.$t( 'login.text14' );
         this.disabled = false;
       }
     },

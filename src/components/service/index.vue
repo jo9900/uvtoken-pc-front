@@ -1,42 +1,5 @@
 <template>
   <div class="">
-    <div
-      class="suspend"
-      style="
-        overflow: hidden;
-        width: 82px;
-        height: 79px;
-        display: block;
-        text-align: center;
-      "
-      v-if="langType == 'English'"
-    >
-      <dl>
-        <dt class="IE6PNG">
-          <div class="laodett">
-            <!--tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=774276297-->
-            <a
-              target="_blank"
-              :href="
-                langType == 'English'
-                  ? 'https://tb.53kf.com/code/client/9b4e57f4454eda27a911267c0001f9c13/2'
-                  : 'https://tb.53kf.com/code/client/9b4e57f4454eda27a911267c0001f9c13/1'
-              "
-            >
-              <div>
-                <img
-                  style="width: 34px"
-                  src="../../assets/img/icon_kefu_1.png"
-                />
-              </div>
-              <div style="font-size: 15px">
-                {{ languageNav[langType].language_text1 }}
-              </div>
-            </a>
-          </div>
-        </dt>
-      </dl>
-    </div>
 
     <div
       class="suspend"
@@ -47,18 +10,13 @@
         display: block;
         text-align: center;
       "
-      v-else
     >
       <dl style="padding-top: 20px">
         <dt class="IE6PNG">
           <div class="laodett" style="height: 100%">
             <a
               target="_blank"
-              :href="
-                langType == 'English'
-                  ? 'https://tb.53kf.com/code/client/9b4e57f4454eda27a911267c0001f9c13/2'
-                  : 'https://tb.53kf.com/code/client/9b4e57f4454eda27a911267c0001f9c13/1'
-              "
+              href=""
             >
               <div style="margin-top: 5px">
                 <img
@@ -67,38 +25,22 @@
                 />
               </div>
               <div style="font-size: 15px">
-                {{ languageNav[langType].language_text1 }}
+                {{ $t( 'text187' ) }}
               </div>
             </a>
           </div>
         </dt>
       </dl>
     </div>
-
-    <!--<el-dialog :title="languageNav[langType].language_text18" :visible.sync="loginDialogVisible" width="400px" center :before-close="loginHandleClose">-->
-    <!--<div class="" style="text-align: center;margin-top: -20px;margin-bottom: 10px"><img src="../../assets/logo.png" style="width:60px;margin: 0 auto"/></div>-->
-    <!--<div class="contt-text">-->
-    <!--<div class="" style="text-align: center; text-align: center;-->
-    <!--font-size: 26px;-->
-    <!--color: #2d2b2b;">TAFChain {{languageNav[langType].language_text3}}</div>-->
-    <!--<div class="">QQ：2461055419</div>-->
-    <!--<div><img src="../../assets/img/wactImg.jpg"/></div>-->
-    <!--<div>{{languageNav[langType].language_text4}}</div>-->
-    <!--</div>-->
-    <!--<span slot="footer" class="dialog-footer"></span>-->
-    <!--</el-dialog>-->
   </div>
 </template>
 
 <script>
-import languageNav from "@/language/nav";
 export default {
   name: "index",
   data() {
     return {
       loginDialogVisible: false,
-      languageNav: languageNav,
-      langType: this.$langType,
     };
   },
   methods: {

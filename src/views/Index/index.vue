@@ -227,8 +227,6 @@
 <script>
 import { WOW } from "wowjs";
 import webFoot from "@/components/footer";
-import { digest } from "@/request/news";
-import languageNav from "@/language/index";
 import countTo from "vue-count-to";
 
 export default {
@@ -287,7 +285,6 @@ export default {
         page_no: 1,
         page_size: 3,
       },
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },

@@ -310,7 +310,6 @@
 import webFoot from "@/components/footer";
 import { preSale, round } from '@/request/presale.js'
 import { userInfo, subBook } from '@/request/user.js'
-import languageNav from "@/language/presell"
 import QRCode from 'qrcodejs2'
 export default {
   name: '',
@@ -382,7 +381,6 @@ export default {
           { required: true, validator: validateSurnmae, trigger: 'blur' }
         ]
       },
-      languageNav: languageNav,
       languageName: this.$langType
     }
   },
@@ -527,10 +525,10 @@ export default {
           }
           else {
             if ( this.totalPrice > this.preInfo.total ) {
-              return this.$message.error( this.languageNav[ this.$langType ].language_text53 + this.preInfo.total + " USDT" );
+              return this.$message.error( this.$t( 'presale.text53' ) + this.preInfo.total + " USDT" );
             }
             if ( this.preInfo.progress >= 100 ) {
-              return this.$message.error( this.languageNav[ this.$langType ].language_text55 );
+              return this.$message.error( this.$t( 'presale.text55' ) );
             }
           }
           if ( !this.presellChecked ) {
@@ -560,15 +558,15 @@ export default {
               return;
             }
             if ( res.code == "102002" ) {
-              this.$message.error( this.languageNav[ this.$langType ].language_text53 );
+              this.$message.error( this.$t( 'presale.text53' ) );
               return;
             }
             if ( res.code == "102003" ) {
-              this.$message.error( this.languageNav[ this.$langType ].language_text56 );
+              this.$message.error( this.$t( 'presale.text56' ) );
               return
             }
             else {
-              this.$message.error( this.languageNav[ this.$langType ].language_text57 );
+              this.$message.error( this.$t( 'presale.text57' ) );
             }
           } )
         }

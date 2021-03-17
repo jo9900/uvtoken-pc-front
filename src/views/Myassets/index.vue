@@ -14,8 +14,8 @@ s<!-- -->
             <template slot-scope="scope">
               <span>{{
                 scope.row.round == 1
-                  ? languageNav[langType].language_text5
-                  : languageNav[langType].language_text6
+                  ? $t( 'text148' )
+                  : $t( 'text149' )
               }}</span>
             </template>
           </el-table-column>
@@ -35,7 +35,7 @@ s<!-- -->
           </el-table-column>
           <template slot="empty">
             <div class="noData">
-              {{ languageNav[langType].language_text11 }}
+              {{ $t( 'text154' ) }}
             </div>
           </template>
         </el-table>
@@ -49,7 +49,6 @@ s<!-- -->
 <script>
 import webFoot from "@/Layout/footer";
 import { preSaleLog } from "@/request/user.js";
-import languageNav from "@/language/coander";
 export default {
   name: "",
   components: { webFoot },
@@ -63,7 +62,6 @@ export default {
       },
       tableData: [],
       total: 0,
-      languageNav: languageNav,
       langType: this.$langType,
     };
   },
