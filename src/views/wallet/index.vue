@@ -35,33 +35,14 @@
     <div class="project project-3">
       <div class="wrap">
         <div class="content">
+
           <div class="bloart">
             <img
-              class="content_img"
-              src="@/assets/img/pic_zlzc@2x (1).png"
-              alt="production-img"
+                class="content_img"
+                src="@/assets/img/pic_lxyjjt@2x.png"
+                alt="production-img"
             />
           </div>
-
-          <div class="content_text">
-            <div class="bget">
-              <div>{{ $t( 'text84' ) }}</div>
-            </div>
-            <div class="caosjet">
-              <div>{{ $t( 'text85' ) }}</div>
-              <div>{{ $t( 'text86' ) }}</div>
-              <div>{{ $t( 'text87' ) }}</div>
-              <div>{{ $t( 'text88' ) }}</div>
-            </div>
-            <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project project-4">
-      <div class="wrap">
-        <div class="content">
           <div class="content_text">
             <div class="bget">
               <div>{{ $t( 'text90' ) }}</div>
@@ -74,12 +55,30 @@
             </div>
             <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="project project-4">
+      <div class="wrap">
+        <div class="content">
+          <div class="content_text">
+            <div class="bget">
+              <div>{{ $t( 'text84' ) }}</div>
+            </div>
+            <div class="caosjet">
+              <div>{{ $t( 'text85' ) }}</div>
+              <div>{{ $t( 'text86' ) }}</div>
+              <div>{{ $t( 'text87' ) }}</div>
+              <div>{{ $t( 'text88' ) }}</div>
+            </div>
+            <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
+          </div>
           <div class="bloart">
             <img
-              class="content_img"
-              src="@/assets/img/pic_lxyjjt@2x.png"
-              alt="production-img"
+                class="content_img"
+                src="@/assets/img/pic_zlzc@2x (1).png"
+                alt="production-img"
             />
           </div>
         </div>
@@ -99,7 +98,7 @@
 
           <div class="content_text">
             <div class="bget">
-              <div>U-Watch</div>
+              <div>{{ $t( 'text201' ) }}</div>
             </div>
             <div class="caosjet">
               <div>{{ $t( 'text95' ) }}</div>
@@ -118,7 +117,7 @@
         <div class="content">
           <div class="content_text">
             <div class="bget">
-              <div>U-Touch</div>
+              <div>{{ $t( 'text203' ) }}</div>
             </div>
             <div class="caosjet">
              <div>{{ $t( 'text99' ) }}</div>

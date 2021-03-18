@@ -56,7 +56,7 @@
 
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="zh">简体中文</el-dropdown-item>
-                            <el-dropdown-item command="en">English</el-dropdown-item>
+<!--                            <el-dropdown-item command="en">English</el-dropdown-item>-->
                             <!--<el-dropdown-item command="Arabic">عربى</el-dropdown-item>-->
                             <!--<el-dropdown-item command="Russian">русский</el-dropdown-item>-->
                             <!--<el-dropdown-item command="Korean">한국어</el-dropdown-item>-->

@@ -217,7 +217,7 @@ export default {
     };
     const validatePasswordAagin = (rule, value, callback) => {
       if (value != this.signUpForm.pwd) {
-        callback(new Error(this.$t( 'login.text12' )));
+        callback(new Error(this.$t( 'login.text26' )));
       } else {
         callback();
       }

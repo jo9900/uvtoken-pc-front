@@ -1,28 +1,23 @@
 <template>
   <div class="page">
-    <div class="page-connert">
+    <div class="page-content">
       <div class="wrap">
         <div class="logo">
-          <img class="pic_txt" src="../../assets/img/pic_txt@2x.png" alt="">
-          <div class="imgg"><img src="../../assets/img/pic_fbt_bg.png" alt=""></div>
+          <img class="pic_txt" src="../../assets/img/pic_txt@2x.png" alt="UvToken">
+          <img class="pic_fbt_bg" src="../../assets/img/pic_fbt_bg.png" alt="pic_fbt_bg">
         </div>
-        <div class="wllboter foskower">
-          <div class="mosrt_plelr">
-            <div class="pe-llert"><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
-            <div class="boakder">{{ $t( 'presale.text15' ) }}</div>
+        <div class="block">
+          <div class="block-title-wrap">
+            <div><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
+            <div class="block-title-text">{{ $t( 'presale.text15' ) }}</div>
           </div>
-          <div class="sllr-ller">
+          <div class="block-description">
             {{ $t( 'presale.text1' ) }}
           </div>
-          <div class="gopker">
-            <div class="gopker_blert"></div>
-            <div class="rlo-t">
-              <div class="sll-coert">
-                <div class="bldmert">
-                  <img src="@/assets/img/pic_yd_h@2x.png" />
-                </div>
+          <div class="stage-wrap">
+            <div class="stage-main-wrap">
                 <div class="middle-wrap">
-                  <div class="bmsoert">
+                  <div class="stage-title">
                     <div class="zlser">
                       {{ $t( 'presale.text66' ) }}
                     </div>
@@ -51,7 +46,6 @@
                   </div>
                   <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                 </div>
-              </div>
             </div>
           </div>
           <div :class="['presale-btn', {'access': isAccess(1) }]"
@@ -63,24 +57,19 @@
           </div>
         </div>
 
-        <div class="wllboter foskower" style="margin-bottom: auto">
-          <div class="mosrt_plelr">
-            <div class="pe-llert"><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
-            <div class="boakder"> {{ $t( 'presale.text5' ) }}</div>
+        <div class="block " style="margin-bottom: auto">
+          <div class="block-title-wrap">
+            <div><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
+            <div class="block-title-text"> {{ $t( 'presale.text5' ) }}</div>
           </div>
-          <div class="sllr-ller">
+          <div class="block-description">
             {{ $t( 'presale.text6' ) }}
           </div>
-          <div class="gopker">
-            <div class="gopker_blert"></div>
-            <div class="rlo-t">
-              <div class="sll-coert">
-                <div class="bldmert">
-                  <img src="@/assets/img/pic_yd_h@2x.png" />
-                </div>
+          <div class="stage-wrap">
+            <div class="stage-main-wrap">
                 <div class="skome">
-                  <div class="bmsoert">
-                    <div class="zlser"> {{ $t( 'presale.text5' ) }}</div>
+                  <div class="stage-title">
+                    {{ $t( 'presale.text5' ) }}
                   </div>
                   <div class="rulert">
                     <div class="rulert-left">
@@ -95,7 +84,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <div :class="['presale-btn', {'access': isAccess(2) }]"
@@ -673,7 +661,7 @@ export default {
 <style lang='less' scoped>
 .page {
   overflow: hidden;
-  .page-connert {
+  .page-content {
     background-size: cover;
     background: url("../../assets/img/pic_bg.png") center center no-repeat;
     background-size: 100% 100%;
@@ -692,11 +680,10 @@ export default {
         margin: 83px 0 28px 0;
       }
 
-      .imgg {
+      .pic_fbt_bg {
         width: 915px;
         height: 156px;
-        left: 50%;
-        transform: translateX(-50%);
+        margin: 0 auto;
         margin-bottom: 45px;
         position: relative;
         z-index: 10;
@@ -726,14 +713,11 @@ export default {
     }
 
 
-    .wllboter {
+    .block {
       width: 1100px;
       min-height: 480px;
       background-color: #06149D;
       margin-bottom: 90px;
-    }
-
-    .foskower {
       padding: 49px 0 128px 0;
       border: 4px solid;
       border-image: linear-gradient(180deg, rgba(97, 201, 241, 1), rgba(220, 134, 249, 1)) 4 4;
@@ -742,19 +726,17 @@ export default {
       position: relative;
     }
 
-    .mosrt_plelr {
+    .block-title-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 27px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
     }
-
-    .pe-llert img {
-      width: 50px;
-      height: 50px;
-    }
-
-    .boakder {
+    .block-title-text {
       color: #ffffff;
       font-size: 30px;
       margin-left: -12px;
@@ -762,7 +744,7 @@ export default {
       font-weight: 600;
     }
 
-    .sllr-ller {
+    .block-description {
       font-size: 14px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
@@ -776,13 +758,13 @@ export default {
       letter-spacing: 3px;
     }
 
-    .gopker {
+    .stage-wrap {
       position: relative;
       min-height: 180px;
       padding-left: 245px;
     }
 
-    .gopker_blert {
+    .stage-point {
       position: absolute;
       top: 0;
       left: 259px;
@@ -817,27 +799,21 @@ export default {
       margin-right: 137px;
     }
 
-    .bmsoert {
+    .stage-title {
       display: flex;
       margin-bottom: 18px;
+      margin-right: 20px;
+      font-size: 20px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 28px;
+      letter-spacing: 1px;
     }
 
-    .sll-coert {
+    .stage-main-wrap {
       color: rgba(225, 225, 225, 0.5);
       display: flex;
-    }
-
-    .bldmert {
-      margin-right: 20px;
-      position: relative;
-      z-index: 99;
-      margin-top: -4px;
-      width: 31px;
-    }
-
-    .bldmert img {
-      width: 31px;
-      height: 31px;
     }
 
     .roakl-lert {
@@ -894,15 +870,6 @@ export default {
       left: 20px;
     }
 
-    .zlser {
-      margin-right: 20px;
-      font-size: 20px;
-      font-family: PingFangSC-Semibold, PingFang SC;
-      font-weight: 600;
-      color: #FFFFFF;
-      line-height: 28px;
-      letter-spacing: 1px;
-    }
 
     .ssloet {
       color: #fff;
