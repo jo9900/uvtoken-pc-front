@@ -76,7 +76,7 @@
 </template>
 <script>
 import webFoot from "@/Layout/footer";
-import { passwordVcode, resetPassword, pubKey } from "@/request/login.js";
+import { passwordVcode, resetPassword, pubKey, mailVcode } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 
@@ -188,26 +188,31 @@ export default {
         lang_type: this.$langType,
         email: localStorage.getItem("code"),
       };
-      // passwordVcode(data).then((res) => {
-      //   console.log(res);
-      //   if (res.code == 0) {
-      //     this.$message({
-      //       message: this.$t( 'login.text17' ),
-      //       type: "success",
-      //     });
-      //   } else {
-      //     if (res.code == "101702") {
-      //       return this.$message.error(
-      //         this.$t( 'text190' )
-      //       );
-      //     }
-      //     if (res.code == "101703") {
-      //       return this.$message.error(
-      //         this.$t( 'text191' )
-      //       );
-      //     }
-      //   }
-      // });
+      mailVcode(data).then((res) => {
+        if (res.code == 0) {
+          this.$message({
+            message: this.$t( 'login.text17' ),
+            type: "success",
+          });
+          this.timer();
+        } else {
+          if (res.code == "101702") {
+            return this.$message.error(
+                this.$t( 'login.text18' )
+            );
+          } else if (res.code == "101703") {
+            return this.$message.error(
+                this.$t( 'login.text19' )
+            );
+          } else if (res.code == "101704") {
+            return this.$message.error(
+                this.$t( 'login.text23' )
+            );
+          } else {
+            this.$message.error(res.msg);
+          }
+        }
+      });
     },
     timer() {
       if (this.time > 0) {

@@ -7,6 +7,12 @@
           <img class="pic_fbt_bg" src="../../assets/img/pic_fbt_bg.png" alt="pic_fbt_bg">
         </div>
         <div class="block">
+          <div>
+            <div class="time-line"></div>
+            <img class="time-point" src="../../assets/img/pic_yd_h@2x.png" alt="point">
+            <img class="time-point" src="../../assets/img/pic_yd_h@2x.png" alt="point">
+            <img class="time-point" src="../../assets/img/pic_yd_h@2x.png" alt="point">
+          </div>
           <div class="block-title-wrap">
             <div><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
             <div class="block-title-text">{{ $t( 'presale.text15' ) }}</div>
@@ -18,46 +24,109 @@
             <div class="stage-main-wrap">
                 <div class="middle-wrap">
                   <div class="stage-title">
-                    <div class="zlser">
-                      {{ $t( 'presale.text66' ) }}
-                    </div>
+                    {{ $t( 'presale.text66' ) }}
                   </div>
-                  <div class="rulert">
-                    <div class="rulert-left">
+                  <div class="stage-info-wrap">
+                    <div class="stage-info-left">
                       <div> {{ $t( 'presale.text2' ) }}</div>
                       <div> {{ $t( 'presale.text3' ) }}</div>
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
-                    <div class="rulert-right">
+                    <div class="stage-info-right">
                       <div>2021-03-22 - 2021-04-22</div>
                       <div>0.2 USDT</div>
                       <div>16,000,000 USDT</div>
                     </div>
                   </div>
                 </div>
-                <div class="slset">
-                  <div class="fodert-boer">
-                    <div class="rbllt">
-                      <img src="@/assets/img/pic_yq@2x.png" />
-                      <div class="wblodert"><span>{{ precentage }}</span>
-                        <span style="font-size: 13px">%</span>
-                      </div>
+                <div class="stage-progress-wrap">
+                  <div class="stage-progress">
+                    <img src="@/assets/img/pic_yq@2x.png" />
+                    <div class="stage-progress-center-text">
+                      <span>{{ precentage }}</span>
+                      <span style="font-size: 13px">%</span>
                     </div>
                   </div>
                   <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                 </div>
             </div>
           </div>
-          <div :class="['presale-btn', {'access': isAccess(1) }]"
+          <div class="stage-wrap">
+            <div class="stage-main-wrap">
+                <div class="middle-wrap">
+                  <div class="stage-title">
+                    {{ $t( 'presale.text67' ) }}
+                  </div>
+                  <div class="stage-info-wrap">
+                    <div class="stage-info-left">
+                      <div> {{ $t( 'presale.text2' ) }}</div>
+                      <div> {{ $t( 'presale.text3' ) }}</div>
+                      <div> {{ $t( 'presale.text4' ) }}</div>
+                    </div>
+                    <div class="stage-info-right">
+                      <div>2021-05-06 - 2021-06-06</div>
+                      <div>0.3 USDT</div>
+                      <div>24,000,000 USDT</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stage-progress-wrap">
+                  <div class="stage-progress">
+                    <img src="@/assets/img/pic_yq@2x.png" />
+                    <div class="stage-progress-center-text">
+                      <span>{{ precentage }}</span>
+                      <span style="font-size: 13px">%</span>
+                    </div>
+                  </div>
+                  <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
+                </div>
+            </div>
+          </div>
+          <div class="stage-wrap">
+            <div class="stage-main-wrap">
+                <div class="middle-wrap">
+                  <div class="stage-title">
+                    {{ $t( 'presale.text68' ) }}
+                  </div>
+                  <div class="stage-info-wrap">
+                    <div class="stage-info-left">
+                      <div> {{ $t( 'presale.text2' ) }}</div>
+                      <div> {{ $t( 'presale.text3' ) }}</div>
+                      <div> {{ $t( 'presale.text4' ) }}</div>
+                    </div>
+                    <div class="stage-info-right">
+                      <div>2021-06-22 - {{ $t( 'presale.text65' ) }} </div>
+                      <div>0.35 USDT</div>
+                      <div>7,000,000 USDT</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stage-progress-wrap">
+                  <div class="stage-progress">
+                    <img src="@/assets/img/pic_yq@2x.png" />
+                    <div class="stage-progress-center-text">
+                      <span>{{ precentage }}</span>
+                      <span style="font-size: 13px">%</span>
+                    </div>
+                  </div>
+                  <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
+                </div>
+            </div>
+          </div>
+          <div :class="['presale-btn', {'access': isFirstRoundAccess() }]"
                role="button"
                @click="clickBefore"
           >
-            <span v-if="!isAccess(1)"> {{ $t( 'presale.text69' ) }}</span>
+            <span v-if="!isFirstRoundAccess()"> {{ $t( 'presale.text69' ) }}</span>
             <span v-else>{{ $t( 'presale.text61' ) }}</span>
           </div>
         </div>
 
-        <div class="block " style="margin-bottom: auto">
+        <div class="block" style="margin-bottom: auto">
+          <div>
+            <div class="time-line last-round"></div>
+            <img class="time-point" src="../../assets/img/pic_yd_h@2x.png" alt="point">
+          </div>
           <div class="block-title-wrap">
             <div><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
             <div class="block-title-text"> {{ $t( 'presale.text5' ) }}</div>
@@ -67,17 +136,17 @@
           </div>
           <div class="stage-wrap">
             <div class="stage-main-wrap">
-                <div class="skome">
+                <div class="middle-wrap">
                   <div class="stage-title">
                     {{ $t( 'presale.text5' ) }}
                   </div>
-                  <div class="rulert">
-                    <div class="rulert-left">
+                  <div class="stage-info-wrap">
+                    <div class="stage-info-left">
                       <div> {{ $t( 'presale.text2' ) }}</div>
                       <div> {{ $t( 'presale.text3' ) }}</div>
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
-                    <div class="rulert-right">
+                    <div class="stage-info-right">
                       <div>2021-10-08</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
@@ -86,11 +155,11 @@
                 </div>
             </div>
           </div>
-          <div :class="['presale-btn', {'access': isAccess(2) }]"
+          <div :class="['presale-btn', {'access': isLastRoundAccess() }]"
                role="button"
                @click="clickBefore"
           >
-            <span v-if="!isAccess(2)">{{ $t( 'presale.text69' ) }}</span>
+            <span v-if="!isLastRoundAccess()">{{ $t( 'presale.text69' ) }}</span>
             <span v-else>{{ $t( 'presale.text61' ) }}</span>
           </div>
         </div>
@@ -122,7 +191,7 @@
                   ></el-progress>
                   <div class="progress_info">
                     <div dir="auto">
-                      <template v-if="round==1">
+                      <template v-if="round != lastRound">
                         <template v-if="$lang=='en'">{{ preInfo.progress }}
                           {{ $t( 'presale.text30' ) }}
                         </template>
@@ -135,7 +204,7 @@
                     </div>
                     <div dir="auto">
                       {{ $t( 'presale.text28' ) }}
-                      <template v-if="round == 1"> {{ preInfo.total }} {{ $t( 'presale.text26' ) }}
+                      <template v-if="round != lastRound"> {{ preInfo.total }} {{ $t( 'presale.text26' ) }}
                       </template>
                       <template v-else>{{ preInfo.total ? preInfo.total.replace( /\B(?=(?:\d{3})+\b)/g, ',' ) : "0" }}
                         USDT
@@ -151,21 +220,21 @@
                 </el-col>
                 <el-col :span="24">
                   <el-form-item
-                      :label="round==1
+                      :label="round != lastRound
                       ? $t( 'presale.text31' ) +'（1'+$t( 'presale.text26' ) +'='+ preInfo.pre_amount+' UVT）'
                       :$t( 'presale.text32' )"
                       prop="book_amount" style="position: relative">
                     <el-input type="number"
                               v-model.trim="presellForm.book_amount"
-                              :placeholder="round==1
+                              :placeholder="round!=lastRound
                                 ? $t( 'presale.text33' )
                                 : $t( 'presale.text34' )"
                               size="medium"
                     ></el-input>
-                    <div class="skert" v-if="round==1">
+                    <div class="skert" v-if="round!=lastRound">
                       {{ $t( 'presale.text26' ) }}
                     </div>
-                    <div class="skert" style="width: 42px;" v-if="round==2">UVT</div>
+                    <div class="skert" style="width: 42px;" v-else>UVT</div>
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
@@ -196,7 +265,7 @@
 
         <!--&lt;!&ndash; 首轮付款 弹窗 &ndash;&gt;firstPayDialogVisible=-->
         <el-dialog :title="
-            round==1? $t( 'presale.text59' )
+            round!=lastRound ? $t( 'presale.text59' )
             :$t( 'presale.text40' )"
                    :visible.sync="firstPayDialogVisible"
                    custom-class="firstPayDialogVisible"
@@ -329,14 +398,14 @@ export default {
     var roundtext = ( rule, value, callback ) => {
       if ( value != '' )
         return callback()
-      if ( this.round == 1 )
+      if ( this.round != this.lastRound )
         callback( new Error( this.$t( 'presale.text38' ) ) )
       else
         callback( new Error( this.$t( 'presale.text48' ) ) )
     }
 
     var validateSurnmae = ( rule, value, callback ) => {
-      if ( this.round == 1 ) {
+      if ( this.round != this.lastRound ) {
         if ( value < 1 ) {
           callback( new Error( this.$t( 'presale.text54' ) ) )
         }
@@ -362,6 +431,7 @@ export default {
 
     };
     return {
+      lastRound: 4,
       percentage: '',
       userInfo: {},
       roundtext: "",
@@ -384,6 +454,8 @@ export default {
       preInfo: {},
       preInfo1: {},
       preInfo2: {},
+      preInfo3: {},
+      preInfo4: {},
       charge_address: "",//收货地址
       rules: {
         book_amount: [
@@ -397,9 +469,15 @@ export default {
   },
   watch: {},
   methods: {
+    isFirstRoundAccess() {
+      return this.roundstatus == 1 && this.round != this.lastRound
+    },
+    isLastRoundAccess() {
+      return this.roundstatus == 1 && this.round == this.lastRound
+    },
     calc_precentage() {
       let pre = 0
-      if (this.round == 3) {
+      if (this.round == this.lastRound) {
         pre = parseInt(this.preInfo.progress)
       }else if (this.preInfo.progress == 0) {
         pre = 0
@@ -407,12 +485,6 @@ export default {
         pre = parseInt(this.preInfo.progress)>=parseInt(this.preInfo.total)?100:parseFloat((this.preInfo.progress/this.preInfo.total)*100).toFixed(2)
       }
       this.precentage = pre
-    },
-    isAccess(round) { // 抢购按钮可点
-      if (round == 1)
-        return this.roundstatus == 1
-      if (round == 2)
-        return this.roundstatus == 1
     },
     clickBefore() {
       if ( !this.round || this.roundstatus != 1 ) {
@@ -435,10 +507,8 @@ export default {
         this.userInfo = res.data
         this.KYC_DialogVisible = this.userInfo.kyc_status == 0
         if ( this.userInfo.kyc_status == 1 ) {
-          if ( this.round == 1 )
-            this.preInfo = JSON.parse( JSON.stringify( this.preInfo1 ) )
-          else
-            this.preInfo = JSON.parse( JSON.stringify( this.preInfo2 ) )
+          this.preInfo = JSON.parse( JSON.stringify( this['preInfo' + this.round] ) )
+          console.log( this.preInfo )
           this.calc_precentage()
           this.firstDialogVisible = true;
         }
@@ -497,9 +567,23 @@ export default {
     },
 
     async getPreSale2() {
-      await preSale( { round: 2, amount_type: 0 } ).then( res => {
+      await preSale( { round: 2, amount_type: 1 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo2 = res.data
+        }
+      } )
+    },
+    async getPreSale3() {
+      await preSale( { round: 3, amount_type: 1 } ).then( res => {
+        if ( res.code == 0 ) {
+          this.preInfo3 = res.data
+        }
+      } )
+    },
+    async getPreSale4() {
+      await preSale( { round: 4, amount_type: 0 } ).then( res => {
+        if ( res.code == 0 ) {
+          this.preInfo4 = res.data
         }
       } )
     },
@@ -507,7 +591,7 @@ export default {
       this.charge_address = "";
       this.$refs[ "presellForm" ].validate( ( valid ) => {
         if ( valid ) {
-          if ( this.round == 1 ) {
+          if ( this.round != this.lastRound ) {
             if ( parseInt( this.presellForm.book_amount ) > this.preInfo.total ) {
               let message = "";
               if ( this.$lang == 'en' ) {
@@ -542,7 +626,7 @@ export default {
           this.loading = true;
           subBook( {
             user_code: localStorage.getItem( 'code' ),
-            amount_type: this.round == 1 ? '1' : '0',
+            amount_type: this.round != this.lastRound ? '1' : '0',
             book_amount: this.presellForm.book_amount
           } ).then( res => {
             this.loading = false
@@ -587,10 +671,9 @@ export default {
   async mounted() {
     await this.getPreSale()
     await this.getPreSale2();
-    if ( this.round == 1 )
-      this.preInfo = JSON.parse( JSON.stringify( this.preInfo1 ) )
-    else
-      this.preInfo = JSON.parse( JSON.stringify( this.preInfo2 ) )
+    await this.getPreSale3();
+    await this.getPreSale4();
+    this.preInfo = JSON.parse( JSON.stringify( this['preInfo' + this.round] ) )
     this.calc_precentage()
   },
 
@@ -724,6 +807,34 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       position: relative;
+      .time-line {
+        height: 520px;
+        width: 3px;
+        position: absolute;
+        left: 259px;
+        top: 182px;
+        background: linear-gradient(180deg, #36B8FF 0%, rgba(54, 184, 255, 0) 100%);
+        z-index: 2;
+        &.last-round {
+          height: 220px;
+        }
+      }
+      .time-point {
+        width: 31px;
+        height: 31px;
+        position: absolute;
+        z-index: 20;
+        left: 245px;
+        &:nth-of-type(1) {
+          top: 181px;
+        }
+        &:nth-of-type(2) {
+          top: 359px;
+        }
+        &:nth-of-type(3) {
+          top: 540px;
+        }
+      }
     }
 
     .block-title-wrap {
@@ -761,24 +872,14 @@ export default {
     .stage-wrap {
       position: relative;
       min-height: 180px;
-      padding-left: 245px;
-    }
-
-    .stage-point {
-      position: absolute;
-      top: 0;
-      left: 259px;
-      z-index: 0;
-      width: 3px;
-      height: 107%;
-      background: linear-gradient(180deg, #36B8FF 0%, rgba(54, 184, 255, 0) 100%);
+      padding-left: 296px;
     }
 
     .skome {
       margin-right: 123px;
     }
 
-    .rulert {
+    .stage-info-wrap {
       display: flex;
       justify-content: flex-start;
       font-size: 14px;
@@ -786,10 +887,11 @@ export default {
       font-weight: 400;
       color: #FFFFFF;
       letter-spacing: 1px;
+      white-space: nowrap;
       >div>div {
         margin-bottom: 6px;
       }
-      &-left {
+      .stage-info-left {
         min-width: 120px;
       }
     }
@@ -814,6 +916,7 @@ export default {
     .stage-main-wrap {
       color: rgba(225, 225, 225, 0.5);
       display: flex;
+      justify-content: space-between;
     }
 
     .roakl-lert {
@@ -827,33 +930,23 @@ export default {
       border: 1px solid #225C9F;
     }
 
-    .fodert-boer {
-      position: relative;
-      margin-bottom: 10px;
-    }
-
-    .rbllt {
+    .stage-progress {
       width: 87px;
       height: 87px;
       text-align: center;
       position: relative;
       margin: 0 auto;
-      .wblodert {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+      margin-bottom: 10px;
+      img {
+        width: 87px;
+        height: 87px;
       }
     }
-
-    .fodert-boer img {
-      width: 87px;
-      height: 87px;
-    }
-
-    .slset {
+    .stage-progress-wrap {
       text-align: center;
       padding-top: 12px;
       color: #FFFFFF;
+      margin-right: 200px;
       .progress-text {
         font-size: 14px;
         font-family: PingFangSC-Regular, PingFang SC;
@@ -863,18 +956,16 @@ export default {
       }
     }
 
-    .wblodert {
+    .stage-progress-center-text {
       position: absolute;
       font-size: 20px;
-      top: 30px;
-      left: 20px;
+      width: 87px;
+      height: 87px;
+      top: 0;
+      right: 0;
+      line-height: 87px;
+      text-align: center;
     }
-
-
-    .ssloet {
-      color: #fff;
-    }
-
     .flow {
       display: flex;
       position: relative;
