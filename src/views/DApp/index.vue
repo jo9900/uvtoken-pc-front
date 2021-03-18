@@ -262,8 +262,10 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
       border: 1px solid #bacdff;
       text-align: center;
       &:nth-of-type(1) {
+        margin-right: 20px;
+      }
+      &:hover {
 
-      margin-right: 20px;
       }
     }
   }

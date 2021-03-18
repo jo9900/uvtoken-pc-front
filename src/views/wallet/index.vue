@@ -91,7 +91,7 @@
         <div class="content">
           <div class="bloart">
             <img
-              class="content_img"
+              class="content_img mln100"
               src="@/assets/img/pic_lxyjxad@2x.png"
               alt="production-img"
             />
@@ -276,6 +276,9 @@ export default {
       .content {
         padding: 182px 0 163px 0;
         position: relative;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
         .content_img {
           width: 480px;
           height: 480px;
@@ -289,6 +292,7 @@ export default {
           color: #7b7b7b;
           font-size: 16px;
           text-align: right;
+          padding-right: 100px;
         }
         .bget {
           font-size: 50px;
@@ -351,6 +355,9 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
         .caosjet {
           font-size: 18px;
         }
+        .mln100 {
+          margin-left: 100px;
+        }
       }
     }
   }
@@ -362,7 +369,6 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
         .content_text {
           flex: 1;
           text-align: left;
-          padding-left: 141px;
           margin-right: 158px;
         }
 
@@ -395,7 +401,7 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
 .top-img {
   position: absolute;
   z-index: 2;
-  right: 0;
+  right: 30px;
   top: 217px;
 }
 </style>
