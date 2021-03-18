@@ -204,26 +204,26 @@ export default {
         lang_type: this.$langType,
         email: localStorage.getItem("code"),
       };
-      passwordVcode(data).then((res) => {
-        console.log(res);
-        if (res.code == 0) {
-          this.$message({
-            message: this.$t( 'login.text17' ),
-            type: "success",
-          });
-        } else {
-          if (res.code == "101702") {
-            return this.$message.error(
-              this.$t( 'text190' )
-            );
-          }
-          if (res.code == "101703") {
-            return this.$message.error(
-              this.$t( 'text191' )
-            );
-          }
-        }
-      });
+      // passwordVcode(data).then((res) => {
+      //   console.log(res);
+      //   if (res.code == 0) {
+      //     this.$message({
+      //       message: this.$t( 'login.text17' ),
+      //       type: "success",
+      //     });
+      //   } else {
+      //     if (res.code == "101702") {
+      //       return this.$message.error(
+      //         this.$t( 'text190' )
+      //       );
+      //     }
+      //     if (res.code == "101703") {
+      //       return this.$message.error(
+      //         this.$t( 'text191' )
+      //       );
+      //     }
+      //   }
+      // });
     },
     timer() {
       if (this.time > 0) {

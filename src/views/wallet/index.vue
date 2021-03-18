@@ -8,24 +8,20 @@
             <div class="bget">
               <div>{{ $t( 'text76' ) }}</div>
             </div>
-            <div class="caosjet">
+            <div class="subtitle">
               <div>{{ $t( 'text77' ) }}
               </div>
             </div>
-            <div class="">
-              <div class="bowerkonet">
+            <div class="bowerkonet">
                 <div class="cllot">{{ $t( 'text78' ) }}</div>
-                <div class="cllot" style="margin: 0 15px">{{ $t( 'text79' ) }}</div>
+                <div class="cllot">{{ $t( 'text79' ) }}</div>
                 <div class="cllot">{{ $t( 'text80' ) }}</div>
-              </div>
-              <div class="bowerkonet">
                 <div class="cllot">{{ $t( 'text81' ) }}</div>
-                <div class="cllot" style="margin: 0 15px">{{ $t( 'text82' ) }}</div>
+                <div class="cllot">{{ $t( 'text82' ) }}</div>
                 <div class="cllot">{{ $t( 'text83' ) }}</div>
-              </div>
             </div>
           </div>
-          <div class="bloart">
+          <div class="bloart top-img">
             <img
               class="content_img content_img_top"
               src="@/assets/img/pic_yjqb@2x.png"
@@ -278,10 +274,8 @@ export default {
         margin-bottom: 39px;
       }
       .content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding: 182px 0 163px 0;
+        position: relative;
         .content_img {
           width: 480px;
           height: 480px;
@@ -307,14 +301,13 @@ export default {
           line-height: 29px;
           margin-bottom: 20px;
           font-weight: 100;
-          width: 430px;
         }
       }
     }
   }
 
   .project-2 {
-    
+
 background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     .wrap {
       .content {
@@ -325,9 +318,11 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
         }
         .bowerkonet {
           display: flex;
-          margin-bottom: 14px;
+          flex-wrap: wrap;
+          width: 620px;
           .cllot {
             letter-spacing: 2px;
+            margin: 0 20px 15px 0;
             font-size: 16px;
             padding: 0 25px;
             line-height: 35px;
@@ -386,5 +381,21 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
   &.zh::after {
     content: "即将发售"
   }
+}
+.subtitle {
+  font-size: 20px;
+  font-family: PingFangSC-Thin, PingFang SC;
+  font-weight: 100;
+  color: #272727;
+  line-height: 36px;
+  font-weight: 100;
+  max-width: 430px;
+  margin-bottom: 20px;
+}
+.top-img {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 217px;
 }
 </style>
