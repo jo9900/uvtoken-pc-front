@@ -510,7 +510,7 @@ export default {
           width: 303px;
           background: #5885fd;
           border-radius: 3px;
-          color: #887878;
+          color: #fff;
           font-size: 20px;
           display: block;
           margin-left: 60px;

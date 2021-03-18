@@ -26,6 +26,9 @@
             <el-input
               maxlength="8"
               v-model.trim="dataForm.verify_code"
+              readonly
+              onfocus="this.removeAttribute('readonly');"
+              onblur="this.setAttribute('readonly',true);"
             ></el-input>
             <div class="roket_code">
               <div v-if="disabled" class="get_code">{{ btntxt }}</div>
@@ -42,17 +45,8 @@
             <div class="" style="height: 51px">
               <el-input
                 type="password"
-                v-if="inputViset"
                 v-model.trim="dataForm.password"
                 autocomplete="off"
-              ></el-input>
-              <el-input
-                type="text"
-                @input="fouseClick"
-                :style="{ opacity: inputViset ? '0' : '1' }"
-                autocomplete="off"
-                v-model.trim="dataForm.password"
-                style="position: absolute; top: 0px; left: 0"
               ></el-input>
             </div>
           </el-form-item>
@@ -64,16 +58,7 @@
             <div class="" style="height: 51px">
               <el-input
                 type="password"
-                v-if="inputViset"
                 v-model.trim="dataForm.againPassword"
-              ></el-input>
-              <el-input
-                type="text"
-                @input="fouseClick"
-                :style="{ opacity: inputViset ? '0' : '1' }"
-                autocomplete="off"
-                v-model.trim="dataForm.againPassword"
-                style="position: absolute; top: 0px; left: 0"
               ></el-input>
             </div>
           </el-form-item>
@@ -121,7 +106,6 @@ export default {
       timerNull: null,
       btntxt: this.$t( 'login.text14' ),
       loading: false,
-      inputViset: false,
       dataForm: {
         password: "", // 密码
         againPassword: "", // 确认密码
@@ -161,9 +145,9 @@ export default {
       this.$refs["dataForm"].validate(async (valid) => {
         if (valid) {
           let params = {
-            email: localStorage.getItem("code"),
-            email_verify_code: this.dataForm.verify_code,
-            new_password: this.dataForm.againPassword,
+            mail: localStorage.getItem("code"),
+            verifyCode: this.dataForm.verify_code,
+            pwd: this.dataForm.againPassword,
           };
           this.loading = true;
           let resData = await pubKey();
@@ -171,7 +155,7 @@ export default {
             this.pk = resData.data.PubKey;
           }
           // 密码加密 sha256 => rsaData
-          params.new_password = this.rsaData(sha256(this.dataForm.password));
+          params.pwd = this.rsaData(sha256(this.dataForm.password));
           resetPassword(params).then((res) => {
             this.loading = false;
             if (res.code == 0) {
@@ -244,9 +228,6 @@ export default {
       jsencrypt.setPublicKey(PUBLIC_KEY);
       let result = jsencrypt.encrypt(data);
       return result;
-    },
-    fouseClick() {
-      this.inputViset = true;
     },
   },
   created() {},

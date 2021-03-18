@@ -143,7 +143,7 @@ export default {
 
   .project-2 {
 
-  background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
+    background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     .wrap {
       .content {
 

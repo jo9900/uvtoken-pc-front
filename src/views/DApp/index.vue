@@ -261,11 +261,12 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
       padding: 36px 0 34px 0;
       border: 1px solid #bacdff;
       text-align: center;
+      transition: all 0.3s;
       &:nth-of-type(1) {
         margin-right: 20px;
       }
       &:hover {
-
+        box-shadow: 4px 4px 12px 0px rgba(88, 133, 253, 0.18);
       }
     }
   }

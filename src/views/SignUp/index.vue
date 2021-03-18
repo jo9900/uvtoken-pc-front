@@ -23,6 +23,9 @@
                 <el-input
                   class="row_input"
                   type="text"
+                  readonly
+                  onfocus="this.removeAttribute('readonly');"
+                  onblur="this.setAttribute('readonly',true);"
                   :placeholder="$t( 'login.text2' )"
                   v-model.trim="signUpForm.mail"
                 />

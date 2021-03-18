@@ -270,6 +270,10 @@ export default {
         padding-bottom: 38px;
         text-align: center;
         border: 1px solid #bacdff;
+        transition: all 0.3s;
+        &:hover {
+          box-shadow: 4px 4px 12px 0px rgba(88, 133, 253, 0.18);
+        }
       }
       .rmot-button {
         line-height: 40px;
