@@ -93,11 +93,9 @@ import webFoot from "@/Layout/footer";
 import {
   pubKey,
   login,
-  signUp,
-  mailVcode,
-  passwordVcode,
   resetPassword
 } from "@/request/login.js";
+import {filName} from "@/filters"
 
 const sha256 = require( "js-sha256" ).sha256;
 import { JSEncrypt } from "jsencrypt";
@@ -250,6 +248,7 @@ export default {
         let email = res.data.Email;
         let token = res.data.Token;
         localStorage.setItem( "code", code );
+        localStorage.setItem( "filName", filName(code) );
         localStorage.setItem( "email", email );
         localStorage.setItem( "token", token );
         this.$store.commit( "SETTOKEN", token );

@@ -197,6 +197,8 @@ export default {
         loginClose(){
             localStorage.removeItem('token');
             localStorage.removeItem('code');
+            localStorage.removeItem('email');
+            localStorage.removeItem('filName');
             this.$router.push('/login')
         },
 
@@ -214,7 +216,7 @@ export default {
         }
     },
     created(){
-        this.userCode = localStorage.getItem('code')
+        this.userCode = localStorage.getItem('filName')
         this.isLogin = localStorage.getItem('token')?true:false;
 
     },

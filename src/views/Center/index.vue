@@ -220,7 +220,7 @@
         <span class="row_name">{{
           $t( 'usercenter.text20' )
         }}</span>
-        <span>{{ userInfo.email }}</span>
+        <span>{{ userFilName }}</span>
       </div>
       <div class="card_row">
         <span class="row_name">{{
@@ -243,6 +243,7 @@ export default {
   components: { webFoot },
   data() {
     return {
+      userFilName: '',
       userInfo: {
         area: "",
         code: "",
@@ -349,6 +350,7 @@ export default {
   },
   created() {},
   mounted() {
+    this.userFilName = localStorage.getItem("filName")
     this.getUserInfo();
     this.getMyPreSale();
     this.getMyMarketing();
