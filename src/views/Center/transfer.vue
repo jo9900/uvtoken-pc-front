@@ -152,20 +152,17 @@
           </div>
         </el-form-item>
       </el-form>
-      <span slot="footer" class="dialog-footer">
-        <el-button
-          type="primary"
-          class="gz-botton"
-          @click="ruleDialogVisible = false"
-          >{{ $t( 'text42' ) }}</el-button
-        >
-        <el-button
-          :loading="loadingBtn"
-          type="primary"
-          class="rz-botton"
-          @click="Payment"
-          >{{ $t( 'text41' )}}</el-button
-        >
+      <span slot="footer" class="dialog-btn-wrap">
+            <div role="button"
+                 class="dialog-btn confirm-button"
+                 @click="Payment">
+              {{ $t('text41') }}
+            </div>
+            <div role="button"
+                 class="dialog-btn cancel-button"
+                 @click="ruleDialogVisible = false">
+              {{ $t('text42') }}
+            </div>
       </span>
     </el-dialog>
     <webFoot />
@@ -192,7 +189,7 @@ export default {
         callback(new Error(this.$t( 'text176' )));
       } else if (!/(^[1-9]\d*$)/.test(value)) {
         callback(new Error(this.$t( 'text177' )));
-        return;
+
       } else {
         callback();
       }

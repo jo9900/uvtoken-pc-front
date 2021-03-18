@@ -163,14 +163,17 @@
                 </el-col>
                 <el-col :span="24">
                   <el-form-item
-                      :label="round==1?$t( 'presale.text31' )+'（1'+$t( 'presale.text26' ) +'='+ preInfo.pre_amount+' UVT）':$t( 'presale.text32' )"
+                      :label="round==1
+                      ? $t( 'presale.text31' ) +'（1'+$t( 'presale.text26' ) +'='+ preInfo.pre_amount+' UVT）'
+                      :$t( 'presale.text32' )"
                       prop="book_amount" style="position: relative">
                     <el-input type="number" v-model.trim="presellForm.book_amount"
                               :placeholder="round==1?$t( 'presale.text33' ):$t( 'presale.text34' )"
-                              size="medium">
-
-                    </el-input>
-                    <div class="skert" v-if="round==1">{{ $t( 'presale.text26' ) }}</div>
+                              size="medium"
+                    ></el-input>
+                    <div class="skert" v-if="round==1">
+                      {{ $t( 'presale.text26' ) }}
+                    </div>
                     <div class="skert" style="width: 42px;" v-if="round==2">UVT</div>
                   </el-form-item>
                 </el-col>
@@ -192,9 +195,11 @@
             </el-form>
           </div>
           <span slot="footer" class="dialog-footer">
-                    <el-button type="primary" :loading="loading" class="restBottn"
-                               @click="nextPay">{{ $t( 'presale.text41' ) }}</el-button>
-                </span>
+              <el-button
+                  type="primary" :loading="loading" class="restBottn"
+                   @click="nextPay">{{ $t( 'presale.text41' ) }}
+              </el-button>
+          </span>
         </el-dialog>
         <!-- 首轮抢购 弹窗 end-->
 
@@ -211,11 +216,11 @@
         >
           <div class="dialog_body">
             <div style="width: 100%;
-    background-color: rgb(255, 237, 237);
-    padding: 10px 14px;
-    font-size: 12px;
-    color: red;
-    line-height: 14px;">{{ $t( 'presale.text58' ) }}
+                background-color: rgb(255, 237, 237);
+                padding: 10px 14px;
+                font-size: 12px;
+                color: red;
+                line-height: 14px;">{{ $t( 'presale.text58' ) }}
             </div>
             <div class="pay_name">{{ $t( 'presale.text42' ) }}</div>
             <div class="pay_num">{{ totalPrice }} USDT</div>
@@ -232,23 +237,17 @@
             </div>
           </div>
           <span slot="footer" class="dialog-footer">
-              <el-button type="primary" class="restBottn"
-                         @click="firstPayDialogVisible = false"> {{ $t( 'presale.text46' )}} </el-button>
-                </span>
+              <el-button
+                  type="primary"
+                  class="restBottn"
+                  @click="firstPayDialogVisible = false"
+              >
+                {{ $t( 'presale.text46' )}}
+              </el-button>
+          </span>
         </el-dialog>
         <!-- 首轮付款 弹窗 end-->
 
-        <!-- 申购规则 弹窗 -->
-        <el-dialog title="申购规则" :visible.sync="ruleDialogVisible" width="580px" center :before-close="ruleHandleClose">
-                <span>
-                    ICO第一阶段募集资金的75%将用于UVT平台的开发和拓展。15%将用于法律法规相关法务费用和公共宣传的相关费用。10%将用于社区服务。<br>
-                    ICO第二阶段募集资金的80%将继续投入到技术研发中，保持UVT在业界领先的地位。10%将用于支持区块链研发团队在UVT公链上进行二次开发。剩余10%将全部用于公共宣传的相关费用，为UVT公链在全球正式发行做好充分准备。
-                </span>
-          <span slot="footer" class="dialog-footer">
-                    <el-button type="primary" class="rz-botton" @click="ruleDialogVisible = false">确 定</el-button>
-                </span>
-        </el-dialog>
-        <!-- 申购规则 弹窗 end-->
 
         <!-- 登录提示窗 弹窗 -->
         <el-dialog :title="$t( 'presale.text18' )" :visible.sync="loginDialogVisible" width="400px"
@@ -256,12 +255,16 @@
           <div class="contt-text">
             {{ $t( 'presale.text19' ) }}
           </div>
-          <span slot="footer" class="dialog-footer">
-                     <el-button class="rz-botton" type="primary"
-                                @click="toLogin">{{ $t( 'presale.text20' )}}</el-button>
-                      <el-button class="gz-botton"
-                                 @click="loginDialogVisible = false">{{ $t( 'presale.text21' ) }}</el-button>
-                </span>
+          <span slot="footer" class="dialog-btn-wrap">
+                <div role="button"
+                     class="dialog-btn confirm-button"
+                     @click="toLogin">{{ $t('presale.text20') }}
+                </div>
+                <div role="button"
+                     class="dialog-btn cancel-button"
+                     @click="loginDialogVisible = false">{{ $t('presale.text21') }}
+                </div>
+          </span>
         </el-dialog>
         <!-- 登录提示窗 弹窗 end-->
 
@@ -271,12 +274,16 @@
           <div class="contt-text">
             {{ $t( 'presale.text12' ) }}
           </div>
-          <span slot="footer" class="dialog-footer">
-                    <el-button class="rz-botton" type="primary"
-                               @click="toKYC">{{ $t( 'presale.text22' ) }}</el-button>
-                    <el-button class="gz-botton"
-                               @click="KYC_DialogVisible = false">{{ $t( 'presale.text21' ) }}</el-button>
-                </span>
+          <span slot="footer" class="dialog-btn-wrap">
+                <div role="button"
+                     class="dialog-btn confirm-button"
+                     @click="toKYC">{{ $t('presale.text22') }}
+                </div>
+                <div role="button"
+                     class="dialog-btn cancel-button"
+                     @click="KYC_DialogVisible = false">{{ $t('presale.text21') }}
+                </div>
+          </span>
         </el-dialog>
         <!-- KYC提示窗 弹窗 end-->
 
@@ -285,11 +292,13 @@
           <div class="contt-text">
             {{ $t( 'presale.text12' ) }}
           </div>
-          <div slot="footer" class="dialog-footer" style="text-align: center;">
-            <el-button class="rz-botton" type="primary" @click="KYC_loading_DialogVisible = false">
-              {{ $t( 'presale.text47' ) }}
-            </el-button>
-          </div>
+          <span slot="footer" class="dialog-btn-wrap">
+              <div role="button"
+                   class="dialog-btn confirm-button"
+                   @click="KYC_loading_DialogVisible = false">
+                {{ $t('presale.text47') }}
+              </div>
+          </span>
         </el-dialog>
         <!-- KYC审核中 弹窗 end-->
         <!-- KYC审核中 弹窗 -->
@@ -297,6 +306,13 @@
           <div class="contt-text">
             <div>{{ $t( 'presale.text12' ) }}</div>
           </div>
+          <span slot="footer" class="dialog-btn-wrap">
+              <div role="button"
+                   class="dialog-btn confirm-button"
+                   @click="KYC_error_DialogVisible = false">
+                {{ $t('presale.text47') }}
+              </div>
+          </span>
         </el-dialog>
         <!-- KYC审核中 弹窗 end-->
       </div>
@@ -358,7 +374,6 @@ export default {
       roundstatus: 0,
       firstDialogVisible: false,
       firstPayDialogVisible: false,
-      ruleDialogVisible: false,
       loginDialogVisible: false,
       KYC_DialogVisible: false,
       KYC_loading_DialogVisible: false,
@@ -441,10 +456,6 @@ export default {
         this.round = res.data.round;
         this.roundstatus = res.data.status;
       } )
-    },
-
-    ruleHandleClose() {
-      this.ruleDialogVisible = false
     },
 
     firstHandleClose() {
@@ -1034,23 +1045,6 @@ export default {
   width: 240px;
   height: 48px;
   background: linear-gradient(90deg, #2278FF 0%, #3D58FF 100%);
-  border-radius: 6px;
-  border: none;
-}
-
-.rz-botton {
-  width: 130px;
-  height: 42px;
-  text-align: center;
-  background: linear-gradient(90deg, #2278FF 0%, #3D58FF 100%);
-  border-radius: 6px;
-  border: none;
-}
-
-.gz-botton {
-  width: 130px;
-  height: 42px;
-  background: #1D2C46;
   border-radius: 6px;
   border: none;
 }

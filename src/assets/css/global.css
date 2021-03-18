@@ -258,3 +258,31 @@
     left: 50%;
     animation: rotate 90s infinite linear;
 }
+.dialog-btn-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dialog-btn {
+    padding: 0 10px;
+    min-width: 130px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition:  all ease .3s;
+}
+.dialog-btn:hover {
+    opacity: .8;
+}
+.confirm-button {
+    background: linear-gradient(90deg, #2278FF 0%, #3D58FF 100%);
+    margin-right: 5px;
+}
+.cancel-button {
+    margin-left: 5px;
+    background: #1D2C46;
+}

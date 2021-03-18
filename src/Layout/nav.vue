@@ -85,14 +85,10 @@
             <div class="contt-text">
                {{ $t('text40') }}
             </div>
-            <span slot="footer" class="dialog-footer">
-                    <el-button class="rz-botton" type="primary" @click="loginClose">
-                        {{ $t('text41') }}
-                    </el-button>
-                    <el-button  class="rz-botton" type="primary" @click="loginOut = false">
-                        {{ $t('text42') }}
-                    </el-button>
-                </span>
+            <span slot="footer" class="dialog-btn-wrap">
+                  <div role="button" class="dialog-btn confirm-button" @click="loginClose">{{ $t('text41') }}</div>
+                  <div role="button" class="dialog-btn cancel-button" @click="loginOut = false">{{ $t('text42') }}</div>
+            </span>
         </el-dialog>
 
     </div>
@@ -251,6 +247,7 @@ export default {
             }
             .nav_options{
                 flex: 1;
+                margin-left: 20px;
                 ul{
 
                     li{
@@ -258,7 +255,6 @@ export default {
                         opacity: 0.7;
                         font-size: 16px;
                         cursor: pointer;
-                        padding: 0 3px;
                         float: left;
                         position: relative;
                         max-width: 94px;
@@ -333,20 +329,7 @@ export default {
         line-height: 36px;
         color: #2C2C2C;
     }
-    .rz-botton{
-        width: 130px;
-        height: 42px;
-        text-align: center;
-        border-radius: 6px;
-        border: none;
-    }
-    .gz-botton{
-        width: 130px;
-        height: 42px;
-        background: #1D2C46;
-        border-radius: 6px;
-        border: none;
-    }
+
     .flext{
         display:inline-block;
     }
