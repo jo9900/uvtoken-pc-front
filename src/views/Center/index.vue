@@ -70,7 +70,7 @@
             <div class="info">
               {{ $t( 'usercenter.text25' ) }}
               <span class="color5885FD" @click="toApply"
-                >{{ $t( 'usercenter.text4' ) }} >
+                >{{ $t( 'usercenter.text5' ) }} >
               </span>
             </div>
           </template>
