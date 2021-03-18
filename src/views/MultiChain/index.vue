@@ -42,7 +42,7 @@
                     <transition
                         mode="out-in"
                         name="fade"
-                        enter-active-class="animate__animated animate__slideInDown"
+                        enter-active-class="animate__animated animate__fadeInUp"
                     >
                       <img
                           v-show="scrollAnimateEL.img1"
@@ -65,7 +65,7 @@
                   <div class="zllp-img">
                     <transition
                         mode="out-in"
-                        enter-active-class="animate__animated animate__slideInDown"
+                        enter-active-class="animate__animated animate__fadeInUp"
                     >
                       <img
                           v-show="scrollAnimateEL.img2"
@@ -92,7 +92,7 @@
                     <transition
                         mode="out-in"
                         name="fade"
-                        enter-active-class="animate__animated animate__slideInDown"
+                        enter-active-class="animate__animated animate__fadeInUp"
                     >
                       <img
                           v-show="scrollAnimateEL.img3"
@@ -113,7 +113,7 @@
                     <transition
                         mode="out-in"
                         name="fade"
-                        enter-active-class="animate__animated animate__slideInDown"
+                        enter-active-class="animate__animated animate__fadeInUp"
                     >
                       <img
                           v-show="scrollAnimateEL.img4"
