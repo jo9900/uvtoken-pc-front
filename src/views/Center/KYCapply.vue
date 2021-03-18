@@ -26,6 +26,7 @@
                 prop="country_code"
               >
                 <el-select
+                  filterable
                   v-model="formLabelAlign.country_code"
                   :placeholder="$t( 'text117' )"
                   style="width: 100%"
