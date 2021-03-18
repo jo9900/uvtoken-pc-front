@@ -11,8 +11,8 @@
               <ul>
                 <li v-for="(link, index) in links"
                     :key="link.path"
-                    @click="currentIndex = index"
-                    :class="{'activeTab': currentIndex == index}"
+                    @click="clickTab(link, index)"
+                    :class="{'activeTab': link.path !='/whitePaper' && currentIndex == index}"
                 >
                   <router-link :title="link.text" :to="link.path">
                    {{ link.text }}
@@ -166,7 +166,6 @@ export default {
                 this.links.find((link, index)=> {
                     if (link.path == cur.path) {
                         this.currentIndex = index
-                        return
                     }
                 })
             },
@@ -175,6 +174,10 @@ export default {
         }
     },
     methods:{
+        clickTab(link, index) {
+          if (link.path != '/whitePaper' )
+          this.currentIndex = index
+        },
         get_list(){
             digest(this.listQuery).then(res=>{
                 this.list = res.data.news;

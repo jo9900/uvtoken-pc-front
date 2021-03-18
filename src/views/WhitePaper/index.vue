@@ -12,27 +12,30 @@
 <script>
 import webFoot from '@/Layout/footer';
 export default {
+  beforeRouteEnter(to, from) {
+    window.open('http://t.uvtoken.com/material/whitepaper.pdf', '_blank')
+  },
     name: '',
     components: {webFoot},
     data() {
        return {
-       
+
        }
     },
     computed:{
-    
+
     },
     watch:{
-    
+
     },
     methods:{
-    
+
     },
     created(){
-    
+
     },
     mounted(){
-    
+
     }
 }
 </script>
