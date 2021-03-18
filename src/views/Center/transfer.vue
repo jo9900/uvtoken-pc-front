@@ -477,14 +477,6 @@ export default {
   margin: 0 auto;
   width: 493px;
 }
-.gz-botton {
-  width: 80px;
-  height: 42px;
-  background: #1d2c46;
-  color: #fff;
-  border-radius: 6px;
-  border: none;
-}
 </style>
 
 

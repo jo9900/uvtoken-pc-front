@@ -34,9 +34,9 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="rulert-right">
-                      <div>2020-10-01 - 2020-11-01</div>
-                      <div>0.18 USDT</div>
-                      <div>5,400,000 USDT</div>
+                      <div>2021-03-22 - 2021-04-22</div>
+                      <div>0.2 USDT</div>
+                      <div>16,000,000 USDT</div>
                     </div>
                   </div>
                 </div>
@@ -89,7 +89,7 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="rulert-right">
-                      <div>2021-7-19 - 2021-8-19</div>
+                      <div>2021-10-08</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
                     </div>
@@ -167,8 +167,11 @@
                       ? $t( 'presale.text31' ) +'（1'+$t( 'presale.text26' ) +'='+ preInfo.pre_amount+' UVT）'
                       :$t( 'presale.text32' )"
                       prop="book_amount" style="position: relative">
-                    <el-input type="number" v-model.trim="presellForm.book_amount"
-                              :placeholder="round==1?$t( 'presale.text33' ):$t( 'presale.text34' )"
+                    <el-input type="number"
+                              v-model.trim="presellForm.book_amount"
+                              :placeholder="round==1
+                                ? $t( 'presale.text33' )
+                                : $t( 'presale.text34' )"
                               size="medium"
                     ></el-input>
                     <div class="skert" v-if="round==1">
@@ -269,8 +272,12 @@
         <!-- 登录提示窗 弹窗 end-->
 
         <!-- KYC提示窗 弹窗 -->
-        <el-dialog :visible.sync="KYC_DialogVisible" :lock-scroll="false" width="400px" center
-                   :before-close="KYCHandleClose">
+        <el-dialog
+            :visible.sync="KYC_DialogVisible"
+            :lock-scroll="false"
+            width="400px"
+            center
+            :before-close="KYCHandleClose">
           <div class="contt-text">
             {{ $t( 'presale.text12' ) }}
           </div>

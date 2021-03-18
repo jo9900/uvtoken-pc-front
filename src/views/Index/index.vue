@@ -7,18 +7,18 @@
       :style="{ 'min-height': '900px' }"
     >
       <div class="stars"></div>
-      <div class="bsolert">
+      <div class="banner-wrap">
         <div class="flex1">
           <div>
-            <div class="tile-bket">
+            <div class="banner-title">
               <p>{{ $t('text10') }}</p>
             </div>
           </div>
-          <div class="qosker">{{ $t( 'text11' ) }}</div>
+          <div class="banner-subtitle">{{ $t( 'text11' ) }}</div>
           <div>
-            <div class="rat_t">
+            <div class="banner-btns-wrap">
               <a
-                class="coet"
+                class="banner-btn"
                 target="_blank"
                 :href="
                   NODE_ENV !== 'production'
@@ -27,36 +27,36 @@
                 "
                 style="margin-right: 15px"
               >
-                <div class="coet-ab">
-                  <div class="coet-fg">
+                <div class="banner-btn-content">
+                  <div class="banner-btns-icon">
                     <img src="../../assets/img/icon_apple@2x.png" />
                   </div>
-                  <div class="rcan" role="button">App store</div>
+                  <div class="banner-btns-text" role="button">App store</div>
                 </div>
               </a>
               <a
-                class="coet"
+                class="banner-btn"
                 :href="
                   NODE_ENV !== 'production'
                     ? 'http://wallet.uvtoken.com/static/download/android/uvtoken.apk'
                     : 'https://wallet.uvtoken.com/static/download/android/uvtoken.apk'
                 "
               >
-                <div class="coet-ab">
-                  <div class="coet-fg">
+                <div class="banner-btn-content">
+                  <div class="banner-btns-icon">
                     <img src="../../assets/img/icon_android@2x.png" />
                   </div>
-                  <div class="rcan" role="button">Android APK</div>
+                  <div class="banner-btns-text" role="button">Android APK</div>
                 </div>
               </a>
-              <a href="javascript:;" class="gdroe">
-                <el-dropdown placement="bottom" style="width: 74px">
-                  <div class="waet">
-                    <img src="../../assets/img/robge.png" />
+              <a href="javascript:;" class="banner-btn-qrcode">
+                <el-dropdown placement="bottom" style="width: 74px;">
+                  <div class="qrcode-small">
+                    <img src="@/assets/img/robge.png" />
                   </div>
                   <el-dropdown-menu slot="dropdown">
-                    <div class="gdroe-bler">
-                      <img src="../../assets/img/dowemoey.png" />
+                    <div class="qrcode-img">
+                      <img src="@/assets/img/dowemoey.png" />
                     </div>
                   </el-dropdown-menu>
                 </el-dropdown>
@@ -65,15 +65,15 @@
           </div>
         </div>
         <div class="flex1">
-          <img src="../../assets/img/pic_phone.png" />
+          <img src="@/assets/img/pic_phone.png" />
         </div>
       </div>
     </div>
 
-    <div class="project" ref="wrap1">
+    <section class="project" ref="wrap1">
       <div class="wrap">
         <div class="content">
-          <div class="bloart">
+          <div class="section-img-wrap">
             <transition
                 mode="out-in"
                 enter-active-class="animate__animated animate__slideInLeft"
@@ -82,7 +82,7 @@
                     v-show="scrollAnimateEL.wrap1"
                     class="content_img"
                     src="@/assets/img/pic_zlzc@2x.png"
-                    alt=""
+                    alt="img"
                 />
             </transition>
           </div>
@@ -98,9 +98,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="project project-2" ref="wrap2">
+    <section class="project project-2" ref="wrap2">
       <div class="wrap">
         <div class="content">
           <div class="content_text ">
@@ -113,7 +113,7 @@
               <div>{{ $t( 'text18' ) }}</div>
             </div>
           </div>
-          <div class="bloart">
+          <div class="section-img-wrap">
             <transition
                 mode="out-in"
                 enter-active-class="animate__animated animate__slideInRight"
@@ -128,12 +128,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="project" ref="wrap3">
+    <section class="project" ref="wrap3">
       <div class="wrap">
         <div class="content">
-          <div class="bloart">
+          <div class="section-img-wrap">
             <transition
                 mode="out-in"
                 enter-active-class="animate__animated animate__slideInLeft"
@@ -159,9 +159,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="project project-2" ref="wrap4">
+    <section class="project project-2" ref="wrap4">
       <div class="wrap">
         <div class="content">
           <div class="content_text ">
@@ -174,7 +174,7 @@
               <div>{{ $t( 'text24' ) }}</div>
             </div>
           </div>
-          <div class="bloart">
+          <div class="section-img-wrap">
             <transition
                 mode="out-in"
                 enter-active-class="animate__animated animate__slideInRight"
@@ -189,8 +189,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="project project-3" ref="wrap5">
+    </section>
+    <section class="project project-3" ref="wrap5">
       <div class="wrap">
         <div class="scoplert">
           <div>
@@ -215,9 +215,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="project project-3 project-4" ref="wrap6">
+    <section class="project project-3 project-4" ref="wrap6">
       <div class="wrap">
         <div class="scoplert">
           <div>
@@ -241,33 +241,7 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!--<div class="boxCoent" v-if="isAlertTrue" >-->
-    <!--<div style="display: table;width: 100%;height: 100%;">-->
-    <!--<div class="boxAlert animated1 zoomIn" >-->
-    <!--<div class="lseot">-->
-    <!--<div class="gplor">-->
-    <!--<template v-if="langType=='Chinese'">-->
-    <!--<img src="@/assets/img/bannerAlert_zn.png"/>-->
-    <!--</template>-->
-    <!--<template v-else>-->
-    <!--<img src="@/assets/img/bannerAlert_en.png"/>-->
-    <!--</template>-->
-    <!--</div>-->
-    <!--<div class="" style="align-items: center;color:#fff;display: flex;position: absolute;top: 11px;right: 15px;opacity: 0.7">-->
-    <!--<div style="font-size: 13px;">-->
-    <!--{{closeTrime}}S-->
-    <!--{{languageNav[langType].language_text46}}-->
-    <!--</div>-->
-    <!--<div class="alertColse" @click="colsepl"><i class="el-icon-circle-close"></i></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <!--</div>-->
-
+    </section>
     <webFoot />
   </div>
 </template>
@@ -550,20 +524,20 @@ export default {
   background: url("../../assets/img/baground-mob.png") center center no-repeat;
   overflow: hidden;
 }
-.bsolert {
+.banner-wrap {
   width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   padding-top: 57px;
 }
-.tile-bket {
+.banner-title {
   font-size: 50px;
   color: #fff;
   line-height: 61px;
   margin-bottom: 38px;
 }
-.qosker {
+.banner-subtitle {
   font-size: 20px;
   font-weight: 100;
   color: #fff;
@@ -573,17 +547,17 @@ export default {
 .flex1 {
   flex: 1;
 }
-.rat_t {
+.banner-btns-wrap {
   display: flex;
 }
-.coet {
+.banner-btn {
   display: block;
   width: 130px;
   height: 40px;
   background: #ffffff;
   border-radius: 3px;
 }
-.coet-ab {
+.banner-btn-content {
   display: flex;
   align-items: center;
   height: 100%;
@@ -593,15 +567,15 @@ export default {
     box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.3);
   }
 }
-.rcan {
+.banner-btns-text {
   font-size: 14px;
   margin-left: 6px;
   color: #5885fdff;
 }
-.coet-fg {
+.banner-btns-icon {
   margin-top: -5px;
 }
-.coet-fg img {
+.banner-btns-icon img {
   width: 20px;
 }
 .particles {
@@ -832,18 +806,18 @@ export default {
   font-size: 22px;
   cursor: pointer;
 }
-.waet {
+.qrcode-small {
   margin-left: 15px;
 }
-.waet img {
+.qrcode-small img {
   width: 40px;
   height: 40px;
 }
-.gdroe {
+.banner-btn-qrcode {
   position: relative;
 }
 
-.gdroe-bler img {
+.qrcode-img img {
   width: 172px;
   height: 174px;
   margin: 0 10px;
