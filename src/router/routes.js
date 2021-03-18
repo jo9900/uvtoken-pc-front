@@ -159,27 +159,6 @@ const routes = [
     },
 
     {
-        path: '/', component: Layout, label: '培训学院',
-        children: [
-            {
-                path: '/school', name: 'school', label: '培训学院', meta: { requiresAuth: false, title: "培训学院" },
-                component: resolve => require( [ '@/views/School' ], resolve )
-            }
-        ]
-    },
-
-    {
-        path: '/', component: Layout, label: '社区',
-        children: [
-            {
-                path: '/community', name: 'community', label: '社区', meta: { requiresAuth: false, title: "社区" },
-
-                component: resolve => require( [ '@/views/Community/index.vue' ], resolve )
-            }
-        ]
-    },
-
-    {
         path: '/', component: Layout, label: "预售",
         children: [
             {

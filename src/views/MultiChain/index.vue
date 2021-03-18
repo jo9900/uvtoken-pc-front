@@ -36,10 +36,19 @@
               {{ $t( 'text67' ) }}
             </div>
             <div>
-              <div class="zarll">
+              <div class="zarll" ref="imgs">
                 <div class="zllp">
                   <div class="zllp-img">
-                    <img src="../../assets/img/pic_jsgx@2x.png" />
+                    <transition
+                        mode="out-in"
+                        enter-active-class="animate__animated animate__slideInUp"
+                    >
+                      <img
+                          v-show="scrollAnimateEL.img2"
+                          src="@/assets/img/pic_jsgx@2x.png"
+                          alt=""
+                      />
+                    </transition>
                   </div>
                   <div>
                     <div class="title-3">{{ $t( 'text68' ) }}</div>
@@ -53,7 +62,16 @@
                 </div>
                 <div class="zllp">
                   <div class="zllp-img">
-                    <img src="../../assets/img/pic_wgas@2x.png" />
+                    <transition
+                        mode="out-in"
+                        enter-active-class="animate__animated animate__slideInUp"
+                    >
+                      <img
+                          v-show="scrollAnimateEL.img1"
+                          src="@/assets/img/pic_wgas@2x.png"
+                          alt=""
+                      />
+                    </transition>
                   </div>
                   <div>
                     <div class="title-3">{{ $t( 'text70' ) }}</div>
@@ -70,7 +88,16 @@
               <div class="zarll">
                 <div class="zllp">
                   <div class="zllp-img">
-                    <img src="../../assets/img/pic_gxldx@2x.png" />
+                    <transition
+                        mode="out-in"
+                        enter-active-class="animate__animated animate__slideInUp"
+                    >
+                      <img
+                          v-show="scrollAnimateEL.img3"
+                          src="@/assets/img/pic_gxldx@2x.png"
+                          alt=""
+                      />
+                    </transition>
                   </div>
                   <div>
                     <div class="title-3">{{ $t( 'text72' ) }}</div>
@@ -81,7 +108,16 @@
                 </div>
                 <div class="zllp">
                   <div class="zllp-img">
-                    <img src="../../assets/img/pic_wqls@2x.png" />
+                    <transition
+                        mode="out-in"
+                        enter-active-class="animate__animated animate__slideInUp"
+                    >
+                      <img
+                          v-show="scrollAnimateEL.img4"
+                          src="@/assets/img/pic_wqls@2x.png"
+                          alt=""
+                      />
+                    </transition>
                   </div>
                   <div>
                     <div class="title-3">{{ $t( 'text74' ) }}</div>
@@ -106,34 +142,19 @@
 
 <script>
 import webFoot from "@/components/footer";
+import MixinScrollAnimate from "@/mixin/scroll"
 export default {
   name: "",
   components: { webFoot },
+  mixins: [MixinScrollAnimate],
   data() {
     return {
-      closeTrime: 14,
-      timerNull: null,
-      WindowHeight: 0,
-      countToMrue: false,
-      countToMrue1: false,
-      BaseUrl: this.$BaseUrl,
-      option1: false,
-      option2: false,
-      option3: false,
-      option4: false,
-      option5: false,
-      option6: false,
-      option7: false,
-      option8: false,
-      class0: false,
-      class1: false,
-      class2: false,
-      jgShow1: false,
-      jgShow2: false,
-      jgShow3: false,
-      isAlertTrue: false,
-      isFhows: false,
-
+      scrollAnimateEL: {
+        img1: false,
+        img2: false,
+        img3: false,
+        img4: false,
+      },
       listQuery: {
         lang_type: this.$langType,
         page_no: 1,
@@ -143,44 +164,33 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    scroll() {
+      this.$nextTick(()=> {
+        let height = document.documentElement.clientHeight || document.body.clientHeight;
+        let imgHeight =  this.$refs['imgs'].getBoundingClientRect().top
+        if (imgHeight && imgHeight  <  height - 210) {
+          setTimeout(()=>{
+            this.scrollAnimateEL.img1 = true
+          }, 500)
+          setTimeout(()=>{
+            this.scrollAnimateEL.img2 = true
+          }, 100)
+          setTimeout(()=>{
+            this.scrollAnimateEL.img3 = true
+          }, 1500)
+          setTimeout(()=>{
+            this.scrollAnimateEL.img4 = true
+            window.removeEventListener('scroll', this.listenHandlerScroll)
+          }, 2000)
+        }
+      })
+    }
+  },
   created() {},
 
   mounted() {
-    // let that = this;
-    // this.WindowHeight = (window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)-77;
-    // window.addEventListener("scroll", function(event) {
-    //
-    //     var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-    //     console.log(scrollTop)
-    //     if(scrollTop>=2000){
-    //
-    //        that.countToMrue = true;
-    //     }
-    //     if(scrollTop>=2600){
-    //         that.countToMrue1 = true;
-    //     }
-    //     if(scrollTop>=1400){
-    //         setTimeout(()=>{that.option1 = true;},0)
-    //         setTimeout(()=>{that.option2 = true;},1000);
-    //         setTimeout(()=>{that.option3 = true;},2000);
-    //         setTimeout(()=>{that.option4 = true;},3000)
-    //         setTimeout(()=>{that.option5 = true;},4000)
-    //         setTimeout(()=>{that.option6 = true;},5000);
-    //         setTimeout(()=>{that.option7 = true;},6000);
-    //         setTimeout(()=>{that.option8 = true;},7000)
-    //     }
-    //   if(scrollTop>=4000){
-    //       setTimeout(()=>{that.class0 = true;},0)
-    //       setTimeout(()=>{that.class1 = true;},500);
-    //       setTimeout(()=>{that.class2 = true;},1000);
-    //   }
-    //     if(scrollTop>=4470){
-    //         setTimeout(()=>{that.jgShow1 = true;},0)
-    //         setTimeout(()=>{that.jgShow2 = true;},500);
-    //         setTimeout(()=>{that.jgShow3 = true;},1000);
-    //     }
-    // },true);
+
   },
 };
 </script>
@@ -272,8 +282,12 @@ export default {
       width: 50%;
       text-align: center;
     }
+    .zllp-img {
+      height: 200px;
+    }
     .zllp-img img {
       width: 200px;
+      height: 200px;
     }
     .title-3 {
       color: #4C546A;
@@ -289,5 +303,8 @@ export default {
 }
 .slideUpBtn.zh::after {
   content: "即将上线"
+}
+.test-enter-class {
+  opacity: 0;
 }
 </style>
