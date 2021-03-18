@@ -292,7 +292,7 @@ export default {
           color: #7b7b7b;
           font-size: 16px;
           text-align: right;
-          padding-right: 100px;
+          padding-right: 50px;
         }
         .bget {
           font-size: 50px;
@@ -356,7 +356,7 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
           font-size: 18px;
         }
         .mln100 {
-          margin-left: 100px;
+          margin-left: -100px;
         }
       }
     }
@@ -394,7 +394,6 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
   font-weight: 100;
   color: #272727;
   line-height: 36px;
-  font-weight: 100;
   max-width: 430px;
   margin-bottom: 20px;
 }
