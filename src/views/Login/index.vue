@@ -141,14 +141,16 @@ export default {
       btntxt: this.$t( 'login.text14' ),
       loginForm: {
         mail: "",
-        pwd: ""
+        pwd: "",
+        deviceType: 0
       },
       signUpForm: {
         email: "",
         password: "",
         againPassword: "",
         verify_code: "",
-        invite_code: ""
+        invite_code: "",
+        deviceType: 0
       },
       //重置密码
       resetData: {

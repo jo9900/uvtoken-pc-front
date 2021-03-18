@@ -233,16 +233,13 @@ export default {
       inviteCode: false,
       time: 60,
       btntxt: this.$t( 'login.text14' ),
-      loginForm: {
-        email: "",
-        password: "",
-      },
       signUpForm: {
         mail: "",
         pwd: "",
         againPassword: "",
         verifyCode: "",
         inviteCode: "",
+        deviceType: 0
       },
       //重置密码
       resetData: {

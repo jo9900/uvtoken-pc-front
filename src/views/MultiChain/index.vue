@@ -41,10 +41,11 @@
                   <div class="zllp-img">
                     <transition
                         mode="out-in"
-                        enter-active-class="animate__animated animate__slideInUp"
+                        name="fade"
+                        enter-active-class="animate__animated animate__slideInDown"
                     >
                       <img
-                          v-show="scrollAnimateEL.img2"
+                          v-show="scrollAnimateEL.img1"
                           src="@/assets/img/pic_jsgx@2x.png"
                           alt=""
                       />
@@ -64,10 +65,10 @@
                   <div class="zllp-img">
                     <transition
                         mode="out-in"
-                        enter-active-class="animate__animated animate__slideInUp"
+                        enter-active-class="animate__animated animate__slideInDown"
                     >
                       <img
-                          v-show="scrollAnimateEL.img1"
+                          v-show="scrollAnimateEL.img2"
                           src="@/assets/img/pic_wgas@2x.png"
                           alt=""
                       />
@@ -90,7 +91,8 @@
                   <div class="zllp-img">
                     <transition
                         mode="out-in"
-                        enter-active-class="animate__animated animate__slideInUp"
+                        name="fade"
+                        enter-active-class="animate__animated animate__slideInDown"
                     >
                       <img
                           v-show="scrollAnimateEL.img3"
@@ -110,7 +112,8 @@
                   <div class="zllp-img">
                     <transition
                         mode="out-in"
-                        enter-active-class="animate__animated animate__slideInUp"
+                        name="fade"
+                        enter-active-class="animate__animated animate__slideInDown"
                     >
                       <img
                           v-show="scrollAnimateEL.img4"
@@ -175,14 +178,14 @@ export default {
           }, 500)
           setTimeout(()=>{
             this.scrollAnimateEL.img2 = true
-          }, 100)
+          }, 900)
           setTimeout(()=>{
             this.scrollAnimateEL.img3 = true
-          }, 1500)
+          }, 1400)
           setTimeout(()=>{
             this.scrollAnimateEL.img4 = true
             window.removeEventListener('scroll', this.listenHandlerScroll)
-          }, 2000)
+          }, 1800)
         }
       })
     }
@@ -304,7 +307,7 @@ export default {
 .slideUpBtn.zh::after {
   content: "即将上线"
 }
-.test-enter-class {
+.fade-enter {
   opacity: 0;
 }
 </style>
