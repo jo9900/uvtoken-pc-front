@@ -22,9 +22,15 @@ export default new Vuex.Store({
       localStorage.code = data
       state.code = data
     },
-     TRIM:(state,data)=>{
-          state.timerCoander = data
-      },
+   TRIM:(state,data)=>{
+        state.timerCoander = data
+    },
+    LOGOUT:(state)=> {
+      localStorage.removeItem('token');
+      localStorage.removeItem('code');
+      localStorage.removeItem('email');
+      localStorage.removeItem('filName');
+    }
   },
   actions: {
 

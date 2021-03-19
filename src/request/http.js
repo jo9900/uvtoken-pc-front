@@ -38,22 +38,23 @@ axios.interceptors.request.use(
     }
 )
 
-
 axios.interceptors.response.use(function (response) {
     if(response.headers){
         if(response.headers["refresh-token"]){
          localStorage.setItem('token',response.headers["refresh-token"])
          store.commit('SETTOKEN', response.headers["refresh-token"])
-
         }
+    }
+    if (response.data.code == '102501') {
+        store.commit('LOGOUT')
+        router.push({path: '/login'})
     }
 	return response;
 },
 function (error) {
 	if(error.response){
         if(error.response.status=="401"){
-            localStorage.removeItem('token');
-            localStorage.removeItem('code');
+            store.commit('LOGOUT')
             router.push({path: '/login'})
         }
     }else{
