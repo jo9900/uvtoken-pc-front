@@ -171,7 +171,13 @@ export default {
                 this.$message.error(
                   this.$t( 'text189' )
                 );
-              } else {
+              }
+              if (res.code == "101505") {
+                this.$message.error(
+                    this.$t( 'login.text21' )
+                );
+              }
+              else {
                 this.$message.error(res.msg);
               }
             }
@@ -204,10 +210,6 @@ export default {
           } else if (res.code == "101704") {
             return this.$message.error(
                 this.$t( 'login.text23' )
-            );
-          }else if (res.code == "101505") {
-            return this.$message.error(
-                this.$t( 'login.text21' )
             );
           } else {
             this.$message.error(
