@@ -28,29 +28,29 @@
             {{ $t( 'purchase.text6' ) }}
           </div>
           <p style="margin-bottom: 40px">
-            1.{{ $t( 'purchase.text7' )
+            {{ $t( 'purchase.text7' )
             }}<span style="color: #426cff">https://www.uvtoken.com</span>
           </p>
           <p style="margin-bottom: 40px">
-            2.{{ $t( 'purchase.text8' ) }}
+            {{ $t( 'purchase.text8' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            3.{{ $t( 'purchase.text9' ) }}
+            {{ $t( 'purchase.text9' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            4.{{ $t( 'purchase.text10' ) }}
+            {{ $t( 'purchase.text10' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            5.{{ $t( 'purchase.text11' ) }}
+            {{ $t( 'purchase.text11' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            6.{{ $t( 'purchase.text12' ) }}
+            {{ $t( 'purchase.text12' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            7.{{ $t( 'purchase.text13' ) }}
+            { $t( 'purchase.text13' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            8.{{ $t( 'purchase.text14' ) }}
+            {{ $t( 'purchase.text14' ) }}
           </p>
 
           <div
@@ -64,7 +64,7 @@
             {{ $t( 'purchase.text15' ) }}
           </div>
           <div>
-            1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text16' )
             }}
           </div>
@@ -75,7 +75,7 @@
             {{ $t( 'purchase.text18' ) }}
           </p>
           <div>
-            2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text19' )
             }}
           </div>
@@ -88,7 +88,7 @@
           </p>
 
           <div>
-            3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text22' )
             }}
           </div>
@@ -96,7 +96,7 @@
             {{ $t( 'purchase.text23' ) }}
           </p>
           <div>
-            4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text24' )
             }}
           </div>
@@ -112,7 +112,7 @@
             {{ $t( 'purchase.text28' ) }}
           </p>
           <div>
-            5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text29' )
             }}
           </div>
@@ -120,7 +120,7 @@
             {{ $t( 'purchase.text30' ) }}
           </div>
           <div>
-            6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+           &nbsp;{{
               $t( 'purchase.text31' )
             }}
           </div>
@@ -128,7 +128,7 @@
             {{ $t( 'purchase.text32' ) }}
           </div>
           <div>
-            7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text33' )
             }}
           </div>
@@ -136,7 +136,7 @@
             {{ $t( 'purchase.text34' ) }}
           </div>
           <div>
-            8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            {{
               $t( 'purchase.text35' )
             }}
           </div>

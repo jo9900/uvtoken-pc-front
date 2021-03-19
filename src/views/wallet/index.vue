@@ -322,12 +322,13 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
         .bowerkonet {
           display: flex;
           flex-wrap: wrap;
-          width: 620px;
+          width: 520px;
           .cllot {
+            width: 131px;
             letter-spacing: 2px;
             margin: 0 20px 15px 0;
             font-size: 16px;
-            padding: 0 25px;
+            text-align: center;
             line-height: 35px;
             height: 35px;
             border-radius: 18px;

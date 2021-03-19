@@ -20,6 +20,7 @@
           <div class="block-description">
             {{ $t( 'presale.text1' ) }}
           </div>
+<!--          第一阶段-->
           <div class="stage-wrap">
             <div class="stage-main-wrap">
                 <div class="middle-wrap">
@@ -33,9 +34,10 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>2021-03-22 - 2021-04-22</div>
-                      <div>0.2 USDT</div>
-                      <div>16,000,000 USDT</div>
+                      <div>{{ preInfo1.from_date }} - {{ preInfo1.to_date }}</div>
+                      <div>{{ $t( 'presale.text7' ) }}</div>
+<!--                      <div>{{ preInfo1.price }} USDT</div>-->
+                      <div>{{ $t( 'presale.text7' ) }}</div>
                     </div>
                   </div>
                 </div>
@@ -58,6 +60,7 @@
               </div>
             </div>
           </div>
+<!--          第二阶段-->
           <div class="stage-wrap">
             <div class="stage-main-wrap">
                 <div class="middle-wrap">
@@ -71,9 +74,10 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>2021-05-06 - 2021-06-06</div>
-                      <div>0.3 USDT</div>
-                      <div>24,000,000 USDT</div>
+                      <div>{{ preInfo2.from_date }} - {{ preInfo2.to_date }}</div>
+                      <div>{{ $t( 'presale.text7' ) }}</div>
+<!--                      <div>{{ preInfo2.price }} USDT</div>-->
+                      <div>{{ $t( 'presale.text7' ) }}</div>
                     </div>
                   </div>
                 </div>
@@ -97,6 +101,7 @@
                 </div>
             </div>
           </div>
+<!--          第三阶段-->
           <div class="stage-wrap">
             <div class="stage-main-wrap">
                 <div class="middle-wrap">
@@ -110,9 +115,10 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>2021-06-22 - {{ $t( 'presale.text65' ) }} </div>
-                      <div>0.35 USDT</div>
-                      <div>7,000,000 USDT</div>
+                      <div>{{ preInfo3.from_date }} - {{ $t('presale.text65') }}</div>
+                      <div>{{ $t( 'presale.text7' ) }}</div>
+<!--                      <div>{{ preInfo3.price }} USDT</div>-->
+                      <div>{{ $t( 'presale.text7' ) }}</div>
                     </div>
                   </div>
                 </div>
@@ -163,8 +169,9 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>2021-10-08</div>
+                      <div>{{ preInfo4.from_date }}</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
+<!--                      <div>{{ preInfo1.price }} USDT</div>-->
                       <div>{{ $t( 'presale.text7' ) }}</div>
                     </div>
                   </div>
