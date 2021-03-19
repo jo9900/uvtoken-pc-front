@@ -12,12 +12,12 @@
           <div class="spower">
             <router-link to="/help">{{ $t( 'text33' ) }}</router-link>
             <router-link to="/wallet" class="maert">{{ $t( 'text3' ) }}</router-link>
-            <router-link to="/">{{ $t( 'text34' ) }}</router-link>
+            <router-link to="/media">{{ $t( 'text34' ) }}</router-link>
           </div>
           <div class="spower">
             <a style="height: 20px;"> &emsp;&emsp;</a>
             <router-link to="/Dapp" class="maert">Dapp</router-link>
-            <router-link to="/media">{{ $t( 'text35' ) }}</router-link>
+            <router-link to="/">{{ $t( 'text35' ) }}</router-link>
           </div>
         </div>
         <div>

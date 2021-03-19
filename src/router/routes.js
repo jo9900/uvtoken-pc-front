@@ -5,13 +5,6 @@ import Home from '@/views/Index'
 
 const routes = [
     {
-        path: '/',
-        name: '/',
-        label: '首页',
-        meta: { requiresAuth: false, title: "首页" },
-        component: Home
-    },
-    {
         path: '/login',
         name: 'login',
         label: '登录',
@@ -37,6 +30,27 @@ const routes = [
         path: '/',
         component: Layout,
         children: [
+            {
+                path: '/',
+                name: '/',
+                label: '首页',
+                meta: { requiresAuth: false, title: "首页" },
+                component: Home
+            },
+            {
+                path: '/media',
+                name: 'media',
+                label: '媒体采访',
+                meta: { requiresAuth: false, title: "媒体采访" },
+                component: resolve => require( [ '@/views/Media.vue' ], resolve )
+            },
+            {
+                path: '/business',
+                name: 'business',
+                label: '商务合作',
+                meta: { requiresAuth: false, title: "商务合作" },
+                component: resolve => require( [ '@/views/Business.vue' ], resolve )
+            },
             {
                 path: '/userAgreement',
                 name: 'userAgreement',

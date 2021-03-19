@@ -146,7 +146,7 @@ export default {
         password: "",
         againPassword: "",
         verify_code: "",
-        invite_code: "",
+        inviteCode: "",
         deviceType: 0
       },
       //重置密码
@@ -333,7 +333,7 @@ export default {
   mounted() {
     if ( this.getQueryVariable( "ref", window.location.href ) ) {
       this.inviteCode = true;
-      this.signUpForm.invite_code = this.getQueryVariable(
+      this.signUpForm.inviteCode = this.getQueryVariable(
           "ref",
           window.location.href
       );

@@ -220,7 +220,7 @@ export default {
         password: "",
         againPassword: "",
         verify_code: "",
-        invite_code: "",
+        inviteCode: "",
       },
       //重置密码
       resetData: {

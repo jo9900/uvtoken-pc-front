@@ -82,7 +82,7 @@
                       $t( 'login.text29' ) +
                       '）'
                     "
-                    v-model="signUpForm.invite_code"
+                    v-model="signUpForm.inviteCode"
                 /></template>
               </div>
               <div

@@ -184,10 +184,10 @@
           <div class="">
             <template v-if="myPreSale.apply_usdt_amount > 0">
               <div class="extend">
-                <div class="text" id="invite_code">
-                  {{ marketing.invite_code }}
+                <div class="text" id="inviteCode">
+                  {{ marketing.inviteCode }}
                 </div>
-                <div class="tag" @click="copy(marketing.invite_code)">
+                <div class="tag" @click="copy(marketing.inviteCode)">
                   <img src="@/assets/img/center_file.png" alt="" />
                 </div>
               </div>
@@ -258,7 +258,7 @@ export default {
         code: "",
         rebate_amount: 0,
         invite_count: 0,
-        invite_code: "",
+        inviteCode: "",
         invite_url: "",
       }
     };
