@@ -409,7 +409,9 @@ export default {
                     this.$t( 'login.text30' )
                 );
               } else {
-                this.$message.error(res.msg);
+                this.$message.error(
+                    this.$t( 'text204' )
+                );
               }
             }
           });

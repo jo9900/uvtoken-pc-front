@@ -6,6 +6,8 @@ import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
 import Qs from 'qs'
+import { Message } from "element-ui";
+import i18n from "@/locales/locale"
 axios.defaults.withCredentials = true;
 let that = this;
 let baseUrl = ""
@@ -20,7 +22,7 @@ let baseUrl = ""
 // process.env.VUE_APP_BASE_API
 axios.defaults.baseURL = ""
 
-axios.defaults.timeout = 50000;
+axios.defaults.timeout = 10000;
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -57,7 +59,15 @@ function (error) {
             store.commit('LOGOUT')
             router.push({path: '/login'})
         }
-    }else{
+	}
+	else if (error.message.includes('timeout')) {
+        Message({
+            message: i18n.t("text204"),
+            type: "error",
+            duration: 3 * 1000,
+        });
+    }
+	else{
         return Promise.reject(error);
     }
 
