@@ -530,10 +530,6 @@ export default {
 .gobaket:hover {
   color: #5885FD;
 }
-.card {
-  max-width: 132px;
-  max-height: 150px;
-}
 .IDcard_box_div {
   display: flex;
   padding-left: 40px;
