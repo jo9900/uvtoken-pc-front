@@ -354,7 +354,7 @@ export default {
       }
     },
     userText() {
-      this.$router.push({ path: "/userText" });
+      this.$router.push({ path: "/userAgreement" });
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {

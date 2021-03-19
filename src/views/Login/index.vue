@@ -215,7 +215,7 @@ export default {
       }
     },
     userText() {
-      this.$router.push( { path: "/userText" } );
+      this.$router.push( { path: "/userAgreement" } );
 
       this.$store.state.signUpForm = this.signUpForm;
     },
@@ -252,7 +252,7 @@ export default {
         localStorage.setItem( "token", token );
         this.$store.commit( "SETTOKEN", token );
         this.$store.commit( "SETCODE", code );
-        if ( this.fromPath == "/presell" )
+        if ( this.fromPath == "/presale" )
           this.$router.back( -1 );
         else
           this.$router.push( "/center" );

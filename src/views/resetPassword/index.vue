@@ -329,7 +329,7 @@ export default {
       }
     },
     userText() {
-      this.$router.push({ path: "/userText" });
+      this.$router.push({ path: "/userAgreement" });
     },
     onSuccess() {
        setTimeout(() => {

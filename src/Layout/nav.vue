@@ -191,7 +191,7 @@ export default {
                 this.$router.push('/myassets')
 
             }else if(command == 'purchase'){
-                this.$router.push('/purchase')
+                this.$router.push('/purchaseAgreement')
             }
             else{
                 this.loginOut = true;

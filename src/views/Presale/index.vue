@@ -548,7 +548,7 @@ export default {
       this.firstPayDialogVisible = false
     },
     koserxy() {
-      this.$router.push( '/purchase' )
+      this.$router.push( '/purchaseAgreement' )
     },
 
     loginHandleClose() {
