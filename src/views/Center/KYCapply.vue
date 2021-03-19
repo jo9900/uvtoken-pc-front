@@ -343,7 +343,7 @@ export default {
       });
     },
     get_kycInfo() {
-      kycInfo({ user_code: localStorage.getItem("code") })
+      kycInfo({ code: localStorage.getItem("code") })
       .then((res) => {
         if (res.code == 0) {
           this.formLabelAlign = res.data;

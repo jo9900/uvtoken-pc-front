@@ -308,7 +308,9 @@ export default {
               this.$t( 'login.text23' )
             );
           } else {
-            this.$message.error(res.msg);
+            this.$message.error(
+                this.$t( 'login.text21' )
+            );
           }
         }
       });
