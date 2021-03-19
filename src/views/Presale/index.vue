@@ -188,7 +188,7 @@
         </div>
 
         <!-- 首轮抢购 弹窗-->
-        <el-dialog :title="$t('pesale.text15')"
+        <el-dialog :title="$t('presale.text15')"
                    :visible.sync="firstDialogVisible"
                    custom-class="firstDialogVisible"
                    width="580px"
@@ -247,7 +247,7 @@
                       ? $t( 'presale.text31' ) +'（1'+$t( 'presale.text26' ) +'='+ preInfo.pre_amount+' UVT）'
                       :$t( 'presale.text32' )"
                       prop="book_amount" style="position: relative">
-                    <el-input type="number"
+                    <el-input type="text"
                               v-model.trim="presellForm.book_amount"
                               :placeholder="round!=lastRound
                                 ? $t( 'presale.text33' )
@@ -264,6 +264,9 @@
                   <el-form-item :label="$t( 'presale.text35' )">
                     <div class="priceValue">
                       {{ totalPrice }}
+                    </div>
+                    <div class="skert" style="top: 1px;">
+                      USDT
                     </div>
                   </el-form-item>
                 </el-col>
@@ -421,7 +424,7 @@ export default {
       if ( this.round != this.lastRound )
         callback( new Error( this.$t( 'presale.text38' ) ) )
       else
-        callback( new Error( this.$t( 'presale.text48' ) ) )
+        callback( new Error( this.$t( 'presale.text49' ) ) )
     }
 
     var validateSurnmae = ( rule, value, callback ) => {
@@ -430,7 +433,7 @@ export default {
           callback( new Error( this.$t( 'presale.text54' ) ) )
         }
         else if ( !( /(^[1-9]\d*$)/.test( value ) ) ) {
-          callback( new Error( this.$t( 'presale.text48' ) ) )
+          callback( new Error( this.$t( 'presale.text49' ) ) )
         }
         else {
           this.totalPrice = parseInt( value * this.preInfo.pre_amount * this.preInfo.price )
@@ -1148,10 +1151,10 @@ export default {
   position: absolute;
   top: 6px;
   right: 5px;
-  background-color: #fff;
-  line-height: 32px;
   min-width: 31px;
   text-align: center;
+  height: 36px;
+  line-height: 36px;
 }
 
 .sgStyle {
