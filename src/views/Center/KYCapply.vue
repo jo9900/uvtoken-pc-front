@@ -180,7 +180,7 @@ export default {
       }
     };
     var IDValidator = (rule, value, callback) => {
-      if (this.formLabelAlign.id_type == 1 && this.formLabelAlign.country_code == 'CHN') { // 身份证号码
+      if (this.formLabelAlign.id_type != 3 && this.formLabelAlign.country_code == 'CHN') { // 身份证号码
         var idcardReg = /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
         if (idcardReg.test(this.formLabelAlign.id_number)) callback();
         else callback(new Error(this.$t("usercenter.text31")));
@@ -276,9 +276,13 @@ export default {
     'formLabelAlign.id_type' : {
       handler(cur) {
         if (this.formLabelAlign.country_code == 'CHN') {
-          if (cur != 1)
-            this.$refs["formLabelAlign"].clearValidate('id_number')
-          else
+            this.$refs["formLabelAlign"].validateField('id_number')
+        }
+      }
+    },
+    'formLabelAlign.country_code' : {
+      handler(cur) {
+        if (this.formLabelAlign.country_code == 'CHN') {
             this.$refs["formLabelAlign"].validateField('id_number')
         }
       }
