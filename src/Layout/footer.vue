@@ -56,7 +56,7 @@
     </div>
     <div class="footet">
       <div class="lrt"></div>
-      <div class="bkoet"><img src="@/assets/img/logo_taft@2x.png" /></div>
+      <div class="bkoet"><img src="@/assets/img/logo_uvtoken@2x.png" /></div>
     </div>
 
   </div>

@@ -4,7 +4,7 @@
         <div class="wrap">
             <div class="nav_logo">
                 <div class="flext">
-                    <div class="flext-all1"><img src="@/assets/img/logo_taft@2x.png"/></div>
+                    <div class="flext-all1"><img src="@/assets/img/logo_uvtoken@2x.png"/></div>
                 </div>
             </div>
             <div class="nav_options m-hide">
