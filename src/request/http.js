@@ -102,7 +102,7 @@ export function get(url, params) {
       .then(res => {
           if (res.data.code != 300)
             resolve(res.data);
-          else (res.data.code == 300)
+          if (res.data.code == 300)
               elMessage({
                   message: i18n.t("text204"),
                   type: "error",
