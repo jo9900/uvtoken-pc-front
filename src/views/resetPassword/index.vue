@@ -28,6 +28,7 @@
                   type="text"
                   :placeholder="$t( 'login.text2' )"
                   v-model.trim="resetData.mail"
+                  @keyup.enter.native="resetDataCode"
                 />
               </el-form-item>
             </el-form>

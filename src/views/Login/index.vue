@@ -29,6 +29,7 @@
                   v-model.trim="loginForm.mail"
                   auto-complete="new-password"
                   autocomplete="off"
+                  @keyup.enter.native="submitForm('loginForm')"
               />
             </el-form-item>
             <el-form-item class="form_row" prop="pwd">
@@ -45,6 +46,7 @@
                   auto-complete="new-password"
                   @keypress.enter="submitForm('loginForm')"
                   autocomplete="off"
+                  @keyup.enter.native="submitForm('loginForm')"
               />
             </el-form-item>
             <div class="forget_link">

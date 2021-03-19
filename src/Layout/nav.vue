@@ -162,7 +162,8 @@ export default {
     watch: {　　
         '$route': {
             handler(cur) {
-                this.pagePath = cur.path
+              this.userCode = localStorage.getItem('filName')
+              this.pagePath = cur.path
                 this.links.find((link, index)=> {
                     if (link.path == cur.path) {
                         this.currentIndex = index
