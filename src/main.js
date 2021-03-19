@@ -9,8 +9,6 @@ import router from './router'
 import axios from 'axios';
 import store from './store'
 // import qs from 'qs'
-import VueSimpleVerify from 'vue-simple-verify'
-import '../node_modules/vue-simple-verify/dist/vue-simple-verify.css'
 // import ElementUI from 'element-ui';
 import animated from 'animate.css'
 import '@/theme/index.css'
@@ -34,7 +32,6 @@ Vue.prototype.$lang = localStorage.getItem('lang')
 Vue.prototype.$BaseUrl = process.env.VUE_APP_BASE_API
 
 Vue.config.productionTip = false
-Vue.component('vue-simple-verify', VueSimpleVerify)
 
 // process.env.VUE_APP_BASE_API
 new Vue({
