@@ -77,7 +77,7 @@
           <div class="bloart">
             <img
                 class="content_img"
-                src="@/assets/img/pic_zlzc@2x (1).png"
+                src="@/assets/img/pic_zlzc@2x.png"
                 alt="production-img"
             />
           </div>
