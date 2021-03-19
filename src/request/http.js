@@ -6,7 +6,7 @@ import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
 import Qs from 'qs'
-import { Message } from "element-ui";
+// import { Message } from "element-ui";
 import i18n from "@/locales/locale"
 axios.defaults.withCredentials = true;
 let that = this;

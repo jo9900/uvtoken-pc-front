@@ -53,7 +53,7 @@
                 </div>
               <div :class="['presale-btn', {'access': round == 1 && roundstatus == 1 }]"
                    role="button"
-                   @click="clickBefore"
+                   @click="clickBefore(1)"
               >
                 <span v-if="!(round == 1 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
                 <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -94,7 +94,7 @@
                 <div v-else
                      :class="['presale-btn', {'access': round == 2 && roundstatus == 1 }]"
                      role="button"
-                     @click="clickBefore"
+                     @click="clickBefore(2)"
                 >
                   <span v-if="!(round == 2 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
                   <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -135,7 +135,7 @@
                 <div v-else
                     :class="['presale-btn', {'access': round == 3 && roundstatus == 1 }]"
                      role="button"
-                     @click="clickBefore"
+                     @click="clickBefore(3)"
                 >
                   <span v-if="!(round == 3 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
                   <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -180,7 +180,7 @@
           </div>
           <div :class="['presale-btn last-btn', {'access': round == lastRound && roundstatus == 1 }]"
                role="button"
-               @click="clickBefore"
+               @click="clickBefore(4)"
           >
             <span v-if="!(round == lastRound && roundstatus == 1)">{{ $t( 'presale.text69' ) }}</span>
             <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -503,8 +503,8 @@ export default {
       }
       this.precentage = pre
     },
-    clickBefore() {
-      if ( !this.round || this.roundstatus != 1 ) {
+    clickBefore(currentRound) {
+      if ( !this.round || this.roundstatus != 1 || this.round != currentRound ) {
         return;
       }
       if ( !this.isLogin ) {
