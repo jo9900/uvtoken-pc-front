@@ -30,7 +30,6 @@
           <p style="margin-bottom: 40px">
             1.{{ $t( 'purchase.text7' )
             }}<span style="color: #426cff">https://www.uvtoken.com</span>
-            <!-- TODO 正式官网地址 -->
           </p>
           <p style="margin-bottom: 40px">
             2.{{ $t( 'purchase.text8' ) }}

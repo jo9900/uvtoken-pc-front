@@ -253,9 +253,9 @@ export default {
           {
             required: true,
             message: this.$t( 'text137' ),
-            trigger: "blur"
+            trigger: "blur",
+            validator: imgValidator
           },
-          { required: true, trigger: "blur", validator: imgValidator },
 
         ],
         birth_date: [
