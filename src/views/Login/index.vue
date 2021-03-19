@@ -101,7 +101,7 @@ import { JSEncrypt } from "jsencrypt";
 import MixinSlideVerify from "@/mixin/slideVerify"
 let that;
 export default {
-  name: "",
+  name: "login",
   components: { webNav },
   mixins: [MixinSlideVerify],
   data() {

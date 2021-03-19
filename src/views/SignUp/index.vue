@@ -194,7 +194,7 @@ import MixinSlideVerify from "@/mixin/slideVerify"
 
 let that;
 export default {
-  name: "",
+  name: "signUp",
   components: { webNav },
   mixins: [MixinSlideVerify],
   data() {
