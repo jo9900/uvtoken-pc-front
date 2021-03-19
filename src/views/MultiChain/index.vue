@@ -153,10 +153,10 @@ export default {
   data() {
     return {
       scrollAnimateEL: {
-        img1: false,
-        img2: false,
-        img3: false,
-        img4: false,
+        img1: true,
+        img2: true,
+        img3: true,
+        img4: true,
       },
       listQuery: {
         lang_type: this.$langType,
