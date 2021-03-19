@@ -205,8 +205,14 @@ export default {
             return this.$message.error(
                 this.$t( 'login.text23' )
             );
+          }else if (res.code == "101505") {
+            return this.$message.error(
+                this.$t( 'login.text21' )
+            );
           } else {
-            this.$message.error(res.msg);
+            this.$message.error(
+                this.$t( 'text204' )
+            );
           }
         }
       });
