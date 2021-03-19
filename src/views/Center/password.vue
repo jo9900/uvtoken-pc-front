@@ -183,7 +183,7 @@ export default {
       this.timer();
       let data = {
         lang_type: this.$langType,
-        email: localStorage.getItem("code"),
+        mail: localStorage.getItem("code"),
       };
       mailVcode(data).then((res) => {
         if (res.code == 0) {
