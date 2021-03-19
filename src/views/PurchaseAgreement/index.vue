@@ -158,7 +158,6 @@ export default {
   components: { webFoot },
   data() {
     return {
-      langType: this.$langType,
     };
   },
   computed: {},

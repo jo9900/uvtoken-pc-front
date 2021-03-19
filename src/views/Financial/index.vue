@@ -145,8 +145,7 @@ export default {
         lang_type: this.$langType,
         page_no: 1,
         page_size: 3,
-      },
-      langType: this.$langType,
+      }
     };
   },
   computed: {},

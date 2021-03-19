@@ -78,7 +78,6 @@ export default {
       },
       tableData: [],
       total: 0,
-      langType: this.$langType,
     };
   },
   computed: {},

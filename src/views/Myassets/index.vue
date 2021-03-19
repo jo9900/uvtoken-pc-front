@@ -61,8 +61,7 @@ export default {
         page_size: 50,
       },
       tableData: [],
-      total: 0,
-      langType: this.$langType,
+      total: 0
     };
   },
   computed: {},

@@ -344,15 +344,7 @@ export default {
                   }
                 }
               });
-              // let englishText = "Do you confirm to the account"+this.dataForm.to_account +"Transfer"+ this.dataForm.taft_amount +" TAFT?";
-              // let chineseText = "您确认向账户"+this.dataForm.to_account+"转让 "+this.dataForm.taft_amount+" TAFT吗？";
-              // this.$confirm(this.$langType=='English'?englishText:chineseText, languageNav[this.$langType].language_text55, {
-              //     confirmButtonText:languageNav[this.$langType].language_text58,
-              //     cancelButtonText: languageNav[this.$langType].language_text59,
-              //     type: 'warning'
-              // }).then(() => {
-              //
-              // }).catch(() => {});
+
             } else {
               this.$message.error(this.$t( 'text185' ));
               this.loadingBtn = false;

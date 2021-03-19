@@ -45,7 +45,7 @@
               >
                 <template v-if="userInfo.kyc_status == 1">
                   {{
-                    langType == "zh"
+                    $lang == "zh"
                       ? userInfo.country_name
                       : userInfo.country_name_en
                   }}
@@ -263,8 +263,7 @@ export default {
         invite_count: 0,
         invite_code: "",
         invite_url: "",
-      },
-      langType: this.$langType,
+      }
     };
   },
   computed: {},

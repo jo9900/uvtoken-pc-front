@@ -197,7 +197,6 @@ export default {
       id_front: "",
       id_back: "",
       loading: false,
-      langType: this.$langType,
       formLabelAlign: {
         user_code: localStorage.getItem("code"),
         country_code: "",

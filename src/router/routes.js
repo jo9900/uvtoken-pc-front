@@ -3,7 +3,6 @@ import Login from '@/views/Login'
 import Layout from '@/Layout'
 import Home from '@/views/Index'
 
-const langType = localStorage.getItem( "langType" )
 const routes = [
     { path: '/login', name: 'login', label: '登录', meta: { requiresAuth: false, title: "登录" }, component: Login },
 

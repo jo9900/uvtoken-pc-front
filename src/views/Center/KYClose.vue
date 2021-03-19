@@ -31,8 +31,7 @@ export default {
   components: { webFoot },
   data() {
     return {
-      userInfo: {},
-      langType: this.$langType,
+      userInfo: {}
     };
   },
   computed: {},
