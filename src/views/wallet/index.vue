@@ -38,8 +38,8 @@
 
           <div class="bloart">
             <img
-                class="content_img"
-                src="@/assets/img/pic_zlzc@2x.png"
+                class="content_img mln50"
+                src="@/assets/img/pic_w_zlzc@2x.png"
                 alt="production-img"
             />
           </div>
@@ -77,7 +77,7 @@
           <div class="bloart">
             <img
                 class="content_img"
-                src="@/assets/img/pic_zlzc@2x.png"
+                src="@/assets/img/pic_w_lxwe@2x.png"
                 alt="production-img"
             />
           </div>
@@ -90,8 +90,8 @@
         <div class="content">
           <div class="bloart">
             <img
-              class="content_img mln100"
-              src="@/assets/img/pic_lxyjxad@2x.png"
+              class="content_img mln50"
+              src="@/assets/img/pic_w_lxyj@2x.png"
               alt="production-img"
             />
           </div>
@@ -131,7 +131,7 @@
           <div class="bloart">
             <img
               class="content_img"
-              src="@/assets/img/pic_aqbzxz@2x.png"
+              src="@/assets/img/pic_w_aqbz@2x.png"
               alt="production-img"
             />
           </div>
@@ -281,8 +281,8 @@ export default {
         }
 
         .content_img_top {
-          width: 476px;
-          height: 266px;
+          width: 620px;
+          height: 363px;
         }
         .content_text {
           color: #7b7b7b;
@@ -366,7 +366,6 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
         .content_text {
           flex: 1;
           text-align: left;
-          margin-right: 158px;
         }
 
         .bget {
@@ -397,7 +396,10 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
 .top-img {
   position: absolute;
   z-index: 2;
-  right: 30px;
-  top: 217px;
+  right: 25px;
+  top: 141px;
+}
+.mln50 {
+  margin-left: -50px;
 }
 </style>
