@@ -39,16 +39,23 @@
                     </div>
                   </div>
                 </div>
-                <div class="stage-progress-wrap">
+                <div class="stage-progress-wrap" v-if="round == 1 && roundstatus == 2">
                   <div class="stage-progress">
                     <img src="@/assets/img/pic_yq@2x.png" />
                     <div class="stage-progress-center-text">
-                      <span>{{ precentage }}</span>
+                      <span>100</span>
                       <span style="font-size: 13px">%</span>
                     </div>
                   </div>
                   <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                 </div>
+              <div :class="['presale-btn', {'access': round == 1 && roundstatus == 1 }]"
+                   role="button"
+                   @click="clickBefore"
+              >
+                <span v-if="!(round == 1 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
+                <span v-else>{{ $t( 'presale.text61' ) }}</span>
+              </div>
             </div>
           </div>
           <div class="stage-wrap">
@@ -70,15 +77,23 @@
                     </div>
                   </div>
                 </div>
-                <div class="stage-progress-wrap">
+                <div class="stage-progress-wrap" v-if="round == 2 && roundstatus == 2">
                   <div class="stage-progress">
                     <img src="@/assets/img/pic_yq@2x.png" />
                     <div class="stage-progress-center-text">
-                      <span>{{ precentage }}</span>
+                      <span>100</span>
                       <span style="font-size: 13px">%</span>
                     </div>
                   </div>
                   <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
+                </div>
+                <div v-else
+                     :class="['presale-btn', {'access': round == 2 && roundstatus == 1 }]"
+                     role="button"
+                     @click="clickBefore"
+                >
+                  <span v-if="!(round == 2 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
+                  <span v-else>{{ $t( 'presale.text61' ) }}</span>
                 </div>
             </div>
           </div>
@@ -101,24 +116,25 @@
                     </div>
                   </div>
                 </div>
-                <div class="stage-progress-wrap">
+                <div class="stage-progress-wrap" v-if="round == 3 && roundstatus == 2">
                   <div class="stage-progress">
                     <img src="@/assets/img/pic_yq@2x.png" />
                     <div class="stage-progress-center-text">
-                      <span>{{ precentage }}</span>
+                      <span>100</span>
                       <span style="font-size: 13px">%</span>
                     </div>
                   </div>
                   <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                 </div>
+                <div v-else
+                    :class="['presale-btn', {'access': round == 3 && roundstatus == 1 }]"
+                     role="button"
+                     @click="clickBefore"
+                >
+                  <span v-if="!(round == 3 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
+                  <span v-else>{{ $t( 'presale.text61' ) }}</span>
+                </div>
             </div>
-          </div>
-          <div :class="['presale-btn', {'access': isFirstRoundAccess() }]"
-               role="button"
-               @click="clickBefore"
-          >
-            <span v-if="!isFirstRoundAccess()"> {{ $t( 'presale.text69' ) }}</span>
-            <span v-else>{{ $t( 'presale.text61' ) }}</span>
           </div>
         </div>
 
@@ -155,11 +171,11 @@
                 </div>
             </div>
           </div>
-          <div :class="['presale-btn', {'access': isLastRoundAccess() }]"
+          <div :class="['presale-btn last-btn', {'access': round == lastRound && roundstatus == 1 }]"
                role="button"
                @click="clickBefore"
           >
-            <span v-if="!isLastRoundAccess()">{{ $t( 'presale.text69' ) }}</span>
+            <span v-if="!(round == lastRound && roundstatus == 1)">{{ $t( 'presale.text69' ) }}</span>
             <span v-else>{{ $t( 'presale.text61' ) }}</span>
           </div>
         </div>
@@ -469,12 +485,6 @@ export default {
   },
   watch: {},
   methods: {
-    isFirstRoundAccess() {
-      return this.roundstatus == 1 && this.round != this.lastRound
-    },
-    isLastRoundAccess() {
-      return this.roundstatus == 1 && this.round == this.lastRound
-    },
     calc_precentage() {
       let pre = 0
       if (this.round == this.lastRound) {
@@ -898,7 +908,6 @@ export default {
 
     .middle-wrap {
       min-width: 260px;
-      margin-right: 137px;
     }
 
     .stage-title {
@@ -917,6 +926,7 @@ export default {
       color: rgba(225, 225, 225, 0.5);
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     .roakl-lert {
@@ -1203,15 +1213,11 @@ export default {
 .presale-btn {
   cursor: not-allowed;
   min-width: 210px;
-  position: absolute;
   height: 54px;
-  left: 50%;
   border-radius: 27px;
-  transform: translateX(-50%);
   color: #06149D;
   text-align: center;
   line-height: 54px;
-  z-index: 200;
   opacity: 0.5;
   background: #37E2EF;
   user-select: none;
@@ -1219,6 +1225,12 @@ export default {
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #06149D;
+  margin-right: 120px;
+  &.last-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   &.access {
     opacity: 1;
     cursor: pointer;
