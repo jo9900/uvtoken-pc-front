@@ -371,7 +371,24 @@ export default {
                 });
                 this.$router.push("login");
               } else {
-                this.$message.error(res.msg);
+                if (res.code == "101504") {
+                  this.$message.error(
+                      this.$t( 'text188' )
+                  );
+                }
+                if (res.code == "101503") {
+                  this.$message.error(
+                      this.$t( 'text189' )
+                  );
+                }
+                if (res.code == "101505") {
+                  this.$message.error(
+                      this.$t( 'login.text21' )
+                  );
+                }
+                else {
+                  this.$message.error(res.msg);
+                }
               }
             })
             .catch(() => {});
