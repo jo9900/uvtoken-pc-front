@@ -256,13 +256,14 @@ export default {
   mixins: [MixinScrollAnimate],
   data() {
     return {
+      // TODO 产品：先取消动效
       scrollAnimateEL: {
-        wrap1: false,
-        wrap2: false,
-        wrap3: false,
-        wrap4: false,
-        wrap5: false,
-        wrap6: false
+        wrap1: true,
+        wrap2: true,
+        wrap3: true,
+        wrap4: true,
+        wrap5: true,
+        wrap6: true
       },
       listenHandlerScroll: undefined,
       NODE_ENV: process.env.NODE_ENV,

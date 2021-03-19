@@ -267,7 +267,6 @@ export default {
                         transition: all 0.5s;
                         height: 36px;
                         line-height: 36px;
-                        padding-bottom: 10px;
                         overflow: hidden;
                         white-space: nowrap;
                         text-overflow: ellipsis;
