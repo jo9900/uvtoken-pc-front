@@ -196,6 +196,7 @@
                   class="text"
                   v-model="marketing.invite_url"
                   id="invite_url"
+                  readonly
                 ></el-input>
                 <div class="tag" @click="copy(marketing.invite_url)">
                   <img src="@/assets/img/center_file.png" alt="" />
