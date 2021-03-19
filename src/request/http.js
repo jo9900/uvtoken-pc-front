@@ -100,9 +100,9 @@ export function get(url, params) {
     return new Promise((resolve, reject) => {
       axios.post(url, params)
       .then(res => {
-          if (res.data.code == 0)
+          if (res.data.code != 300)
             resolve(res.data);
-          if (res.data.code == 300)
+          else (res.data.code == 300)
               elMessage({
                   message: i18n.t("text204"),
                   type: "error",
