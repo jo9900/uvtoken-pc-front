@@ -19,7 +19,6 @@ import i18n from './locales/locale'
 import _ from "lodash";
 
 import moment from "moment";
-import { Vue } from 'vue-property-decorator';
 import SlideVerify from 'vue-monoplasty-slide-verify';
 
 Vue.use(animated)
