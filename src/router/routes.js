@@ -4,27 +4,39 @@ import Layout from '@/Layout'
 import Home from '@/views/Index'
 
 const routes = [
-    { path: '/login', name: 'login', label: '登录', meta: { requiresAuth: false, title: "登录" }, component: Login },
-
     {
-        path: '/signUp',
-        name: 'signUp',
-        label: '注册',
-        meta: { requiresAuth: false, title: "注册" },
-        component: resolve => require( [ '@/views/SignUp/index.vue' ], resolve )
-    },
-    {
-        path: '/forget',
-        name: 'resetPas',
-        label: '忘记密码',
-        meta: { requiresAuth: false, title: "忘记密码" },
-        component: resolve => require( [ '@/views/resetPassword/index.vue' ], resolve )
-    },
-
-    {
-        path: '/', component: Layout, label: '首页', meta: { title: "首页" },
+        path: '/',
+        component: Layout,
+        label: '',
         children: [
-            { path: '/', name: '/', label: '首页', meta: { requiresAuth: false, title: "首页" }, component: Home }
+            {
+                path: '/',
+                name: '/',
+                label: '首页',
+                meta: { requiresAuth: false, title: "首页" },
+                component: Home
+            },
+            {
+                path: '/login',
+                name: 'login',
+                label: '登录',
+                meta: { requiresAuth: false, title: "登录" },
+                component: Login
+            },
+            {
+                path: '/signUp',
+                name: 'signUp',
+                label: '注册',
+                meta: { requiresAuth: false, title: "注册" },
+                component: resolve => require( [ '@/views/SignUp/index.vue' ], resolve )
+            },
+            {
+                path: '/forget',
+                name: 'resetPas',
+                label: '忘记密码',
+                meta: { requiresAuth: false, title: "忘记密码" },
+                component: resolve => require( [ '@/views/resetPassword/index.vue' ], resolve )
+            }
         ]
     },
 
