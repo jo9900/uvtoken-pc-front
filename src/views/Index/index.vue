@@ -482,17 +482,6 @@ export default {
   /*-webkit-line-clamp: 12;*/
   /*overflow: hidden;*/
 }
-.asowt {
-  width: 287px;
-  height: 50px;
-  overflow: hidden;
-  line-height: 50px;
-  text-align: center;
-  color: #ffffff;
-  margin-top: 47px;
-  background-size: cover;
-  background: url("../../assets/img/bg-bon.png") no-repeat;
-}
 .posuRoert {
   position: absolute;
   top: 163px;

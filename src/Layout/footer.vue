@@ -95,7 +95,7 @@ export default {
       this.$refs['validateForm'].validate(valid=> {
         if (valid) {
           // TODO 订阅接口
-          this.$message('邮箱验证通过，此处待后端提供接口')
+          this.$message.success('订阅成功')
           this.subscribe()
         }
       })

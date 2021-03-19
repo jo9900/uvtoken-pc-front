@@ -47,7 +47,7 @@ axios.interceptors.response.use(function (response) {
          store.commit('SETTOKEN', response.headers["refresh-token"])
         }
     }
-    if (response.data.code == '102501') {
+    if (response.data.code == '102501') { // token 失效
         store.commit('LOGOUT')
         router.push({path: '/login'})
     }
