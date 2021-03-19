@@ -1,37 +1,25 @@
-/*
-*author:zhoaya
-*day:2020
-*/
-const Timestamp = new Date().getTime();
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
-const productionGzipExtensions = ['js', 'css'];
-const isProduction = process.env.NODE_ENV === 'production';
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const productionGzipExtensions = /\.(js|css|json|txt|html)(\?.*)?$/i;
+const TerserWebpackJsPlugin = require("terser-webpack-plugin");
+const isProd = process.env.NODE_ENV === "production";
+
 module.exports = {
-
-
-    publicPath:'./',
-    configureWebpack: {
-        output: {
-            filename: `[name].${process.env.VUE_APP_Version}.${Timestamp}.js`,
-            chunkFilename: `[name].${process.env.VUE_APP_Version}.${Timestamp}.js`
-        },
-    },
+    publicPath: "./",
     productionSourceMap: false,
 
-    outputDir: 'dist-web-pc',
-    assetsDir: 'assets',
+    outputDir: "dist-web-pc",
+    assetsDir: "assets",
 
     lintOnSave: true,
     // webpack配置
     pwa: {},
 
-    // webpack-dev-server 相关配置
     devServer: {
         port: 3004,
         https: false,
         hot: true,
         disableHostCheck: true,
-        hotOnly: true,
+        hotOnly: true, // https:{type:Boolean}
         proxy: {
             '/webmanage':{
                 target:'http://192.168.0.81:50523/',
@@ -43,32 +31,59 @@ module.exports = {
     },
 
     pluginOptions: {},
-    configureWebpack: config => {
-        if (isProduction) {
-            config.plugins.push(new CompressionWebpackPlugin({
-                algorithm: 'gzip',
-                test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-                threshold: 10240,
-                minRatio: 0.8
-            }))
+    configureWebpack: (config) => {
+        if (isProd) {
+            config.plugins.push(
+                new CompressionWebpackPlugin({
+                    algorithm: "gzip",
+                    test: productionGzipExtensions,
+                    threshold: 10240,
+                    minRatio: 0.8,
+                })
+            );
+            config.plugins.push(
+                new TerserWebpackJsPlugin({
+                    terserOptions: {
+                        compress: {
+                            warnings: false,
+                            drop_console: true,
+                            drop_debugger: false,
+                            pure_funcs: ["console.log"] //移除console
+                        }
+                    },
+                    sourceMap: false,
+                    parallel: true
+                })
+            )
         }
-        if(process.env.NODE_ENV === 'production'){
-            config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
-        }
-
     },
 
-    chainWebpack: config => {
+    chainWebpack: (config) => {
+
+        config.output.filename('./assets/js/[name].[hash:8].js');
+        config.output.chunkFilename('./assets/js/[name].[hash:8].js');
 
         config.resolve.symlinks(true);
-
-    },
-    configureWebpack: {
-        externals: {
-            'vue': 'Vue',
-            'element-ui': 'ElementUI',
-        },
-    },
-
-
-}
+        config.set('externals', {
+            vue: "Vue",
+            "element-ui": "ELEMENT",
+        })
+        config.optimization.splitChunks({
+            cacheGroups: {
+                common: {
+                    name: 'common',
+                    chunks: 'all',
+                    minSize: 1,
+                    minChunks: 2,
+                    priority: 1
+                },
+                vendor: {
+                    name: 'chunk-libs',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: 10
+                }
+            }
+        });
+    }
+};

@@ -3,13 +3,15 @@
 *author:zhoaya
 *day:2020
 */
-// import Vue from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import axios from 'axios';
 import store from './store'
 // import qs from 'qs'
-// import ElementUI from 'element-ui';
+import ElementUI from "element-ui";
+import {elMessage} from './utils/message.js'
+
 import animated from 'animate.css'
 import '@/theme/index.css'
 import '@/assets/css/default.css'
@@ -20,6 +22,10 @@ import _ from "lodash";
 
 import moment from "moment";
 import SlideVerify from 'vue-monoplasty-slide-verify';
+Vue.use(ElementUI,{
+  i18n: (key, value) => i18n.t(key, value)
+});
+Vue.prototype.$message = elMessage; //引用message要在Vue.use(ElementUI)后面
 
 Vue.use(animated)
 Vue.use(SlideVerify);

@@ -6,7 +6,7 @@ import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
 import Qs from 'qs'
-// import { Message } from "element-ui";
+import {elMessage} from '@/utils/message.js'
 import i18n from "@/locales/locale"
 axios.defaults.withCredentials = true;
 let that = this;
@@ -60,13 +60,13 @@ function (error) {
             router.push({path: '/login'})
         }
 	}
-	else if (error.message.includes('timeout')) {
-        Message({
-            message: i18n.t("text204"),
-            type: "error",
-            duration: 3 * 1000,
-        });
-    }
+	// else if (error.message.includes('timeout')) {
+    //     elMessage({
+    //         message: i18n.t("text204"),
+    //         type: "error",
+    //         duration: 3 * 1000,
+    //     });
+    // }
 	else{
         return Promise.reject(error);
     }
@@ -100,7 +100,14 @@ export function get(url, params) {
     return new Promise((resolve, reject) => {
       axios.post(url, params)
       .then(res => {
-          resolve(res.data);
+          if (res.data.code == 0)
+            resolve(res.data);
+          if (res.data.code == 300)
+              elMessage({
+                  message: i18n.t("text204"),
+                  type: "error",
+                  duration: 3 * 1000,
+              });
       })
       .catch(err => {
           reject(err.data)
