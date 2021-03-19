@@ -231,16 +231,13 @@
         }}</span>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 <script>
 import { userInfo, myPreSale, myMarketing } from "@/request/user.js";
-import webFoot from "@/components/footer";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
       userFilName: '',

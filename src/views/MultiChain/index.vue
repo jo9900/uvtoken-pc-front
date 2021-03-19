@@ -138,17 +138,13 @@
         </div>
       </div>
     </div>
-
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/components/footer";
 import MixinScrollAnimate from "@/mixin/scroll"
 export default {
   name: "",
-  components: { webFoot },
   mixins: [MixinScrollAnimate],
   data() {
     return {

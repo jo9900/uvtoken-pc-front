@@ -14,17 +14,14 @@
         </div>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/components/footer";
 import { helpDetail } from "@/request/news";
 import ArticleMap from './articles/index'
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
       dataInfo: "",

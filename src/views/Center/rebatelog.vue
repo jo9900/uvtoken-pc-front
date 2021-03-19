@@ -80,16 +80,13 @@
         ></el-pagination>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/Layout/footer";
 import { rebateLog } from "@/request/user.js";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
       that: this,

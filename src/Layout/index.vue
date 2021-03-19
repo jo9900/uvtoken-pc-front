@@ -9,8 +9,8 @@
             >
                 <router-view />
             </transition>
-           
-            <!-- <el-footer><Footer/></el-footer> -->
+
+          <Footer/>
         </div>
     </div>
 

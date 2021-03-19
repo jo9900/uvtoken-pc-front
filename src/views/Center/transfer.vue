@@ -165,12 +165,10 @@
             </div>
       </span>
     </el-dialog>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/Layout/footer";
 import {
   myPreSale,
   recordsList,
@@ -182,7 +180,6 @@ const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     var validateSurnmae = (rule, value, callback) => {
       if (parseInt(value) < 1) {

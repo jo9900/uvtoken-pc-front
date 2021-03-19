@@ -42,16 +42,13 @@ s<!-- -->
         <!--<el-pagination @current-change="handleCurrentChange" :page-size="form.page_size"  layout="prev, pager, next" :total="total" background></el-pagination>-->
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/Layout/footer";
 import { preSaleLog } from "@/request/user.js";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
       that: this,

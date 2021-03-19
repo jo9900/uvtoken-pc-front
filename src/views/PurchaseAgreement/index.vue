@@ -47,7 +47,7 @@
             {{ $t( 'purchase.text12' ) }}
           </p>
           <p style="margin-bottom: 40px">
-            { $t( 'purchase.text13' ) }}
+            {{ $t( 'purchase.text13' ) }}
           </p>
           <p style="margin-bottom: 40px">
             {{ $t( 'purchase.text14' ) }}
@@ -105,10 +105,10 @@
           </p>
 
           <p style="padding-left: 40px">
-            • {{ $t( 'purchase.text26' ) }}
+            {{ $t( 'purchase.text26' ) }}
           </p>
           <p style="padding-left: 40px; margin-bottom: 40px">
-            • {{ $t( 'purchase.text27' ) }}
+            {{ $t( 'purchase.text27' ) }}
             {{ $t( 'purchase.text28' ) }}
           </p>
           <div>
@@ -146,16 +146,13 @@
         </div>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 
 <script>
-import webFoot from "@/Layout/footer";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
     };

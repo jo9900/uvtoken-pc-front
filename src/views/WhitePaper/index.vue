@@ -5,18 +5,15 @@
             <img class="no_data_img" src="@/assets/img/no_data.png" alt="">
             <p class="no_data_hint">等待主网上线后开通</p>
         </div>
-        <webFoot/>
     </div>
 </template>
 
 <script>
-import webFoot from '@/Layout/footer';
 export default {
   beforeRouteEnter(to, from) {
     window.open('http://t.uvtoken.com/material/whitepaper.pdf', '_blank')
   },
     name: '',
-    components: {webFoot},
     data() {
        return {
 

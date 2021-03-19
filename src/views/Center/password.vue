@@ -71,18 +71,15 @@
           </el-button>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 <script>
-import webFoot from "@/Layout/footer";
 import { passwordVcode, resetPassword, pubKey, mailVcode } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 
 export default {
   name: "",
-  components: { webFoot },
   data() {
     var passwordValidator = (rule, value, callback) => {
       if (this.dataForm.password != this.dataForm.againPassword) {

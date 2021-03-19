@@ -188,15 +188,12 @@
         </div>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/Layout/footer";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
     };

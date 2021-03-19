@@ -107,16 +107,12 @@
         </div>
       </div>
     </div>
-
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/components/footer";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
       closeTrime: 14,

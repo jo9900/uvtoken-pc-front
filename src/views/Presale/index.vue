@@ -404,19 +404,16 @@
         <!-- KYC审核中 弹窗 end-->
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 
 <script>
-import webFoot from "@/components/footer";
 import { preSale, round } from '@/request/presale.js'
 import { userInfo, subBook } from '@/request/user.js'
 import QRCode from 'qrcodejs2'
 export default {
   name: '',
-  components: { webFoot },
   data() {
     var roundtext = ( rule, value, callback ) => {
       if ( value != '' )

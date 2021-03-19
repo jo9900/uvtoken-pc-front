@@ -1,7 +1,7 @@
 <!-- -->
 <template>
   <div class="page">
-    <!--<webNav></webNav>-->
+    <webNav />
     <div class="page_content">
       <div class="login_bg"></div>
       <div class="wrap">
@@ -154,7 +154,6 @@
 
 <script>
 import webNav from "@/Layout/nav";
-import webFoot from "@/Layout/footer";
 import {
   pubKey,
   login,
@@ -170,7 +169,7 @@ import MixinSlideVerify from "@/mixin/slideVerify.js"
 let that;
 export default {
   name: "",
-  components: { webNav, webFoot },
+  components: { webNav },
   mixins: [MixinSlideVerify],
   data() {
     var Elowert = (rule, value, callback) => {

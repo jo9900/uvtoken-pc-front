@@ -6,8 +6,8 @@
         <div class="wrap-flr">
           <div class="spower">
             <router-link to="/purchaseAgreement">{{ $t( 'text30' ) }}</router-link>
-            <router-link to="/" class="maert">{{ $t( 'text31' ) }}</router-link>
-            <router-link to="/">{{ $t( 'text32' ) }}</router-link>
+            <router-link to="/whitePaper" class="maert">{{ $t( 'text31' ) }}</router-link>
+            <router-link to="/business">{{ $t( 'text32' ) }}</router-link>
           </div>
           <div class="spower">
             <router-link to="/help">{{ $t( 'text33' ) }}</router-link>
@@ -17,7 +17,7 @@
           <div class="spower">
             <a style="height: 20px;"> &emsp;&emsp;</a>
             <router-link to="/Dapp" class="maert">Dapp</router-link>
-            <router-link to="/">{{ $t( 'text35' ) }}</router-link>
+            <router-link to="/media">{{ $t( 'text35' ) }}</router-link>
           </div>
         </div>
         <div>

@@ -37,17 +37,13 @@
         </div>
       </div>
     </div>
-
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/components/footer";
 import { helpList } from "@/request/news";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     return {
       listData: [],

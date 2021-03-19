@@ -138,18 +138,15 @@
         </div>
       </div>
     </div>
-
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/components/footer";
 import countTo from "vue-count-to";
 
 export default {
   name: "",
-  components: { webFoot, countTo },
+  components: { countTo },
   data() {
     return {
       closeTrime: 14,

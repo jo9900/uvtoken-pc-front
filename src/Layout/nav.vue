@@ -198,6 +198,7 @@ export default {
             }
         },
         loginClose(){
+            this.loginOut = false
             localStorage.removeItem('token');
             localStorage.removeItem('code');
             localStorage.removeItem('email');

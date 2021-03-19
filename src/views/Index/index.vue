@@ -242,17 +242,15 @@
         </div>
       </div>
     </section>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/components/footer";
 import countTo from "vue-count-to";
 import MixinScrollAnimate from "@/mixin/scroll.js"
 export default {
   name: "",
-  components: { webFoot, countTo },
+  components: { countTo },
   mixins: [MixinScrollAnimate],
   data() {
     return {

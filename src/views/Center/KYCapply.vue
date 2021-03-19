@@ -162,18 +162,15 @@
         </el-form>
       </div>
     </div>
-    <webFoot />
   </div>
 </template>
 
 <script>
-import webFoot from "@/Layout/footer";
 import { areaList, addkyc, kycInfo } from "@/request/user";
 import { compress, dataURLtoFile } from "@/utils/uploadImage";
 import { EXIF } from "@/utils/exif";
 export default {
   name: "",
-  components: { webFoot },
   data() {
     var imgValidator = (rule, value, callback) => {
       if (this.id_front == "" || this.id_back == "") {
