@@ -534,8 +534,12 @@ export default {
     },
     presellCoander() {
       round().then( res => {
-        this.round = res.data.round;
-        this.roundstatus = res.data.status;
+        try {
+          this.round = res.data.round;
+          this.roundstatus = res.data.status;
+        } catch {
+          this.$message.error(this.$t( 'text204' ))
+        }
       } )
     },
 
@@ -568,9 +572,11 @@ export default {
     },
 
     toLogin() {
+      this.loginDialogVisible = false
       this.$router.push( '/login' )
     },
     toKYC() {
+      this.KYC_DialogVisible = false
       this.$router.push( { name: "KYCapply", query: { type: 0 } } )
     },
 
@@ -685,12 +691,16 @@ export default {
 
   },
   async mounted() {
-    await this.getPreSale()
-    await this.getPreSale2();
-    await this.getPreSale3();
-    await this.getPreSale4();
-    this.preInfo = JSON.parse( JSON.stringify( this['preInfo' + this.round] ) )
-    this.calc_precentage()
+    try{
+      await this.getPreSale()
+      await this.getPreSale2();
+      await this.getPreSale3();
+      await this.getPreSale4();
+      this.preInfo = JSON.parse( JSON.stringify( this['preInfo' + this.round] ) )
+      this.calc_precentage()
+    }catch ( e ) {
+      new Error(e)
+    }
   },
 
   filters: {
