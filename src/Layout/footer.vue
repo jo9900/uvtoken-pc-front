@@ -17,7 +17,7 @@
           <div class="spower">
             <a style="height: 20px;"> &emsp;&emsp;</a>
             <router-link to="/Dapp" class="maert">Dapp</router-link>
-            <router-link to="/">{{ $t( 'text35' ) }}</router-link>
+            <router-link to="/userAgreement">{{ $t( 'text35' ) }}</router-link>
           </div>
         </div>
         <div>
