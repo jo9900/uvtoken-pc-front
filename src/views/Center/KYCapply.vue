@@ -357,7 +357,7 @@ export default {
           this.id_back = this.BaseUrl + res.data.id_back_url;
           this.formLabelAlign.id_front = "";
           this.formLabelAlign.id_back = "";
-          this.formLabelAlign.birth_date = null
+          this.formLabelAlign.birth_date = this.$moment(res.data.birth_date).format()
           this.formLabelAlign.id_type = this.formLabelAlign.id_type.toString();
           this.modify = res.data.kyc_status == 0? 1 : 2
         }

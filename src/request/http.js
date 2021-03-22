@@ -41,7 +41,6 @@ axios.interceptors.request.use(
 )
 
 axios.interceptors.response.use(function (response) {
-        console.log( response )
         if(response.headers){
         if(response.headers["refresh-token"]){
          localStorage.setItem('token',response.headers["refresh-token"])
@@ -51,7 +50,6 @@ axios.interceptors.response.use(function (response) {
 	return response;
 },
 function (error) {
-    console.log( error )
     if (typeof error.response !== "undefined") {
         if (error.response.data.code === 401) {
             store.commit('LOGOUT')
@@ -97,7 +95,6 @@ export function get(url, params) {
     return new Promise((resolve, reject) => {
       axios.post(url, params)
       .then(res => {
-          console.log( res.data.code )
           if (res.data.code == 300) {
               elMessage({
                   message: i18n.t("text204"),
