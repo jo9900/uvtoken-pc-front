@@ -367,7 +367,6 @@ export default {
         code: localStorage.getItem("code"),
       };
       myPreSale(params).then((res) => {
-        console.log(res);
         if (res.code == 0) {
           this.apply_taft_amount = res.data.apply_taft_amount
             ? res.data.apply_taft_amount + " UVT"

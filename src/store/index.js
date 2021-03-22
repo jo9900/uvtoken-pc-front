@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     signUpForm:"",
-    PresellForm:"",
+    presaleForm:"",
     timerCoander:false,
     token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
     code: localStorage.getItem('email') ? localStorage.getItem('email') : '',
@@ -22,7 +22,7 @@ export default new Vuex.Store({
       localStorage.code = data
       state.code = data
     },
-   TRIM:(state,data)=>{
+    TRIM:(state,data)=>{
         state.timerCoander = data
     },
     LOGOUT:(state)=> {
@@ -30,6 +30,10 @@ export default new Vuex.Store({
       localStorage.removeItem('code');
       localStorage.removeItem('email');
       localStorage.removeItem('filName');
+    },
+    SAVE_PRESALEForm: (state, formData) => {
+      console.log( formData )
+      state.presaleForm = formData
     }
   },
   actions: {

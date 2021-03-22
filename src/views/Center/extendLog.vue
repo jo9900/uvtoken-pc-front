@@ -75,7 +75,6 @@ export default {
     getList() {
       let params = this.form;
       marketingLog(params).then((res) => {
-        console.log(res);
         if (res.code == 0) {
           this.tableData = res.data.records;
           this.total = res.data.count;

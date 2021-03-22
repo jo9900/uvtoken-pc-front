@@ -47,7 +47,6 @@ export default {
   mounted() {
     let id = this.id
     this.articleText = ArticleMap.get(id)
-    console.log( this.articleText )
   },
   computed: {},
   methods: {

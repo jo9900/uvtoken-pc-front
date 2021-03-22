@@ -271,7 +271,6 @@ export default {
   },
   methods: {
     init() {
-      console.log('center', localStorage.getItem("filName"))
       this.userFilName = localStorage.getItem("filName")
       this.getUserInfo();
       this.getMyPreSale();
@@ -306,7 +305,6 @@ export default {
         code: localStorage.getItem("code"),
       };
       myPreSale(params).then((res) => {
-        console.log(res);
         if (res.code == 0) {
           this.myPreSale = res.data;
         } else {
@@ -320,7 +318,6 @@ export default {
         code: localStorage.getItem("code"),
       };
       myMarketing(params).then((res) => {
-        console.log(res);
         if (res.code == 0) {
           this.marketing = res.data;
         } else {

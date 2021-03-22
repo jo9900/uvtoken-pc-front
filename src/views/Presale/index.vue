@@ -200,8 +200,8 @@
                 label-position="top"
                 label-width="80px"
                 :rules="rules"
-                :model="presellForm"
-                ref="presellForm"
+                :model="presaleForm"
+                ref="presaleForm"
             >
               <el-row>
                 <el-col :span="24">
@@ -247,7 +247,7 @@
                       :$t( 'presale.text32' )"
                       prop="book_amount" style="position: relative">
                     <el-input type="text"
-                              v-model.trim="presellForm.book_amount"
+                              v-model.trim="presaleForm.book_amount"
                               :placeholder="round!=lastRound
                                 ? $t( 'presale.text33' )
                                 : $t( 'presale.text34' )"
@@ -466,7 +466,7 @@ export default {
       KYC_loading_DialogVisible: false,
       KYC_error_DialogVisible: false,
 
-      presellForm: {
+      presaleForm: {
         book_amount: ""
       },
       presellChecked: false,
@@ -489,7 +489,14 @@ export default {
   },
   computed: {
   },
-  watch: {},
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      if (from && from.name === 'purchaseAgreement') {
+        vm.firstDialogVisible = true
+        vm.presaleForm = vm.$store.state.presaleForm
+      }
+    })
+  },
   methods: {
     calc_precentage() {
       let pre = 0
@@ -510,7 +517,7 @@ export default {
         this.loginDialogVisible = true
         return
       }
-      this.presellForm.book_amount = "";
+      this.presaleForm.book_amount = "";
       this.totalPrice = 0;
       this.presellChecked = false;
       let params = {
@@ -524,7 +531,6 @@ export default {
         this.KYC_DialogVisible = this.userInfo.kyc_status == 0
         if ( this.userInfo.kyc_status == 1 ) {
           this.preInfo = JSON.parse( JSON.stringify( this['preInfo' + this.round] ) )
-          console.log( this.preInfo )
           this.calc_precentage()
           this.firstDialogVisible = true;
         }
@@ -551,6 +557,7 @@ export default {
       this.firstPayDialogVisible = false
     },
     koserxy() {
+      this.$store.commit('SAVE_PRESALEForm', this.presaleForm)
       this.$router.push( '/purchaseAgreement' )
     },
 
@@ -611,10 +618,10 @@ export default {
     },
     nextPay() {
       this.charge_address = "";
-      this.$refs[ "presellForm" ].validate( ( valid ) => {
+      this.$refs[ "presaleForm" ].validate( ( valid ) => {
         if ( valid ) {
           if ( this.round != this.lastRound ) {
-            if ( parseInt( this.presellForm.book_amount ) > this.preInfo.total ) {
+            if ( parseInt( this.presaleForm.book_amount ) > this.preInfo.total ) {
               let message = "";
               if ( this.$lang == 'en' ) {
                 message = "The number of copies exceeds the maximum" + " " + this.preInfo.total + " " + "copies";
@@ -649,7 +656,7 @@ export default {
           subBook( {
             user_code: localStorage.getItem( 'code' ),
             amount_type: this.round != this.lastRound ? '1' : '0',
-            book_amount: this.presellForm.book_amount
+            book_amount: this.presaleForm.book_amount
           } ).then( res => {
             this.loading = false
             if ( res.code == 0 ) {
