@@ -80,10 +80,14 @@
                 <el-input
                   class="row_input"
                   autocomplete="off"
-                  type="password"
+                  :type="passwordType1"
                   :placeholder="$t( 'login.text9' )"
                   v-model.trim="resetData.pwd"
                 />
+                <img v-show="!showEye1" @click="triggerEye(1)"
+                     class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+                <img v-show="showEye1" class="eye" @click="triggerEye(1)"
+                     src="../../assets/img/eye-open.svg" alt="eye">
               </el-form-item>
               <el-form-item class="form_row" prop="againPassword">
                 <img
@@ -94,10 +98,14 @@
                 <el-input
                   class="row_input"
                   autocomplete="off"
-                  type="password"
+                  :type="passwordType2"
                   :placeholder="$t( 'login.text7' )"
                   v-model.trim="resetData.againPassword"
                 />
+                <img v-show="!showEye2" @click="triggerEye(2)"
+                     class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+                <img v-show="showEye2" class="eye" @click="triggerEye(2)"
+                     src="../../assets/img/eye-open.svg" alt="eye">
               </el-form-item>
             </el-form>
             <el-button
@@ -200,6 +208,10 @@ export default {
     };
     return {
       pk: '',
+      showEye1: false,
+      showEye2: false,
+      passwordType1: 'password',
+      passwordType2: 'password',
       dialogVisible: false,
       langType: this.$langType,
       fromPath: "",
@@ -266,6 +278,13 @@ export default {
   computed: {},
 
   methods: {
+    triggerEye(id) {
+      this['showEye' + id] = !this['showEye' + 'id']
+      if (this['passwordType' + id] == 'password') {
+        this['passwordType' + id] = 'text'
+      }
+      else this['passwordType' + id] = 'password'
+    },
     closeVerifyDialog() {
       this.loading = false
       this.handleClick()
@@ -575,5 +594,12 @@ export default {
   font-size: 14px;
   text-align: center;
   color: #828282;
+}
+.eye {
+  right: 36px;
+  top: 22px;
+}
+.eye-close {
+  top: 29px;
 }
 </style>

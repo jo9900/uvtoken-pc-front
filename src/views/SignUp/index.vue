@@ -39,11 +39,15 @@
                 />
                 <el-input
                   class="row_input"
-                  type="password"
+                  :type="passwordType1"
                   autocomplete="off"
                   :placeholder="$t( 'login.text3' )"
                   v-model.trim="signUpForm.pwd"
                 />
+                <img v-show="!showEye1" @click="triggerEye(1)"
+                     class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+                <img v-show="showEye1" class="eye" @click="triggerEye(1)"
+                     src="../../assets/img/eye-open.svg" alt="eye">
               </el-form-item>
               <el-form-item class="form_row" prop="againPassword">
                 <img
@@ -53,11 +57,15 @@
                 />
                 <el-input
                   class="row_input"
-                  type="password"
+                  :type="passwordType2"
                   autocomplete="off"
                   :placeholder="$t( 'login.text6' )"
                   v-model.trim="signUpForm.againPassword"
                 />
+                <img v-show="!showEye2" @click="triggerEye(2)"
+                     class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+                <img v-show="showEye2" class="eye" @click="triggerEye(2)"
+                     src="../../assets/img/eye-open.svg" alt="eye">
               </el-form-item>
               <div class="form_row codeText" style="margin-bottom: 15px">
                 <img
@@ -225,6 +233,10 @@ export default {
 
     return {
       pk: '',
+      showEye1: false,
+      showEye2: false,
+      passwordType1: 'password',
+      passwordType2: 'password',
       dialogVisible: false,
       fromPath: "",
       loading: false,
@@ -287,6 +299,13 @@ export default {
   computed: {},
 
   methods: {
+    triggerEye(id) {
+      this['showEye' + id] = !this['showEye' + 'id']
+      if (this['passwordType' + id] == 'password') {
+        this['passwordType' + id] = 'text'
+      }
+      else this['passwordType' + id] = 'password'
+    },
     toReset() {
       this.$router.push("forget");
     },
@@ -614,5 +633,12 @@ export default {
   font-size: 14px;
   text-align: center;
   color: #828282;
+}
+.eye {
+  top: 12px;
+  right: 13px;
+}
+.eye-close {
+  top: 20px
 }
 </style>

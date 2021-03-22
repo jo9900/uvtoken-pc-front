@@ -173,6 +173,8 @@ export default {
                     if (link.path == cur.path) {
                         this.currentIndex = index
                     }
+                    if (cur.path == '/center')
+                      this.currentIndex = -1
                 })
             },
             deep: true,

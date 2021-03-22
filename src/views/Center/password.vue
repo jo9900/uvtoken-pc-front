@@ -44,10 +44,14 @@
           >
             <div class="" style="height: 51px">
               <el-input
-                type="password"
+                :type="passwordType1"
                 v-model.trim="dataForm.password"
                 autocomplete="off"
               ></el-input>
+              <img v-show="!showEye1" @click="triggerEye(1)"
+                   class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+              <img v-show="showEye1" class="eye" @click="triggerEye(1)"
+                   src="../../assets/img/eye-open.svg" alt="eye">
             </div>
           </el-form-item>
           <el-form-item
@@ -57,9 +61,13 @@
           >
             <div class="" style="height: 51px">
               <el-input
-                type="password"
+                :type="passwordType2"
                 v-model.trim="dataForm.againPassword"
               ></el-input>
+              <img v-show="!showEye2" @click="triggerEye(2)"
+                   class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+              <img v-show="showEye2" class="eye" @click="triggerEye(2)"
+                   src="../../assets/img/eye-open.svg" alt="eye">
             </div>
           </el-form-item>
         </el-form>
@@ -98,6 +106,10 @@ export default {
     };
     return {
       pk: '',
+      showEye1: false,
+      showEye2: false,
+      passwordType1: 'password',
+      passwordType2: 'password',
       disabled: false,
       time: 60,
       timerNull: null,
@@ -138,6 +150,13 @@ export default {
   computed: {},
   watch: {},
   methods: {
+    triggerEye(id) {
+      this['showEye' + id] = !this['showEye' + 'id']
+      if (this['passwordType' + id] == 'password') {
+        this['passwordType' + id] = 'text'
+      }
+      else this['passwordType' + id] = 'password'
+    },
     passwordUpdata() {
       this.$refs["dataForm"].validate(async (valid) => {
         if (valid) {
@@ -312,6 +331,12 @@ export default {
   cursor: pointer;
   color: #5885FD;
   text-decoration: underline;
+}
+.eye {
+  top: 11px;
+}
+.eye-close {
+  top: 17px;
 }
 </style>
 

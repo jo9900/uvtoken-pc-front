@@ -289,3 +289,15 @@
 .hide {
     display: none;
 }
+
+.eye {
+    position: absolute;
+    z-index: 10;
+    width: 24px;
+    opacity: .3;
+    right: 27px;
+    top: 20px;
+}
+.eye-close {
+    top:27px
+}

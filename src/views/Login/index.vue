@@ -40,7 +40,7 @@
               />
               <el-input
                   class="row_input"
-                  type="password"
+                  :type="passwordType"
                   :placeholder="$t('login.text3')"
                   v-model.trim="loginForm.pwd"
                   auto-complete="new-password"
@@ -48,6 +48,10 @@
                   autocomplete="off"
                   @keyup.enter.native="submitForm('loginForm')"
               />
+              <img v-show="!showEye" @click="triggerEye"
+                   class="eye eye-close" src="../../assets/img/eye.svg" alt="eye">
+              <img v-show="showEye" class="eye" @click="triggerEye"
+                   src="../../assets/img/eye-open.svg" alt="eye">
             </el-form-item>
             <div class="forget_link">
               <span @click="toReset" style="cursor: pointer">{{
@@ -129,6 +133,8 @@ export default {
 
     return {
       pk: '',
+      showEye: false,
+      passwordType: 'password',
       dialogVisible: false,
       fromPath: "",
       loading: false,
@@ -201,6 +207,13 @@ export default {
     }
   },
   methods: {
+    triggerEye() {
+      this.showEye = !this.showEye
+      if (this.passwordType == 'password') {
+        this.passwordType = 'text'
+      }
+      else this.passwordType = 'password'
+    },
     toReset() {
       this.$router.push( { path: "/forget" } );
     },
