@@ -495,6 +495,7 @@ export default {
         vm.firstDialogVisible = true
         vm.presaleForm = vm.$store.state.presaleForm
       }
+      vm.isLogin = !!localStorage.getItem( 'token' );
     })
   },
   methods: {
