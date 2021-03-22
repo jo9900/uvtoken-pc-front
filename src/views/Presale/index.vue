@@ -262,7 +262,7 @@
                 <el-col :span="24">
                   <el-form-item :label="$t( 'presale.text35' )">
                     <div class="priceValue">
-                      {{ totalPrice }}
+                      {{ totalAmount }}
                     </div>
                     <div class="skert" style="top: 1px;">
                       USDT
@@ -271,7 +271,7 @@
                 </el-col>
                 <el-col :span="24">
                   <el-form-item id="elcheckbox">
-                    <el-checkbox v-model="presellChecked" ></el-checkbox>
+                    <el-checkbox v-model="presaleChecked" ></el-checkbox>
                     <span>  {{ $t( 'presale.text36' ) }} <span class="sgStyle" @click="koserxy">【{{ $t( 'presale.text37' ) }}】</span></span>
                   </el-form-item>
                 </el-col>
@@ -308,7 +308,7 @@
                 line-height: 14px;">{{ $t( 'presale.text58' ) }}
             </div>
             <div class="pay_name">{{ $t( 'presale.text42' ) }}</div>
-            <div class="pay_num">{{ totalPrice }} USDT</div>
+            <div class="pay_num">{{ totalAmount }} USDT</div>
             <div class="pay_omni_name">{{ $t( 'presale.text43' ) }}</div>
             <div class="pay_omni_row">
               <div class="omni" id="omni">{{ charge_address }}</div>
@@ -435,7 +435,7 @@ export default {
           callback( new Error( this.$t( 'presale.text49' ) ) )
         }
         else {
-          this.totalPrice = parseInt( value * this.preInfo.pre_amount * this.preInfo.price )
+          this.totalAmount = parseInt( value * this.preInfo.pre_amount * this.preInfo.price )
           callback()
         }
       }
@@ -446,7 +446,7 @@ export default {
 
         }
         else {
-          this.totalPrice = value * this.preInfo.price
+          this.totalAmount = value * this.preInfo.price
           callback()
         }
       }
@@ -469,8 +469,8 @@ export default {
       presaleForm: {
         book_amount: ""
       },
-      presellChecked: false,
-      totalPrice: 0,
+      presaleChecked: false,
+      totalAmount: 0,
       round: -1,
       loading: false,
       preInfo: {},
@@ -494,8 +494,8 @@ export default {
       if (from && from.name === 'purchaseAgreement') {
 
           vm.presaleForm.book_amount = vm.$store.state.book_amount
-          vm.totalPrice = vm.$store.state.totalPrice
-          vm.presellChecked = vm.$store.state.presellChecked
+          vm.totalAmount = vm.$store.state.totalAmount
+          vm.presaleChecked = vm.$store.state.presaleChecked
           vm.firstDialogVisible = true
       }
       vm.isLogin = !!localStorage.getItem( 'token' );
@@ -522,8 +522,8 @@ export default {
         return
       }
       this.presaleForm.book_amount = "";
-      this.totalPrice = 0;
-      this.presellChecked = false;
+      this.totalAmount = 0;
+      this.presaleChecked = false;
       let params = {
         code: localStorage.getItem( 'code' )
       }
@@ -548,7 +548,7 @@ export default {
           this.round = res.data.round;
           this.roundstatus = res.data.status;
         } catch {
-          this.$message.error(this.$t( 'text204' ))
+          // this.$message.error(this.$t( 'text204' ))
         }
       } )
     },
@@ -563,8 +563,8 @@ export default {
     koserxy() {
       let data = {
         book_amount: this.presaleForm.book_amount,
-        totalPrice: this.totalPrice,
-        presellChecked: this.presellChecked,
+        totalAmount: this.totalAmount,
+        presaleChecked: this.presaleChecked,
       }
       this.$store.commit('SAVE_PRESALEForm', data)
       this.$router.push( '/purchaseAgreement' )
@@ -651,14 +651,14 @@ export default {
             }
           }
           else {
-            if ( this.totalPrice > this.preInfo.total ) {
+            if ( this.totalAmount > this.preInfo.total ) {
               return this.$message.error( this.$t( 'presale.text53' ) + this.preInfo.total + " USDT" );
             }
             if ( this.preInfo.progress >= 100 ) {
               return this.$message.error( this.$t( 'presale.text55' ) );
             }
           }
-          if ( !this.presellChecked ) {
+          if ( !this.presaleChecked ) {
             return document.getElementById( "elcheckbox" ).style[ 'color' ] = "red"
           }
           this.loading = true;
@@ -675,6 +675,8 @@ export default {
               this.presellCoander();
               this.getPreSale()
               this.getPreSale2();
+              this.getPreSale3();
+              this.getPreSale4();
               setTimeout( () => {
                 let qrcode = new QRCode( 'qrcode', {
                   width: 150,
