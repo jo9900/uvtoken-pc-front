@@ -282,6 +282,10 @@ export default {
                         white-space: nowrap;
                         text-overflow: ellipsis;
                         margin-left: 19px;
+                        a {
+                          display: block;
+                          height: 100%;
+                        }
                         &:hover{
                           color: #5885FDFF;
                         }
