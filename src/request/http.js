@@ -98,19 +98,20 @@ export function get(url, params) {
       axios.post(url, params)
       .then(res => {
           console.log( res.data.code )
-          if (res.data.code != 300)
-            resolve(res.data);
-
-          if (res.data.code == 102501) { // token 失效
-              store.commit('LOGOUT')
-              router.push({path: '/login'})
-          }
-          if (res.data.code == 300)
+          if (res.data.code == 300) {
               elMessage({
                   message: i18n.t("text204"),
                   type: "error",
                   duration: 3 * 1000,
               });
+              return
+          }
+          if (res.data.code == 102501) { // token 失效
+              store.commit('LOGOUT')
+              router.push({path: '/login'})
+              return
+          }
+          resolve(res.data);
       })
       .catch(err => {
           console.log(err)
