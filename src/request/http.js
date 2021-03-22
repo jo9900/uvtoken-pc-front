@@ -41,35 +41,32 @@ axios.interceptors.request.use(
 )
 
 axios.interceptors.response.use(function (response) {
-    if(response.headers){
+        console.log( response )
+        if(response.headers){
         if(response.headers["refresh-token"]){
          localStorage.setItem('token',response.headers["refresh-token"])
          store.commit('SETTOKEN', response.headers["refresh-token"])
         }
     }
-    if (response.data.code == '102501') { // token 失效
-        store.commit('LOGOUT')
-        router.push({path: '/login'})
-    }
 	return response;
 },
 function (error) {
-	if(error.response){
-        if(error.response.status=="401"){
+    console.log( error )
+    if (typeof error.response !== "undefined") {
+        if (error.response.data.code === 401) {
             store.commit('LOGOUT')
-            router.push({path: '/login'})
+            window.location.href = "/login?redirect=%2Fdashboard";
         }
-	}
-	// else if (error.message.includes('timeout')) {
-    //     elMessage({
-    //         message: i18n.t("text204"),
-    //         type: "error",
-    //         duration: 3 * 1000,
-    //     });
-    // }
-	else{
-        return Promise.reject(error);
+        else {
+            const errMsg = error.response.data.msg;
+            elMessage({
+                message: errMsg,
+                type: "error",
+                duration: 2 * 1000,
+            });
+        }
     }
+    return Promise.reject(error);
 
 });
 
@@ -100,8 +97,14 @@ export function get(url, params) {
     return new Promise((resolve, reject) => {
       axios.post(url, params)
       .then(res => {
+          console.log( res.data.code )
           if (res.data.code != 300)
             resolve(res.data);
+
+          if (res.data.code == 102501) { // token 失效
+              store.commit('LOGOUT')
+              router.push({path: '/login'})
+          }
           if (res.data.code == 300)
               elMessage({
                   message: i18n.t("text204"),
@@ -110,6 +113,7 @@ export function get(url, params) {
               });
       })
       .catch(err => {
+          console.log(err)
           reject(err.data)
       })
     });
