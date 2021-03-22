@@ -2,7 +2,7 @@
 <template>
     <div class="web_nav">
         <div class="wrap">
-            <div class="nav_logo">
+            <div class="nav_logo" @click="toHome">
                 <div class="flext">
                     <div class="flext-all1"><img src="@/assets/img/logo_uvtoken@2x.png"/></div>
                 </div>
@@ -176,6 +176,9 @@ export default {
         }
     },
     methods:{
+        toHome() {
+          this.$router.push('/')
+        },
         clickTab(link, index) {
           if (link.path != '/whitePaper' )
           this.currentIndex = index
@@ -335,10 +338,6 @@ export default {
         text-align: center;
         line-height: 36px;
         color: #2C2C2C;
-    }
-
-    .flext{
-        display:inline-block;
     }
     .flext-all1{
        float: left;

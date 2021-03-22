@@ -238,7 +238,7 @@
 <script>
 import { userInfo, myPreSale, myMarketing } from "@/request/user.js";
 export default {
-  name: "",
+  name: "center",
   data() {
     return {
       userFilName: '',
@@ -266,6 +266,12 @@ export default {
   },
   computed: {},
   watch: {},
+  activated() {
+    this.userFilName = localStorage.getItem("filName")
+    this.getUserInfo();
+    this.getMyPreSale();
+    this.getMyMarketing();
+  },
   methods: {
     copy(copyTxt) {
       var createInput = document.createElement("input");
@@ -347,10 +353,7 @@ export default {
   },
   created() {},
   mounted() {
-    this.userFilName = localStorage.getItem("filName")
-    this.getUserInfo();
-    this.getMyPreSale();
-    this.getMyMarketing();
+
   },
 };
 </script>
