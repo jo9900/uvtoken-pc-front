@@ -8,6 +8,7 @@ export default new Vuex.Store({
     signUpForm:"",
     book_amount:"",
     totalPrice:"",
+    presellChecked:"",
     timerCoander:false,
     token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
     code: localStorage.getItem('email') ? localStorage.getItem('email') : '',
@@ -35,6 +36,7 @@ export default new Vuex.Store({
     SAVE_PRESALEForm: (state, data) => {
       state.book_amount = data.book_amount
       state.totalPrice = data.totalPrice
+      state.presellChecked = data.presellChecked
     }
   },
   actions: {

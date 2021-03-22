@@ -271,7 +271,7 @@
                 </el-col>
                 <el-col :span="24">
                   <el-form-item id="elcheckbox">
-                    <el-checkbox v-model.trim="presellChecked"></el-checkbox>
+                    <el-checkbox v-model="presellChecked" ></el-checkbox>
                     <span>  {{ $t( 'presale.text36' ) }} <span class="sgStyle" @click="koserxy">【{{ $t( 'presale.text37' ) }}】</span></span>
                   </el-form-item>
                 </el-col>
@@ -492,9 +492,11 @@ export default {
   beforeRouteEnter (to, from, next) {
     next(vm => {
       if (from && from.name === 'purchaseAgreement') {
-        vm.firstDialogVisible = true
-        vm.presaleForm.book_amount = vm.$store.state.book_amount
-        vm.totalPrice = vm.$store.state.totalPrice
+
+          vm.presaleForm.book_amount = vm.$store.state.book_amount
+          vm.totalPrice = vm.$store.state.totalPrice
+          vm.presellChecked = vm.$store.state.presellChecked
+          vm.firstDialogVisible = true
       }
       vm.isLogin = !!localStorage.getItem( 'token' );
     })
@@ -562,6 +564,7 @@ export default {
       let data = {
         book_amount: this.presaleForm.book_amount,
         totalPrice: this.totalPrice,
+        presellChecked: this.presellChecked,
       }
       this.$store.commit('SAVE_PRESALEForm', data)
       this.$router.push( '/purchaseAgreement' )

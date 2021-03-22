@@ -294,7 +294,8 @@ export default {
         if (valid) {
           this.loading = true;
           let formData = new FormData();
-          formData.append("modify", this.$route.query.type);
+
+          formData.append("modify", this.modify);
           formData.append("user_code", localStorage.getItem("code"));
           formData.append("country_code", this.formLabelAlign.country_code);
           formData.append("first_name", this.formLabelAlign.first_name);
@@ -356,7 +357,9 @@ export default {
           this.id_back = this.BaseUrl + res.data.id_back_url;
           this.formLabelAlign.id_front = "";
           this.formLabelAlign.id_back = "";
+          this.formLabelAlign.birth_date = null
           this.formLabelAlign.id_type = this.formLabelAlign.id_type.toString();
+          this.modify = res.data.kyc_status == 0? 1 : 2
         }
       });
     },

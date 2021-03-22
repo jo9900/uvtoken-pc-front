@@ -15,7 +15,7 @@
             <router-link to="/media">{{ $t( 'text34' ) }}</router-link>
           </div>
           <div class="spower">
-            <a style="height: 20px;"> &emsp;&emsp;</a>
+            <router-link to="/financial">{{ $t( 'text4' ) }}</router-link>
             <router-link to="/Dapp" class="maert">Dapp</router-link>
             <router-link to="/userAgreement">{{ $t( 'text35' ) }}</router-link>
           </div>
