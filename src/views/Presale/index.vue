@@ -253,7 +253,7 @@
                                 : $t( 'presale.text34' )"
                               size="medium"
                     ></el-input>
-                    <div class="skert" v-if="round!=lastRound">
+                    <div class="skert" v-if="round != lastRound">
                       {{ $t( 'presale.text26' ) }}
                     </div>
                     <div class="skert" style="width: 42px;" v-else>UVT</div>
@@ -493,7 +493,8 @@ export default {
     next(vm => {
       if (from && from.name === 'purchaseAgreement') {
         vm.firstDialogVisible = true
-        vm.presaleForm = vm.$store.state.presaleForm
+        vm.presaleForm.book_amount = vm.$store.state.book_amount
+        vm.totalPrice = vm.$store.state.totalPrice
       }
       vm.isLogin = !!localStorage.getItem( 'token' );
     })
@@ -558,7 +559,11 @@ export default {
       this.firstPayDialogVisible = false
     },
     koserxy() {
-      this.$store.commit('SAVE_PRESALEForm', this.presaleForm)
+      let data = {
+        book_amount: this.presaleForm.book_amount,
+        totalPrice: this.totalPrice,
+      }
+      this.$store.commit('SAVE_PRESALEForm', data)
       this.$router.push( '/purchaseAgreement' )
     },
 

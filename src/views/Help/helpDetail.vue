@@ -61,10 +61,6 @@ export default {
 </script>
 
 <style lang='less'>
-.wrap {
-  width: 1200px;
-  margin: 0 auto;
-}
 
 .page {
   .page-content {
