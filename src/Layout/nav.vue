@@ -101,6 +101,7 @@ export default {
     name: '',
     data() {
        return {
+         show: false,
          currentIndex: -1,
           links: [
             {
