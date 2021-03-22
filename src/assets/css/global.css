@@ -286,3 +286,6 @@
     margin-left: 5px;
     background: #1D2C46;
 }
+.hide {
+    display: none;
+}
