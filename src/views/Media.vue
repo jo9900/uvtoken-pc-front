@@ -6,7 +6,7 @@
         <div class="page-moasat">
           <div class="article">
             <h1 class="title">{{ $t('text34') }}</h1>
-            <p>{{ $t('text111') }}service@uvtoken.com</p>
+            <p>{{ $t('text111') }}business@uvtoken.com</p>
           </div>
         </div>
       </div>
