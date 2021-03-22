@@ -267,12 +267,16 @@ export default {
   computed: {},
   watch: {},
   activated() {
-    this.userFilName = localStorage.getItem("filName")
-    this.getUserInfo();
-    this.getMyPreSale();
-    this.getMyMarketing();
+   this.init()
   },
   methods: {
+    init() {
+      console.log('center', localStorage.getItem("filName"))
+      this.userFilName = localStorage.getItem("filName")
+      this.getUserInfo();
+      this.getMyPreSale();
+      this.getMyMarketing();
+    },
     copy(copyTxt) {
       var createInput = document.createElement("input");
       createInput.value = copyTxt;
@@ -353,7 +357,7 @@ export default {
   },
   created() {},
   mounted() {
-
+    this.init()
   },
 };
 </script>

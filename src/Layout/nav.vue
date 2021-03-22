@@ -23,7 +23,7 @@
             </div>
             <div class="nav_center">
 <!--              TODO 隐藏登陆注册-->
-                <div class="in" v-if="!isLogin" style="display: none">
+                <div class="in" v-if="!isLogin">
                     <router-link to="/signUp" style="margin-right: 12px;">
                     {{ $t("text8") }}
                     </router-link>
@@ -164,6 +164,7 @@ export default {
         '$route': {
             handler(cur) {
               this.userCode = localStorage.getItem('filName')
+              this.isLogin = localStorage.getItem('token')?true:false;
               this.pagePath = cur.path
                 this.links.find((link, index)=> {
                     if (link.path == cur.path) {
@@ -225,8 +226,7 @@ export default {
         }
     },
     created(){
-        this.userCode = localStorage.getItem('filName')
-        this.isLogin = localStorage.getItem('token')?true:false;
+
 
     },
 

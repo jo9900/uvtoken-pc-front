@@ -189,7 +189,17 @@ export default {
     };
   },
   computed: {},
-
+  watch: {
+    '$route' : {
+      handler(cur, old) {
+        if (old && old.name == 'presale') {
+          this.fromPath = 'presale'
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
   methods: {
     toReset() {
       this.$router.push( { path: "/forget" } );
@@ -254,7 +264,7 @@ export default {
         localStorage.setItem( "token", token );
         this.$store.commit( "SETTOKEN", token );
         this.$store.commit( "SETCODE", code );
-        if ( this.fromPath == "/presale" )
+        if ( this.fromPath == "presale" )
           this.$router.back( -1 );
         else
           this.$router.push( "/center" );
