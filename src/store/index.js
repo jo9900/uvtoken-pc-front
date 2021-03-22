@@ -9,6 +9,7 @@ export default new Vuex.Store({
     book_amount:"",
     totalAmount:"",
     presaleChecked:"",
+    firstDialogVisible:false,
     timerCoander:false,
     token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
     code: localStorage.getItem('email') ? localStorage.getItem('email') : '',
@@ -37,6 +38,7 @@ export default new Vuex.Store({
       state.book_amount = data.book_amount
       state.totalAmount = data.totalAmount
       state.presaleChecked = data.presaleChecked
+      state.firstDialogVisible = data.firstDialogVisible
     }
   },
   actions: {

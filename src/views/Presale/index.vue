@@ -496,7 +496,7 @@ export default {
           vm.presaleForm.book_amount = vm.$store.state.book_amount
           vm.totalAmount = vm.$store.state.totalAmount
           vm.presaleChecked = vm.$store.state.presaleChecked
-          vm.firstDialogVisible = true
+          vm.firstDialogVisible = vm.$store.state.firstDialogVisible
       }
       vm.isLogin = !!localStorage.getItem( 'token' );
     })
@@ -565,6 +565,7 @@ export default {
         book_amount: this.presaleForm.book_amount,
         totalAmount: this.totalAmount,
         presaleChecked: this.presaleChecked,
+        firstDialogVisible: this.firstDialogVisible,
       }
       this.$store.commit('SAVE_PRESALEForm', data)
       this.$router.push( '/purchaseAgreement' )

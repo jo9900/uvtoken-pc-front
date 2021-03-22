@@ -134,9 +134,9 @@
           <div class="item_title">
             <span>{{ $t( 'usercenter.text15' ) }}</span>
 <!--            TODO 转让先隐藏-->
-<!--            <span class="color5885FD" style="cursor: pointer" @click="sofert">{{-->
-<!--              $t( 'text165' )-->
-<!--            }}</span>-->
+            <span :class="['color5885FD', {'hide': NODE_ENV == 'production' }]" style="cursor: pointer" @click="sofert">{{
+              $t( 'text165' )
+            }}</span>
           </div>
           <div class="margintop40 color5885FD">
             {{ myPreSale.apply_taft_amount ? myPreSale.apply_taft_amount : 0 }}
@@ -241,6 +241,7 @@ export default {
   name: "center",
   data() {
     return {
+      NODE_ENV:process.env.NODE_ENV,
       userFilName: '',
       userInfo: {
         area: "",
