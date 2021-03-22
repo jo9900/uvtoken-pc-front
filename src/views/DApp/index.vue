@@ -58,7 +58,7 @@
                   <img src="../../assets/img/icon_sxdapp@2x.png" />
                 </div>
                 <div class="title-2">{{ $t( 'text110' ) }}</div>
-                <div class="title-3">{{ $t( 'text111' ) }}service@uvtoken.com</div>
+                <div class="title-3">{{ $t( 'text111' ) }}business@uvtoken.com</div>
               </div>
             </div>
           </div>
