@@ -2,7 +2,7 @@
 *author:zhoaya
 *day:2020
 */
-import { get, post } from './http'
+import { get, post, post2 } from './http'
 
 const baseUrl = 'webmanage/'
 
@@ -48,6 +48,9 @@ export const addkyc= params =>{
 
 export const kycInfo= params =>{
     return post( baseUrl + 'user/kyc/info' , params )
+}
+export const kycInfoPhoto= (url, params= {}) =>{
+    return post2(  baseUrl + url, params )
 }
 export const taftBoert= params =>{
     return post( baseUrl + 'account/transfer/taft' , params )

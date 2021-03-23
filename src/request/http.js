@@ -116,6 +116,23 @@ export function get(url, params) {
       })
     });
   }
+ export function post2(url, params={}) {
+    return new Promise((resolve, reject) => {
+      axios({
+          url,
+          method: 'post',
+          params,
+          responseType: 'arraybuffer',
+      })
+      .then(res => {
+          resolve(res.data);
+      })
+      .catch(err => {
+          console.log(err)
+          reject(err.data)
+      })
+    });
+  }
 
 
   /**

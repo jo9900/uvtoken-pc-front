@@ -166,7 +166,7 @@
 </template>
 
 <script>
-import { areaList, addkyc, kycInfo } from "@/request/user";
+import { areaList, addkyc, kycInfo, kycInfoPhoto } from "@/request/user";
 import { compress, dataURLtoFile } from "@/utils/uploadImage";
 import { EXIF } from "@/utils/exif";
 export default {
@@ -347,14 +347,17 @@ export default {
         }
       });
     },
-    get_kycInfo() {
-      kycInfo({ code: localStorage.getItem("code") })
+    async get_kycInfo() {
+      let front = ''
+      let back = ''
+     await kycInfo({ code: localStorage.getItem("code") })
       .then((res) => {
         if (res.code == 0) {
           this.formLabelAlign = res.data;
           this.formLabelAlign.isImg = "#";
-          this.id_front = this.BaseUrl + res.data.id_front_url;
-          this.id_back = this.BaseUrl + res.data.id_back_url;
+          front = res.data.id_front_url.split('/webmanage/')[1];
+          back = res.data.id_back_url.split('/webmanage/')[1];
+          // this.id_back = res.data.id_back_url.split('/webmanage/')[1];
           this.formLabelAlign.id_front = "";
           this.formLabelAlign.id_back = "";
           this.formLabelAlign.birth_date = this.$moment(res.data.birth_date).format()
@@ -362,10 +365,29 @@ export default {
           this.modify = res.data.kyc_status == 0? 1 : 2
         }
       });
+      await kycInfoPhoto(
+          front,{
+        user_code: localStorage.getItem('code')
+      }).then(res=> {
+        return 'data:image/png;base64,' + btoa(
+            new Uint8Array(res).reduce((data, byte) => data + String.fromCharCode(byte), '')
+        )
+      }).then(data=> {
+        this.id_front = data
+      })
+      await kycInfoPhoto(
+          back,{
+        user_code: localStorage.getItem('code')
+      }).then(res=> {
+        return 'data:image/png;base64,' + btoa(
+            new Uint8Array(res).reduce((data, byte) => data + String.fromCharCode(byte), '')
+        )
+      }).then(data=> {
+        this.id_back = data
+      })
     },
     isImg(str) {
       return str.search( "(jpg|jpeg|swf|gif|png|JPG|JPEG|SWF|GIF|PNG)$" ) != -1;
-
     },
     fileChange(e) {
       console.log(this.isImg(e.target.files[0].type));
