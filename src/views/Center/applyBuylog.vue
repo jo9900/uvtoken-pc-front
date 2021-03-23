@@ -90,7 +90,7 @@ export default {
       preSaleLog(params).then((res) => {
         if (res.code == 0) {
           this.tableData = res.data.records;
-          this.total = res.data.count;
+          this.total = res.count;
         } else {
           this.$message.error(res.msg);
         }
