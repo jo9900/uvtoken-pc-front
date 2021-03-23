@@ -15,7 +15,7 @@
           <div class="user_about">
             <div class="about_row">
               <p class="title">{{ $t('usercenter.text1') }}</p>
-              <p
+              <span
                 class="color5885FD"
                 :class="{ taost: userInfo.kyc_status == 1 }"
               >
@@ -33,13 +33,13 @@
                       : $t( 'usercenter.text4' )
                   }}
                 </template>
-              </p>
+              </span>
             </div>
 
             <div class="about_row">
               <p class="title">{{ $t( 'usercenter.text2' ) }}</p>
 
-              <p
+              <span
                 class="color5885FD"
                 :class="{ taost: userInfo.kyc_status == 1 }"
               >
@@ -53,7 +53,7 @@
                 <template v-else>{{
                   $t( 'usercenter.text4' )
                 }}</template>
-              </p>
+              </span>
             </div>
           </div>
         </div>
@@ -405,13 +405,17 @@ export default {
       }
       .user_about {
         padding-left: 20px;
-        line-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         .about_row {
           display: flex;
           color: #999999;
+          align-items: center;
           font-size: 16px;
           .title {
             margin-right: 23px;
+            white-space: nowrap;
           }
         }
       }
@@ -421,6 +425,7 @@ export default {
       background: lighten(#5885FD, 32%);
       padding: 25px;
       width: 500px;
+      flex-shrink: 0;
       .title {
         position: relative;
         font-size: 18px;
