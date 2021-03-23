@@ -23,7 +23,7 @@
             </template>
           </el-table-column>
           <el-table-column
-            prop="username"
+            prop="Username"
             :label="$t( 'text156' )"
           ></el-table-column>
 
