@@ -488,9 +488,10 @@ export default {
           justify-content: space-between;
         }
         .extend {
+          display: flex;
+          align-items: center;
           width: 340px;
           height: 32px;
-          line-height: 32px;
           padding-left: 8px;
           display: flex;
           justify-content: space-between;
@@ -530,11 +531,11 @@ export default {
   color: #000 !important;
 }
 /deep/ .extend .el-input__inner {
-  height: 32px;
-  line-height: 32px;
+  height: 30px;
+  line-height: 30px;
   border-radius: 0;
-  margin-top: -7px;
   color: #0e0e0e;
   font-weight: 600;
+  outline: none;
 }
 </style>

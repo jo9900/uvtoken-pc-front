@@ -511,7 +511,7 @@ export default {
       } else {
         pre = parseInt(this.preInfo.progress)>=parseInt(this.preInfo.total)?100:parseFloat((this.preInfo.progress/this.preInfo.total)*100).toFixed(2)
       }
-      this.precentage = pre
+      this.percentage = pre
     },
     clickBefore(currentRound) {
       if ( !this.round || this.roundstatus != 1 || this.round != currentRound ) {
@@ -871,13 +871,13 @@ export default {
         z-index: 20;
         left: 245px;
         &:nth-of-type(1) {
-          top: 181px;
+          top: 179px;
         }
         &:nth-of-type(2) {
           top: 359px;
         }
         &:nth-of-type(3) {
-          top: 540px;
+          top: 539px;
         }
       }
     }
