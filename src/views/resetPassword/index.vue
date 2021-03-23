@@ -145,7 +145,7 @@
           width="368px">
         <div class="verify-dialog-content">
           <div class="verify-title">{{ $t('login.text34') }}</div>
-          <slide-verify :l="42"
+          <slideVerify :l="42"
                         :r="10"
                         :w="310"
                         :h="155"
@@ -155,7 +155,7 @@
                         @refresh="onRefresh"
                         ref="slideblock"
                         :imgs="imgs"
-          ></slide-verify>
+          ></slideVerify>
         </div>
       </el-dialog>
   </div>
@@ -177,9 +177,11 @@ const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
 import MixinSlideVerify from "@/mixin/slideVerify.js"
 let that;
+import slideVerify from "@/components/slideVerify"
+
 export default {
   name: "resetPassword",
-  components: { webNav },
+  components: { webNav, slideVerify },
   mixins: [MixinSlideVerify],
   data() {
     var Elowert = (rule, value, callback) => {

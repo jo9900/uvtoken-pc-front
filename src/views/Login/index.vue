@@ -147,8 +147,8 @@ export default {
       inviteCode: false,
       btntxt: this.$t( 'login.text14' ),
       loginForm: {
-        mail: "test@qq.com",
-        pwd: "111111qq",
+        mail: "",
+        pwd: "",
         deviceType: 0
       },
       signUpForm: {
@@ -286,7 +286,6 @@ export default {
       } );
     },
     submitForm( formName ) {
-      this.getImg()
       this.$refs[ formName ].validate( ( valid ) => {
         if (!valid) return false
         // 拼图验证

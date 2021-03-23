@@ -166,9 +166,9 @@ export default {
       img.src = this.getRandomImg()
       return img;
     },
-    // 随机生成img src
+
     getRandomImg() {
-      return this.imgs[0]
+      return this.$BaseUrl + 'webmanage/getimg?t=' + +new Date()
     },
     getRandomNumberByRange(start, end) {
       return Math.round(Math.random() * (end - start) + start)
