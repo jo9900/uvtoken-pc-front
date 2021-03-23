@@ -159,19 +159,16 @@ export default {
       const img = document.createElement('img');
       img.crossOrigin = "Anonymous";
       img.onload = onload;
-      img.onerror = () => {
+      img.onerror = (e) => {
         img.src = this.getRandomImg()
+        e.target.onerror = null
       }
       img.src = this.getRandomImg()
       return img;
     },
     // 随机生成img src
     getRandomImg() {
-      // return require('../assets/img.jpg')
-      const len = this.imgs.length;
-      return len > 0 ?
-          this.imgs[this.getRandomNumberByRange(0, len)] :
-          'https://picsum.photos/300/150/?image=' + this.getRandomNumberByRange(0, 1084);
+      return this.imgs[0]
     },
     getRandomNumberByRange(start, end) {
       return Math.round(Math.random() * (end - start) + start)

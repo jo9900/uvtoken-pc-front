@@ -38,7 +38,7 @@
                 class="banner-btn"
                 :href="
                   NODE_ENV !== 'production'
-                    ? 'http://wallet.uvtoken.com/static/download/android/uvtoken.apk'
+                    ? 'http://t.uvtoken.com/app/android/apk/uvtoken.apk'
                     : 'https://wallet.uvtoken.com/static/download/android/uvtoken.apk'
                 "
               >
