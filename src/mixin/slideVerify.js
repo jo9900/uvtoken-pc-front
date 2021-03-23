@@ -33,18 +33,8 @@ const MixinSlideVerify = {
         handleClick() {
             this.$refs.slideblock.reset();
         },
-        getImg() {
-            this.$axios({
-                url: 'webmanage/getimg',
-                responseType: 'blob'
-            }).then(res => {
-                let blob = new Blob([ res ])
-                this.imgs = [ window.URL.createObjectURL( blob )]
-            })
-        }
     },
     created() {
-        // this.getImg()
     },
 }
 export default MixinSlideVerify

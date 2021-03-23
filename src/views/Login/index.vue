@@ -76,7 +76,7 @@
           width="368px">
         <div class="verify-dialog-content">
           <div class="verify-title">{{ $t( 'login.text34' ) }}</div>
-          <slide-verify :l="42"
+          <slideVerify :l="42"
                         :r="10"
                         :w="310"
                         :h="155"
@@ -86,7 +86,7 @@
                         @refresh="onRefresh"
                         ref="slideblock"
                         :imgs="imgs"
-          ></slide-verify>
+          ></slideVerify>
         </div>
       </el-dialog>
     </div>
@@ -102,6 +102,7 @@ import {
   resetPassword
 } from "@/request/login.js";
 import {filName} from "@/filters"
+import slideVerify from "@/components/slideVerify"
 
 const sha256 = require( "js-sha256" ).sha256;
 import { JSEncrypt } from "jsencrypt";
@@ -109,7 +110,7 @@ import MixinSlideVerify from "@/mixin/slideVerify"
 let that;
 export default {
   name: "",
-  components: { webNav },
+  components: { webNav, slideVerify },
   mixins: [MixinSlideVerify],
   data() {
     var Elowert = ( rule, value, callback ) => {
@@ -146,8 +147,8 @@ export default {
       inviteCode: false,
       btntxt: this.$t( 'login.text14' ),
       loginForm: {
-        mail: "test@qq.com",
-        pwd: "111111qq",
+        mail: "",
+        pwd: "",
         deviceType: 0
       },
       signUpForm: {
