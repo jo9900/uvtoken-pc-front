@@ -181,6 +181,7 @@
                       @fail="onFail"
                       @refresh="onRefresh"
                       ref="slideblock"
+                      :imgs="imgs"
         ></slide-verify>
       </div>
     </el-dialog>

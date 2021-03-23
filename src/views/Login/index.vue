@@ -85,6 +85,7 @@
                         @fail="onFail"
                         @refresh="onRefresh"
                         ref="slideblock"
+                        :imgs="imgs"
           ></slide-verify>
         </div>
       </el-dialog>
@@ -145,8 +146,8 @@ export default {
       inviteCode: false,
       btntxt: this.$t( 'login.text14' ),
       loginForm: {
-        mail: "",
-        pwd: "",
+        mail: "test@qq.com",
+        pwd: "111111qq",
         deviceType: 0
       },
       signUpForm: {

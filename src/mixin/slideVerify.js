@@ -6,7 +6,8 @@ const MixinSlideVerify = {
         msg: '',
         text: i18n.t( 'text45' ),
         // 精确度小，可允许的误差范围小；为1时，则表示滑块要与凹槽完全重叠，才能验证成功。默认值为5
-        accuracy: 8
+        accuracy: 8,
+        imgs:  []
     }),
     methods: {
         onSuccess(times){
@@ -16,8 +17,9 @@ const MixinSlideVerify = {
             this.msg = ''
         },
         onRefresh(){
+            // this.getImg()
             console.log('点击了刷新小图标');
-            this.msg = ''
+            // this.msg = ''
         },
         onFulfilled() {
             console.log('刷新成功啦！');
@@ -31,6 +33,18 @@ const MixinSlideVerify = {
         handleClick() {
             this.$refs.slideblock.reset();
         },
-    }
+        getImg() {
+            this.$axios({
+                url: 'webmanage/getimg',
+                responseType: 'blob'
+            }).then(res => {
+                let blob = new Blob([ res ])
+                this.imgs = [ window.URL.createObjectURL( blob )]
+            })
+        }
+    },
+    created() {
+        // this.getImg()
+    },
 }
 export default MixinSlideVerify

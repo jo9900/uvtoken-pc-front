@@ -144,16 +144,17 @@
           top="30vh"
           width="368px">
         <div class="verify-dialog-content">
-          <div class="verify-title">请完成安全验证</div>
+          <div class="verify-title">{{ $t('login.text34') }}</div>
           <slide-verify :l="42"
                         :r="10"
                         :w="310"
                         :h="155"
-                        slider-text="向右滑动"
+                        :slider-text="$t('text35')"
                         @success="onSuccess"
                         @fail="onFail"
                         @refresh="onRefresh"
                         ref="slideblock"
+                        :imgs="imgs"
           ></slide-verify>
         </div>
       </el-dialog>

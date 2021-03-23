@@ -33,7 +33,7 @@
           >
             <template slot-scope="scope">
               <span>{{
-                scope.row.rebate_level == 1
+                scope.row.RebateLevel == 1
                   ? $t( 'text161' )
                   : $t( 'text162' )
               }}</span>
@@ -47,9 +47,9 @@
             <template slot-scope="scope">
               <span>
                 {{
-                  scope.row.round == 1
+                  scope.row.Round == 1
                     ? $t( 'text150' )
-                    : scope.row.round == 2
+                    : scope.row.Round == 2
                     ? $t( 'text151' )
                     : $t( 'text152' )
                 }}
@@ -57,11 +57,11 @@
             </template>
           </el-table-column>
           <el-table-column
-            prop="apply_amount"
+            prop="ApplyAmount"
             :label="$t( 'text153' ) + '    (USDT)'"
           ></el-table-column>
           <el-table-column
-            prop="rebate_amount"
+            prop="RebateAmount"
             :label="$t( 'text163' ) + '    (USDT)'"
           ></el-table-column>
 
