@@ -282,7 +282,7 @@ export default {
 
   methods: {
     triggerEye(id) {
-      this['showEye' + id] = !this['showEye' + 'id']
+      this['showEye' + id] = !this['showEye' + id]
       if (this['passwordType' + id] == 'password') {
         this['passwordType' + id] = 'text'
       }

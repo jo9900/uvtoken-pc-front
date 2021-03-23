@@ -392,8 +392,11 @@ export default {
       .user_info {
         display: flex;
         .user_photo {
+          width: 171px;
+          height: 120px;
           padding: 0 40px 0 20px;
           border-right: 1px solid #ebebeb;
+          flex-shrink: 0;
           img {
             width: 110px;
             height: 110px;
