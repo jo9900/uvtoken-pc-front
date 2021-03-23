@@ -203,6 +203,7 @@ export default {
         if (old && old.name == 'presale') {
           this.fromPath = 'presale'
         }
+        this.showEye = false
       },
       immediate: true,
       deep: true
