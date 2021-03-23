@@ -294,7 +294,8 @@ export default {
         if (valid) {
           this.loading = true;
           let formData = new FormData();
-
+          let _date = new Date(this.formLabelAlign.birth_date)
+          let data = `${_date.getFullYear()}-${_date.getMonth()+ 1}-${_date.getDate()}`
           formData.append("modify", this.modify);
           formData.append("user_code", localStorage.getItem("code"));
           formData.append("country_code", this.formLabelAlign.country_code);
@@ -304,7 +305,7 @@ export default {
           formData.append("id_number", this.formLabelAlign.id_number);
           formData.append("id_front", this.formLabelAlign.id_front);
           formData.append("id_back", this.formLabelAlign.id_back);
-          formData.append("birth_date", this.formLabelAlign.birth_date);
+          formData.append("birth_date", data);
           formData.append("mobile_no", this.formLabelAlign.mobile_no);
           addkyc(formData).then(
             (res) => {
@@ -367,7 +368,7 @@ export default {
       });
       await kycInfoPhoto(
           front,{
-        user_code: localStorage.getItem('code')
+          user_code: localStorage.getItem('code')
       }).then(res=> {
         return 'data:image/png;base64,' + btoa(
             new Uint8Array(res).reduce((data, byte) => data + String.fromCharCode(byte), '')
@@ -377,7 +378,7 @@ export default {
       })
       await kycInfoPhoto(
           back,{
-        user_code: localStorage.getItem('code')
+          user_code: localStorage.getItem('code')
       }).then(res=> {
         return 'data:image/png;base64,' + btoa(
             new Uint8Array(res).reduce((data, byte) => data + String.fromCharCode(byte), '')
