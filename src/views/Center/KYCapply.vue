@@ -294,8 +294,6 @@ export default {
         if (valid) {
           this.loading = true;
           let formData = new FormData();
-          let _date = new Date(this.formLabelAlign.birth_date)
-          let data = `${_date.getFullYear()}-${_date.getMonth()+ 1}-${_date.getDate()}`
           formData.append("modify", this.modify);
           formData.append("user_code", localStorage.getItem("code"));
           formData.append("country_code", this.formLabelAlign.country_code);
@@ -305,7 +303,7 @@ export default {
           formData.append("id_number", this.formLabelAlign.id_number);
           formData.append("id_front", this.formLabelAlign.id_front);
           formData.append("id_back", this.formLabelAlign.id_back);
-          formData.append("birth_date", data);
+          formData.append("birth_date", this.formLabelAlign.birth_date);
           formData.append("mobile_no", this.formLabelAlign.mobile_no);
           addkyc(formData).then(
             (res) => {
@@ -348,6 +346,9 @@ export default {
         }
       });
     },
+    formatDate(data) {
+      return  data.slice(0,4) + '-' + data.slice(4,6) + '-' + data.slice(6)
+    },
     async get_kycInfo() {
       let front = ''
       let back = ''
@@ -361,7 +362,7 @@ export default {
           // this.id_back = res.data.id_back_url.split('/webmanage/')[1];
           this.formLabelAlign.id_front = "";
           this.formLabelAlign.id_back = "";
-          this.formLabelAlign.birth_date = this.$moment(res.data.birth_date).format()
+          this.formLabelAlign.birth_date = res.data.birth_date
           this.formLabelAlign.id_type = this.formLabelAlign.id_type.toString();
           this.modify = res.data.kyc_status == 0? 1 : 2
         }
@@ -375,6 +376,9 @@ export default {
         )
       }).then(data=> {
         this.id_front = data
+        let blob = this.dataURLtoFile(data, 'image/jpeg')
+        let fileOfBlob = new File([blob], new Date() + '.jpg')
+        this.formLabelAlign.id_front = fileOfBlob
       })
       await kycInfoPhoto(
           back,{
@@ -385,7 +389,22 @@ export default {
         )
       }).then(data=> {
         this.id_back = data
+        let blob = this.dataURLtoFile(data, 'image/jpeg')
+        let fileOfBlob = new File([blob], new Date() + '.jpg')
+        this.formLabelAlign.id_back = fileOfBlob
       })
+    },
+    dataURLtoFile(dataURI, type) {
+      let byteString = ''
+      if ( dataURI.split(',')[0].indexOf('base64') >= 0 ) {
+        byteString = atob(dataURI.split(',')[1]);
+      }
+      else byteString = unescape(dataURI.split(',')[1]);
+      let array = [];
+      for ( let i = 0; i < byteString.length; i++ ) {
+        array.push(byteString.charCodeAt(i));
+      }
+      return new Blob([new Uint8Array(array)], { type: type });
     },
     isImg(str) {
       return str.search( "(jpg|jpeg|swf|gif|png|JPG|JPEG|SWF|GIF|PNG)$" ) != -1;
