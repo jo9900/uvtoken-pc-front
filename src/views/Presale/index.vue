@@ -444,6 +444,13 @@ export default {
         else if ( !( /(^[1-9]\d*$)/.test( value ) ) ) {
           callback( new Error( this.$t( 'presale.text49' ) ) )
         }
+        else if (value > this.preInfo.total - this.preInfo.progress) {
+          callback(
+              new Error((this.$t( 'presale.text70' ) +
+                  (this.preInfo.total - this.preInfo.progress))
+              )
+          )
+        }
         else {
           this.totalAmount = parseInt( value * this.preInfo.pre_amount * this.preInfo.price )
           callback()
