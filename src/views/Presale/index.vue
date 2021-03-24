@@ -34,10 +34,13 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo1.from_date }} - {{ preInfo1.to_date }}</div>
-                      <div>{{ $t( 'presale.text7' ) }}</div>
-<!--                      <div>{{ preInfo1.price }} USDT</div>-->
-                      <div>{{ $t( 'presale.text7' ) }}</div>
+                      <div>{{ preInfo1.from_date }} -
+                        <span v-if="preInfo1.to_date !== '9999-12-30'">
+                          {{ preInfo1.to_date }}</span>
+                        <span v-else>{{ $t( 'presale.text65' ) }}</span>
+                      </div>
+                      <div>{{ preInfo1.price }} USDT</div>
+                      <div>{{ calcTotal1 }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -74,10 +77,12 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo2.from_date }} - {{ preInfo2.to_date }}</div>
-                      <div>{{ $t( 'presale.text7' ) }}</div>
-<!--                      <div>{{ preInfo2.price }} USDT</div>-->
-                      <div>{{ $t( 'presale.text7' ) }}</div>
+                      <div>{{ preInfo2.from_date }} -
+                        <span v-if="preInfo2.to_date !== '9999-12-30'">{{ preInfo2.to_date }}</span>
+                        <span v-else>{{ $t( 'presale.text65' ) }}</span>
+                      </div>
+                      <div>{{ preInfo2.price }} USDT</div>
+                      <div>{{ calcTotal2 }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -114,10 +119,13 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo3.from_date }} - {{ $t('presale.text65') }}</div>
-                      <div>{{ $t( 'presale.text7' ) }}</div>
-<!--                      <div>{{ preInfo3.price }} USDT</div>-->
-                      <div>{{ $t( 'presale.text7' ) }}</div>
+                      <div>{{ preInfo3.from_date }} -
+                        <span v-if="preInfo3.to_date !== '9999-12-30'">
+                          {{ preInfo3.to_date }}</span>
+                        <span v-else>{{ $t( 'presale.text65' ) }}</span>
+                      </div>
+                      <div>{{ preInfo3.price }} USDT</div>
+                      <div>{{ calcTotal3 }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -488,6 +496,24 @@ export default {
     }
   },
   computed: {
+    calcTotal1() {
+      const { pre_amount = 0, total = 0,  price = 0 } = this.preInfo1
+      return (pre_amount * total * price)
+          .toString()
+          .replace( /\B(?=(?:\d{3})+\b)/g, ',' )
+    },
+    calcTotal2() {
+      const { pre_amount = 0, total = 0,  price = 0 } = this.preInfo2
+      return (pre_amount * total * price)
+          .toString()
+          .replace( /\B(?=(?:\d{3})+\b)/g, ',' )
+    },
+    calcTotal3() {
+      const { pre_amount = 0, total = 0,  price = 0 } = this.preInfo3
+      return (pre_amount * total * price)
+          .toString()
+          .replace( /\B(?=(?:\d{3})+\b)/g, ',' )
+    },
   },
   beforeRouteEnter (to, from, next) {
     next(vm => {
