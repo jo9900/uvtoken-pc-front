@@ -307,7 +307,7 @@ export default {
       }else {
         vm.$nextTick(()=> {
           vm.$refs.signUpForm.resetFields()
-          vm.signUpForm.inviteCode = ''
+          vm.getInviteCode()
         })
       }
     })
@@ -475,18 +475,25 @@ export default {
         this.sendcode("signUp");
       }, 500);
     },
+    getInviteCode() {
+      if (this.getQueryVariable("ref", window.location.href)) {
+        this.inviteCode = true;
+        this.signUpForm.inviteCode = this.getQueryVariable(
+            "ref",
+            window.location.href
+        );
+      }
+      else {
+        this.inviteCode = false
+        this.signUpForm.inviteCode = ''
+      }
+    }
   },
   created() {
   },
 
   mounted() {
-    if (this.getQueryVariable("ref", window.location.href)) {
-      this.inviteCode = true;
-      this.signUpForm.inviteCode = this.getQueryVariable(
-        "ref",
-        window.location.href
-      );
-    }
+    this.getInviteCode()
   },
 };
 </script>
