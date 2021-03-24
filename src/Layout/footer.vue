@@ -95,7 +95,7 @@ export default {
       this.$refs['validateForm'].validate(valid=> {
         if (valid) {
           // TODO 订阅接口
-          this.$message('text205')
+          this.$message(this.$t('test205'))
           this.subscribe()
         }
       })
