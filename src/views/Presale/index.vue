@@ -44,7 +44,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="stage-progress-wrap" v-if="round == 1 && roundstatus == 2">
+                <div class="stage-progress-wrap" v-if="preInfo1.status == 2">
                   <div class="stage-progress">
                     <img src="@/assets/img/pic_yq@2x.png" />
                     <div class="stage-progress-center-text">
@@ -57,6 +57,7 @@
                 <div :class="['presale-btn', {'access': round == 1 && roundstatus == 1 }]"
                      role="button"
                      @click="clickBefore(1)"
+                     v-else
                 >
                   <span v-if="!(round == 1 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
                   <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -86,7 +87,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="stage-progress-wrap" v-if="round == 2 && roundstatus == 2">
+                <div class="stage-progress-wrap" v-if="preInfo2.status == 2">
                   <div class="stage-progress">
                     <img src="@/assets/img/pic_yq@2x.png" />
                     <div class="stage-progress-center-text">
@@ -99,6 +100,7 @@
                 <div :class="['presale-btn', {'access': round == 2 && roundstatus == 1 }]"
                      role="button"
                      @click="clickBefore(2)"
+                     v-else
                 >
                   <span v-if="!(round == 2 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
                   <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -129,7 +131,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="stage-progress-wrap" v-if="round == 3 && roundstatus == 2">
+                <div class="stage-progress-wrap" v-if="preInfo3.status == 2">
                   <div class="stage-progress">
                     <img src="@/assets/img/pic_yq@2x.png" />
                     <div class="stage-progress-center-text">
@@ -139,10 +141,10 @@
                   </div>
                   <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                 </div>
-                <div v-else
-                    :class="['presale-btn', {'access': round == 3 && roundstatus == 1 }]"
+                <div :class="['presale-btn', {'access': round == 3 && roundstatus == 1 }]"
                      role="button"
                      @click="clickBefore(3)"
+                     v-else
                 >
                   <span v-if="!(round == 3 && roundstatus == 1)"> {{ $t( 'presale.text69' ) }}</span>
                   <span v-else>{{ $t( 'presale.text61' ) }}</span>
