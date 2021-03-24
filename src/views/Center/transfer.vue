@@ -63,7 +63,7 @@
               :label="$t( 'text146' )"
             >
               <template slot-scope="scope">
-                <span>{{ scope.row.time | trimet(that) }}</span>
+                <span>{{ scope.row.Time | trimet(that) }}</span>
               </template>
             </el-table-column>
             <el-table-column
@@ -71,7 +71,7 @@
               :label="$t( 'text171' )"
             >
               <template slot-scope="scope">
-                <span>{{ scope.row.account }}</span>
+                <span>{{ scope.row.Account }}</span>
               </template>
             </el-table-column>
             <el-table-column
@@ -79,11 +79,11 @@
               :label="$t( 'text172' ) + '  (UVT)'"
             >
               <template slot-scope="scope">
-                <span style="color: red" v-if="scope.row.transfer_type == 0">{{
-                  scope.row.taft_amount
+                <span style="color: red" v-if="scope.row.TransferType == 0">{{
+                  scope.row.TaftAmount
                 }}</span>
-                <span style="color: #17d241" v-if="scope.row.transfer_type == 1"
-                  >+{{ scope.row.taft_amount }}</span
+                <span style="color: #17d241" v-if="scope.row.TransferType == 1"
+                  >+{{ scope.row.TaftAmount }}</span
                 >
               </template>
             </el-table-column>
@@ -276,7 +276,7 @@ export default {
       let params = this.form;
       recordsList(params).then((res) => {
         if (res.code == 0) {
-          this.tableData = res.data;
+          this.tableData = res.data.rows;
           this.total = res.count;
         } else {
           this.$message.error(res.msg);
@@ -300,7 +300,8 @@ export default {
             if (res.code == 0) {
               this.ruleDialogVisible = false;
               this.dataForm.auth_code = res.data.auth_code;
-              taftBoert(this.dataForm).then((res) => {
+              taftBoert(this.dataForm)
+                  .then((res) => {
                 if (res.code == 0) {
                   this.loadingBtn = false;
                   this.$message.success(
@@ -316,8 +317,14 @@ export default {
                   };
                   this.form.page_no = 1;
                   this.getList();
-                } else {
+                }
+                else {
                   this.loadingBtn = false;
+                  if (res.code == "102602") {
+                    this.$message.error(
+                      this.$t( 'text208' )
+                    );
+                  }
                   if (res.code == "102603") {
                     this.$message.error(
                       this.$t( 'text181' )
@@ -340,7 +347,7 @@ export default {
                     );
                   }
                 }
-              });
+              })
 
             } else {
               this.$message.error(this.$t( 'text185' ));
