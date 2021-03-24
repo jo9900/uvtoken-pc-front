@@ -136,18 +136,8 @@
             <el-input
               type="password"
               name="wsl"
-              v-if="inputViset"
               v-model="dataForm1.password"
               autocomplete="off"
-            ></el-input>
-            <el-input
-              type="text"
-              name="wslt"
-              @input="fouseClick"
-              :style="{ opacity: inputViset ? '0' : '1' }"
-              autocomplete="off"
-              v-model="dataForm1.password"
-              style="position: absolute; top: 40px; left: 0"
             ></el-input>
           </div>
         </el-form-item>
