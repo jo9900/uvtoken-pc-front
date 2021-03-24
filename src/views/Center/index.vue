@@ -15,8 +15,8 @@
           <div class="user_about">
             <div class="about_row">
               <p class="title">{{ $t('usercenter.text1') }}</p>
-              <span
-                class="color5885FD"
+              <p
+                class="color5885FD name"
                 :class="{ taost: userInfo.kyc_status == 1 }"
               >
                 <template v-if="$lang == 'en'">
@@ -33,7 +33,7 @@
                       : $t( 'usercenter.text4' )
                   }}
                 </template>
-              </span>
+              </p>
             </div>
 
             <div class="about_row">
@@ -408,6 +408,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        width: 400px;
         .about_row {
           display: flex;
           color: #999999;
@@ -416,6 +417,10 @@ export default {
           .title {
             margin-right: 23px;
             white-space: nowrap;
+          }
+          .name {
+            width: 355px;
+            word-wrap: break-word;
           }
         }
       }
