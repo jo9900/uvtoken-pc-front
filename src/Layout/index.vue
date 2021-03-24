@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="navhearder" ref="ele"><Nav/></div>
-        <div :style="{'height':height+'px'}"></div>
         <div class="layout_box">
             <transition
                 mode="out-in"
@@ -29,19 +28,12 @@ export default {
     components: {Nav,Footer},
     data(){
         return {
-            height:0
         }
     },
     methods:{
 
     },
     mounted(){
-        this.$nextTick(()=> {
-            setTimeout(()=>{
-                this.height =this.$refs.ele.offsetHeight;
-
-            },100)
-        })
     }
 }
 </script>
@@ -52,6 +44,7 @@ export default {
         min-width: 1200px;
         height: 100%;
         overflow: auto;
+        padding-top: 74px;
         .el-header{
             overflow: hidden;
            height:74px !important;

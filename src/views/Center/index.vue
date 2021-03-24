@@ -364,6 +364,7 @@ export default {
 .page {
   background: #f0f2f5;
   overflow: hidden;
+  height: 100%;
   box-sizing: border-box;
   .card {
     width: 1200px;
