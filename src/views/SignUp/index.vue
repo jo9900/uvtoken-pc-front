@@ -299,7 +299,19 @@ export default {
     };
   },
   computed: {},
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      if (from && from.name === 'userAgreement') {
 
+        vm.signUpForm = vm.$store.state.signUpForm
+      }else {
+        vm.$nextTick(()=> {
+          vm.$refs.signUpForm.resetFields()
+          vm.signUpForm.inviteCode = ''
+        })
+      }
+    })
+  },
   methods: {
     triggerEye(id) {
       this['showEye' + id] = !this['showEye' + id]
@@ -375,6 +387,8 @@ export default {
       }
     },
     userText() {
+      this.$store.commit('SAVE_SIGNUP_FORM', this.signUpForm)
+
       this.$router.push({ path: "/userAgreement" });
     },
     submitForm(formName) {

@@ -42,10 +42,10 @@
           <template v-if="resetCode">
             <div style="margin-top: 34px">
               <div class="tstPoset">
-                已发送验证码至您的注册邮箱 {{ resetData.mail }}
+                {{ $t('text206') }} {{ resetData.mail }}
               </div>
               <div class="tacoker">
-                (邮箱验证码可能被判定为垃圾邮件，请注意查收)
+                {{ $t('text207') }}
               </div>
             </div>
             <el-form
@@ -279,7 +279,15 @@ export default {
     };
   },
   computed: {},
-
+  watch: {
+    '$route' : {
+      handler(cur) {
+        this.$nextTick(()=> {
+          this.$refs.resetForm.resetFields()
+        })
+      }
+    }
+  },
   methods: {
     triggerEye(id) {
       this['showEye' + id] = !this['showEye' + id]

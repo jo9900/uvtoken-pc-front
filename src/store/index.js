@@ -34,11 +34,14 @@ export default new Vuex.Store({
       localStorage.removeItem('email');
       localStorage.removeItem('filName');
     },
-    SAVE_PRESALEForm: (state, data) => {
+    SAVE_PRESALE_FORM: (state, data) => {
       state.book_amount = data.book_amount
       state.totalAmount = data.totalAmount
       state.presaleChecked = data.presaleChecked
       state.firstDialogVisible = data.firstDialogVisible
+    },
+    SAVE_SIGNUP_FORM:(state, data) => {
+      state.signUpForm = data
     }
   },
   actions: {

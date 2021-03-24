@@ -203,6 +203,9 @@ export default {
         if (old && old.name == 'presale') {
           this.fromPath = 'presale'
         }
+        this.$nextTick(()=> {
+          this.$refs.loginForm.resetFields()
+        })
         this.showEye = false
       },
       immediate: true,
@@ -244,8 +247,6 @@ export default {
     },
     userText() {
       this.$router.push( { path: "/userAgreement" } );
-
-      this.$store.state.signUpForm = this.signUpForm;
     },
     closeVerifyDialog() {
       this.loading = false

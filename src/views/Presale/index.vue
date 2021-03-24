@@ -567,7 +567,7 @@ export default {
         presaleChecked: this.presaleChecked,
         firstDialogVisible: this.firstDialogVisible,
       }
-      this.$store.commit('SAVE_PRESALEForm', data)
+      this.$store.commit('SAVE_PRESALE_FORM', data)
       this.$router.push( '/purchaseAgreement' )
     },
 
