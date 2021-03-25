@@ -193,7 +193,11 @@ export default {
       let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
       if (!reg.test(value)) {
         callback(new Error(this.$t( 'login.text13' )));
-      } else {
+      }
+      else if (value == localStorage.getItem('code')) {
+        callback(new Error(this.$t( 'text209' )));
+      }
+      else {
         callback();
       }
     };
