@@ -297,8 +297,8 @@ export default {
                   this.$message.success(
                     this.$t( 'text180' )
                   );
-                  this.apply_taft_amount = res.data.taft_balance_amount
-                    ? res.data.taft_balance_amount + " UVT"
+                  this.apply_taft_amount = res.data.uvt_balance_amount
+                    ? res.data.uvt_balance_amount + " UVT"
                     : "0 UVT";
                   this.dataForm = {
                     user_code: localStorage.getItem("code"),
