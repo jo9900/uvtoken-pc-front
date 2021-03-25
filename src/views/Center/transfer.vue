@@ -192,7 +192,7 @@ export default {
     var Elowert = (rule, value, callback) => {
       let reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
       if (!reg.test(value)) {
-        callback(new Error(this.$t( 'text13' )));
+        callback(new Error(this.$t( 'login.text13' )));
       } else {
         callback();
       }
