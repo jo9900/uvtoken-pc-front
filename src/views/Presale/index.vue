@@ -26,6 +26,9 @@
                 <div class="middle-wrap">
                   <div class="stage-title">
                     {{ $t( 'presale.text66' ) }}
+                    <span class="sold-out" v-if="preInfo1.status == 2">
+                      {{ $t('presale.text17') }}
+                    </span>
                   </div>
                   <div class="stage-info-wrap">
                     <div class="stage-info-left">
@@ -70,6 +73,9 @@
                 <div class="middle-wrap">
                   <div class="stage-title">
                     {{ $t( 'presale.text67' ) }}
+                    <span class="sold-out" v-if="preInfo2.status == 2">
+                      {{ $t('presale.text17') }}
+                    </span>
                   </div>
                   <div class="stage-info-wrap">
                     <div class="stage-info-left">
@@ -113,6 +119,9 @@
                 <div class="middle-wrap">
                   <div class="stage-title">
                     {{ $t( 'presale.text68' ) }}
+                    <span class="sold-out" v-if="preInfo3.status == 2">
+                      {{ $t('presale.text17') }}
+                    </span>
                   </div>
                   <div class="stage-info-wrap">
                     <div class="stage-info-left">
@@ -170,6 +179,9 @@
                 <div class="middle-wrap">
                   <div class="stage-title">
                     {{ $t( 'presale.text5' ) }}
+                    <span class="sold-out" v-if="preInfo4.status == 2">
+                      {{ $t('presale.text17') }}
+                    </span>
                   </div>
                   <div class="stage-info-wrap">
                     <div class="stage-info-left">
@@ -185,11 +197,23 @@
                     </div>
                   </div>
                 </div>
+
+              <div class="stage-progress-wrap" v-if="preInfo4.status == 2">
+                <div class="stage-progress">
+                  <img src="@/assets/img/pic_yq@2x.png" />
+                  <div class="stage-progress-center-text">
+                    <span>100</span>
+                    <span style="font-size: 13px">%</span>
+                  </div>
+                </div>
+                <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
+              </div>
             </div>
           </div>
           <div :class="['presale-btn last-btn', {'access': round == lastRound && roundstatus == 1 }]"
                role="button"
                @click="clickBefore(4)"
+               v-if="preInfo4.status !=2 "
           >
             <span v-if="!(round == lastRound && roundstatus == 1)">{{ $t( 'presale.text69' ) }}</span>
             <span v-else>{{ $t( 'presale.text61' ) }}</span>
@@ -990,6 +1014,21 @@ export default {
       color: #FFFFFF;
       line-height: 28px;
       letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      .sold-out {
+        border-radius: 10px;
+        border: 1px solid #37E2EF;
+        font-size: 12px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #37E2EF;
+        text-align: center;
+        height: 20px;
+        line-height:20px;
+        margin-left: 6px;
+        padding: 0px 12px;
+      }
     }
 
     .stage-main-wrap {
