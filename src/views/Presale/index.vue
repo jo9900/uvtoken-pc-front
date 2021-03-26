@@ -241,7 +241,6 @@
                 <el-col :span="24">
                   <el-progress
                       class="progress"
-                      :text-inside="true"
                       :stroke-width="18"
                       :percentage="percentage"
                   ></el-progress>
@@ -500,7 +499,7 @@ export default {
       roundtext: "",
       isLogin: false,
       roundstatus: 0,
-      firstDialogVisible: false,
+      firstDialogVisible: true,
       firstPayDialogVisible: false,
       loginDialogVisible: false,
       KYC_DialogVisible: false,
@@ -1345,5 +1344,18 @@ export default {
     cursor: pointer;
   }
 }
-
+.progress {
+  display: flex;
+  align-items: center;
+  /deep/ .el-progress-bar {
+    width: 468px;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  /deep/ .el-progress__text {
+    width: 50px;
+    font-size: 14px !important;
+    text-align: right;
+  }
+}
 </style>
