@@ -499,7 +499,7 @@ export default {
       roundtext: "",
       isLogin: false,
       roundstatus: 0,
-      firstDialogVisible: true,
+      firstDialogVisible: false,
       firstPayDialogVisible: false,
       loginDialogVisible: false,
       KYC_DialogVisible: false,
