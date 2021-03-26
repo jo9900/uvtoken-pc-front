@@ -12,14 +12,21 @@
     export default {
         name:'',
         components: {service},
-        data(){
-            return {
-
-            }
-        },
-        methods:{
-
-        },
+        metaInfo() {
+          return {
+            title: 'UvToken',
+            meta: [
+              {
+                name: "keyWords",
+                content: this.$t("text210")
+              },
+              {
+                name: "description",
+                content: this.$t("text211")
+              }
+            ]
+          };
+        }
 
     }
 </script>

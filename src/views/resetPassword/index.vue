@@ -283,6 +283,7 @@ export default {
     '$route' : {
       handler(cur) {
         this.$nextTick(()=> {
+          this.resetCode = false
           this.$refs.resetForm.resetFields()
         })
       }
@@ -321,6 +322,7 @@ export default {
       this.timer();
       mailVcode(data).then((res) => {
         if (res.code == 0) {
+          this.resetCode = true;
           this.$message({
             message: this.$t( 'login.text17' ),
             type: "success",
@@ -337,6 +339,10 @@ export default {
           } else if (res.code == "101704") {
             return this.$message.error(
               this.$t( 'login.text23' )
+            );
+          } else if (res.code == "101507") {
+            return this.$message.error(
+              this.$t( 'login.text40' )
             );
           } else {
             this.$message.error(
@@ -365,7 +371,6 @@ export default {
     onSuccess() {
        setTimeout(() => {
         this.sendcode();
-        this.resetCode = true;
         this.dialogVisible = false;
       }, 500);
     },

@@ -64,7 +64,7 @@ router.beforeEach((to, from, next) => {
 router.beforeEach((to, from, next) => {
 
     if (to.meta.title) {
-        document.title = "UvToken "
+        document.title = "UvToken"
             // +to.meta.title
     }
 
