@@ -29,7 +29,7 @@
           </div>
           <p style="margin-bottom: 40px">
             {{ $t( 'purchase.text7' )
-            }}<span style="color: #426cff">https://www.uvtoken.com</span>
+            }}<span style="color: #426cff"><a href="https://www.uvtoken.com">https://www.uvtoken.com</a></span>
           </p>
           <p style="margin-bottom: 40px">
             {{ $t( 'purchase.text8' ) }}
