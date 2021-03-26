@@ -182,7 +182,7 @@
             <span>{{ $t( 'usercenter.text18' ) }}</span>
           </div>
           <div class="">
-            <template v-if="myPreSale.apply_usdt_amount > 0">
+            <template v-if="marketing.invite_url">
               <div class="extend">
                 <div class="text" id="invite_code">
                   {{ marketing.invite_code }}
