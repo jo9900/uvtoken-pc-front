@@ -1,7 +1,4 @@
-/*
-*author:zhoaya
-*day:2020
-*/
+
 const   languageNav = {
     Chinese:{
         language_text0:"安全提示：为了您帐户的安全，请仔细检查您正在访问的地址，并且不要向任何人（包括TAF Chain员工）透露您的验证码。",

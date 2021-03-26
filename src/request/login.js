@@ -1,9 +1,3 @@
-/*
-*author:zhoaya
-*day:2020
-*/
-
-// login
 
 import { get, post } from './http'
 

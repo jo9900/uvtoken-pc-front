@@ -1,7 +1,4 @@
-/*
-*author:zhoaya
-*day:2020
-*/
+
 import { get, post } from './http'
 
 const baseUrl = 'webmanage/'

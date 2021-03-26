@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import {subscribe} from '@/request/other'
 export default {
   name: '',
   data() {
@@ -95,20 +96,14 @@ export default {
       this.$refs['validateForm'].validate(valid=> {
         if (valid) {
           // TODO 订阅接口
-          this.$message(this.$t('text205'))
-          this.subscribe()
+          subscribe({email: this.validateForm.email})
+              .then(res=> {
+                if (res.code == 0)
+                  this.$message(this.$t('text205'))
+              })
         }
       })
-    },
-    subscribe() {
-
     }
-  },
-  created() {
-
-  },
-  mounted() {
-
   }
 }
 </script>

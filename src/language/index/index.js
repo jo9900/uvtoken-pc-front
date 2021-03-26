@@ -1,7 +1,4 @@
-/*
-*author:zhoaya
-*day:2020
-*/
+
 const   languageNav = {
     Chinese:{
         language_tatTitle:"什么是 TAF Chain ？",
