@@ -133,8 +133,7 @@
         <div class="cart_box_item">
           <div class="item_title">
             <span>{{ $t( 'usercenter.text15' ) }}</span>
-<!--            TODO 转让先隐藏-->
-            <span :class="['color5885FD', {'hide': NODE_ENV == 'production' }]" style="cursor: pointer" @click="sofert">{{
+            <span class="color5885FD" style="cursor: pointer" @click="sofert">{{
               $t( 'text165' )
             }}</span>
           </div>

@@ -95,7 +95,6 @@ export default {
     subscribeValidate() {
       this.$refs['validateForm'].validate(valid=> {
         if (valid) {
-          // TODO 订阅接口
           subscribe({email: this.validateForm.email})
               .then(res=> {
                 if (res.code == 0)

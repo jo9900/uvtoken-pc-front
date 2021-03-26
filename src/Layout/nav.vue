@@ -22,8 +22,7 @@
               </ul>
             </div>
             <div class="nav_center">
-<!--              TODO 隐藏登陆注册-->
-                <div :class="['in', {'hide' : NODE_ENV == 'production' }]"
+                <div class="in"
                      v-if="!isLogin"
                 >
                     <router-link to="/signUp" style="margin-right: 12px;">
