@@ -101,10 +101,8 @@
                   margin-bottom: 19px;
                 "
               >
-                <el-checkbox v-model="checked" @change="handleCheckAllChange">
-                  <span style="color: #000000d9">{{
-                      $t( 'login.text15' )
-                  }}</span>
+                <el-checkbox v-model="checked" @change="handleCheckAllChange" id="checkbox">
+                  {{$t( 'login.text15' )}}
                 </el-checkbox>
                 <span
                   >《<span class="usertext" @click="userText">{{
@@ -302,8 +300,8 @@ export default {
   beforeRouteEnter (to, from, next) {
     next(vm => {
       if (from && from.name === 'userAgreement') {
-
         vm.signUpForm = vm.$store.state.signUpForm
+        vm.checked = vm.$store.state.checked
       }else {
         vm.$nextTick(()=> {
           vm.$refs.signUpForm.resetFields()
@@ -337,6 +335,7 @@ export default {
         document.getElementsByClassName(
           "el-checkbox__inner"
         )[0].style.lineHeight = "0";
+        document.getElementById( "checkbox" ).style[ 'color' ] = ""
       }
     },
 
@@ -388,7 +387,7 @@ export default {
     },
     userText() {
       this.$store.commit('SAVE_SIGNUP_FORM', this.signUpForm)
-
+      this.$store.commit('SAVE_CHECK_STATUS', this.checked)
       this.$router.push({ path: "/userAgreement" });
     },
     submitForm(formName) {
@@ -401,6 +400,8 @@ export default {
           document.getElementsByClassName(
             "el-checkbox__inner"
           )[0].style.lineHeight = "0";
+           document.getElementById( "checkbox" ).style[ 'color' ] = "red"
+
           return
         }
         this.dialogVisible = true

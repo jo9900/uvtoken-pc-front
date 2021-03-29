@@ -9,6 +9,7 @@ export default new Vuex.Store({
     book_amount:"",
     totalAmount:"",
     presaleChecked:"",
+    checked:false,
     firstDialogVisible:false,
     timerCoander:false,
     token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
@@ -42,6 +43,9 @@ export default new Vuex.Store({
     },
     SAVE_SIGNUP_FORM:(state, data) => {
       state.signUpForm = data
+    },
+    SAVE_CHECK_STATUS:(state, data) => {
+      state.checked = data
     }
   },
   actions: {
