@@ -168,7 +168,7 @@ export default {
     },
 
     getRandomImg() {
-      return this.$BaseUrl + 'webmanage/getimg?t=' + +new Date()
+      return this.imgs[0]
     },
     getRandomNumberByRange(start, end) {
       return Math.round(Math.random() * (end - start) + start)

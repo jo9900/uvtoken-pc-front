@@ -99,7 +99,8 @@ import webNav from "@/Layout/nav";
 import {
   pubKey,
   login,
-  resetPassword
+  resetPassword,
+  getImg
 } from "@/request/login.js";
 import {filName} from "@/filters"
 import slideVerify from "@/components/slideVerify"
@@ -134,6 +135,7 @@ export default {
     };
 
     return {
+      imgs: [],
       pk: '',
       showEye: false,
       passwordType: 'password',
@@ -290,9 +292,14 @@ export default {
     submitForm( formName ) {
       this.$refs[ formName ].validate( ( valid ) => {
         if (!valid) return false
-        // 拼图验证
-        this.dialogVisible = true
-        this.loading = true;
+        getImg().then(res=> {
+          let url = res.data.imgUrl
+          this.imgs = [url]
+
+          // 拼图验证
+          this.dialogVisible = true
+          this.loading = true;
+        })
       } )
     },
     resetDataForm() {

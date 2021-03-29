@@ -32,3 +32,8 @@ export const resetPassword = params => {
     return post( baseUrl + 'resetpassword' , params )
 }
 
+
+export const getImg = params => {
+    return get( baseUrl + 'getimg' , params )
+}
+
