@@ -334,6 +334,11 @@ export default {
                      this.$t( 'text183' )
                     );
                   }
+                  if (res.code == "102903") {
+                    this.$message.error(
+                     this.$t( 'login.text25' )
+                    );
+                  }
                   if (res.code == "103001") {
                     this.dataForm1.password = "";
                     this.$message.error(
