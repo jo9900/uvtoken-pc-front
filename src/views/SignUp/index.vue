@@ -401,6 +401,7 @@ export default {
           document.getElementsByClassName(
             "el-checkbox__inner"
           )[0].style.lineHeight = "0";
+          return
         }
         this.dialogVisible = true
         this.loading = true;
