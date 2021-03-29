@@ -10,9 +10,11 @@
 
 <script>
 export default {
-  beforeRouteEnter(to, from) {
-    window.open('http://t.uvtoken.com/material/whitepaper.pdf', '_blank')
-  },
+    beforeRouteEnter(to, from, next) {
+      next(vm => {
+        window.open(vm.$BaseUrl+ 'material/whitepaper.pdf', '_blank')
+      })
+    },
     name: '',
     data() {
        return {
