@@ -87,20 +87,18 @@ module.exports = {
             }
         });
 
-        if (isProd) {
-            // 开启图片压缩
-            config.module
-                .rule('images')
-                .test(/\.(png|gif|jpe?g|svg)(\?.*)?$/)
-                .use('image-webpack-loader')
-                .loader('image-webpack-loader')
-                .options({
-                    mozjpeg: { progressive: true, quality: 65 },
-                    optipng: { enabled: false },
-                    pngquant: { quality: [0.65, 0.9], speed: 4 },
-                    gifsicle: { interlaced: false }
-                    // webp: { quality: 75 } 大大减少体积，但在ios存在兼容问题，不用
-                })
-        }
+        // 开启图片压缩
+        config.module
+            .rule('images')
+            .test(/\.(png|gif|jpe?g|svg)(\?.*)?$/)
+            .use('image-webpack-loader')
+            .loader('image-webpack-loader')
+            .options({
+                mozjpeg: { progressive: true, quality: 65 },
+                optipng: { enabled: false },
+                pngquant: { quality: [0.65, 0.9], speed: 4 },
+                gifsicle: { interlaced: false }
+                // webp: { quality: 75 } 大大减少体积，但在ios存在兼容问题，不用
+            })
     }
 };
