@@ -94,11 +94,10 @@ module.exports = {
             .use('image-webpack-loader')
             .loader('image-webpack-loader')
             .options({
-                mozjpeg: { progressive: true, quality: 65 },
+                mozjpeg: { progressive: true, quality: 50 },
                 optipng: { enabled: false },
-                pngquant: { quality: [0.65, 0.9], speed: 4 },
+                pngquant: { quality: [0.5, 0.6], speed: 4 },
                 gifsicle: { interlaced: false }
-                // webp: { quality: 75 } 大大减少体积，但在ios存在兼容问题，不用
             })
     }
 };
