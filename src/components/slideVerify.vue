@@ -111,8 +111,6 @@ export default {
     },
     async initImg() {
       const img = await this.createImg(() => {
-        console.log( img )
-
         // 图片加载完关闭遮蔽罩
         this.loadBlock = false;
         this.drawBlock()
