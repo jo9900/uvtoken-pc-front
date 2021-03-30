@@ -90,7 +90,7 @@ module.exports = {
         // 开启图片压缩
         config.module
             .rule('images')
-            .test(/\.(png|gif|jpe?g|svg)(\?.*)?$/)
+            .test(/\.(png|gif|jpe?g)(\?.*)?$/)
             .use('image-webpack-loader')
             .loader('image-webpack-loader')
             .options({
