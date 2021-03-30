@@ -25,7 +25,7 @@
                     ? 'http://apps.apple.com/us/app/UvToken/id1552556395'
                     : 'https://apps.apple.com/us/app/UvToken/id1552556395'
                 "
-                style="margin-right: 15px"
+                style="margin-right: 17px"
               >
                 <div class="banner-btn-content">
                   <div class="banner-btns-icon">
@@ -50,7 +50,10 @@
                 </div>
               </a>
               <a href="javascript:;" class="banner-btn-qrcode">
-                <el-dropdown placement="bottom" style="width: 74px;">
+                <el-dropdown placement="bottom"
+                             class="test"
+                             style="width: 74px;outline: none; padding: 0"
+                >
                   <div class="qrcode-small">
                     <img src="@/assets/img/robge.png" />
                   </div>
@@ -795,22 +798,31 @@ export default {
   cursor: pointer;
 }
 .qrcode-small {
-  margin-left: 15px;
+  margin-left: 17px;
+  width: 40px;
 }
 .qrcode-small img {
   width: 40px;
   height: 40px;
+  display: block;
+  &:focus {
+    outline-color: transparent;
+  }
 }
 .banner-btn-qrcode {
   position: relative;
 }
 
 .qrcode-img img {
-  width: 172px;
-  height: 174px;
-  margin: 0 10px;
+  width: 175px;
+  height: 175px;
+  display: block;
 }
 .pad20 {
   padding-top: 30px;
+}
+.el-dropdown-menu {
+  padding: 0;
+  outline: none;
 }
 </style>
