@@ -171,7 +171,7 @@ import {
   mailVcode,
   passwordVcode,
   findPassword,
-  resetPassword,
+  resetPassword, getImg
 } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
@@ -210,6 +210,7 @@ export default {
       }
     };
     return {
+      imgs: [],
       pk: '',
       showEye1: false,
       showEye2: false,
@@ -377,7 +378,13 @@ export default {
     resetDataCode() {
       this.$refs["resetForm"].validate((valid) => {
         if (valid) {
-          this.dialogVisible = true;
+          getImg().then(res=> {
+            let url = res.data.imgUrl
+            this.imgs = [url]
+
+            // 拼图验证
+            this.dialogVisible = true
+          })
         }
       });
     },

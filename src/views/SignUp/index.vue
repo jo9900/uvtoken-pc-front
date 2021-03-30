@@ -193,7 +193,7 @@ import {
   pubKey,
   login,
   signUp,
-  mailVcode,
+  mailVcode, getImg
 } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
@@ -232,6 +232,7 @@ export default {
     };
 
     return {
+      imgs: [],
       pk: '',
       showEye1: false,
       showEye2: false,
@@ -404,8 +405,14 @@ export default {
 
           return
         }
-        this.dialogVisible = true
-        this.loading = true;
+        getImg().then(res=> {
+          let url = res.data.imgUrl
+          this.imgs = [url]
+
+          // 拼图验证
+          this.dialogVisible = true
+          this.loading = true;
+        })
       });
     },
 
