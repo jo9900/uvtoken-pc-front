@@ -23,6 +23,8 @@
   </div>
 </template>
 <script>
+import { getImg } from "@/request/login"
+
 const PI = Math.PI;
 function sum(x, y) {
   return x + y
@@ -155,19 +157,22 @@ export default {
       // Bug Fixes 修复了火狐和ie显示问题
       ctx.globalCompositeOperation = "destination-over"
     },
-    createImg(onload) {
+    async createImg(onload) {
       const img = document.createElement('img');
       img.crossOrigin = "Anonymous";
       img.onload = onload;
       img.onerror = (e) => {
-        img.src = this.getRandomImg()
+        img.src = this.imgs[0]
         e.target.onerror = null
       }
-      img.src = this.getRandomImg()
+      img.src = await this.getRandomImg()
       return img;
     },
 
-    getRandomImg() {
+    async getRandomImg() {
+      let res = await getImg()
+      let url = res.data.imgUrl
+      this.imgs = [url]
       return this.imgs[0]
     },
     getRandomNumberByRange(start, end) {
@@ -297,7 +302,7 @@ export default {
         TuringTest: average !== stddev, // equal => not person operate
       }
     },
-    reset() {
+    async reset() {
       this.success = false;
       this.containerActive = false;
       this.containerSuccess = false;
@@ -314,7 +319,7 @@ export default {
       this.blockCtx.clearRect(0, 0, w, h)
       this.block.width = w
       // generate img
-      this.img.src = this.getRandomImg();
+      this.img.src = await this.getRandomImg();
       this.$emit('fulfilled')
     },
   }
