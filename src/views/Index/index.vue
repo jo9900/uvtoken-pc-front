@@ -59,8 +59,8 @@
                   </div>
                   <el-dropdown-menu slot="dropdown">
                     <div class="qrcode-img">
-                      <img v-if="NODE_ENV !== 'production'" src="@/assets/img/dowemoey.png" />
-                      <img v-else src="@/assets/img/apkfortest.png" />
+                      <img v-if="NODE_ENV !== 'production'" src="@/assets/img/apkfortest.png" />apkfortest
+                      <img v-else src="@/assets/img/dowemoey.png" />
                     </div>
                   </el-dropdown-menu>
                 </el-dropdown>
