@@ -100,16 +100,11 @@
               $t( 'purchase.text24' )
             }}
           </div>
-          <p style="margin-bottom: 40px">
+          <p>
             {{ $t( 'purchase.text25' ) }}
           </p>
-
           <p style="padding-left: 40px">
             {{ $t( 'purchase.text26' ) }}
-          </p>
-          <p style="padding-left: 40px; margin-bottom: 40px">
-            {{ $t( 'purchase.text27' ) }}
-            {{ $t( 'purchase.text28' ) }}
           </p>
           <div>
             {{
