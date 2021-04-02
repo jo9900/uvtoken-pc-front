@@ -3,20 +3,20 @@
   <div class="footer">
     <div class="wrap">
       <div class="zaltet">
-        <div class="wrap-flr">
+        <div :class="['wrap-flr', $lang]">
           <div class="spower">
             <router-link to="/purchaseAgreement">{{ $t( 'text30' ) }}</router-link>
-            <router-link to="/whitePaper" class="maert">{{ $t( 'text31' ) }}</router-link>
+            <router-link to="/whitePaper" >{{ $t( 'text31' ) }}</router-link>
             <router-link to="/business">{{ $t( 'text32' ) }}</router-link>
           </div>
           <div class="spower">
             <router-link to="/help">{{ $t( 'text33' ) }}</router-link>
-            <router-link to="/wallet" class="maert">{{ $t( 'text3' ) }}</router-link>
+            <router-link to="/wallet" >{{ $t( 'text3' ) }}</router-link>
             <router-link to="/media">{{ $t( 'text34' ) }}</router-link>
           </div>
           <div class="spower">
             <router-link to="/financial">{{ $t( 'text4' ) }}</router-link>
-            <router-link to="/Dapp" class="maert">Dapp</router-link>
+            <router-link to="/Dapp" >Dapp</router-link>
             <router-link to="/userAgreement">{{ $t( 'text35' ) }}</router-link>
           </div>
         </div>
@@ -139,20 +139,28 @@ export default {
       display: flex;
       align-items: center;
       width: 596px;
+      justify-content: space-between;
+
+      &.zh, &.ko, &.ar, &.en {
+        .spower {
+          height: 144px;
+        }
+      }
     }
 
     .spower {
-      margin-right: 70px;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 162px;
     }
 
     .spower a {
       color: #7B839A;
       font-size: 14px;
       display: block;
-    }
-
-    .maert {
-      margin: 16px 0;
+      height: 30%;
     }
 
     .spower a:hover {

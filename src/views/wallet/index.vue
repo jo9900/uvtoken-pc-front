@@ -12,7 +12,7 @@
               <div>{{ $t( 'text77' ) }}
               </div>
             </div>
-            <div class="bowerkonet">
+            <div :class="['bowerkonet', $lang]">
                 <div class="cllot">{{ $t( 'text78' ) }}</div>
                 <div class="cllot">{{ $t( 'text79' ) }}</div>
                 <div class="cllot">{{ $t( 'text80' ) }}</div>
@@ -294,6 +294,7 @@ export default {
           font-size: 50px;
           color: #272727ff;
           margin-bottom: 20px;
+          max-width: 600px;
         }
         .caosjet {
           font-size: 20px;
@@ -320,6 +321,13 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
           display: flex;
           flex-wrap: wrap;
           width: 520px;
+
+          &.en,&.ru,&.ko,&.ar,&.ja {
+            .cllot {
+              width: auto;
+              padding: 0 10px;
+            }
+          }
           .cllot {
             width: 131px;
             letter-spacing: 2px;
