@@ -103,7 +103,6 @@
           <p>
             {{ $t( 'purchase.text25' ) }}
           </p>
-<!--          TODO 这里错误跟taf一样 现在改成跟亚瑟一样 注意这句的翻译要从亚瑟复制 不能用原来的text26-->
           <p style="padding-left: 40px">
             {{ $t( 'purchase.text26' ) }}
           </p>

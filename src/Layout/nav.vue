@@ -52,17 +52,17 @@
                 <div class="nav_language">
                     <el-dropdown  @command="languageChange" placement="bottom">
                         <span class="el-dropdown-link">
-                           简体中文
+                           {{ currentLanguage }}
                             <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
 
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="zh">简体中文</el-dropdown-item>
-<!--                            <el-dropdown-item command="en">English</el-dropdown-item>-->
-                            <!--<el-dropdown-item command="Arabic">عربى</el-dropdown-item>-->
-                            <!--<el-dropdown-item command="Russian">русский</el-dropdown-item>-->
-                            <!--<el-dropdown-item command="Korean">한국어</el-dropdown-item>-->
-                            <!--<el-dropdown-item command="Japanese">日本語</el-dropdown-item>-->
+                            <el-dropdown-item command="en">English</el-dropdown-item>
+                            <el-dropdown-item command="ar">عربى</el-dropdown-item>
+                            <el-dropdown-item command="ru">русский</el-dropdown-item>
+                            <el-dropdown-item command="ko">한국어</el-dropdown-item>
+                            <el-dropdown-item command="ja">日本語</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
@@ -102,6 +102,7 @@ export default {
     name: '',
     data() {
        return {
+         currentLanguage: "",
          show: false,
          currentIndex: -1,
           links: [
@@ -229,14 +230,11 @@ export default {
             this.bosket = false;
         }
     },
-    created(){
-
-
-    },
-
-    mounted(){
+    created() {},
+    mounted() {
         this.pagePath = this.$route.path;
-
+        let type = localStorage.getItem('lang')
+        this.currentLanguage = this.map[type][0]
     }
 }
 
