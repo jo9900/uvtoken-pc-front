@@ -250,8 +250,24 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     }
   }
 }
-/* TODO 其他语言 */
-.slideUpBtn.zh::after  {
-  content: "等待开通申请>>"
+.slideUpBtn {
+  &.zh::after {
+    content: "等待开通申请>>"
+  }
+  &.en::after {
+    content: "Waiting for opening application>>"
+  }
+  &.ja::after {
+    content: "申請の開通を持ちます>>"
+  }
+  &.ko::after {
+    content: "개통 신청 대기>>"
+  }
+  &.ru::after {
+    content: "Ждать открытия заявления>>"
+  }
+  &.ar::after {
+    content: "انتظار طلب فتح>>"
+  }
 }
 </style>

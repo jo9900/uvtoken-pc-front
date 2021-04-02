@@ -307,10 +307,24 @@ export default {
     }
   }
 }
-/* TODO 多语言*/
 .slideUpBtn {
   &.zh::after {
-    content: "等待上线"
+    content: "即将上线"
+  }
+  &.en::after {
+    content: "Coming soon"
+  }
+  &.ja::after {
+    content: "間もなくオンラインします"
+  }
+  &.ko::after {
+    content: "온라인 직전"
+  }
+  &.ru::after {
+    content: "Скоро поступить онлайн"
+  }
+  &.ar::after {
+    content: "سيتم الإطلاق قريبًا"
   }
 }
 </style>

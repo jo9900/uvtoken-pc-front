@@ -378,10 +378,24 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
     }
   }
 }
-/* TODO 多语言*/
 .slideUpBtn {
   &.zh::after {
     content: "即将发售"
+  }
+  &.en::after {
+    content: "Coming soon"
+  }
+  &.ja::after {
+    content: "間もなく発売します"
+  }
+  &.ko::after {
+    content: "발매 직전"
+  }
+  &.ru::after {
+    content: "Скоро продать"
+  }
+  &.ar::after {
+    content: "سيطلق قريبًا"
   }
 }
 .subtitle {

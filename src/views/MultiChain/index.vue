@@ -300,8 +300,25 @@ export default {
     }
   }
 }
-.slideUpBtn.zh::after {
-  content: "即将上线"
+.slideUpBtn {
+  &.zh::after {
+    content: "即将上线"
+  }
+  &.en::after {
+    content: "Coming soon"
+  }
+  &.ja::after {
+    content: "間もなくオンラインします"
+  }
+  &.ko::after {
+    content: "온라인 직전"
+  }
+  &.ru::after {
+    content: "Скоро поступить онлайн"
+  }
+  &.ar::after {
+    content: "سيتم الإطلاق قريبًا"
+  }
 }
 .fade-enter {
   opacity: 0;
