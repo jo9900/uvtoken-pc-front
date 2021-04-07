@@ -84,7 +84,10 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo2.from_date }} -
+                      <div v-if="preInfo2.from_date == '1970-01-01'">
+                        {{ $t('presale.text7') }}
+                      </div>
+                      <div v-else>{{ preInfo2.from_date }} -
                         <span v-if="preInfo2.to_date !== '9999-12-30'">{{ preInfo2.to_date }}</span>
                         <span v-else>{{ $t( 'presale.text65' ) }}</span>
                       </div>
@@ -130,7 +133,10 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo3.from_date }} -
+                      <div v-if="preInfo3.from_date == '1970-01-01'">
+                        {{ $t('presale.text7') }}
+                      </div>
+                      <div v-else>{{ preInfo3.from_date }} -
                         <span v-if="preInfo3.to_date !== '9999-12-30'">
                           {{ preInfo3.to_date }}</span>
                         <span v-else>{{ $t( 'presale.text65' ) }}</span>
@@ -190,7 +196,10 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo4.from_date }}</div>
+                      <div v-if="preInfo4.from_date == '1970-01-01'">
+                        {{ $t('presale.text7') }}
+                      </div>
+                      <div v-else>{{ preInfo4.from_date }}</div>
                       <div>{{ $t( 'presale.text7' ) }}</div>
 <!--                      <div>{{ preInfo1.price }} USDT</div>-->
                       <div>{{ $t( 'presale.text7' ) }}</div>
