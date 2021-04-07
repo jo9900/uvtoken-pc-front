@@ -255,6 +255,8 @@ export default {
             align-items: center;
             justify-content: space-between;
             color: #272727;
+            width: 100%;
+            padding: 0 30px;
             .nav_logo{
                 font-size: 24px;
             }
@@ -270,7 +272,6 @@ export default {
                         cursor: pointer;
                         float: left;
                         position: relative;
-                        max-width: 94px;
                         margin-right: 31px;
                         transition: all 0.5s;
                         height: 36px;

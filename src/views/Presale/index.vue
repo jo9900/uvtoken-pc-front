@@ -974,6 +974,8 @@ export default {
       color: #FFFFFF;
       line-height: 20px;
       text-align: center;
+      max-width: 70%;
+      margin: 0 auto;
       margin-bottom: 35px;
     }
 
