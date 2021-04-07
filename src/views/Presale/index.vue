@@ -4,7 +4,10 @@
       <div class="wrap">
         <div class="logo">
           <img class="pic_txt" src="../../assets/img/pic_txt@2x.png" alt="UvToken">
-          <img class="pic_fbt_bg" src="../../assets/img/pic_fbt_bg.png" alt="pic_fbt_bg">
+          <div class="pic_fbt_bg">
+            <span>{{ $t("presale.text71") }}</span>
+            <img src="../../assets/img/pic_fbt_bg.png" alt="pic_fbt_bg">
+          </div>
         </div>
         <div class="block">
           <div>
@@ -882,6 +885,18 @@ export default {
         margin-bottom: 45px;
         position: relative;
         z-index: 10;
+        color: #fff;
+        font-size: 30px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        span {
+          display: block;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          position: absolute;
+          line-height: 156px;
+        }
       }
 
       p {
