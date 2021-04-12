@@ -25,6 +25,10 @@
               <el-input
                   class="row_input"
                   type="text"
+                  readonly
+                  onfocus="this.removeAttribute('readonly');"
+                  onblur="this.setAttribute('readonly',true);"
+
                   :placeholder="$t('login.text2')"
                   v-model.trim="loginForm.mail"
                   auto-complete="new-password"
@@ -43,9 +47,10 @@
                   :type="passwordType"
                   :placeholder="$t('login.text3')"
                   v-model.trim="loginForm.pwd"
-                  auto-complete="new-password"
+                  readonly
+                  onfocus="this.removeAttribute('readonly');"
+                  onblur="this.setAttribute('readonly',true);"
                   @keypress.enter="submitForm('loginForm')"
-                  autocomplete="off"
                   @keyup.enter.native="submitForm('loginForm')"
               />
               <img v-show="!showEye" @click="triggerEye"

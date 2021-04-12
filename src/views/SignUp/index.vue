@@ -40,6 +40,9 @@
                 <el-input
                   class="row_input"
                   :type="passwordType1"
+                  readonly
+                  onfocus="this.removeAttribute('readonly');"
+                  onblur="this.setAttribute('readonly',true);"
                   autocomplete="off"
                   :placeholder="$t( 'login.text3' )"
                   v-model.trim="signUpForm.pwd"
@@ -58,6 +61,9 @@
                 <el-input
                   class="row_input"
                   :type="passwordType2"
+                  readonly
+                  onfocus="this.removeAttribute('readonly');"
+                  onblur="this.setAttribute('readonly',true);"
                   autocomplete="off"
                   :placeholder="$t( 'login.text6' )"
                   v-model.trim="signUpForm.againPassword"
