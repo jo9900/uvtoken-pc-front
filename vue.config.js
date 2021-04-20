@@ -66,7 +66,6 @@ module.exports = {
         config.resolve.symlinks(true);
         config.set('externals', {
             vue: "Vue",
-            "element-ui": "ELEMENT",
             "moment": "moment"
         })
         config.optimization.splitChunks({
