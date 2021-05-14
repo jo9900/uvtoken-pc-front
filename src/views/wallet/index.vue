@@ -39,7 +39,7 @@
           <div class="bloart">
             <img
                 class="content_img mln50"
-                src="@/assets/img/pic_w_zlzc@2x.png"
+                src="@/assets/img/pic_w_lxwe@2x.png"
                 alt="production-img"
             />
           </div>
@@ -75,9 +75,10 @@
             <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
           </div>
           <div class="bloart">
+
             <img
                 class="content_img"
-                src="@/assets/img/pic_w_lxwe@2x.png"
+                src="@/assets/img/pic_w_zlzc@2x.png"
                 alt="production-img"
             />
           </div>
@@ -314,7 +315,6 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
       .content {
         .content_text {
           text-align: left;
-          padding-left: 63px;
           margin-right: 130px;
         }
         .bowerkonet {

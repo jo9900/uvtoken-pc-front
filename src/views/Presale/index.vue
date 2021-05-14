@@ -4,7 +4,7 @@
       <div class="wrap">
         <div class="logo">
           <img class="pic_txt" src="../../assets/img/pic_txt@2x.png" alt="UvToken">
-          <div class="pic_fbt_bg">
+          <div :class="['pic_fbt_bg', $lang]">
             <span>{{ $t("presale.text71") }}</span>
             <img src="../../assets/img/pic_fbt_bg.png" alt="pic_fbt_bg">
           </div>
@@ -887,6 +887,9 @@ export default {
         z-index: 10;
         color: #fff;
         font-size: 30px;
+        &.ru {
+          font-size: 20px;
+        }
         font-family: PingFangSC-Semibold, PingFang SC;
         font-weight: 600;
         span {

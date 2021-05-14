@@ -94,7 +94,7 @@
               <div class="billet">
                 <div class="fitop">
                   <div><img src="../../assets/img/icon_ztg.png" /></div>
-                  <div class="title-1">Staking</div>
+                  <div class="title-1">{{ $t('text212') }}</div>
                   <div class="wiiot">
                     <div class="title-2 title-pi">{{ $t( 'text61' ) }}</div>
                     <div class="title-2">{{ $t( 'text62' ) }}</div>

@@ -133,7 +133,7 @@
   "text90": "U-Shield",
   "text91": "Offline storage of private keys without internet access prevents the private keys from being stolen",
   "text92": "Bluetooth 5.0 transmission",
-  "text93": "Metal body and military craft resist falling",
+  "text93": "Metal body, military-grade workmanship effectively resists drops",
   "text94": "More efficient when used with wallets",
   "text95": "Compact and lightweight, perfect for the wrist, suitable for daily life",
   "text96": "IP68 waterproof, dustproof and drop-proof, no fear of wind and rain",
@@ -220,7 +220,7 @@
     "text68": "Phase 3",
     "text69": "Stay tuned",
     "text70": "Exceeded the maximum allowed quantity. Currently remaining",
-    "text71": "Distributed multi-chain flash memory exchange, leading the industry"
+    "text71": "Decentralized multi-chain flash swap, leading the industry"
   },
   "agreement": {
     "text30": "User Agreement",
@@ -509,5 +509,6 @@
   "text208": "Transfer failed",
   "text209": "Cannot be transferred to yourself",
   "text210": "Wallet, decentralization, blockchain, digital currency",
-  "text211": "UvToken is committed to providing a safe, convenient and efficient decentralized digital asset platform for the public by using unique technologies, allowing everyone to conveniently use their digital assets anytime, anywhere"
+  "text211": "UvToken is committed to providing a safe, convenient and efficient decentralized digital asset platform for the public by using unique technologies, allowing everyone to conveniently use their digital assets anytime, anywhere",
+  "text212": "Looking for candy"
 }

@@ -13,6 +13,7 @@
         <el-table :data="tableData" style="width: 100%" stripe>
           <el-table-column
             prop="rebate_time"
+            width="180"
             :label="$t( 'text146' )"
           >
             <template slot-scope="scope">
@@ -58,10 +59,12 @@
           </el-table-column>
           <el-table-column
             prop="ApplyAmount"
-            :label="$t( 'text153' ) + '    (USDT)'"
+            :width="['en','ru'].includes($lang)? 280: 200"
+            :label="$t( 'text153' )  + '    (USDT)'"
           ></el-table-column>
           <el-table-column
             prop="RebateAmount"
+            :width="['en','ru'].includes($lang)? 280: 200"
             :label="$t( 'text163' ) + '    (USDT)'"
           ></el-table-column>
 

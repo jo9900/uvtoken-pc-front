@@ -397,6 +397,7 @@ export default {
     }
     .el-dropdown-menu {
       text-align: center;
-      width: 140px;
+      min-width: 140px;
+      width: auto;
     }
 </style>

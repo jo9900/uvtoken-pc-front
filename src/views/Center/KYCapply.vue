@@ -286,6 +286,13 @@ export default {
             this.$refs["formLabelAlign"].validateField('id_number')
         }
       }
+    },
+    'formLabelAlign.birth_date' : {
+      handler(cur) {
+        if (new Date(cur)> new Date()) {
+          this.formLabelAlign.birth_date = ''
+        }
+      }
     }
   },
   methods: {
