@@ -12,6 +12,7 @@
 export default {
     beforeRouteEnter(to, from, next) {
       next(vm => {
+        vm.$router.push(from)
         window.open(vm.$BaseUrl+ 'material/whitepaper.pdf', '_blank')
       })
     },
