@@ -134,10 +134,10 @@ export default {
               text: this.$t("text6"),
               path: '/help'
             },
-            {
-              text: this.$t("text7"),
-              path: '/presale'
-            },
+            // {
+            //   text: this.$t("text7"),
+            //   path: '/presale'
+            // },
           ],
             map: {
                 'zh': ['简体中文', 'Chinese'],
