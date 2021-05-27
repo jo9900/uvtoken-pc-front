@@ -39,7 +39,7 @@
           <div class="bloart">
             <img
                 class="content_img mln50"
-                src="@/assets/img/pic_w_lxwe.jpeg"
+                src="@/assets/img/pic_lxyj@2x.png"
                 alt="production-img"
             />
           </div>
