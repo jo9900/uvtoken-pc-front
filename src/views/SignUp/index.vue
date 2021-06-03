@@ -395,7 +395,12 @@ export default {
     userText() {
       this.$store.commit('SAVE_SIGNUP_FORM', this.signUpForm)
       this.$store.commit('SAVE_CHECK_STATUS', this.checked)
-      this.$router.push({ path: "/userAgreement" });
+      let routeUrl = this.$router.resolve({
+        path: "/userAgreement"
+      });
+
+      window.open(routeUrl.href, '_blank');
+      // this.$router.push({ path: "/userAgreement" });
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {

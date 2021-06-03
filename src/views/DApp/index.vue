@@ -163,7 +163,7 @@ export default {
           letter-spacing: 4px;
         }
         .caosjet {
-          width: 488px;
+          width: 495px;
           font-size: 20px;
           color: #7b839a;
           line-height: 29px;

@@ -323,6 +323,7 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
           width: 520px;
 
           &.en,&.ru,&.ko,&.ar,&.ja {
+            display: block;
             .cllot {
               width: auto;
               padding: 0 10px;

@@ -253,7 +253,12 @@ export default {
       }
     },
     userText() {
-      this.$router.push( { path: "/userAgreement" } );
+      let routeUrl = this.$router.resolve({
+        path: "/userAgreement"
+      });
+
+      window.open(routeUrl.href, '_blank');
+      // this.$router.push( { path: "/userAgreement" } );
     },
     closeVerifyDialog() {
       this.loading = false
