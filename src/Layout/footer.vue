@@ -16,7 +16,7 @@
           </div>
           <div class="spower">
             <router-link to="/financial">{{ $t( 'text4' ) }}</router-link>
-            <router-link to="/Dapp" >Dapp</router-link>
+            <router-link to="/Dapp" >DApp</router-link>
             <router-link to="/userAgreement">{{ $t( 'text35' ) }}</router-link>
           </div>
         </div>
