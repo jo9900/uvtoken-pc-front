@@ -22,7 +22,8 @@
               </ul>
             </div>
             <div class="nav_center">
-                <div class="in"
+<!--              隐藏注册登录-->
+<!--                <div class="in"
                      v-if="!isLogin"
                 >
                     <router-link to="/signUp" style="margin-right: 12px;">
@@ -46,9 +47,9 @@
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
-                    <i class="el-icon-arrow-down el-icon--right menu-arrow"></i>
+                    <i class="el-icon-arrow-down el-icon&#45;&#45;right menu-arrow"></i>
                 </div>
-                <div class="divider"></div>
+                <div class="divider"></div>-->
                 <div class="nav_language">
                     <el-dropdown  @command="languageChange" placement="bottom">
                         <span class="el-dropdown-link">
