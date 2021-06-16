@@ -515,6 +515,7 @@ export default {
 .content-muner {
   background: url("../../assets/img/baground-mob.png") center center no-repeat;
   overflow: hidden;
+  background-size: cover;
 }
 .banner-wrap {
   width: 1200px;
