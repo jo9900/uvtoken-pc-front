@@ -20,6 +20,7 @@
               <a
                 class="banner-btn"
                 target="_blank"
+                @click="recordClick('iOS')"
                 :href="
                   NODE_ENV !== 'production'
                     ? 'http://apps.apple.com/us/app/UvToken/id1552556395'
@@ -36,6 +37,7 @@
               </a>
               <a
                 class="banner-btn"
+                @click="recordClick('Android')"
                 :href="
                   NODE_ENV !== 'production'
                     ? 'http://t.uvtoken.com/app/android/apk/uvtoken.apk'
@@ -252,6 +254,7 @@
 <script>
 import countTo from "vue-count-to";
 import MixinScrollAnimate from "@/mixin/scroll.js"
+import { clickcount } from "@/request/count"
 export default {
   name: "",
   components: { countTo },
@@ -288,6 +291,14 @@ export default {
   computed: {},
   watch: {},
   methods: {
+    recordClick(type) {
+      clickcount({
+        download_type: type
+      }).then(res=> {
+
+      })
+
+    },
     colsepl() {
       this.isAlertTrue = false;
       this.$store.commit("TRIM", true);

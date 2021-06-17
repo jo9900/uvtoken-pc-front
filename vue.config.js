@@ -25,6 +25,11 @@ module.exports = {
                 target:'http://192.168.0.81:50523/',
                 changeOrigin:true,
                 ws:true,
+            },
+            '/wallet':{
+                target:'http://192.168.0.110:8008/',
+                changeOrigin:true,
+                ws:true,
             }
         },
         before: app => { }
