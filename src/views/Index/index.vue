@@ -254,7 +254,6 @@
 <script>
 import countTo from "vue-count-to";
 import MixinScrollAnimate from "@/mixin/scroll.js"
-import { clickcount } from "@/request/count"
 export default {
   name: "",
   components: { countTo },
@@ -292,12 +291,15 @@ export default {
   watch: {},
   methods: {
     recordClick(type) {
-      clickcount({
-        download_type: type
-      }).then(res=> {
-
-      })
-
+      const url = process.env.NODE_ENV == 'production'
+          ? 'v2/statistics/dailycount'
+          : 'wallet/statistics/downloadCount'
+      let img = new Image()
+      img.crossOrigin = 'anonymous'
+      img.src = process.env.VUE_APP_COUNT_API + url + '?download_type=' + type
+      img.style.display = 'none'
+      document.body.appendChild(img)
+      document.body.removeChild(img)
     },
     colsepl() {
       this.isAlertTrue = false;
