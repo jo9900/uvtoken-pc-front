@@ -2,9 +2,10 @@ import axios from 'axios'
 
 const service = axios.create({
     // 请求地址和网页地址不同
-    baseURL: process.env.NODE_ENV == "production"? process.env.VUE_APP_COUNT_API: '',
+    baseURL:process.env.VUE_APP_COUNT_API,
     timeout: 10000
 });
+console.log(process.env.NODE_ENV, process.env.VUE_APP_COUNT_API)
 service.interceptors.request.use(
     config => {
         return config;
