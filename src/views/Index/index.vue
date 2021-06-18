@@ -291,15 +291,14 @@ export default {
   watch: {},
   methods: {
     recordClick(type) {
-      let img = new Image()
-      img.crossOrigin = 'anonymous'
       let url = ''
       if (process.env.NODE_ENV == 'production') {
         url = 'http://wallet.uvtoken.com/wallet/statistics/downloadCount'
-      }else {
+      } else {
         url = process.env.VUE_APP_COUNT_API + 'wallet/statistics/downloadCount'
       }
-      img.src = url + '?download_type=' + type + '&t=' + +new Date()
+      let img = document.createElement('img')
+      img.src = url + '?download_type=' + type +'&t=' + +new Date()
       img.style.display = 'none'
       document.body.appendChild(img)
       document.body.removeChild(img)
