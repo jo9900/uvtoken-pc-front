@@ -644,7 +644,10 @@ export default {
         firstDialogVisible: this.firstDialogVisible,
       }
       this.$store.commit('SAVE_PRESALE_FORM', data)
-      this.$router.push( '/purchaseAgreement' )
+      let routeData = this.$router.resolve({
+        path:'/purchaseAgreement'
+      });
+      window.open(routeData.href, '_blank');
     },
 
     loginHandleClose() {

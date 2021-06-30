@@ -5,7 +5,7 @@
       <div class="zaltet">
         <div :class="['wrap-flr', $lang]">
           <div class="spower">
-            <router-link to="/purchaseAgreement">{{ $t( 'text30' ) }}</router-link>
+            <router-link to="/purchaseAgreement" target="_blank">{{ $t( 'text30' ) }}</router-link>
             <router-link to="/whitePaper" >{{ $t( 'text31' ) }}</router-link>
             <router-link to="/business">{{ $t( 'text32' ) }}</router-link>
           </div>
