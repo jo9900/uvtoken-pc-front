@@ -677,31 +677,51 @@ export default {
     },
 
     async getPreSale() {
-      await preSale( { round: 1, amount_type: 0 } ).then( res => {
+      await preSale( { round: 1, amount_type: 1 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo1 = res.data
+        }
+      } )
+      await preSale( { round: 1, amount_type: 0 } ).then( res => {
+        if ( res.code == 0 ) {
+          this.preInfo1.total = res.data.total;
         }
       } )
     },
 
     async getPreSale2() {
-      await preSale( { round: 2, amount_type: 0 } ).then( res => {
+      await preSale( { round: 2, amount_type: 1 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo2 = res.data
         }
       } )
+      await preSale( { round: 2, amount_type: 0 } ).then( res => {
+        if ( res.code == 0 ) {
+          this.preInfo2.total = res.data.total;
+        }
+      } )
     },
     async getPreSale3() {
+      await preSale( { round: 3, amount_type: 1 } ).then( res => {
+        if ( res.code == 0 ) {
+          this.preInfo3 = res.data;
+        }
+      } )
       await preSale( { round: 3, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo3 = res.data
+          this.preInfo3.total = res.data.total;
         }
       } )
     },
     async getPreSale4() {
-      await preSale( { round: 4, amount_type: 0 } ).then( res => {
+      await preSale( { round: 4, amount_type: 1 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo4 = res.data
+        }
+      } )
+      await preSale( { round: 4, amount_type: 0 } ).then( res => {
+        if ( res.code == 0 ) {
+          this.preInfo3.total = res.data.total;
         }
       } )
     },
