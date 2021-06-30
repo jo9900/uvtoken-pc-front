@@ -40,9 +40,16 @@
                       <div> {{ $t( 'presale.text4' ) }}</div>
                     </div>
                     <div class="stage-info-right">
-                      <div>{{ preInfo1.from_date }} -
+                      <!-- <div>{{ preInfo1.from_date }} -
                         <span v-if="preInfo1.to_date !== '9999-12-30'">
                           {{ preInfo1.to_date }}</span>
+                        <span v-else>{{ $t( 'presale.text65' ) }}</span>
+                      </div> -->
+                      <div v-if="preInfo1.from_date == '1970-01-01'">
+                        {{ $t('presale.text7') }}
+                      </div>
+                      <div v-else>{{ preInfo1.from_date }} -
+                        <span v-if="preInfo1.to_date !== '9999-12-30'">{{ preInfo1.to_date }}</span>
                         <span v-else>{{ $t( 'presale.text65' ) }}</span>
                       </div>
                       <div v-if="preInfo1.price == -1">{{ $t('presale.text7') }}</div>
