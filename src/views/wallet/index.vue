@@ -53,7 +53,19 @@
               <div>{{ $t( 'text93' ) }}</div>
               <div>{{ $t( 'text94' ) }}</div>
             </div>
-            <div :class="['dwkoer-but cursor-pointer slideUpBtn', $lang]" role="button"><span>{{ $t( 'text89' ) }}</span></div>
+            <div :class="['dwkoer-but cursor-pointer ', $lang]"
+                 @click="showQrcodeDialog = true"
+                 role="button"><span>{{ $t( 'text7' ) }}</span>
+            </div>
+            <el-dialog
+                :visible.sync="showQrcodeDialog"
+                width="320px"
+                center>
+              <div class="qrcode-text">{{ $t('text213') }}</div>
+              <div class="qrcode-content">
+                <img src="../../assets/img/wallet_qrcode.png" />
+              </div>
+            </el-dialog>
           </div>
         </div>
       </div>
@@ -178,6 +190,7 @@ export default {
         page_size: 3,
       },
       langType: this.$langType,
+      showQrcodeDialog: false
     };
   },
   computed: {},
@@ -424,5 +437,19 @@ background: linear-gradient(180deg, #F6FAFF 0%, #E5EFFF 100%);
 }
 .mln50 {
   margin-left: -50px;
+}
+.qrcode-text {
+  margin-bottom: 18px;
+  text-align: center;
+  width: 100%;
+}
+.qrcode-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 260px;
+    height: 260px;
+  }
 }
 </style>
