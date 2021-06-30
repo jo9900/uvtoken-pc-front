@@ -23,7 +23,7 @@
             </div>
             <div class="nav_center">
 <!--              隐藏注册登录-->
-<!--                <div class="in"
+               <div class="in"
                      v-if="!isLogin"
                 >
                     <router-link to="/signUp" style="margin-right: 12px;">
@@ -49,7 +49,7 @@
                     </el-dropdown>
                     <i class="el-icon-arrow-down el-icon&#45;&#45;right menu-arrow"></i>
                 </div>
-                <div class="divider"></div>-->
+                <div class="divider"></div>
                 <div class="nav_language">
                     <el-dropdown  @command="languageChange" placement="bottom">
                         <span class="el-dropdown-link">
@@ -135,10 +135,10 @@ export default {
               text: this.$t("text6"),
               path: '/help'
             },
-            // {
-            //   text: this.$t("text7"),
-            //   path: '/presale'
-            // },
+            {
+              text: this.$t("text7"),
+              path: '/presale'
+            },
           ],
             map: {
                 'zh': ['简体中文', 'Chinese'],
