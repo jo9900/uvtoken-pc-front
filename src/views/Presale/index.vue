@@ -45,8 +45,10 @@
                           {{ preInfo1.to_date }}</span>
                         <span v-else>{{ $t( 'presale.text65' ) }}</span>
                       </div>
-                      <div>{{ preInfo1.price }} USDT</div>
-                      <div>{{ calcTotal1 }} USDT</div>
+                      <div v-if="preInfo1.price == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ +preInfo1.price }} USDT</div>
+                      <div v-if="preInfo1.total == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ preInfo1.total }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -94,8 +96,10 @@
                         <span v-if="preInfo2.to_date !== '9999-12-30'">{{ preInfo2.to_date }}</span>
                         <span v-else>{{ $t( 'presale.text65' ) }}</span>
                       </div>
-                      <div>{{ preInfo2.price }} USDT</div>
-                      <div>{{ calcTotal2 }} USDT</div>
+                      <div v-if="preInfo2.price == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ +preInfo2.price }} USDT</div>
+                      <div v-if="preInfo2.total == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ preInfo2.total }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -144,8 +148,10 @@
                           {{ preInfo3.to_date }}</span>
                         <span v-else>{{ $t( 'presale.text65' ) }}</span>
                       </div>
-                      <div>{{ preInfo3.price }} USDT</div>
-                      <div>{{ calcTotal3 }} USDT</div>
+                      <div v-if="preInfo3.price == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ +preInfo3.price }} USDT</div>
+                      <div v-if="preInfo3.total == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ preInfo3.total }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -541,7 +547,7 @@ export default {
   },
   computed: {
     calcTotal1() {
-      const { pre_amount = 0, total = 0,  price = 0 } = this.preInfo1
+      const { pre_amount = 0, total = 0,  price = 0 } = this.preInfo1;
       return (pre_amount * total * price)
           .toString()
           .replace( /\B(?=(?:\d{3})+\b)/g, ',' )
@@ -668,7 +674,7 @@ export default {
     },
 
     async getPreSale() {
-      await preSale( { round: 1, amount_type: 1 } ).then( res => {
+      await preSale( { round: 1, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo1 = res.data
         }
@@ -676,14 +682,14 @@ export default {
     },
 
     async getPreSale2() {
-      await preSale( { round: 2, amount_type: 1 } ).then( res => {
+      await preSale( { round: 2, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo2 = res.data
         }
       } )
     },
     async getPreSale3() {
-      await preSale( { round: 3, amount_type: 1 } ).then( res => {
+      await preSale( { round: 3, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo3 = res.data
         }
