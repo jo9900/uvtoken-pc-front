@@ -54,8 +54,8 @@
                       </div>
                       <div v-if="preInfo1.price == -1">{{ $t('presale.text7') }}</div>
                       <div v-else>{{ +preInfo1.price }} USDT</div>
-                      <div v-if="preInfo1.total == -1">{{ $t('presale.text7') }}</div>
-                      <div v-else>{{ preInfo1.total }} USDT</div>
+                      <div v-if="preInfo1.total_1 == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ preInfo1.total_1 }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -105,8 +105,8 @@
                       </div>
                       <div v-if="preInfo2.price == -1">{{ $t('presale.text7') }}</div>
                       <div v-else>{{ +preInfo2.price }} USDT</div>
-                      <div v-if="preInfo2.total == -1">{{ $t('presale.text7') }}</div>
-                      <div v-else>{{ preInfo2.total }} USDT</div>
+                      <div v-if="preInfo2.total_1 == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ preInfo2.total_1 }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -157,8 +157,8 @@
                       </div>
                       <div v-if="preInfo3.price == -1">{{ $t('presale.text7') }}</div>
                       <div v-else>{{ +preInfo3.price }} USDT</div>
-                      <div v-if="preInfo3.total == -1">{{ $t('presale.text7') }}</div>
-                      <div v-else>{{ preInfo3.total }} USDT</div>
+                      <div v-if="preInfo3.total_1 == -1">{{ $t('presale.text7') }}</div>
+                      <div v-else>{{ preInfo3.total_1 }} USDT</div>
                     </div>
                   </div>
                 </div>
@@ -691,7 +691,7 @@ export default {
       } )
       await preSale( { round: 1, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo1.total = res.data.total;
+          this.preInfo1.total_1 = res.data.total;
         }
       } )
     },
@@ -704,7 +704,7 @@ export default {
       } )
       await preSale( { round: 2, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo2.total = res.data.total;
+          this.preInfo2.total_1 = res.data.total;
         }
       } )
     },
@@ -716,7 +716,7 @@ export default {
       } )
       await preSale( { round: 3, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo3.total = res.data.total;
+          this.preInfo3.total_1 = res.data.total;
         }
       } )
     },
@@ -728,7 +728,7 @@ export default {
       } )
       await preSale( { round: 4, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo3.total = res.data.total;
+          this.preInfo3.total_1 = res.data.total;
         }
       } )
     },
