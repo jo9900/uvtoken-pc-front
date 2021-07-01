@@ -22,13 +22,26 @@
         </div>
         <div>
           <div class="wll-rt">
-            <div class="lro"><img src="@/assets/img/icon_twiter@2x.png" /></div>
-            <div class="lro"><img src="@/assets/img/icon_facebook@2x.png" /></div>
-            <div class="lro"><img src="@/assets/img/icon_w09@2x.png" /></div>
-            <div class="lro"><img src="@/assets/img/icon_youtube@2x.png" /></div>
-            <div class="lro"><img src="@/assets/img/icon_feiji@2x.png" /></div>
-            <div class="lro"><img src="@/assets/img/icon_weibo@2x.png" /></div>
-            <div class="lro"><img src="@/assets/img/icon_weicat@2x.png" /></div>
+            <div class="lro">
+              <a href="https://twitter.com/UvTokenOfficial">
+                <img src="@/assets/img/icon_twiter@2x.png" />
+              </a>
+            </div>
+<!--            <div class="lro"><img src="@/assets/img/icon_facebook@2x.png" /></div>-->
+<!--            <div class="lro"><img src="@/assets/img/icon_w09@2x.png" /></div>-->
+<!--            <div class="lro"><img src="@/assets/img/icon_youtube@2x.png" /></div>-->
+            <div class="lro">
+              <a href="https://t.me/uvtokenofficial">
+                <img src="@/assets/img/icon_feiji@2x.png" />
+              </a>
+            </div>
+<!--            <div class="lro"><img src="@/assets/img/icon_weibo@2x.png" /></div>-->
+<!--            <div class="lro"><img src="@/assets/img/icon_weicat@2x.png" /></div>-->
+            <div class="lro">
+              <a href="https://medium.com/@UvTokenOfficial">
+                <img width="24" src="@/assets/img/icon_medium@2x.png" alt="">
+              </a>
+            </div>
           </div>
           <div class="qksot">
             <div style="width: 300px;">
