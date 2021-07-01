@@ -728,7 +728,7 @@ export default {
       } )
       await preSale( { round: 4, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo3.total_1 = res.data.total;
+          this.preInfo4.total_1 = res.data.total;
         }
       } )
     },
