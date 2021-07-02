@@ -23,7 +23,7 @@
         <div>
           <div class="wll-rt">
             <div class="lro">
-              <a href="https://twitter.com/UvTokenOfficial">
+              <a href="https://twitter.com/UvTokenOfficial" target="_blank">
                 <img src="@/assets/img/icon_twiter@2x.png" />
               </a>
             </div>
@@ -31,14 +31,14 @@
 <!--            <div class="lro"><img src="@/assets/img/icon_w09@2x.png" /></div>-->
 <!--            <div class="lro"><img src="@/assets/img/icon_youtube@2x.png" /></div>-->
             <div class="lro">
-              <a href="https://t.me/uvtokenofficial">
+              <a href="https://t.me/uvtokenofficial" target="_blank">
                 <img src="@/assets/img/icon_feiji@2x.png" />
               </a>
             </div>
 <!--            <div class="lro"><img src="@/assets/img/icon_weibo@2x.png" /></div>-->
 <!--            <div class="lro"><img src="@/assets/img/icon_weicat@2x.png" /></div>-->
             <div class="lro">
-              <a href="https://medium.com/@UvTokenOfficial">
+              <a href="https://medium.com/@UvTokenOfficial" target="_blank">
                 <img width="24" src="@/assets/img/icon_medium@2x.png" alt="">
               </a>
             </div>
