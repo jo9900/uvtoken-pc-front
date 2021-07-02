@@ -114,7 +114,7 @@ const routes = [
             {
                 path: '/presale', name: 'presale', label: "预售", meta: { requiresAuth: false, title: "预售" },
 
-                component: resolve => require( [ '@/views/Presale/index.vue' ], resolve )
+                component: resolve => require( [ '@/views/Presale/tem.vue' ], resolve )
             },
             {
                 path: '/center',
