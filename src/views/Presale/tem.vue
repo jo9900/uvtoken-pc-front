@@ -72,7 +72,6 @@
               </div>
               <div class="presale-btn"
                    role="button"
-                   @click="clickBefore(1)"
                    v-else
               >
                 <span> {{ $t( 'presale.text69' ) }}</span>
@@ -122,7 +121,6 @@
               </div>
               <div class="presale-btn"
                    role="button"
-                   @click="clickBefore(1)"
                    v-else
               >
                 <span> {{ $t( 'presale.text69' ) }}</span>
@@ -173,7 +171,6 @@
               </div>
               <div class="presale-btn"
                    role="button"
-                   @click="clickBefore(1)"
                    v-else
               >
                 <span> {{ $t( 'presale.text69' ) }}</span>
