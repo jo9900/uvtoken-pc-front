@@ -232,7 +232,6 @@
           </div>
           <div class="presale-btn last-btn"
                role="button"
-               @click="clickBefore(4)"
                v-if="preInfo4.status !=2 "
           >
             <span>{{ $t( 'presale.text69' ) }}</span>
