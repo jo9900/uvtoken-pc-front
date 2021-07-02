@@ -11,10 +11,15 @@
     import  service from '@/components/service'
     export default {
         name:'',
+        data() {
+          return {
+            NODE_ENV: process.env.NODE_ENV
+          }
+        },
         components: {service},
         metaInfo() {
           return {
-            title: 'UvToken',
+            title: this.NODE_ENV == 'production'? 'UvToken': 'test uvtoken',
             meta: [
               {
                 name: "keyWords",
