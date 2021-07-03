@@ -144,7 +144,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+<!--    <div class="card">
       <div class="card_title">{{ $t( 'usercenter.text13' ) }}</div>
       <div class="cart_box">
         <div class="cart_box_item">
@@ -213,7 +213,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="card">
       <div class="card_title">{{ $t( 'usercenter.text19' ) }}</div>
       <div class="card_row">

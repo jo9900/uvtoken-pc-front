@@ -403,7 +403,8 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background: url("../../assets/img/login_bg.png") 100% 100% no-repeat;
+      background: url("../../assets/img/login_bg.png") center center no-repeat;
+      background-size: cover;
     }
 
     .wrap {

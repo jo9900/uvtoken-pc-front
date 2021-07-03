@@ -73,7 +73,7 @@
                 <img v-show="showEye2" class="eye" @click="triggerEye(2)"
                      src="../../assets/img/eye-open.svg" alt="eye">
               </el-form-item>
-              <div class="form_row codeText" style="margin-bottom: 15px">
+<!--              <div class="form_row codeText" style="margin-bottom: 15px">
                 <img
                   style="top: 15px"
                   class="input_img"
@@ -98,7 +98,7 @@
                     "
                     v-model="signUpForm.inviteCode"
                 /></template>
-              </div>
+              </div>-->
               <div
                 class="protocol_row nochenched"
                 style="
