@@ -171,7 +171,7 @@ export default {
 
     async getRandomImg() {
       let res = await getImg()
-      let url = res.data.imgUrl
+      let url = window.location.origin + res.data.imgUrl
       this.imgs = [url]
       return this.imgs[0]
     },
