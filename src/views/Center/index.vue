@@ -133,9 +133,13 @@
         <div class="cart_box_item">
           <div class="item_title">
             <span>{{ $t( 'usercenter.text15' ) }}</span>
-            <span class="color5885FD" style="cursor: pointer" @click="sofert">{{
-              $t( 'text165' )
-            }}</span>
+            <span class="color5885FD"
+                  style="cursor: pointer"
+                  @click="sofert"
+                  v-if="!blackList.transfer.includes($store.state.code)"
+            >
+              {{$t( 'text165' ) }}
+            </span>
           </div>
           <div class="margintop40 color5885FD">
             {{ myPreSale.apply_taft_amount ? myPreSale.apply_taft_amount : 0 }}
@@ -235,11 +239,13 @@
 </template>
 
 <script>
+import blackList from "@/blacklist/list"
 import { userInfo, myPreSale, myMarketing } from "@/request/user.js";
 export default {
   name: "center",
   data() {
     return {
+      blackList: blackList,
       NODE_ENV:process.env.NODE_ENV,
       userFilName: '',
       userInfo: {

@@ -49,7 +49,7 @@
                 ></el-input>
               </el-form-item>
             </el-form>
-            <el-button class="submit_btn" @click="subFrom">{{
+            <el-button class="submit_btn" :disabled="blackList.transfer.includes($store.state.code)" @click="subFrom">{{
               $t( 'text41' )
             }}</el-button>
           </div>
@@ -168,6 +168,8 @@ import {
 import { pubKey } from "@/request/login.js";
 const sha256 = require("js-sha256").sha256;
 import { JSEncrypt } from "jsencrypt";
+import blackList from "@/blacklist/list"
+
 export default {
   name: "",
   data() {
@@ -203,6 +205,7 @@ export default {
     };
 
     return {
+      blackList:blackList,
       pk: '',
       that: this,
       apply_taft_amount: "0",
