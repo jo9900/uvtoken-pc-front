@@ -49,7 +49,7 @@
                 ></el-input>
               </el-form-item>
             </el-form>
-            <el-button class="submit_btn" :disabled="blackList.transfer.includes($store.state.code)" @click="subFrom">{{
+            <el-button class="submit_btn" v-if="!blackList.transfer.includes($store.state.code)" @click="subFrom">{{
               $t( 'text41' )
             }}</el-button>
           </div>
