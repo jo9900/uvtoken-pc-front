@@ -16,6 +16,43 @@
             NODE_ENV: process.env.NODE_ENV
           }
         },
+      mounted() {
+        let type = 'common'
+        if (window.location.search) {
+          type = this.getUrlParam('rec')
+          if (type) this.recordClick(type)
+        }
+        else this.recordClick(type)
+      },
+      methods: {
+        getUrlParam(paraName) {
+          var url = document.location.toString();
+          var arrObj = url.split("?");
+
+          if (arrObj.length > 1) {
+            var arrPara = arrObj[1].split("&");
+            var arr;
+
+            for (var i = 0; i < arrPara.length; i++) {
+              arr = arrPara[i].split("=");
+
+              if (arr != null && arr[0] == paraName) {
+                return arr[1];
+              }
+            }
+            return "";
+          }
+          else return "";
+        },
+        recordClick(type) {
+          const url = 'http://wallet.uvtoken.com/wallet/statistics/downloadCount'
+          let img = document.createElement('img')
+          img.src = url + '?download_type=' + type +'&t=' + +new Date()
+          img.style.display = 'none'
+          document.body.appendChild(img)
+          document.body.removeChild(img)
+        },
+      },
         components: {service},
         metaInfo() {
           return {
