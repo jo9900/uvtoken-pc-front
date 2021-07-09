@@ -70,16 +70,15 @@ router.beforeEach((to, from, next) => {
 
   let token = localStorage.getItem('token')
 
-  // if (to.meta.requiresAuth) {
-  //   if (token) {
-  //     next()
-  //   } else {
-  //     next({ path: '/login', query: { redirect: to.fullPath }});
-  //   }
-  // } else {
-  //     next()
-  // }
-    next()
+  if (to.meta.requiresAuth) {
+    if (token) {
+      next()
+    } else {
+      next({ path: '/login', query: { redirect: to.fullPath }});
+    }
+  } else {
+      next()
+  }
 })
 
 export default router
