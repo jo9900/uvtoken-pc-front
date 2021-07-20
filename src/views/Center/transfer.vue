@@ -472,7 +472,7 @@ export default {
 }
 .wolaet {
   margin: 0 auto;
-  width: 493px;
+  width: 525px;
 }
 </style>
 
