@@ -1392,6 +1392,7 @@ export default {
   font-weight: 600;
   color: #06149D;
   margin-right: 120px;
+  padding: 0 10px;
   &.last-btn {
     position: absolute;
     left: 50%;

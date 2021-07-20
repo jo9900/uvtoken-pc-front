@@ -221,9 +221,6 @@ export default {
         languageChange(val){
             localStorage.setItem("lang", val)
             localStorage.setItem("langType", this.map[val][1])
-            if(this.pagePath == "/newsDetail"){
-                this.$router.push("/")
-            }
             location.reload();
         },
 
