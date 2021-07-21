@@ -60,10 +60,10 @@
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="zh">简体中文</el-dropdown-item>
                             <el-dropdown-item command="en">English</el-dropdown-item>
-                            <el-dropdown-item command="ar">عربى</el-dropdown-item>
+                            <!-- <el-dropdown-item command="ar">عربى</el-dropdown-item>
                             <el-dropdown-item command="ru">русский</el-dropdown-item>
                             <el-dropdown-item command="ko">한국어</el-dropdown-item>
-                            <el-dropdown-item command="ja">日本語</el-dropdown-item>
+                            <el-dropdown-item command="ja">日本語</el-dropdown-item> -->
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
