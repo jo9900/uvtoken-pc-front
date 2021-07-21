@@ -111,10 +111,10 @@
                   {{$t( 'login.text15' )}}
                 </el-checkbox>
                 <span
-                  >《<span class="usertext" @click="userText">{{
+                  >"<span class="usertext" @click="userText">{{
                     $t( 'login.text16' )
                   }}</span
-                  >》</span
+                  >"</span
                 >
               </div>
             </el-form>
