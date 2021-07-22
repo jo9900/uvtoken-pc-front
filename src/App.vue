@@ -1,6 +1,6 @@
 
 <template>
-  <div id="app">
+  <div id="app" :class="lang">
 <!--    <keep-alive>-->
       <router-view/>
 <!--    </keep-alive>-->
@@ -14,6 +14,11 @@
         data() {
           return {
             NODE_ENV: process.env.NODE_ENV
+          }
+        },
+        computed: {
+          lang() {
+            return localStorage.lang
           }
         },
       mounted() {

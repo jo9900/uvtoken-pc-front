@@ -929,6 +929,12 @@ export default {
           position: absolute;
           line-height: 156px;
         }
+        &.en{
+          span{
+            padding-top: 50px;
+            line-height: 36px;
+          }
+        }
       }
 
       p {
