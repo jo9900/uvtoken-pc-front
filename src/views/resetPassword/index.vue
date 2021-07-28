@@ -266,6 +266,11 @@ export default {
           { validator: validatePassword, required: true, trigger: "blur" },
         ],
         againPassword: [
+          {
+            required: true,
+            message: this.$t( 'login.text6' ),
+            trigger: "blur",
+          },
           { validator: validatePassword, required: true, trigger: "blur" },
           { validator: validatePasswordAagin, required: true, trigger: "blur" },
         ],
