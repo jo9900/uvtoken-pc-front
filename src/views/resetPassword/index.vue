@@ -252,7 +252,7 @@ export default {
         mail: [
           {
             required: true,
-            message: this.$t( 'login.text2' ),
+            message: this.$t( 'text214' ),
             trigger: "blur",
           },
           { validator: Elowert, required: true, trigger: "blur" },
@@ -260,7 +260,7 @@ export default {
         pwd: [
           {
             required: true,
-            message: this.$t( 'login.text3' ),
+            message: this.$t( 'text215' ),
             trigger: "blur",
           },
           { validator: validatePassword, required: true, trigger: "blur" },
