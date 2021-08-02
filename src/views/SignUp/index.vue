@@ -292,7 +292,7 @@ export default {
         againPassword: [
           {
             required: true,
-            message: this.$t( 'login.text3' ),
+            message: this.$t( 'login.text6' ),
             trigger: "blur",
           },
           { validator: validatePassword, required: true, trigger: "blur" },

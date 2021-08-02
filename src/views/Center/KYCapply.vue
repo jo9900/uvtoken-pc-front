@@ -212,7 +212,7 @@ export default {
         country_code: [
           {
             required: true,
-            message: this.$t( 'text136' ),
+            message: this.$t( 'text117' ),
             trigger: "change",
           },
         ],
