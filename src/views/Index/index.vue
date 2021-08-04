@@ -545,6 +545,13 @@ export default {
   line-height: 61px;
   margin-bottom: 38px;
 }
+#app{
+  &.en{
+    .banner-title {
+      font-size: 45px;
+    }
+  }
+}
 .banner-subtitle {
   font-size: 20px;
   font-weight: 100;
