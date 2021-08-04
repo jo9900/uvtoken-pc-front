@@ -26,12 +26,12 @@
                <div class="in"
                      v-if="!isLogin"
                 >
-<!--                    <router-link to="/signUp" style="margin-right: 12px;">-->
-<!--                    {{ $t("text8") }}-->
-<!--                    </router-link>-->
-<!--                    <router-link to="/login">-->
-<!--                    {{ $t("text9") }}-->
-<!--                    </router-link>-->
+                   <router-link to="/signUp" style="margin-right: 12px;">
+                   {{ $t("text8") }}
+                   </router-link>
+                   <router-link to="/login">
+                   {{ $t("text9") }}
+                   </router-link>
                 </div>
                 <div class="userInfo" v-else>
                     <el-dropdown  @command="handleClick">
