@@ -28,8 +28,8 @@
               {{ $t( 'text113' ) }}</div>
             <div class="coak">
               <div class="bmllort">
-                <div class="boet" v-for="(item, index) in listTitle" :key="index">
-                  <div class="title-2" @click="changeRoute(index)">{{ item }}</div>
+                <div class="boet" v-for="(item, index) in listData" :key="index">
+                  <div class="title-2" @click="changeRoute(item.id)">{{ item.issueName }}</div>
                 </div>
               </div>
             </div>
@@ -68,16 +68,18 @@ export default {
   watch: {},
   methods: {
     getlist() {
-      helpList().then((res) => {
+      helpList({
+        lang_type: localStorage.lang || 'zh'
+      }).then((res) => {
         if (res.code === 0)
           this.listData = res.data;
       });
     },
-    changeRoute(index) {
+    changeRoute(id) {
       this.$router.push({
         path: '/helpDetail',
         query: {
-          id: index + 1
+          id: id
         }
       })
     }

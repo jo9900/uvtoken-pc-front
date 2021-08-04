@@ -32,7 +32,9 @@ export default {
     };
   },
   created() {
-    // this.getData();
+    let query = this.$route.query;
+    this.query = query;
+    this.getData();
   },
   watch: {
     '$route': {
@@ -45,15 +47,15 @@ export default {
 
   },
   mounted() {
-    let id = this.id
-    this.articleText = ArticleMap.get(id)
+    // let id = this.id
+    // this.articleText = ArticleMap.get(id)
   },
   computed: {},
   methods: {
     getData() {
-      helpDetail( { issueId: this.id } )
+      helpDetail( { id: this.query.id, lang_type: localStorage.lang || 'zh' } )
           .then( res => {
-            this.src = res.data[ 0 ].fileURL;
+            this.articleText = res.data;
           } )
     }
   }

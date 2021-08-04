@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-29 17:53:20
+ * @LastEditTime: 2021-08-02 18:59:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /uvtoken-pc-front/src/request/news.js
+ */
 
 import { get, post } from './http'
 
@@ -14,5 +22,5 @@ export const helpList = params =>{
     return post( baseUrl + 'issuelist' , params )
 }
 export const helpDetail = params =>{
-    return post( baseUrl + 'listdetail' , params )
+    return post( baseUrl + 'issue/detail' , params )
 }
