@@ -35,7 +35,7 @@
                     </span>
                 </div>
                 <div class="stage-info-wrap">
-                  <div class="stage-info-left">
+                  <div :class="['stage-info-left', $lang]">
                     <div> {{ $t( 'presale.text2' ) }}</div>
                     <div> {{ $t( 'presale.text3' ) }}</div>
                     <div> {{ $t( 'presale.text4' ) }}</div>
@@ -89,7 +89,7 @@
                     </span>
                 </div>
                 <div class="stage-info-wrap">
-                  <div class="stage-info-left">
+                  <div :class="['stage-info-left', $lang]">
                     <div> {{ $t( 'presale.text2' ) }}</div>
                     <div> {{ $t( 'presale.text3' ) }}</div>
                     <div> {{ $t( 'presale.text4' ) }}</div>
@@ -138,7 +138,7 @@
                     </span>
                 </div>
                 <div class="stage-info-wrap">
-                  <div class="stage-info-left">
+                  <div :class="['stage-info-left', $lang]">
                     <div> {{ $t( 'presale.text2' ) }}</div>
                     <div> {{ $t( 'presale.text3' ) }}</div>
                     <div> {{ $t( 'presale.text4' ) }}</div>
@@ -201,7 +201,7 @@
                     </span>
                 </div>
                 <div class="stage-info-wrap">
-                  <div class="stage-info-left">
+                  <div :class="['stage-info-left', $lang]">
                     <div> {{ $t( 'presale.text2' ) }}</div>
                     <div> {{ $t( 'presale.text3' ) }}</div>
                     <div> {{ $t( 'presale.text4' ) }}</div>
@@ -1060,6 +1060,9 @@ export default {
       }
       .stage-info-left {
         min-width: 120px;
+        &.en {
+          min-width: 75px;
+        }
       }
     }
 
