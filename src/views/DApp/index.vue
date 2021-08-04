@@ -5,7 +5,7 @@
       <div class="wrap">
         <div class="content">
           <div class="content_text fadeInRight">
-            <div class="bget">
+            <div :class="['bget',$lang]">
               <div>{{ $t( 'text103' ) }}</div>
               <div>{{ $t( 'text104' ) }}</div>
             </div>
@@ -161,7 +161,9 @@ export default {
           color: #272727;
           margin-bottom: 21px;
           letter-spacing: 4px;
-          white-space: nowrap;
+          &.en {
+            white-space: nowrap;
+          }
         }
         .caosjet {
           width: 495px;
