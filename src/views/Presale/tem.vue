@@ -188,7 +188,7 @@
             <div><img src="@/assets/img/pic_txt_bg@2x.png" /></div>
             <div class="block-title-text"> {{ $t( 'presale.text5' ) }}</div>
           </div>
-          <div class="block-description">
+          <div :class="['block-description', $lang]">
             {{ $t( 'presale.text6' ) }}
           </div>
           <div class="stage-wrap">
@@ -1030,6 +1030,9 @@ export default {
       max-width: 70%;
       margin: 0 auto;
       margin-bottom: 35px;
+      &.en {
+        white-space: nowrap;
+      }
     }
 
     .splce-text {
