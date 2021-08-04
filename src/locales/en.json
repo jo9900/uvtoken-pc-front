@@ -156,10 +156,10 @@
   "text113": "FAQs",
   "presale": {
     "text1": "The first round of raised funds will be used for the maintenance of the existing team and its projects, mainly for daily expenses, wages and R&D expenses",
-    "text2": "Initiate time:",
-    "text3": "Unit price:",
-    "text4": "Target amount of sales:",
-    "text5": "Global release",
+    "text2": "Time:",
+    "text3": "Price:",
+    "text4": "Total:",
+    "text5": "Global sale",
     "text6": "The pre-sale proceeds will be used for hardware wallet product line expansion and recruitment of top engineers, etc.",
     "text7": "Confirmed before release",
     "text12": "The purchase can be made only after KYC certification",
@@ -218,7 +218,7 @@
     "text66": "Phase 1",
     "text67": "Phase 2",
     "text68": "Phase 3",
-    "text69": "Stay tuned",
+    "text69": "coming soon",
     "text70": "Exceeded the maximum allowed quantity. Currently remaining",
     "text71": "Decentralized multi-chain instant exchange, leading the industry"
   },

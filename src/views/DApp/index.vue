@@ -161,6 +161,7 @@ export default {
           color: #272727;
           margin-bottom: 21px;
           letter-spacing: 4px;
+          white-space: nowrap;
         }
         .caosjet {
           width: 495px;
