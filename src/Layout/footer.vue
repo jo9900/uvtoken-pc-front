@@ -110,8 +110,10 @@ export default {
         if (valid) {
           subscribe({email: this.validateForm.email})
               .then(res=> {
-                if (res.code == 0)
+                if (res.code == 0) {
                   this.$message(this.$t('text205'))
+                  this.validateForm.email = ''
+                }
               })
         }
       })
