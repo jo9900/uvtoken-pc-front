@@ -73,7 +73,7 @@
               <template v-else>
                 <div class="stage-progress-wrap">
                   <div class="stage-progress">
-                    <el-progress type="circle" width="96" :percentage="preInfo1.progress"></el-progress>
+                    <el-progress style="margin-bottom:10px" type="circle" width="96" :percentage="preInfo1.progress"></el-progress>
                     <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
                   </div>
                 </div>
