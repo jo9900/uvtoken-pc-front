@@ -70,12 +70,19 @@
                 </div>
                 <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
               </div>
-              <div class="presale-btn"
-                   role="button"
-                   v-else
-              >
-                <span> {{ $t( 'presale.text69' ) }}</span>
-              </div>
+              <template v-else>
+                <div class="stage-progress-wrap">
+                  <div class="stage-progress">
+                    <el-progress type="circle" width="96" :percentage="preInfo1.progress"></el-progress>
+                    <div class="progress-text"> {{ $t( 'presale.text27' ) }}</div>
+                  </div>
+                </div>
+                <!-- <div class="presale-btn"
+                    role="button"
+                >
+                  <span> {{ $t( 'presale.text69' ) }}</span>
+                </div> -->
+              </template>
             </div>
           </div>
           <!--          第二阶段-->
@@ -679,12 +686,14 @@ export default {
     async getPreSale() {
       await preSale( { round: 1, amount_type: 1 } ).then( res => {
         if ( res.code == 0 ) {
-          this.preInfo1 = res.data
+          this.preInfo1 = res.data;
+          this.preInfo1.progress = 0;
         }
       } )
       await preSale( { round: 1, amount_type: 0 } ).then( res => {
         if ( res.code == 0 ) {
           this.preInfo1.total_1 = res.data.total;
+          this.preInfo1.progress = res.data.progress;
         }
       } )
     },
@@ -1119,7 +1128,7 @@ export default {
     }
 
     .stage-progress {
-      width: 87px;
+      // width: 87px;
       height: 87px;
       text-align: center;
       position: relative;
@@ -1134,13 +1143,17 @@ export default {
       text-align: center;
       padding-top: 12px;
       color: #FFFFFF;
-      margin-right: 200px;
+      margin-right: 180px;
       .progress-text {
         font-size: 14px;
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
         line-height: 20px;
         letter-spacing: 1px;
+      }
+      /deep/.el-progress__text{
+        color: #fff;
+        font-size: 16px !important;
       }
     }
 
@@ -1256,6 +1269,12 @@ export default {
       }
 
     }
+  }
+}
+
+#app.en{
+  .page .wrap .stage-progress-wrap{
+    margin-right: 160px;
   }
 }
 
