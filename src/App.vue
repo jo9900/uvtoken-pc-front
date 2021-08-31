@@ -1,6 +1,15 @@
+<!--
+ * @Author: jhy
+ * @Date: 2021-07-12 16:19:36
+ * @LastEditTime: 2021-08-31 18:42:56
+ * @LastEditors: jhy
+ * @Description: 
+ * @FilePath: /taf2-front-web/Users/jhy/yongqi/uvtoken-pc-front/src/App.vue
+-->
 
 <template>
   <div id="app" :class="lang">
+      <div id="ad_banner_con"></div>
 <!--    <keep-alive>-->
       <router-view/>
 <!--    </keep-alive>-->
@@ -28,6 +37,11 @@
           if (type) this.recordClick(type)
         }
         else this.recordClick(type)
+
+        setTimeout(() => {
+          let lang = localStorage.getItem('lang');
+          ad('ad_banner_con',lang);
+        }, 100);
       },
       methods: {
         getUrlParam(paraName) {
