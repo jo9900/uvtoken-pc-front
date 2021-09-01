@@ -1,14 +1,15 @@
 <!--
  * @Author: jhy
  * @Date: 2021-07-12 16:19:36
- * @LastEditTime: 2021-08-31 19:52:36
+ * @LastEditTime: 2021-09-01 18:38:13
  * @LastEditors: jhy
  * @Description: 
  * @FilePath: /taf2-front-web/Users/jhy/yongqi/uvtoken-pc-front/src/App.vue
 -->
 
 <template>
-  <div id="app" :class="lang">
+  <div id="app" :class="[lang,ad_banner_status?'ad_on':'']" >
+    <div id="ad_banner_con"></div>
 <!--    <keep-alive>-->
       <router-view/>
 <!--    </keep-alive>-->
@@ -21,7 +22,8 @@
         name:'',
         data() {
           return {
-            NODE_ENV: process.env.NODE_ENV
+            NODE_ENV: process.env.NODE_ENV,
+            ad_banner_status: false,
           }
         },
         computed: {
@@ -36,6 +38,17 @@
           if (type) this.recordClick(type)
         }
         else this.recordClick(type)
+
+
+        let lang = localStorage.getItem('lang');
+        ad('ad_banner_con',lang,0,e=>{
+          console.log(1,e)
+          if(e){
+            this.ad_banner_status = true;
+          }else{
+            this.ad_banner_status = false;
+          }
+        });
       },
       methods: {
         getUrlParam(paraName) {
@@ -85,8 +98,20 @@
 
     }
 </script>
-<style>
+<style lang="less">
   .gobaket:hover{
     color: #5885FD;
+  }
+  #app{
+    &.ad_on{
+      #ad_banner_con{
+        height: 85px;
+        position: relative;
+        z-index: 99;
+        #ad_banner{
+          position: fixed;
+        }
+      }
+    }
   }
 </style>

@@ -1,7 +1,7 @@
 <!--
  * @Author: jhy
  * @Date: 2021-03-29 17:53:20
- * @LastEditTime: 2021-09-01 10:09:51
+ * @LastEditTime: 2021-09-01 18:31:33
  * @LastEditors: jhy
  * @Description: 
  * @FilePath: /taf2-front-web/Users/jhy/yongqi/uvtoken-pc-front/src/Layout/index.vue
@@ -9,7 +9,7 @@
 <template>
     <div>
             
-        <div class="navhearder" ref="ele"><div id="ad_banner_con"></div><Nav/></div>
+        <div class="navhearder" ref="ele"><Nav/></div>
         
         <div class="layout_box">
             <transition
@@ -42,12 +42,6 @@ export default {
     },
     methods:{
 
-    },
-    mounted(){
-        setTimeout(() => {
-          let lang = localStorage.getItem('lang');
-          ad('ad_banner_con',lang);
-        }, 100);
     }
 }
 </script>
