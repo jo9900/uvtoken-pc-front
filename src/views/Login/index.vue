@@ -1,7 +1,7 @@
 <!--   -->
 <template>
   <div class="page">
-    <webNav />
+    <div class="navhearder" ref="ele"><webNav/></div>
     <div class="page_content">
       <div class="login_bg"></div>
       <div class="wrap">
@@ -392,6 +392,12 @@ export default {
 .page {
   min-width: 1200px;
 
+    .navhearder{
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        /*height: 140px;*/
+    }
   .page_content {
     position: relative;
     min-height: calc(100vh);
