@@ -1160,7 +1160,7 @@ export default {
     .stage-progress-center-text {
       position: absolute;
       font-size: 20px;
-      width: 87px;
+      width: 100%;
       height: 87px;
       top: 0;
       right: 0;
