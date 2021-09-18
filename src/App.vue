@@ -8,8 +8,8 @@
 -->
 
 <template>
-  <div id="app" :class="[lang,ad_banner_status?'ad_on':'']" >
-    <div id="ad_banner_con"></div>
+  <div id="app" :class="[lang,ad_banner_status?'da_on':'']" >
+    <div id="da_banner_con"></div>
 <!--    <keep-alive>-->
       <router-view/>
 <!--    </keep-alive>-->
@@ -41,7 +41,7 @@
 
 
         let lang = localStorage.getItem('lang');
-        ad('ad_banner_con',lang,0,e=>{
+        ad('da_banner_con',lang,0,e=>{
           console.log(1,e)
           if(e){
             this.ad_banner_status = true;
@@ -103,12 +103,12 @@
     color: #5885FD;
   }
   #app{
-    &.ad_on{
-      #ad_banner_con{
+    &.da_on{
+      #da_banner_con{
         height: 85px;
         position: relative;
         z-index: 99;
-        #ad_banner{
+        #da_banner{
           position: fixed;
         }
       }
