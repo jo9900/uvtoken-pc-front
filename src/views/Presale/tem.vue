@@ -54,7 +54,8 @@
                       <span v-else>{{ $t( 'presale.text65' ) }}</span>
                     </div>
                     <div v-if="preInfo1.price == -1">{{ $t('presale.text7') }}</div>
-                    <div v-else>{{ +preInfo1.price }} USDT</div>
+                    <div v-else> - </div>
+<!--                    <div v-else>{{ +preInfo1.price }} USDT</div> 隐藏单价 -->
                     <div v-if="preInfo1.total_1 == -1">{{ $t('presale.text7') }}</div>
                     <div v-else>{{ preInfo1.total_1 }} USDT</div>
                   </div>
