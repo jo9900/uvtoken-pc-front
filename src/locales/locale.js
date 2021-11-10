@@ -26,7 +26,7 @@ const map = {
     'ko': ['한국어', 'Korean'],
     'ru': ['русский', 'Russian'],
 }
-let langType = window.navigator.language
+/*let langType = window.navigator.language
 if (langType.includes('zh')) langType = 'zh'
 if (localStorage.getItem("lang") ) {
     f = localStorage.getItem("lang")
@@ -36,7 +36,11 @@ if (localStorage.getItem("lang") ) {
 }
 if (!localStorage.getItem("langType")) {
     localStorage.setItem("langType", map[langType][1])
-}
+}*/
+localStorage.setItem("lang", 'en')
+f = 'en'
+localStorage.setItem("langType", map['en'][1])
+
 const _messages = {
     'zh': {
         ...zh,

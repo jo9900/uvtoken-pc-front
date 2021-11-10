@@ -50,7 +50,7 @@
                     <i class="el-icon-arrow-down el-icon&#45;&#45;right menu-arrow"></i>
                 </div>
                 <div class="divider"></div>
-                <div class="nav_language">
+                <!-- <div class="nav_language">
                     <el-dropdown  @command="languageChange" placement="bottom">
                         <span class="el-dropdown-link">
                            {{ currentLanguage }}
@@ -63,10 +63,10 @@
 <!--                            <el-dropdown-item command="ar">عربى</el-dropdown-item>-->
 <!--                            <el-dropdown-item command="ru">русский</el-dropdown-item>-->
 <!--                            <el-dropdown-item command="ko">한국어</el-dropdown-item>-->
-<!--                            <el-dropdown-item command="ja">日本語</el-dropdown-item>-->
+<!--                            <el-dropdown-item command="ja">日本語</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
-                </div>
+                </div> -->
             </div>
 
           <div class="m-show">
